@@ -1,3 +1,8 @@
+<?php
+  session_start();
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +29,7 @@
   <link rel="stylesheet" href="views/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="views/bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Google Font -->
+  <!-- Google Font ----------------------------------->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   
   
@@ -42,6 +47,49 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
+
+<!-- Specifying Routes -->
+<?php
+
+    if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == "ok"){
+
+      echo '<div class="wrapper">';
+
+      include "modules/header.php";
+
+      include "modules/sidebar.php";
+
+      if(isset($_GET["route"])){
+
+        if ($_GET["route"] == 'home' || 
+            $_GET["route"] == 'users' ||
+            $_GET["route"] == 'products' ||
+            $_GET["route"] == 'sales' ||
+            $_GET["route"] == 'manage-sales' ||
+            $_GET["route"] == 'sales-report' ||
+            $_GET["route"] == 'logout'){
+
+          include "modules/".$_GET["route"].".php";
+
+        }else{
+           include "modules/404.php";
+        }
+
+      }else{
+        include "modules/home.php";
+      }
+
+      include "modules/footer.php";
+
+      echo '</div>';
+
+    }else{
+      include "modules/login.php";
+    }
+  ?>  
+
+
+<script src="views/javascript/template.js"></script>
 
 </body>
 </html>
