@@ -51,15 +51,17 @@
 <!-- Specifying Routes -->
 <?php
 
-    if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == "ok"){
+    //if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == "ok"){
 
-      echo '<div class="wrapper">';
+     // echo '<div class="wrapper">';
 
       include "modules/header.php";
 
-      include "modules/sidebar.php";
+      include "modules/menu.php";
 
-      if(isset($_GET["route"])){
+      include "modules/footer.php";
+
+      /*if(isset($_GET["route"])){
 
         if ($_GET["route"] == 'home' || 
             $_GET["route"] == 'users' ||
@@ -79,13 +81,12 @@
         include "modules/home.php";
       }
 
-      include "modules/footer.php";
-
       echo '</div>';
 
     }else{
       include "modules/login.php";
-    }
+    }*/
+
   ?>  
 
 
