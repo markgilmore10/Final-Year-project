@@ -46,7 +46,7 @@
   
 </head>
 
-<body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
+<body class="hold-transition skin-black sidebar-collapse sidebar-mini login-page">
 
 <!-- Specifying Routes -->
 <?php
@@ -59,13 +59,13 @@
 
       include "modules/menu.php";
 
-      include "modules/content.php";
+      //include "modules/dashboard.php";
 
       include "modules/footer.php";
 
-      /*if(isset($_GET["route"])){
+      if(isset($_GET["route"])){
 
-        if ($_GET["route"] == 'home' || 
+        if ($_GET["route"] == 'dashboard' ||
             $_GET["route"] == 'users' ||
             $_GET["route"] == 'products' ||
             $_GET["route"] == 'sales' ||
@@ -75,12 +75,13 @@
 
           include "modules/".$_GET["route"].".php";
 
-        }else{
+        }
+      }/*else{
            include "modules/404.php";
         }
 
       }else{
-        include "modules/home.php";
+        include "modules/dashboard.php";
       }
 
       echo '</div>';

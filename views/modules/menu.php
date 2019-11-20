@@ -4,9 +4,9 @@
 		
 		<ul class="sidebar-menu">
 			<li class="active">
-				<a href="home">
+				<a href="dashboard">
 					<i class="fa fa-home"></i>
-					<span>Home</span>
+					<span>Dashboard</span>
 				</a>
 			</li>
 
@@ -19,14 +19,14 @@
 
 			<li>
 				<a href="products">
-					<i class="fa fa-product-hunt"></i>
+                    <i class="fa fa-coffee"></i>
 					<span>Products</span>
 				</a>
 			</li>
 
 			<li class="treeview">
 				<a href="#">
-					<i class="fa fa-list-ul"></i>
+                    <i class="fa fa-folder"></i>
 					<span>Sales</span>
 					<span class="pull-right-container">
 						<i class="fa fa-angle-left pull-right"></i>
