@@ -65,8 +65,8 @@
             $_GET["route"] == 'users' ||
             $_GET["route"] == 'products' ||
             $_GET["route"] == 'sales' ||
-            $_GET["route"] == 'manage-sales' ||
-            $_GET["route"] == 'sales-report' ||
+            $_GET["route"] == 'sales-manager' ||
+            $_GET["route"] == 'reports' ||
             $_GET["route"] == 'logout'){
 
           include "modules/".$_GET["route"].".php";
