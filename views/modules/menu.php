@@ -35,6 +35,13 @@
 
 				<ul class="treeview-menu">
 
+                    <li>
+						<a href="sales">
+							<i class="fa fa-circle"></i>
+							<span>Sales</span>
+						</a>
+					</li>
+
 					<li>
 						<a href="sales-manager">
 							<i class="fa fa-circle"></i>
@@ -43,16 +50,9 @@
 					</li>
 
 					<li>
-						<a href="sales">
-							<i class="fa fa-circle"></i>
-							<span>Create sale</span>
-						</a>
-					</li>
-
-					<li>
 						<a href="reports">
 							<i class="fa fa-circle"></i>
-							<span>Sales report</span>
+							<span>Reports</span>
 						</a>
 					</li>
 

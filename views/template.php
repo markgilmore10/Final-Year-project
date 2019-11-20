@@ -59,6 +59,8 @@
 
       include "modules/menu.php";
 
+      include "modules/content.php";
+
       include "modules/footer.php";
 
       /*if(isset($_GET["route"])){

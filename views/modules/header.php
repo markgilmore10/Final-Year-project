@@ -21,6 +21,8 @@
 			<span class="sr-only">Navigation</span>
 		</a>
 
+        <!---------- ADD HEADING ---------->    
+
 		<!-- User Profile -->
 
 		<div class="navbar-custom-menu">
