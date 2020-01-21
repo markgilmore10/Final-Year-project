@@ -15,7 +15,7 @@
   <!-- Responsive screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-  <link rel="icon" href="views/img/template/icono-negro.png">
+  
 
   <!-- CSS Plugins -->
 
@@ -76,11 +76,11 @@
           include "modules/".$_GET["route"].".php";
 
         }
-      }/*else{
-           include "modules/404.php";
-        }
-
       }else{
+           include "modules/404.php";
+        //}
+
+      }/*else{
         include "modules/dashboard.php";
       }
 
