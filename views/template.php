@@ -61,7 +61,7 @@
 
       //include "modules/dashboard.php";
 
-      include "modules/footer.php";
+      //include "modules/footer.php";
 
       if(isset($_GET["route"])){
 
@@ -89,7 +89,7 @@
     }else{
       include "modules/login.php";
     }*/
-
+    include "modules/footer.php";
   ?>  
 
 

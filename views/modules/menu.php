@@ -27,7 +27,7 @@
 			<li class="treeview">
 				<a href="#">
                     <i class="fa fa-folder"></i>
-					<span>Sales</span>
+					<span>Reports</span>
 					<span class="pull-right-container">
 						<i class="fa fa-angle-left pull-right"></i>
 					</span>
