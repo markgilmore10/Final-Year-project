@@ -51,9 +51,9 @@
 <!-- Specifying Routes -->
 <?php
 
-    //if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == "ok"){
+    if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == "ok") {
 
-     // echo '<div class="wrapper">';
+      echo '<div class="wrapper">';
 
       include "modules/header.php";
 
@@ -75,25 +75,30 @@
 
           include "modules/".$_GET["route"].".php";
 
-        }
+        
       }else{
            include "modules/404.php";
-        //}
+        }
 
-      }/*else{
+      }else{
         include "modules/dashboard.php";
       }
 
+      include "modules/footer.php";
       echo '</div>';
 
     }else{
       include "modules/login.php";
-    }*/
-    include "modules/footer.php";
+    }
+   
   ?>  
 
 
 <script src="views/javascript/template.js"></script>
+<script src="views/javascript/users.js"></script>
+<script src="views/javascript/products.js"></script>
+<script src="views/javascript/sales.js"></script>
+<script src="views/javascript/reports.js"></script>
 
 </body>
 </html>
