@@ -18,7 +18,7 @@
 
       <div class="form-group has-feedback">
 
-        <input type="password" class="form-control" placeholder="Password" name="loginPass" required>
+        <input type="password" class="form-control" placeholder="Password" name="loginPassword" required>
 
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 
@@ -36,8 +36,8 @@
 
       <?php
 
-        //$login = new ControllerUsers();
-        //$login -> ctrUserLogin();
+        $login = new ControllerUsers();
+        $login -> UserLogin();
 
       ?>
 

@@ -95,10 +95,6 @@
 
 
 <script src="views/javascript/template.js"></script>
-<script src="views/javascript/users.js"></script>
-<script src="views/javascript/products.js"></script>
-<script src="views/javascript/sales.js"></script>
-<script src="views/javascript/reports.js"></script>
 
 </body>
 </html>
