@@ -3394,8 +3394,22 @@ table.text-center th {
 }
 .login-page,
 .register-page {
-  background: #d2d6de;
+  background: linear-gradient(rgb(0, 0, 0, 1), rgba(0,30,50,1));
 }
+
+.login-page #back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150vh;
+  background: url(../../images/login.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow:hidden;
+  z-index: -1;
+}
+
 .login-box,
 .register-box {
   width: 360px;

@@ -2,15 +2,9 @@
 
 <div class="login-box">
 
-  <div class="login-logo">
-
-    <img class="img-responsive" src="views/img/template/logo-blanco-bloque.png" style="padding: 30px 100px 0 100px">
-
-  </div>
-
   <div class="login-box-body">
 
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">Sign In</p>
 
     <form method="post">
 
@@ -42,8 +36,8 @@
 
       <?php
 
-        $login = new ControllerUsers();
-        $login -> ctrUserLogin();
+        //$login = new ControllerUsers();
+        //$login -> ctrUserLogin();
 
       ?>
 
