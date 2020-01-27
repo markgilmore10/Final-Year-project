@@ -1,42 +1,39 @@
 <?php
 
-class ControllerUsers {
+class ControllerUsers{
 
-    public function UserLogin() {
+	// User Login
+	
+	static public function UserLogin(){
 
-        if(isset($_POST["loginUser"])) {
+		if (isset($_POST["loginUser"])) {
+			
+			if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["loginUser"]) && 
+				preg_match('/^[a-zA-Z0-9]+$/', $_POST["loginPassword"])) {
+				
+				$table = 'users';
 
-            if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["loginUser"]) && 
-                preg_match('/^[a-zA-Z0-9]+$/', $_POST["loginPassword"])) {
-                
-                $table = 'users';
+				$item = 'user';
+				$value = $_POST["loginUser"];
 
-                $item = 'user';
-                $value = $_POST["loginUser"];
+				$answer = UserModel::ModelShowUsers($table, $item, $value);
 
-                $answer = UserModel::ModelShowUser($table, $item, $value);
+				if($answer["user"] == $_POST["loginUser"] && $answer["password"] == $_POST["loginPassword"]){
 
-                if($answer["user"] == $_POST["loginUser"] && $answer["password"] == $_POST["loginPassword"]){
+					$_SESSION["loggedIn"] = "ok";
+				
+					echo '<script>
 
-                    $_SESSION["loggedIn"] == "ok";
+						window.location = "dashboard";
 
-                        echo '<script>
+					</script>';
 
-                            window.location = "dashboard";
+				}else{
 
-                        </script>';
+					echo '<br><div class="alert alert-danger">Username or Password Incorrect</div>';
 
-                    
-
-                }else{
-                    
-                    echo '<br><div class="alert alert-danger">User does not exist</div>';
-                
-                }
-
-                
-            
-            }
-        }
-    }
+				}
+			}
+		}
+	}
 }

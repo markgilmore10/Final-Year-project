@@ -37,7 +37,7 @@
 					<ul class="dropdown-menu">
 						<li class="user-body">
 							<div>
-								<a class="btn-default btn-flat" href="logout">Logout</a>
+								<a href="logout" class="btn-default btn-flat" href="logout">Logout</a>
 							</div>
 						</li>
 					</ul>
