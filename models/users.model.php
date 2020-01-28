@@ -16,6 +16,11 @@ class UserModel{
 
 		return $stmt -> fetch();
 
+		//$stmt -> close();
+
+		$stmt = null;
+
 	}
+
 	
 }

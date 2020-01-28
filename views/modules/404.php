@@ -8,7 +8,7 @@
 
     <div class="error-page">
 
-     
+
 
       <div class="error-content">
 
@@ -21,7 +21,7 @@
         </h3>
 
       </div>
-      
+
     </div>
 
   </section>

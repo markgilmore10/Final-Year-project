@@ -48,6 +48,8 @@
   <script src="views/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
   <script src="views/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
   <script src="views/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
+  <!-- Sweet Alert -->
+  <script src="views/plugins/sweetalert/sweetalert.all.js"></script>
   
 </head>
 
@@ -63,10 +65,6 @@
       include "modules/header.php";
 
       include "modules/menu.php";
-
-      //include "modules/dashboard.php";
-
-      //include "modules/footer.php";
 
       if(isset($_GET["route"])){
 
