@@ -45,6 +45,37 @@ class ControllerUsers{
 				preg_match('/^[a-zA-Z0-9]+$/', $_POST["newUser"]) &&
 				preg_match('/^[a-zA-Z0-9]+$/', $_POST["newPassword"])){
 
+				$table = 'users';
+
+				$data = array('name' => $_POST["newName"],
+							  'user' => $_POST["newUser"],
+							  'password' => $_POST["newPassword"],
+							  'profile' => $_POST["newProfile"]);
+
+				$answer = UserModel::modelAddUser($table, $data);
+
+				if ($answer == 'ok') {
+
+						echo '<script>
+						
+						swal({
+							type: "success",
+							title: "¡User Added Succesfully!",
+							showConfirmButton: true,
+							confirmButtonText: "Close"
+
+						}).then(function(result){
+
+							if(result.value){
+
+								window.location = "users";
+							}
+
+						});
+						
+						</script>';
+
+				}
 			
 			}else{
 
