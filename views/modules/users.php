@@ -48,9 +48,43 @@
 
               $users = ControllerUsers::ShowUsers($item, $value);
 
-              var_dump($users);
+              foreach ($users as $key => $value) {
 
-             
+                echo '
+
+                  <tr>
+                    <td>'.($key+1).'</td>
+                    <td>'.$value["name"].'</td>
+                    <td>'.$value["user"].'</td>';
+
+                    echo '<td>'.$value["profile"].'</td>';
+
+                    if($value["status"] != 0){
+
+                      echo '<td><button class="btn btn-success btnActivate btn-xs" userId="'.$value["id"].'" userStatus="0">Activated</button></td>';
+
+                    }else{
+
+                      echo '<td><button class="btn btn-danger btnActivate btn-xs" userId="'.$value["id"].'" userStatus="1">Deactivated</button></td>';
+                    }
+                    
+                    echo '<td>'.$value["lastLogin"].'</td>
+
+                    <td>
+
+                      <div class="btn-group">
+                          
+                        <button class="btn btn-warning btnEditUser" idUser="'.$value["id"].'" data-toggle="modal" data-target="#editUser"><i class="fa fa-pencil"></i></button>
+
+                        <button class="btn btn-danger btnDeleteUser" userId="'.$value["id"].'" username="'.$value["user"].'"><i class="fa fa-times"></i></button>
+
+                      </div>  
+
+                    </td>
+
+                  </tr>';
+              }
+
             ?>
         </table>
       </div>
