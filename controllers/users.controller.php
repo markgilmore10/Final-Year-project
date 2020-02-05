@@ -109,4 +109,14 @@ class ControllerUsers{
 			
 		}
 	}
+
+	// Show Users
+	static public function ShowUsers($item, $value){
+
+		$table = "users";
+
+		$answer = UserModel::ModelShowUsers($table, $item, $value);
+
+		return $answer;
+	}
 }

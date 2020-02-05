@@ -40,6 +40,18 @@
             </tr>
 
           </thead>
+
+          <?php
+
+              $item = null; 
+              $value = null;
+
+              $users = ControllerUsers::ShowUsers($item, $value);
+
+              var_dump($users);
+
+             
+            ?>
         </table>
       </div>
 

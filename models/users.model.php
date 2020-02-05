@@ -7,22 +7,31 @@ class UserModel{
 	// Show User
 
 	static public function ModelShowUsers($table, $item, $value){
+		if($item != null){
 
-		$stmt = Connection::connect()->prepare("SELECT * FROM $table WHERE $item = :$item");
+			$stmt = Connection::connect()->prepare("SELECT * FROM $table WHERE $item = :$item");
 
-		$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
+			$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
 
-		$stmt -> execute();
+			$stmt -> execute();
 
-		return $stmt -> fetch();
+			return $stmt -> fetch();
+		}else{
 
-		//$stmt -> close();
+			$stmt = Connection::connect()->prepare("SELECT * FROM $table");
 
-		$stmt = null;
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+		}
+
+			//$stmt -> close();
+
+			$stmt = null;
 
 	}
 
-	static public function modelAddUser($table, $data){
+	static public function ModelAddUser($table, $data){
 
 		$stmt = Connection::connect()->prepare("INSERT INTO $table(name, user, password, profile) VALUES (:name, :user, :password, :profile)");
 
