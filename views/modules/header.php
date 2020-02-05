@@ -29,7 +29,7 @@
 			<ul class="nav navbar-nav">
 				<li class="dropdown user user-menu">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">					
-						<span class="hidden-xs">Administrator</span>
+						<span class="hidden-xs"><?php echo $_SESSION["name"]; ?></span>
 					</a>
 
 					<!-- Dropdown Menu -->

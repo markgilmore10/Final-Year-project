@@ -16,13 +16,17 @@ class ControllerUsers{
 				$item = 'user';
 				$value = $_POST["loginUser"];
 
-				$crypt = crypt($_POST["loginPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+				//$crypt = crypt($_POST["loginPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
 				$answer = UserModel::ModelShowUsers($table, $item, $value);
 
-				if($answer["user"] == $_POST["loginUser"] && $answer["password"] == $crypt){
+				if($answer["user"] == $_POST["loginUser"] && $answer["password"] == $_POST["loginPassword"]){ //$crypt){
 
 					$_SESSION["loggedIn"] = "ok";
+					$_SESSION["id"] = $answer["id"];
+					$_SESSION["name"] = $answer["name"];
+					$_SESSION["user"] = $answer["user"];
+					$_SESSION["profile"] = $answer["profile"];
 				
 					echo '<script>
 
@@ -49,11 +53,11 @@ class ControllerUsers{
 
 				$table = 'users';
 
-				$crypt = crypt($_POST["newPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+				//$crypt = crypt($_POST["newPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
 				$data = array('name' => $_POST["newName"],
 							  'user' => $_POST["newUser"],
-							  'password' => $crypt,
+							  'password' => $_POST["newPassword"], //$crypt,
 							  'profile' => $_POST["newProfile"]);
 
 				$answer = UserModel::modelAddUser($table, $data);
