@@ -7,6 +7,7 @@ class UserModel{
 	// Show User
 
 	static public function ModelShowUsers($table, $item, $value){
+
 		if($item != null){
 
 			$stmt = Connection::connect()->prepare("SELECT * FROM $table WHERE $item = :$item");
@@ -16,6 +17,7 @@ class UserModel{
 			$stmt -> execute();
 
 			return $stmt -> fetch();
+
 		}else{
 
 			$stmt = Connection::connect()->prepare("SELECT * FROM $table");

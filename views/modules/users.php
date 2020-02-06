@@ -205,7 +205,7 @@
 
 </div>
 
-<!------- Add User ------->
+<!------- Edit User ------->
 
 <div id="editUser" class="modal fade" role="dialog">
 
@@ -233,7 +233,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                <input class="form-control input-lg" type="text" id="EditName" name="EditName" placeholder="Edit name" required>
+                <input class="form-control input-lg" type="text" id="EditName" name="editName" placeholder="Edit name" required>
 
               </div>
 
@@ -245,7 +245,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                <input class="form-control input-lg" type="text" id="EditUser" name="EditUser" placeholder="Edit Username" readonly>
+                <input class="form-control input-lg" type="text" id="EditUser" name="editUser" placeholder="Edit Username" readonly>
 
               </div>
 
@@ -295,10 +295,7 @@
 
         </div>
 
-          <?php
-            $createUser = new ControllerUsers();
-            $createUser -> CreateUser();
-          ?>
+          
 
       </form>
 
