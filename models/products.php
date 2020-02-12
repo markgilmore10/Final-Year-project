@@ -41,7 +41,6 @@
            <tr>
              
              <th style="width:10px">#</th>
-             <th>Image</th>
              <th>Code</th>
              <th>Description</th>
              <th>Category</th>
@@ -57,10 +56,20 @@
 
           <tbody>
 
+          <?php
+
+          $item = null;
+          $value = null;
+
+          $products = ProductsController::ctrShowProducts($item, $value);
+
+          var_dump($products);
+
+          ?>
+
             <tr>
               
               <td>1</td>
-              <td><img src="views/images/rockshore.png" class="img-thumbnail" width="40px"></td>
               <td>0001</td>
               <td>Rockshore</td>
               <td>Beverages</td>
@@ -85,8 +94,7 @@
 
             <tr>
               
-            <td>1</td>
-              <td><img src="views/images/rockshore.png" class="img-thumbnail" width="40px"></td>
+            <td>2</td>
               <td>0001</td>
               <td>Rockshore</td>
               <td>Beverages</td>
@@ -111,8 +119,7 @@
 
              <tr>
               
-             <td>1</td>
-              <td><img src="views/images/rockshore.png" class="img-thumbnail" width="40px"></td>
+             <td>3</td>
               <td>0001</td>
               <td>Rockshore</td>
               <td>Beverages</td>
@@ -248,31 +255,71 @@
 
              <!-- input Cost -->
 
-             <div class="form-group">
+             <div class="form-group row">
 
-              <div class="input-group">
+                <div class="col-xs-6">  
+                    <div class="input-group">
 
-                 <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span>
+                        <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span>
 
-                 <input class="form-control input-lg" type="Number" name="newCost" min="0" placeholder="Cost" required>
+                        <input class="form-control input-lg" type="Number" name="newCost" min="0" placeholder="Cost" required>
 
+                    </div>
                 </div>
-
               </div>
-             <!-- input Selling price -->
 
-             <div class="form-group">
+                <!-- input Selling price -->
 
-              <div class="input-group">
+                <div class="col-xs-6"> 
 
-                 <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span>
+                    <div class="input-group">
 
-                 <input class="form-control input-lg" type="Number" name="newCost" min="0" placeholder="Cost" required>
+                        <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span>
 
-                </div>
+                        <input class="form-control input-lg" type="Number" name="newSellingPrice" min="0" placeholder="Selling Price" required>
 
-              </div>               
-        
+                    </div>
+                    </div>
+
+                    <br>
+
+                    <!--CHECK BOX FOR PERCENTAGE-->
+
+                    <div class="col-xs-6">
+
+                        <div class="form-group">
+
+                            <label>
+
+                                <input type="checkbox" class="minimal percentage" checked>
+                                Use percentage 
+                            </label>
+
+
+
+                     </div>    
+
+                
+
+              <!--INPUT FOR PERCENTAGE-->
+
+              <div class="col-xs-6" style="padding:0">
+
+                <div class="input-group">
+                    <input type="number" class="form-control input-lg newPercentage" min="0" value="40" required>
+
+                    <span class="input-group-addon"><i class="fa fa-percent"></i></span>
+
+
+              
+            </div>
+            </div>
+            </div>
+            </div>
+            
+             
+             
+           
 
         <!--=====================================
         FOOTER
@@ -282,7 +329,7 @@
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
 
-          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="submit" class="btn btn-primary">Save Product</button>
 
         </div>
 
