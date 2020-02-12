@@ -19,11 +19,9 @@ $(document).on("click", ".btnEditUser", function(){
             
             // console.log("answer", answer);
 
-            $("#EditName").val(answer["name"]);
+            $("#editName").val(answer["name"]);
 
             $("#EditUser").val(answer["user"]);
-
-            //$("#EditProfile").html(answer["profile"]);
 
             $("#EditProfile").val(answer["profile"]);
 
