@@ -55,5 +55,29 @@ class UserModel{
 
 		$stmt = null;
 	}
+
+	static public function ModelEditUser($table, $data){
+
+		$stmt = Connection::connect()->prepare("UPDATE $table set name = :name, password = :password, profile = :profile WHERE user = :user");
+
+		$stmt -> bindParam(":name", $data["name"], PDO::PARAM_STR);
+		$stmt -> bindParam(":user", $data["user"], PDO::PARAM_STR);
+		$stmt -> bindParam(":password", $data["password"], PDO::PARAM_STR);
+		$stmt -> bindParam(":profile", $data["profile"], PDO::PARAM_STR);
+
+		if ($stmt->execute()) {
+			
+			return 'ok';
+		
+		} else {
+			
+			return 'error';
+		
+		}
+		
+		//$stmt -> close();
+
+		$stmt = null;
+	}
 	
 }

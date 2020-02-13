@@ -53,11 +53,11 @@ class ControllerUsers{
 
 				$table = 'users';
 
-				//$crypt = crypt($_POST["newPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+				$crypt = crypt($_POST["newPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
 				$data = array('name' => $_POST["newName"],
 							  'user' => $_POST["newUser"],
-							  'password' => $_POST["newPassword"], //$crypt,
+							  'password' => $crypt,
 							  'profile' => $_POST["newProfile"]);
 
 				$answer = UserModel::modelAddUser($table, $data);
@@ -68,7 +68,7 @@ class ControllerUsers{
 						
 						swal({
 							type: "success",
-							title: "¡User Added Succesfully!",
+							title: "User Added Succesfully!",
 							showConfirmButton: true,
 							confirmButtonText: "Close"
 
@@ -118,5 +118,105 @@ class ControllerUsers{
 		$answer = UserModel::ModelShowUsers($table, $item, $value);
 
 		return $answer;
+	}
+
+	// Edit User
+	static public function EditUserController(){
+
+		if (isset($_POST["EditUser"])) {
+			
+			if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["EditName"])){
+
+				$table = 'users';
+
+				if($_POST["EditPasswd"] != ""){
+
+					if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["EditPasswd"])){
+
+						$encryptpassword = crypt($_POST["EditPasswd"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
+					}
+
+					else{
+
+						echo '<script>
+					
+							swal({
+								type: "error",
+								title: "Please fill in all fields, no special characters allowed",
+								showConfirmButton: true,
+								confirmButtonText: "Close"
+
+								}).then(function(result){
+										
+									if (result.value) {
+						
+										window.location = "users";
+
+									}
+								});
+							
+						</script>';
+					}
+				
+				}else{
+
+					$encryptpassword = $_POST["currentPasswd"];
+					
+				}
+
+				$data = array('name' => $_POST["EditName"],
+								'user' => $_POST["EditUser"],
+								'password' => $encryptpassword,
+								'profile' => $_POST["EditProfile"]);
+
+				$answer = UserModel::ModelEditUser($table, $data);
+
+				if ($answer == 'ok') {
+					
+					echo '<script>
+					
+						swal({
+							type: "success",
+							title: "User Edited Succesfully!",
+							showConfirmButton: true,
+							confirmButtonText: "Close"
+
+						 }).then(function(result){
+							
+							if (result.value) {
+
+								window.location = "users";
+							}
+
+						});
+					
+					</script>';
+				}
+				else{
+					echo '<script>
+						
+						swal({
+							type: "error",
+							title: "Please fill in all fields, no special characters allowed",
+							showConfirmButton: true,
+							confirmButtonText: "Close"
+							 }).then(function(result){
+									
+								if (result.value) {
+
+									window.location = "users";
+								
+								}
+
+							});
+						
+					</script>';
+				}
+			
+			}	
+		
+		}
+	
 	}
 }
