@@ -16,11 +16,11 @@ class ControllerUsers{
 				$item = 'user';
 				$value = $_POST["loginUser"];
 
-				//$crypt = crypt($_POST["loginPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+				$crypt = crypt($_POST["loginPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
 				$answer = UserModel::ModelShowUsers($table, $item, $value);
 
-				if($answer["user"] == $_POST["loginUser"] && $answer["password"] == $_POST["loginPassword"]){ //$crypt){
+				if($answer["user"] == $_POST["loginUser"] && $answer["password"] == $crypt){
 
 					$_SESSION["loggedIn"] = "ok";
 					$_SESSION["id"] = $answer["id"];
@@ -129,11 +129,11 @@ class ControllerUsers{
 
 				$table = 'users';
 
-				if($_POST["EditPasswd"] != ""){
+				if($_POST["EditPassword"] != ""){
 
-					if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["EditPasswd"])){
+					if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["EditPassword"])){
 
-						$encryptpassword = crypt($_POST["EditPasswd"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+						$encryptpassword = crypt($_POST["EditPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
 					}
 
@@ -161,7 +161,7 @@ class ControllerUsers{
 				
 				}else{
 
-					$encryptpassword = $_POST["currentPasswd"];
+					$encryptpassword = $_POST["currentPassword"];
 					
 				}
 
