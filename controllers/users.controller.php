@@ -21,18 +21,26 @@ class ControllerUsers{
 				$answer = UserModel::ModelShowUsers($table, $item, $value);
 
 				if($answer["user"] == $_POST["loginUser"] && $answer["password"] == $crypt){
+					
+					if($answer["status"] == 1){
 
-					$_SESSION["loggedIn"] = "ok";
-					$_SESSION["id"] = $answer["id"];
-					$_SESSION["name"] = $answer["name"];
-					$_SESSION["user"] = $answer["user"];
-					$_SESSION["profile"] = $answer["profile"];
-				
-					echo '<script>
+						$_SESSION["loggedIn"] = "ok";
+						$_SESSION["id"] = $answer["id"];
+						$_SESSION["name"] = $answer["name"];
+						$_SESSION["user"] = $answer["user"];
+						$_SESSION["profile"] = $answer["profile"];
+					
+						echo '<script>
 
-						window.location = "dashboard";
+							window.location = "dashboard";
 
-					</script>';
+						</script>';
+
+					}else{
+							
+						echo '<br><div class="alert alert-danger">Sorry, User is Deactivated</div>';
+					
+					}
 
 				}else{
 
