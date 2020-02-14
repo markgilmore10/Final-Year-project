@@ -29,6 +29,23 @@ class ControllerUsers{
 						$_SESSION["name"] = $answer["name"];
 						$_SESSION["user"] = $answer["user"];
 						$_SESSION["profile"] = $answer["profile"];
+
+						// Last Login (https://www.php.net/manual/en/timezones.europe.php)
+						// https://stackoverflow.com/questions/44193842/php-date-default-timezone-set-not-working-why
+						date_default_timezone_set("Europe/Dublin");
+
+						$date = date('Y-m-d');
+						$hour = date('H:i:s');
+
+						$actualDate = $date.' '.$hour;
+
+						$item1 = "lastLogin";
+						$value1 = $actualDate;
+
+						$item2 = "id";
+						$value2 = $answer["id"];
+
+						$lastLogin = UserModel::UpdateUserModel($table, $item1, $value1, $item2, $value2);
 					
 						echo '<script>
 

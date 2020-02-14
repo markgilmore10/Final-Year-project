@@ -7,7 +7,7 @@ $(document).on("click", ".btnEditUser", function(){
 
     $.ajax({
 
-        url: "ajax/users.ajax.php",
+        url: "../../ajax/users.ajax.php",
         method: "POST",
         data: data,
         cache: false,
@@ -17,7 +17,7 @@ $(document).on("click", ".btnEditUser", function(){
         
         success: function(answer){
             
-            // console.log("answer", answer);
+            console.log("answer", answer);
 
             $("#editName").val(answer["name"]);
 
@@ -46,7 +46,7 @@ $(document).on("click", ".btnActivate", function(){
 
   	$.ajax({
 
-	  url:"ajax/users.ajax.php",
+	  url:"./ajax/users.ajax.php",
 	  method: "POST",
 	  data: datum,
 	  cache: false,
@@ -56,7 +56,21 @@ $(document).on("click", ".btnActivate", function(){
       	
       	console.log("answer", answer);
 
-      	
+      	if(window.matchMedia("(max-width:767px)").matches){
+		
+			swal({
+				title: "User Status Updated",
+				type: "success",
+				confirmButtonText: "Close"	
+			}).then(function(result) {
+
+				if (result.value) {
+					window.location = "users";
+				}
+
+			})
+
+		}
 		
       }
 
