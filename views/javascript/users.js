@@ -93,3 +93,39 @@ $(document).on("click", ".btnActivate", function(){
   	}
 
 });
+
+// Duplicate Username Check
+$("#newUser").change(function(){
+
+	$(".alert").remove();
+
+	var user = $(this).val();
+
+	var data = new FormData();
+ 	data.append("validateUser", user);
+
+  	$.ajax({
+
+	  url:"ajax/users.ajax.php",
+	  method: "POST",
+	  data: data,
+	  cache: false,
+      contentType: false,
+      processData: false,
+      dataType: "json",
+      success: function(answer){ 
+
+      	console.log("answer", answer);
+
+      	if(answer){
+
+      		$("#newUser").parent().after('<div class="alert alert-warning">Username Already in Use</div>');
+      		
+      		$("#newUser").val('');
+      	}
+
+      }
+
+    });
+
+});

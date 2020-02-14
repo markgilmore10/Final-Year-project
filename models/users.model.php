@@ -27,7 +27,7 @@ class UserModel{
 			return $stmt -> fetchAll();
 		}
 
-			//$stmt -> close();
+			$stmt -> close();
 
 			$stmt = null;
 
@@ -51,7 +51,7 @@ class UserModel{
 			return 'error';
 		}
 		
-		//$stmt -> close();
+		$stmt -> close();
 
 		$stmt = null;
 	}
@@ -75,7 +75,7 @@ class UserModel{
 		
 		}
 		
-		//$stmt -> close();
+		$stmt -> close();
 
 		$stmt = null;
 	}
@@ -97,7 +97,7 @@ class UserModel{
 		
 		}
 		
-		//$stmt -> close();
+		$stmt -> close();
 
 		$stmt = null;
 	}
