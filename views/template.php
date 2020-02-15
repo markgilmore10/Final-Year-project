@@ -70,6 +70,7 @@
 
         if ($_GET["route"] == 'dashboard' ||
             $_GET["route"] == 'users' ||
+            $_GET["route"] == 'categories' ||
             $_GET["route"] == 'products' ||
             $_GET["route"] == 'sales' ||
             $_GET["route"] == 'sales-manager' ||
