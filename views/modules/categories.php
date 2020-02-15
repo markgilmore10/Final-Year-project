@@ -15,7 +15,7 @@
 
         <div class="box-header with-border">
 
-          <button class="btn btn-primary" data-toggle="modal" data-target="#addCategories">Add Category</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#addCategory">Add Category</button>
 
         </div>
 

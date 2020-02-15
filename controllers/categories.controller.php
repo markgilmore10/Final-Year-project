@@ -8,7 +8,7 @@
 
 		if(isset($_POST['newCategory'])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["newCategory"])){
+			if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["newCategory"])){
 
 				$table = 'categories';
 
