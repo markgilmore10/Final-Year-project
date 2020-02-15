@@ -20,7 +20,7 @@ class AjaxUsers{
 
 		echo json_encode($answer);
 
-		console.log("answer", $answer);
+		//console.log("answer", $answer);
 	}
 
 	// Activate or Deactivate User
@@ -39,7 +39,7 @@ class AjaxUsers{
 
 		$answer = UserModel::UpdateUserModel($table, $item1, $value1, $item2, $value2);
 
-		console.log("answer", answer);
+		//console.log("answer", answer);
 
 	}
 
@@ -56,7 +56,7 @@ class AjaxUsers{
 
 		echo json_encode($answer);
 
-		console.log("answer", answer);
+		//console.log("answer", answer);
 
 	}
 

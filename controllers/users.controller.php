@@ -4,7 +4,7 @@ class ControllerUsers{
 
 	// User Login
 	
-	static public function UserLogin(){
+	public static function UserLogin(){
 
 		if (isset($_POST["loginUser"])) {
 			
@@ -68,7 +68,7 @@ class ControllerUsers{
 		}
 	}
 
-	static public function CreateUser(){
+	public static function CreateUser(){
 
 		if (isset($_POST["newUser"])) {
 			
@@ -136,7 +136,7 @@ class ControllerUsers{
 	}
 
 	// Show Users
-	static public function ShowUsers($item, $value){
+	public static function ShowUsers($item, $value){
 
 		$table = "users";
 
@@ -146,7 +146,7 @@ class ControllerUsers{
 	}
 
 	// Edit User
-	static public function EditUserController(){
+	public static function EditUserController(){
 
 		if (isset($_POST["EditUser"])) {
 			
@@ -186,7 +186,7 @@ class ControllerUsers{
 				
 				}else{
 
-					$encryptpassword = $_POST["currentPassword"];
+					$encryptpassword = $_POST["CurrentPassword"];
 					
 				}
 
@@ -247,14 +247,14 @@ class ControllerUsers{
 
 	// Delete User
 
-	static public function DeleteUserController(){
+	public static function DeleteUserController(){
 
 		if(isset($_GET["userId"])){
 
 			$table ="users";
 			$data = $_GET["userId"];
-
-			$answer = UsersModel::DeleteUserModel($table, $data);
+			var_dump($data);
+			$answer = UserModel::DeleteUserModel($table, $data);
 
 			if($answer == "ok"){
 
@@ -262,7 +262,7 @@ class ControllerUsers{
 
 				swal({
 					  type: "success",
-					  title: "User has been  Deleted",
+					  title: "User has been Deleted",
 					  showConfirmButton: true,
 					  confirmButtonText: "Close"
 
