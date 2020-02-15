@@ -42,7 +42,7 @@
           </thead>
 
           <tbody>
-          <script src="views/javascript/users.js"></script>
+          
             <?php
 
                 $item = null; 

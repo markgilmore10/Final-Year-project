@@ -99,6 +99,7 @@
 
 
 <script src="views/javascript/template.js"></script>
+<script src="views/javascript/users.js"></script>
 
 </body>
 </html>
