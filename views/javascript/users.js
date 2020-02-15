@@ -135,23 +135,21 @@ $("#newUser").change(function(){
 $(document).on("click", ".btnDeleteUser", function(){
 
 	var userId = $(this).attr("userId");
-	var userPhoto = $(this).attr("userPhoto");
 	var username = $(this).attr("username");
 
 	swal({
-		title: '¿Are you sure you want to delete the user?',
-		text: "¡if you're not sure you can cancel!",
+		title: 'Are you sure you want to delete user?',
 		type: 'warning',
 		showCancelButton: true,
 		confirmButtonColor: '#3085d6',
 		  cancelButtonColor: '#d33',
 		  cancelButtonText: 'Cancel',
-		  confirmButtonText: 'Yes, delete user!'
+		  confirmButtonText: 'Confirm'
 		}).then(function(result){
 
 		if(result.value){
 
-		  window.location = "index.php?route=users&userId="+userId+"&username="+username+"&userPhoto="+userPhoto;
+		  window.location = "index.php?route=users&userId="+userId+"&username="+username;
 
 		}
 
