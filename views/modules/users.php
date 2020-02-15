@@ -168,7 +168,7 @@
 
                 <select class="form-control input-lg" name="newProfile">
 
-                  <option value="">Select profile</option>
+                  <option value="">Select Position</option>
                   <option value="administrator">Administrator</option>
                   <option value="manager">Manager</option>
                   <option value="staff">Staff</option>
@@ -273,7 +273,7 @@
 
                 <select class="form-control input-lg" name="EditProfile">
 
-                  <option value="" id="EditProfile"></option>
+                  <option value="" id="EditProfile" placeholder="Edit Position"></option>
                   <option value="administrator">Administrator</option>
                   <option value="manager">Manager</option>
                   <option value="staff">Staff</option>

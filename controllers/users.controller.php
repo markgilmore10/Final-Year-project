@@ -68,7 +68,7 @@ class ControllerUsers{
 		}
 	}
 
-	public static function CreateUser(){
+	public function CreateUser(){
 
 		if (isset($_POST["newUser"])) {
 			

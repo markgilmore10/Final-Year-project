@@ -1,8 +1,9 @@
 $(document).on("click", ".btnEditUser", function(){
-//$(".btnEditUser").click(function(){
+
     var idUser = $(this).attr("idUser");
-	console.log("answer", idUser);
-    var data = new FormData();
+	// console.log("answer", idUser);
+	var data = new FormData();
+	
     data.append("idUser", idUser);
 
     $.ajax({
@@ -41,7 +42,7 @@ $(document).on("click", ".btnActivate", function(){
 	var userStatus = $(this).attr("userStatus");
 
 	var datum = new FormData();
-	
+
  	datum.append("activateId", userId);
   	datum.append("activateUser", userStatus);
 
@@ -95,7 +96,9 @@ $(document).on("click", ".btnActivate", function(){
 
 });
 
-// Duplicate Username Check (https://stackoverflow.com/questions/4660850/jquery-ajax-on-username-validation)
+// Duplicate Username Check 
+// https://stackoverflow.com/questions/4660850/jquery-ajax-on-username-validation
+
 $("#newUser").change(function(){
 
 	$(".alert").remove();
@@ -103,6 +106,7 @@ $("#newUser").change(function(){
 	var user = $(this).val();
 
 	var data = new FormData();
+
  	data.append("validateUser", user);
 
   	$.ajax({
@@ -116,9 +120,11 @@ $("#newUser").change(function(){
       dataType: "json",
       success: function(answer){ 
 
-      	console.log("answer", answer);
+      	//console.log("answer", answer);
 
       	if(answer){
+
+			console.log("answer", answer);
 
       		$("#newUser").parent().after('<div class="alert alert-warning">Username Already in Use</div>');
       		
@@ -134,7 +140,7 @@ $("#newUser").change(function(){
 // Delete User
 
 $(document).on("click", ".btnDeleteUser", function(){
-//$(".btnDeleteUser").on(function(){
+
 	var userId = $(this).attr("userId");
 	var username = $(this).attr("username");
 
