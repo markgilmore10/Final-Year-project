@@ -233,7 +233,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                <input class="form-control input-lg" type="text" id="editName" name="editName" placeholder="Edit name" required>
+                <input class="form-control input-lg" type="text" id="editName" name="editName" placeholder="" required>
 
               </div>
 
@@ -245,7 +245,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                <input class="form-control input-lg" type="text" id="editUser" name="editUser" placeholder="Edit Username" readonly>
+                <input class="form-control input-lg" type="text" id="editUser" name="editUser" placeholder="" readonly>
 
               </div>
 

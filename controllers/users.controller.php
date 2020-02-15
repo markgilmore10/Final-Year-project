@@ -32,7 +32,6 @@ class ControllerUsers{
 
 						// Last Login (https://www.php.net/manual/en/timezones.europe.php)
 						// https://stackoverflow.com/questions/44193842/php-date-default-timezone-set-not-working-why
-						// Intelephense plugin throwing errors so removed it
 						date_default_timezone_set("Europe/Dublin");
 
 						$date = date('Y-m-d');

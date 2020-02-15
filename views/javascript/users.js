@@ -7,7 +7,7 @@ $(document).on("click", ".btnEditUser", function(){
 
     $.ajax({
 
-        url: "../../ajax/users.ajax.php",
+        url: "ajax/users.ajax.php",
         method: "POST",
         data: data,
         cache: false,
@@ -46,7 +46,7 @@ $(document).on("click", ".btnActivate", function(){
 
   	$.ajax({
 
-	  url:"./ajax/users.ajax.php",
+	  url:"ajax/users.ajax.php",
 	  method: "POST",
 	  data: datum,
 	  cache: false,
@@ -94,7 +94,7 @@ $(document).on("click", ".btnActivate", function(){
 
 });
 
-// Duplicate Username Check
+// Duplicate Username Check (https://stackoverflow.com/questions/4660850/jquery-ajax-on-username-validation)
 $("#newUser").change(function(){
 
 	$(".alert").remove();
@@ -127,5 +127,34 @@ $("#newUser").change(function(){
       }
 
     });
+
+});
+
+// Delete User
+
+$(document).on("click", ".btnDeleteUser", function(){
+
+	var userId = $(this).attr("userId");
+	var userPhoto = $(this).attr("userPhoto");
+	var username = $(this).attr("username");
+
+	swal({
+		title: '¿Are you sure you want to delete the user?',
+		text: "¡if you're not sure you can cancel!",
+		type: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  cancelButtonText: 'Cancel',
+		  confirmButtonText: 'Yes, delete user!'
+		}).then(function(result){
+
+		if(result.value){
+
+		  window.location = "index.php?route=users&userId="+userId+"&username="+username+"&userPhoto="+userPhoto;
+
+		}
+
+	})
 
 });
