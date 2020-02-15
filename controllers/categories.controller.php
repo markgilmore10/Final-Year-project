@@ -61,4 +61,16 @@
 			}
 		}
     }
+
+    // Show Categories
+
+    static public function ShowCategoriesController($item, $value){
+
+		$table = "categories";
+
+		$answer = CategoriesModel::ShowCategoriesModel($table, $item, $value);
+
+		return $answer;
+	}
+
 }

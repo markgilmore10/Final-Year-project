@@ -35,6 +35,39 @@
 
             </thead>
 
+            <tbody>
+
+              <?php
+
+                $item = null; 
+                $value = null;
+
+                $categories = ControllerCategories::ShowCategoriesController($item, $value);
+
+                foreach ($categories as $key => $value) {
+
+                  echo '<tr>
+                          <td>'.($key+1).'</td>
+                          <td class="text-uppercase">'.$value['Category'].'</td>
+                          <td>
+
+                            <div class="btn-group">
+                                
+                              <button class="btn btn-warning btnEditCategory" idCategory="'.$value["id"].'" data-toggle="modal" data-target="#editCategories"><i class="fa fa-pencil"></i></button>
+
+                              <button class="btn btn-danger btnDeleteCategory" idCategory="'.$value["id"].'"><i class="fa fa-times"></i></button>
+
+                            </div>  
+
+                          </td>
+
+                        </tr>';
+                }
+
+              ?>
+              
+            </tbody>
+
           </table>
 
         </div>
