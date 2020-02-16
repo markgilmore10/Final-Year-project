@@ -131,6 +131,40 @@
 
 		}
 
+    }
+    
+    static public function DeleteCategoryController(){
+
+		if(isset($_GET["idCategory"])){
+
+			$table ="categories";
+			$data = $_GET["idCategory"];
+
+			$answer = CategoriesModel::DeleteCategoryModel($table, $data);
+			// var_dump($answer);
+
+			if($answer == "ok"){
+
+				echo'<script>
+
+					swal({
+						  type: "success",
+						  title: "Category successfully deleted",
+						  showConfirmButton: true,
+						  confirmButtonText: "Close"
+						  }).then(function(result){
+									if (result.value) {
+
+									window.location = "categories";
+
+									}
+								})
+
+					</script>';
+			}
+		
+		}
+		
 	}
 
 }

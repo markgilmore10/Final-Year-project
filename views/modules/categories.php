@@ -187,6 +187,12 @@ $createCategory -> CreateCategoryController();
     </div>
 
   </div>
-  
+
 </div>
+
+<?php
+  
+  $deleteCategory = new ControllerCategories();
+  $deleteCategory -> DeleteCategoryController();
+?>
 
