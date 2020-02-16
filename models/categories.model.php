@@ -43,7 +43,7 @@ class CategoriesModel{
 
 		}
 		else{
-            
+
 			$stmt = Connection::connect()->prepare("SELECT * FROM $table");
 
 			$stmt -> execute();
@@ -54,6 +54,32 @@ class CategoriesModel{
 
 		$stmt -> close();
 
+		$stmt = null;
+
+    }
+    
+    // Edit Category
+
+    static public function EditCategoryModel($table, $data){
+
+		$stmt = Connection::connect()->prepare("UPDATE $table SET Category = :Category WHERE id = :id");
+
+        $stmt -> bindParam(":Category", $data["Category"], PDO::PARAM_STR);
+        
+		$stmt -> bindParam(":id", $data["id"], PDO::PARAM_INT);
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+        $stmt->close();
+        
 		$stmt = null;
 
 	}
