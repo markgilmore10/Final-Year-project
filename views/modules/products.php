@@ -1,9 +1,11 @@
 <div class="content-wrapper">
-  
+
   <section class="content-header">
-    
+
     <h1>
-      Products
+
+      Product management
+
     </h1>
 
   </section>
@@ -11,26 +13,37 @@
   <section class="content">
 
     <div class="box">
+
       <div class="box-header with-border">
-      
-        <h3 class="box-title">Title</h3>
-        <div class="box-tools pull-right">
 
-          <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-            <i class="fa fa-minus"></i>
-          </button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#addProduct">Add Product</button>
 
-        </div>
       </div>
 
       <div class="box-body">
-      
-      </div>
- 
-      <div class="box-footer">
-      
-      </div>
 
+        <table class="table table-bordered table-striped dt-responsive productsTable" width="100%">
+       
+          <thead>
+           
+           <tr>
+             
+             <th style="width:10px">#</th>
+             <th>Code</th>
+             <th>Category</th>
+             <th>Stock</th>
+             <th>VAT</th>
+             <th>Buying price</th>
+             <th>Selling Price</th>
+
+           </tr> 
+
+          </thead>
+
+        </table>
+
+      </div>
+    
     </div>
 
   </section>
