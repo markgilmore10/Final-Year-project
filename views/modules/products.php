@@ -30,6 +30,7 @@
              
              <th style="width:10px">#</th>
              <th>Code</th>
+             <th>Product</th>
              <th>Category</th>
              <th>Stock</th>
              <th>VAT</th>
@@ -94,6 +95,18 @@
                 <span class="input-group-addon"><i class="fa fa-code"></i></span>
 
                 <input class="form-control input-lg" type="text" id="prodCode" name="prodCode" placeholder="Enter Code" required readonly>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
+
+                <input class="form-control input-lg" type="text" id="newProduct" name="newProduct" placeholder="Product Name" required>
 
               </div>
 
