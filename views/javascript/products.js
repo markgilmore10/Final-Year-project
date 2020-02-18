@@ -1,6 +1,6 @@
 // Dynamically Populate Products Page
 $('.productsTable').DataTable({
-	"ajax": "ajax/producttable.ajax.php", 
+	"ajax": "ajax/product-table.ajax.php", 
 	"deferRender": true,
 	"retrieve": true,
 	"processing": true

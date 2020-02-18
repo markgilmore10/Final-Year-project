@@ -210,12 +210,7 @@
 
       </form>
 
-      <?php
-
-          $createProduct = new ControllerProducts();
-          $createProduct -> CreateProductController();
-
-        ?> 
+      
     </div>
 
   </div>
