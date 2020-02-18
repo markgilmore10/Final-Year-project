@@ -8,7 +8,7 @@ require_once "../models/categories.model.php";
 
 class productsTable{
 
-	public function ViewProductsTable(){
+	public function ShowProductsTable(){
 
 		$item = null;
 		$value = null;
@@ -55,9 +55,9 @@ class productsTable{
 						"'.$products[$i]["code"].'",
 						"'.$products[$i]["product"].'",
 						"'.$categories["Category"].'",
-						"'.$products[$i]["stock"].'",
-						"$ '.$products[$i]["buyingPrice"].'",
-						"$ '.$products[$i]["sellingPrice"].'",
+						"'.$stock.'",
+						"€ '.$products[$i]["buyingPrice"].'",
+						"€ '.$products[$i]["sellingPrice"].'",
 						"'.$buttons.'"
 					],';
 				}
