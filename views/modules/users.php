@@ -41,55 +41,57 @@
 
           </thead>
 
-          <?php
+          <tbody>
+          
+            <?php
 
-              $item = null; 
-              $value = null;
+                $item = null; 
+                $value = null;
 
-              $users = ControllerUsers::ShowUsers($item, $value);
+                $users = ControllerUsers::ShowUsers($item, $value);
 
-              foreach ($users as $key => $value) {
+                foreach ($users as $key => $value) {
 
-                echo '
+                  echo '
 
-                  <tr>
-                    <td>'.($key+1).'</td>
-                    <td>'.$value["name"].'</td>
-                    <td>'.$value["user"].'</td>';
+                    <tr>
+                      <td>'.($key+1).'</td>
+                      <td>'.$value["name"].'</td>
+                      <td>'.$value["user"].'</td>';
 
-                    echo '<td>'.$value["profile"].'</td>';
+                      echo '<td>'.$value["profile"].'</td>';
 
-                    if($value["status"] != 0){
+                      if($value["status"] != 0){
 
-                      echo '<td><button class="btn btn-success btnActivate btn-xs" userId="'.$value["id"].'" userStatus="0">Activated</button></td>';
+                        echo '<td><button class="btn btn-success btnActivate btn-xs" userId="'.$value["id"].'" userStatus="0">Activated</button></td>';
 
-                    }else{
+                      }else{
 
-                      echo '<td><button class="btn btn-danger btnActivate btn-xs" userId="'.$value["id"].'" userStatus="1">Deactivated</button></td>';
-                    }
-                    
-                    echo '<td>'.$value["lastLogin"].'</td>
+                        echo '<td><button class="btn btn-danger btnActivate btn-xs" userId="'.$value["id"].'" userStatus="1">Deactivated</button></td>';
+                      }
+                      
+                      echo '<td>'.$value["lastLogin"].'</td>
 
-                    <td>
+                      <td>
 
-                      <div class="btn-group">
-                          
-                        <button class="btn btn-warning btnEditUser" idUser="'.$value["id"].'" data-toggle="modal" data-target="#editUser"><i class="fa fa-pencil"></i></button>
+                        <div class="btn-group">
+                            
+                          <button class="btn btn-warning btnEditUser" idUser="'.$value["id"].'" data-toggle="modal" data-target="#editUser"><i class="fa fa-pencil"></i></button>
 
-                        <button class="btn btn-danger btnDeleteUser" userId="'.$value["id"].'" username="'.$value["user"].'"><i class="fa fa-times"></i></button>
+                          <button class="btn btn-danger btnDeleteUser" userId="'.$value["id"].'" username="'.$value["user"].'"><i class="fa fa-times"></i></button>
 
-                      </div>  
+                        </div>  
 
-                    </td>
+                      </td>
 
-                  </tr>';
-              }
+                    </tr>';
+                }
 
-            ?>
+              ?>
+
+            </tbody>
+
         </table>
-      </div>
-
-      <div class="box-footer">
 
       </div>
 
@@ -98,8 +100,6 @@
   </section>
 
 </div>
-
-
 
 
 <!------- Add User ------->
@@ -130,7 +130,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                <input class="form-control input-lg" type="text" name="newName" placeholder="Add name" required>
+                <input class="form-control input-lg" type="text" name="newName" placeholder="Add Name" required>
 
               </div>
 
@@ -142,7 +142,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                <input class="form-control input-lg" type="text" id="newUser" name="newUser" placeholder="Add username" required>
+                <input class="form-control input-lg" type="text" id="newUser" name="newUser" placeholder="Add Username" required>
 
               </div>
 
@@ -154,7 +154,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
-                <input class="form-control input-lg" type="password" name="newPassword" placeholder="Add password" required>
+                <input class="form-control input-lg" type="password" name="newPassword" placeholder="Add Password" required>
 
               </div>
 
@@ -168,7 +168,7 @@
 
                 <select class="form-control input-lg" name="newProfile">
 
-                  <option value="">Select profile</option>
+                  <option value="">Select Position</option>
                   <option value="administrator">Administrator</option>
                   <option value="manager">Manager</option>
                   <option value="staff">Staff</option>
@@ -233,7 +233,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                <input class="form-control input-lg" type="text" id="EditName" name="editName" placeholder="Edit name" required>
+                <input class="form-control input-lg" type="text" id="EditName" name="EditName" value="" required>
 
               </div>
 
@@ -245,7 +245,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                <input class="form-control input-lg" type="text" id="EditUser" name="editUser" placeholder="Edit Username" readonly>
+                <input class="form-control input-lg" type="text" id="EditUser" name="EditUser" value="" readonly>
 
               </div>
 
@@ -257,7 +257,9 @@
 
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
-                <input class="form-control input-lg" type="password" name="editPassword" placeholder="Edit password">
+                <input class="form-control input-lg" type="password" name="EditPassword" placeholder="Edit Password">
+
+                <input type="hidden" name="CurrentPassword" id="CurrentPassword">
 
               </div>
 
@@ -269,9 +271,9 @@
 
                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                <select class="form-control input-lg" name="editProfile">
+                <select class="form-control input-lg" name="EditProfile">
 
-                  <option value="" id="editProfile"></option>
+                  <option value="" id="EditProfile" placeholder="Edit Position"></option>
                   <option value="administrator">Administrator</option>
                   <option value="manager">Manager</option>
                   <option value="staff">Staff</option>
@@ -295,7 +297,10 @@
 
         </div>
 
-          
+          <?php
+            $editUser = new ControllerUsers();
+            $editUser -> EditUserController();
+          ?>
 
       </form>
 
@@ -304,4 +309,11 @@
   </div>
 
 </div>
+
+<?php
+
+  $deleteUser = new ControllerUsers();
+  $deleteUser -> DeleteUserController();
+
+?> 
 

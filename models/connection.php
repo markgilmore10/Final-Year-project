@@ -2,7 +2,7 @@
 
 class Connection{
 
-	static public function connect(){
+	public function connect(){
 
 		$link = new PDO("mysql:host=localhost;dbname=restaurantpos", "root", "");
 

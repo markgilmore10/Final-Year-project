@@ -18,6 +18,13 @@
 			</li>
 
 			<li>
+				<a href="categories">
+					<i class="fa fa-th"></i>
+					<span>Categories</span>
+				</a>
+			</li>
+
+			<li>
 				<a href="products">
                     <i class="fa fa-coffee"></i>
 					<span>Products</span>
