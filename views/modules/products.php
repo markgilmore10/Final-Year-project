@@ -82,6 +82,20 @@
 
                   <option value="">Choose Category</option>
 
+                  <?php
+
+                    $item = null;
+                    $value1 = null;
+
+                    $categories = controllerCategories::ShowCategoriesController($item, $value1);
+
+                    foreach ($categories as $key => $value) {
+                      
+                      echo '<option value="'.$value["id"].'">'.$value["Category"].'</option>';
+                    }
+
+                  ?>
+
                 </select>
 
               </div>
