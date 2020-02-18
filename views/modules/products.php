@@ -4,7 +4,7 @@
 
     <h1>
 
-      Product management
+      Manage Products
 
     </h1>
 
@@ -26,7 +26,7 @@
 
         <button class="btn btn-primary" data-toggle="modal" data-target="#addProduct">
 
-          Add product
+          Add products
 
         </button>
 
@@ -34,20 +34,28 @@
 
       <div class="box-body">
 
-        <table class="table table-bordered table-striped dt-responsive tables" width="100%">
+        <table class="table table-bordered table-striped dt-responsive ProductsTable" width="100%">
        
           <thead>
+
+            <!--  <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn</th>
+                <th>Start date</th>
+                <th>Salary</th> -->
            
-           <tr>
+         <tr>
              
              <th style="width:10px">#</th>
-             <th>Image</th>
              <th>Code</th>
              <th>Description</th>
              <th>Category</th>
              <th>Stock</th>
              <th>Cost</th>
              <th>Selling price</th>
+             <th>Sales</th>
              <th>Date added</th>
              <th>Actions</th>
 
@@ -57,83 +65,54 @@
 
           <tbody>
 
-            <tr>
+          <?php
+          require_once("C:\\xampp\htdocs\pos\controllers\categories.controller.php");
+          require_once("C:\\xampp\htdocs\pos\models\categories.model.php");
+          #include "'C:\\xampp\\htdocs/pos/controllers/categories.controller.php";
+
+          $item = null;
+          $value = null;
+
+          $products = ProductsController::ShowProductsController($item, $value);
+
+          #var_dump($products);
+
+          foreach ($products as $key => $value){
+
+            echo'<tr>
               
-              <td>1</td>
-              <td><img src="views/images/rockshore.png" class="img-thumbnail" width="40px"></td>
-              <td>0001</td>
-              <td>Rockshore</td>
-              <td>Beverages</td>
-              <td>21</td>
-              <td>1.80</td>
-              <td>4.70</td>
-              <td>2016-21-08</td>
-              <td><button class="btn btn-success btn-xs">Active</button></td>
-              <td>
+                    <td>'.($key+1).'</td>
+                    <td>'.$value["code"].'</td>
+                    <td>'.$value["description"].'</td>';
 
-                <div class="btn-group">
-                    
-                  <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                    $item = "id";
+                    $values = $value["idCategory"];
+                    $category = ControllersCategories::ShowCategoriesController($item, $value);
 
-                  <button class="btn btn-danger"><i class="fa fa-times"></i></button>
 
-                </div>  
+                    echo '<td>'.$category["category"].'</td>
+                    <td>'.$value["stock"].'</td>
+                    <td>'.$value["buyingPrice"].'</td>
+                    <td>'.$value["sellingPrice"].'</td>
+                    <td>'.$value["sales"].'</td>
+                    <td>'.$value["date"].'</td>
+                    <td><button class="btn btn-success btn-xs">Active</button></td>
+                    <td>
 
-              </td>
+                      <div class="btn-group">
+                          
+                        <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
 
-            </tr>
+                        <button class="btn btn-danger"><i class="fa fa-times"></i></button>
 
-            <tr>
-              
-            <td>1</td>
-              <td><img src="views/images/rockshore.png" class="img-thumbnail" width="40px"></td>
-              <td>0001</td>
-              <td>Rockshore</td>
-              <td>Beverages</td>
-              <td>21</td>
-              <td>1.80</td>
-              <td>4.70</td>
-              <td>2016-21-08</td>
-              <td><button class="btn btn-success btn-xs">Active</button></td>
-              <td>
+                      </div>  
 
-                <div class="btn-group">
-                    
-                  <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                    </td>
 
-                  <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                  </tr>';
+          }
 
-                </div>  
-
-              </td>
-
-            </tr>
-
-             <tr>
-              
-             <td>1</td>
-              <td><img src="views/images/rockshore.png" class="img-thumbnail" width="40px"></td>
-              <td>0001</td>
-              <td>Rockshore</td>
-              <td>Beverages</td>
-              <td>21</td>
-              <td>1.80</td>
-              <td>4.70</td>
-              <td>2016-21-08</td>
-              <td><button class="btn btn-success btn-xs">Active</button></td>
-              <td>
-
-                <div class="btn-group">
-                    
-                  <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-
-                  <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-
-                </div>  
-
-              </td>
-
-            </tr>
+          ?>
 
           </tbody>
 
@@ -149,23 +128,20 @@
 
 
 <!--=====================================
-=            module add product            =
+=            Add Product Module           =
 ======================================-->
 
-<!-- Modal -->
+
 <div id="addProduct" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
 
-    <!-- Modal content-->
-
+   
     <div class="modal-content">
 
       <form role="form" method="POST" enctype="multipart/formdata">
 
-        <!--=====================================
-        HEADER
-        ======================================-->
+        
 
         <div class="modal-header" style="background: #3c8dbc; color: #fff">
 
@@ -175,15 +151,13 @@
 
         </div>
 
-        <!--=====================================
-        BODY
-        ======================================-->
+       
 
         <div class="modal-body">
 
           <div class="box-body">
 
-            <!--Input Code -->
+           
 
             <div class="form-group">
 
@@ -197,7 +171,7 @@
 
             </div>
 
-            <!-- input description -->
+            
 
             <div class="form-group">
 
@@ -211,7 +185,7 @@
 
             </div>
 
-            <!-- select category -->
+            
 
             <div class="form-group">
 
@@ -224,7 +198,6 @@
                   <option value="">Select Category</option>
                   <option value="Food">Food</option>
                   <option value="Drinks">Drinks</option>
-                  <option value="Dessert">Dessert</option>
 
                 </select>
 
@@ -232,7 +205,7 @@
 
             </div>
 
-             <!-- input Stock -->
+             
 
              <div class="form-group">
 
@@ -246,43 +219,81 @@
 
               </div>
 
-             <!-- input Cost -->
+             
 
-             <div class="form-group">
+             <div class="form-group row">
 
-              <div class="input-group">
+                <div class="col-xs-6">  
+                    <div class="input-group">
 
-                 <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span>
+                        <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span>
 
-                 <input class="form-control input-lg" type="Number" name="newCost" min="0" placeholder="Cost" required>
+                        <input class="form-control input-lg" type="Number" name="newCost" min="0" placeholder="Cost" required>
 
+                    </div>
                 </div>
-
               </div>
-             <!-- input Selling price -->
 
-             <div class="form-group">
+                
 
-              <div class="input-group">
+                <div class="col-xs-6"> 
 
-                 <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span>
+                    <div class="input-group">
 
-                 <input class="form-control input-lg" type="Number" name="newCost" min="0" placeholder="Cost" required>
+                        <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span>
 
-                </div>
+                        <input class="form-control input-lg" type="Number" name="newSellingPrice" min="0" placeholder="Selling Price" required>
 
-              </div>               
+                    </div>
+                    </div>
+
+                    <br>
+
+                    
+
+                    <div class="col-xs-6">
+
+                        <div class="form-group">
+
+                            <label>
+
+                                <input type="checkbox" class="minimal percentage" checked>
+                                Use percentage 
+                            </label>
+
+
+
+                     </div>    
+
+                
+
+              
+
+              <div class="col-xs-6" style="padding:0">
+
+                <div class="input-group">
+                    <input type="number" class="form-control input-lg newPercentage" min="0" value="40" required>
+
+                    <span class="input-group-addon"><i class="fa fa-percent"></i></span>
+
+
+              
+            </div>
+            </div>
+            </div>
+            </div>
+            
+             
+             
+           
+
         
-
-        <!--=====================================
-        FOOTER
-        ======================================-->
 
         <div class="modal-footer">
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
 
-          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="submit" class="btn btn-primary">Save Product</button>
 
         </div>
 
@@ -294,4 +305,4 @@
 
 </div>
 
-<!--====  End of module add user  ====-->
+
