@@ -30,9 +30,9 @@
              
              <th style="width:10px">#</th>
              <th>Code</th>
+             <th>Product</th>
              <th>Category</th>
              <th>Stock</th>
-             <th>VAT</th>
              <th>Buying price</th>
              <th>Selling Price</th>
 
@@ -79,7 +79,21 @@
 
                 <select class="form-control input-lg" id="newCategory" name="newCategory">
 
-                  <option value="">Choose Category</option>
+                  <option value="">Select Category</option>
+
+                  <?php
+
+                    $item = null;
+                    $value1 = null;
+
+                    $categories = controllerCategories::ShowCategoriesController($item, $value1);
+
+                    foreach ($categories as $key => $value) {
+                      
+                      echo '<option value="'.$value["id"].'">'.$value["Category"].'</option>';
+                    }
+
+                  ?>
 
                 </select>
 
@@ -197,10 +211,11 @@
 
       <?php
 
-          $addProduct = new ControllerProducts();
-          $addProduct -> AddProductController();
+          $addProduct = new productsController();
+          $addProduct -> AddProductsController();
 
-        ?> 
+      ?>
+
     </div>
 
   </div>
