@@ -30,7 +30,6 @@
              
              <th style="width:10px">#</th>
              <th>Code</th>
-             <th>Product</th>
              <th>Category</th>
              <th>Stock</th>
              <th>VAT</th>
@@ -78,23 +77,9 @@
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <select class="form-control input-lg" id="prodCategory" name="prodCategory">
+                <select class="form-control input-lg" id="newCategory" name="newCategory">
 
                   <option value="">Choose Category</option>
-
-                  <?php
-
-                    $item = null;
-                    $value1 = null;
-
-                    $categories = controllerCategories::ShowCategoriesController($item, $value1);
-
-                    foreach ($categories as $key => $value) {
-                      
-                      echo '<option value="'.$value["id"].'">'.$value["Category"].'</option>';
-                    }
-
-                  ?>
 
                 </select>
 
@@ -108,7 +93,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-code"></i></span>
 
-                <input class="form-control input-lg" type="text" id="prodCode" name="prodCode" placeholder="Enter Code" required readonly>
+                <input class="form-control input-lg" type="text" id="newCode" name="newCode" placeholder="Add Code" required readonly>
 
               </div>
 
@@ -120,7 +105,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
 
-                <input class="form-control input-lg" type="text" id="newProduct" name="newProduct" placeholder="Product Name" required>
+                <input class="form-control input-lg" type="text" id="newProduct" name="newProduct" placeholder="Add Product" required>
 
               </div>
 
@@ -132,7 +117,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-check"></i></span>
 
-                <input class="form-control input-lg" type="number" id="prodStock" name="prodStock" placeholder="Enter Product Stock" min="0" required>
+                <input class="form-control input-lg" type="number" id="newStock" name="newStock" placeholder="Add Stock" min="0" required>
 
               </div>
 
@@ -146,7 +131,7 @@
 
                   <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
 
-                  <input type="number" class="form-control input-lg" id="prodPurPrice" name="prodPurPrice" step="any" min="0" placeholder="Purchase Price" required>
+                  <input type="number" class="form-control input-lg" id="newBuyingPrice" name="newBuyingPrice" step="any" min="0" placeholder="Buying price" required>
 
                 </div>
 
@@ -158,7 +143,7 @@
 
                   <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
 
-                  <input type="number" class="form-control input-lg" id="prodSalePrice" name="prodSalePrice" step="any" min="0" placeholder="Sale Price" required>
+                  <input type="number" class="form-control input-lg" id="newSellingPrice" name="newSellingPrice" step="any" min="0" placeholder="Selling price" required>
 
                 </div> 
 
@@ -172,7 +157,7 @@
 
                       <input type="checkbox" class="minimal percentage" checked>
 
-                      VAT
+                      Use percentage
 
                     </label>
 
@@ -216,7 +201,6 @@
           $addProduct -> AddProductController();
 
         ?> 
-
     </div>
 
   </div>

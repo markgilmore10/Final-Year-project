@@ -12,23 +12,23 @@ class productsController{
 
     }
 
-    static public function ctrCreateProducts(){
+    static public function AddProductsController(){
 
 		if(isset($_POST["newDescription"])){
 
 			if(preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["newProduct"]) &&
-			   preg_match('/^[0-9]+$/', $_POST["prodStock"]) &&	
-			   preg_match('/^[0-9.]+$/', $_POST["prodPurPrice"]) &&
-			   preg_match('/^[0-9.]+$/', $_POST["prodSalePrice"])){
+			   preg_match('/^[0-9]+$/', $_POST["newStock"]) &&	
+			   preg_match('/^[0-9.]+$/', $_POST["newBuyingPrice"]) &&
+			   preg_match('/^[0-9.]+$/', $_POST["newSellingPrice"])){
 
 				$table = "products";
 
-				$data = array("idCategory" => $_POST["prodCategory"],
-							   "code" => $_POST["prodCode"],
+				$data = array("idCategory" => $_POST["newCategory"],
+							   "code" => $_POST["newCode"],
 							   "description" => $_POST["newProduct"],
-							   "stock" => $_POST["prodStock"],
-							   "buyingPrice" => $_POST["prodPurPrice"],
-							   "sellingPrice" => $_POST["prodSalePrice"]);
+							   "stock" => $_POST["newStock"],
+							   "buyingPrice" => $_POST["newBuyingPrice"],
+							   "sellingPrice" => $_POST["newSellingPrice"]);
 
 				$answer = productsModel::AddProductModel($table, $data);
 
