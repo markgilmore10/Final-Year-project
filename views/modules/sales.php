@@ -37,11 +37,11 @@
            <tr>
              
              <th style="width:10px">#</th>
-             <th>Bill</th>
+             <th>Receipt Number</th>
              <th>Staff</th>
-             <th>Payment Method</th>
              <th>Net cost</th>
              <th>Total cost</th>
+             <th>Payment Method</th>
              <th>Date</th>
 
            </tr> 

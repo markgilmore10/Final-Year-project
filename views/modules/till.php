@@ -39,6 +39,30 @@
                         
                         <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
+                        <?php 
+                          $item = null;
+                          $value = null;
+
+                          $sales = ControllerSales::ShowSalesController($item, $value);
+
+                          if(!$sales){
+
+                            echo '<input type="text" class="form-control" name="newSale" id="newSale" value="10001" readonly>';
+                          }
+                          else{
+
+                            foreach ($sales as $key => $value) {
+                              
+                            }
+
+                            $code = $value["code"] +1;
+
+                            echo '<input type="text" class="form-control" name="newSale" id="newSale" value="'.$code.'" readonly>';
+
+                          }
+
+                        ?>
+
                       </div>
 
                     </div>
@@ -148,17 +172,17 @@
             
             <div class="box-header with-border"></div>
 
-            <div class="box-body">
-              
-              <table class="table table-bordered table-striped dt-responsive salesTable">
-                  
-                
-              </table>
+                <div class="container">
 
-            </div>
+                    <div class="row row-cols-3">
+
+                        <button type = "button" class = "btn btn-default salesTable">Default Button</button>
+
+                    </div>
+
+                </div>
 
           </div>
-
 
       </div>
 
