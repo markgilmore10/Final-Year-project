@@ -62,3 +62,37 @@ $("#newBuyingPrice").change(function(){
 
 
 })
+
+
+
+$("#newBuyingPrice").change(function(){
+
+	if($(".percentage").prop("checked")){
+
+		var vatPercent = $(".newPercentage").val();
+		
+		var percentage = Number(($("#newBuyingPrice").val()*vatPercent/100))
+		+Number($("#newBuyingPrice").val());
+
+
+		$("#newSellingPrice").val(percentage);
+		$("#newSellingPrice").prop("readonly",true);
+	}
+	
+})
+
+$(".percentage").on("ifUnchecked",function(){
+	
+	$("#newSellingPrice").prop("readonly",false);
+
+})
+
+$(".percentage").on("ifChecked",function(){
+	
+	$("#newSellingPrice").prop("readonly",true);
+
+})
+
+//Edit product
+
+	

@@ -35,6 +35,7 @@
              <th>Stock</th>
              <th>Buying price</th>
              <th>Selling Price</th>
+             <th>Edit/Delete</th>
 
            </tr> 
 
@@ -215,6 +216,166 @@
           $addProduct -> AddProductsController();
 
       ?>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- Edit Product -->
+<div id="editProduct" class="modal fade" role="dialog">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="POST" enctype="multipart/form-data">
+
+        <div class="modal-header" style="background: #3c8dbc; color: #fff">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Edit Product</h4>
+
+        </div>
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <select class="form-control input-lg"  name="editCategory" readonly required>
+
+                  <option id="editCategory"></option>
+
+
+                </select>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-code"></i></span>
+
+                <input class="form-control input-lg" type="text" id="editCode" name="editCode" required readonly>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
+
+                <input class="form-control input-lg" type="text" id="editProduct" name="editProduct" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-check"></i></span>
+
+                <input class="form-control input-lg" type="number" id="editStock" name="editStock" min="0" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group row">
+
+              <div class="col-xs-12 col-sm-6">
+
+                <div class="input-group"> 
+
+                  <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
+
+                  <input type="number" class="form-control input-lg" id="editBuyingPrice" name="editBuyingPrice" step="any" min="0" required>
+
+                </div>
+
+              </div>
+
+              <div class="col-xs-12 col-sm-6">  
+
+                <div class="input-group"> 
+
+                  <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
+
+                  <input type="number" class="form-control input-lg" id="editSellingPrice" name="editSellingPrice" step="any" min="0" required>
+
+                </div> 
+
+                <br>
+
+                <div class="col-xs-6"> 
+
+                  <div class="form-group">   
+
+                    <label>     
+
+                      <input type="checkbox" class="minimal percentage" checked>
+
+                      VAT
+
+                    </label>
+
+                  </div>
+
+                </div>
+
+                <div class="col-xs-6" style="padding:0">
+
+                  <div class="input-group"> 
+
+                    <input type="number" class="form-control input-lg newPercentage" min="0" value="40" required>
+
+                    <span class="input-group-addon"><i class="fa fa-percent"></i></span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+
+        </div>
+
+      </form>
+
+      <?php
+
+        //  $editProduct = new productsController();
+        //  $editProduct -> EditProductsController();
+
+      ?> 
 
     </div>
 
