@@ -22,7 +22,7 @@ $("#newCategory").change(function(){
       cache: false,
       contentType: false,
       processData: false,
-      dataType:"json",
+	  dataType:"json",
       success:function(answer){
 
       	if(!answer){
@@ -33,7 +33,7 @@ $("#newCategory").change(function(){
       	}else{
 
       		var newCode = Number(answer["code"]) + 1;
-          $("#newCode").val(newCode);
+            $("#newCode").val(newCode);
 
       	}
                 
@@ -43,4 +43,4 @@ $("#newCategory").change(function(){
 
 })
 
-
+// todo: VAT calculation

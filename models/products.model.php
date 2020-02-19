@@ -34,7 +34,7 @@ class productsModel{
 
     static public function AddProductModel($table, $data){
 
-		$stmt = Connection::connect()->prepare("INSERT INTO $table(idCategory, code, description, stock, buyingPrice, sellingPrice) VALUES (:idCategory, :code, :description, :stock, :buyingPrice, :sellingPrice)");
+		$stmt = Connection::connect()->prepare("INSERT INTO $table(idCategory, code, product, stock, buyingPrice, sellingPrice) VALUES (:idCategory, :code, :product, :stock, :buyingPrice, :sellingPrice)");
 
 		$stmt->bindParam(":idCategory", $data["idCategory"], PDO::PARAM_INT);
 		$stmt->bindParam(":code", $data["code"], PDO::PARAM_STR);

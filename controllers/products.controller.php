@@ -14,7 +14,7 @@ class productsController{
 
     static public function AddProductsController(){
 
-		if(isset($_POST["newDescription"])){
+		if(isset($_POST["newProduct"])){
 
 			if(preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["newProduct"]) &&
 			   preg_match('/^[0-9]+$/', $_POST["newStock"]) &&	
@@ -25,7 +25,7 @@ class productsController{
 
 				$data = array("idCategory" => $_POST["newCategory"],
 							   "code" => $_POST["newCode"],
-							   "description" => $_POST["newProduct"],
+							   "product" => $_POST["newProduct"],
 							   "stock" => $_POST["newStock"],
 							   "buyingPrice" => $_POST["newBuyingPrice"],
 							   "sellingPrice" => $_POST["newSellingPrice"]);

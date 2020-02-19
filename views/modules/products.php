@@ -171,7 +171,7 @@
 
                       <input type="checkbox" class="minimal percentage" checked>
 
-                      Use percentage
+                      VAT
 
                     </label>
 

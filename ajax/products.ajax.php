@@ -8,12 +8,12 @@ class AjaxProducts{
 	// Generate Category Code
 	public $idCategory;
 
-	public function ajaxCreateProductCode(){
+	public function CreateProductCodeAjax(){
 
 		$item = "idCategory";
 		$value = $this->idCategory;
 
-		$answer = controllerProducts::ShowProductsController($item, $value);
+		$answer = productsController::ShowProductsController($item, $value);
 
 		echo json_encode($answer);
 
@@ -26,7 +26,7 @@ if(isset($_POST["idCategory"])){
 
 	$productCode = new AjaxProducts();
 	$productCode -> idCategory = $_POST["idCategory"];
-	$productCode -> ajaxCreateProductCode();
+	$productCode -> CreateProductCodeAjax();
 
 }
 
