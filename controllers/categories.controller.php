@@ -1,6 +1,6 @@
 <?php
 
- class ControllersCategories{
+ class ControllerCategories{
 
     // Create Category
 	

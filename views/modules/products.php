@@ -4,17 +4,9 @@
 
     <h1>
 
-      Manage Products
+      Product management
 
     </h1>
-
-    <ol class="breadcrumb">
-
-      <li><a href="home"><i class="fa fa-dashboard"></i> Home</a></li>
-
-      <li class="active">Manage Products</li>
-
-    </ol>
 
   </section>
 
@@ -24,97 +16,29 @@
 
       <div class="box-header with-border">
 
-        <button class="btn btn-primary" data-toggle="modal" data-target="#addProduct">
-
-          Add products
-
-        </button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#addProduct">Add Product</button>
 
       </div>
 
       <div class="box-body">
 
-        <table class="table table-bordered table-striped dt-responsive ProductsTable" width="100%">
+        <table class="table table-bordered table-striped dt-responsive productsTable" width="100%">
        
           <thead>
-
-            <!--  <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Extn</th>
-                <th>Start date</th>
-                <th>Salary</th> -->
            
-         <tr>
+           <tr>
              
              <th style="width:10px">#</th>
              <th>Code</th>
-             <th>Description</th>
+             <th>Product</th>
              <th>Category</th>
              <th>Stock</th>
-             <th>Cost</th>
-             <th>Selling price</th>
-             <th>Sales</th>
-             <th>Date added</th>
-             <th>Actions</th>
+             <th>Buying price</th>
+             <th>Selling Price</th>
 
            </tr> 
 
           </thead>
-
-          <tbody>
-
-          <?php
-          require_once("C:\\xampp\htdocs\pos\controllers\categories.controller.php");
-          require_once("C:\\xampp\htdocs\pos\models\categories.model.php");
-          #include "'C:\\xampp\\htdocs/pos/controllers/categories.controller.php";
-
-          $item = null;
-          $value = null;
-
-          $products = ProductsController::ShowProductsController($item, $value);
-
-          #var_dump($products);
-
-          foreach ($products as $key => $value){
-
-            echo'<tr>
-              
-                    <td>'.($key+1).'</td>
-                    <td>'.$value["code"].'</td>
-                    <td>'.$value["description"].'</td>';
-
-                    $item = "id";
-                    $values = $value["idCategory"];
-                    $category = ControllersCategories::ShowCategoriesController($item, $value);
-
-
-                    echo '<td>'.$category["category"].'</td>
-                    <td>'.$value["stock"].'</td>
-                    <td>'.$value["buyingPrice"].'</td>
-                    <td>'.$value["sellingPrice"].'</td>
-                    <td>'.$value["sales"].'</td>
-                    <td>'.$value["date"].'</td>
-                    <td><button class="btn btn-success btn-xs">Active</button></td>
-                    <td>
-
-                      <div class="btn-group">
-                          
-                        <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-
-                        <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-
-                      </div>  
-
-                    </td>
-
-                  </tr>';
-          }
-
-          ?>
-
-          </tbody>
 
         </table>
 
@@ -126,66 +50,26 @@
 
 </div>
 
-
-<!--=====================================
-=            Add Product Module           =
-======================================-->
-
-
+<!-- Add Product -->
 <div id="addProduct" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
 
-   
     <div class="modal-content">
 
-      <form role="form" method="POST" enctype="multipart/formdata">
-
-        
+      <form role="form" method="POST" enctype="multipart/form-data">
 
         <div class="modal-header" style="background: #3c8dbc; color: #fff">
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Add product</h4>
+          <h4 class="modal-title">Add Product</h4>
 
         </div>
-
-       
 
         <div class="modal-body">
 
           <div class="box-body">
-
-           
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-code"></i></span>
-
-                <input class="form-control input-lg" type="text" name="newCode" placeholder="Add code" required>
-
-              </div>
-
-            </div>
-
-            
-
-            <div class="form-group">
-
-              <div class="input-group">
-
-                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
-
-                <input class="form-control input-lg" type="text" name="newDescription" placeholder="Add Description" required>
-
-              </div>
-
-            </div>
-
-            
 
             <div class="form-group">
 
@@ -193,11 +77,23 @@
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <select class="form-control input-lg" name="newCategory">
+                <select class="form-control input-lg" id="newCategory" name="newCategory">
 
                   <option value="">Select Category</option>
-                  <option value="Food">Food</option>
-                  <option value="Drinks">Drinks</option>
+
+                  <?php
+
+                    $item = null;
+                    $value1 = null;
+
+                    $categories = controllerCategories::ShowCategoriesController($item, $value1);
+
+                    foreach ($categories as $key => $value) {
+                      
+                      echo '<option value="'.$value["id"].'">'.$value["Category"].'</option>';
+                    }
+
+                  ?>
 
                 </select>
 
@@ -205,104 +101,123 @@
 
             </div>
 
-             
-
-             <div class="form-group">
+            <div class="form-group">
 
               <div class="input-group">
 
-                 <span class="input-group-addon"><i class="fa fa-Check"></i></span>
+                <span class="input-group-addon"><i class="fa fa-code"></i></span>
 
-                 <input class="form-control input-lg" type="Number" name="newStock" min="0" placeholder="Stock" required>
+                <input class="form-control input-lg" type="text" id="newCode" name="newCode" placeholder="Add Code" required readonly>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
+
+                <input class="form-control input-lg" type="text" id="newProduct" name="newProduct" placeholder="Add Product" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-check"></i></span>
+
+                <input class="form-control input-lg" type="number" id="newStock" name="newStock" placeholder="Add Stock" min="0" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group row">
+
+              <div class="col-xs-12 col-sm-6">
+
+                <div class="input-group"> 
+
+                  <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
+
+                  <input type="number" class="form-control input-lg" id="newBuyingPrice" name="newBuyingPrice" step="any" min="0" placeholder="Buying price" required>
 
                 </div>
 
               </div>
 
-             
+              <div class="col-xs-12 col-sm-6">  
 
-             <div class="form-group row">
+                <div class="input-group"> 
 
-                <div class="col-xs-6">  
-                    <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
 
-                        <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span>
+                  <input type="number" class="form-control input-lg" id="newSellingPrice" name="newSellingPrice" step="any" min="0" placeholder="Selling price" required>
 
-                        <input class="form-control input-lg" type="Number" name="newCost" min="0" placeholder="Cost" required>
+                </div> 
 
-                    </div>
-                </div>
-              </div>
-
-                
+                <br>
 
                 <div class="col-xs-6"> 
 
-                    <div class="input-group">
+                  <div class="form-group">   
 
-                        <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span>
+                    <label>     
 
-                        <input class="form-control input-lg" type="Number" name="newSellingPrice" min="0" placeholder="Selling Price" required>
+                      <input type="checkbox" class="minimal percentage" checked>
 
-                    </div>
-                    </div>
+                      VAT
 
-                    <br>
+                    </label>
 
-                    
+                  </div>
 
-                    <div class="col-xs-6">
+                </div>
 
-                        <div class="form-group">
+                <div class="col-xs-6" style="padding:0">
 
-                            <label>
+                  <div class="input-group"> 
 
-                                <input type="checkbox" class="minimal percentage" checked>
-                                Use percentage 
-                            </label>
-
-
-
-                     </div>    
-
-                
-
-              
-
-              <div class="col-xs-6" style="padding:0">
-
-                <div class="input-group">
                     <input type="number" class="form-control input-lg newPercentage" min="0" value="40" required>
 
                     <span class="input-group-addon"><i class="fa fa-percent"></i></span>
 
+                  </div>
 
-              
-            </div>
-            </div>
-            </div>
-            </div>
-            
-             
-             
-           
+                </div>
 
-        
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
 
         <div class="modal-footer">
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
 
-          <button type="submit" class="btn btn-primary">Save Product</button>
+          <button type="submit" class="btn btn-primary">Save</button>
 
         </div>
 
       </form>
+
+      <?php
+
+          $addProduct = new productsController();
+          $addProduct -> AddProductsController();
+
+      ?>
 
     </div>
 
   </div>
 
 </div>
-
-

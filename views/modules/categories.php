@@ -7,7 +7,6 @@
       </h1>
     
     </section>
-
  
     <section class="content">
 

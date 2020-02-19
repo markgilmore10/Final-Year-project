@@ -1,0 +1,75 @@
+<?php
+
+require_once "../controllers/products.controller.php";
+require_once "../models/products.model.php";
+
+require_once "../controllers/categories.controller.php";
+require_once "../models/categories.model.php";
+
+class productsTable{
+
+	public function ShowProductsTable(){
+
+		$item = null;
+		$value = null;
+
+		$products = productsController::ShowProductsController($item, $value);
+
+		if(count($products) == 0){
+
+			$jsonData = '{"data":[]}';
+
+			echo $jsonData;
+
+			return;
+		}
+
+		$jsonData = '{
+			"data":[';
+
+				for($i=0; $i < count($products); $i++){
+					
+					$item = "id";
+				  	$value = $products[$i]["idCategory"];
+
+				  	$categories = ControllerCategories::ShowCategoriesController($item, $value);
+				  	
+				  	if($products[$i]["stock"] <= 10){
+
+		  				$stock = "<button class='btn btn-danger'>".$products[$i]["stock"]."</button>";
+
+		  			}else if($products[$i]["stock"] > 5 && $products[$i]["stock"] <= 15){
+
+		  				$stock = "<button class='btn btn-warning'>".$products[$i]["stock"]."</button>";
+
+		  			}else{
+
+		  				$stock = "<button class='btn btn-success'>".$products[$i]["stock"]."</button>";
+
+                      }
+                      
+		  			$buttons =  "<div class='btn-group'><button class='btn btn-warning btnEditProduct' productId='".$products[$i]["id"]."' data-toggle='modal' data-target='#EditProductModel'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnDeleteProduct' idProduct='".$products[$i]["id"]."' code='".$products[$i]["code"]."'><i class='fa fa-times'></i></button></div>";
+
+					$jsonData .='[
+						"'.($i+1).'",
+						"'.$products[$i]["code"].'",
+						"'.$products[$i]["product"].'",
+						"'.$categories["Category"].'",
+						"'.$stock.'",
+						"€ '.$products[$i]["buyingPrice"].'",
+						"€ '.$products[$i]["sellingPrice"].'",
+						"'.$buttons.'"
+					],';
+				}
+
+				$jsonData = substr($jsonData, 0, -1);
+				$jsonData .= '] 
+
+			}';
+
+		echo $jsonData;
+	}
+}
+
+$showProducts = new productsTable();
+$showProducts -> showProductsTable();
