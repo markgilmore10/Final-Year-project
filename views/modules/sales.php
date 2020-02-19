@@ -16,14 +16,14 @@
 
       <div class="box-header with-border">
 
-        <a href="create-sale">
+        <a href="till">
 
           <button class="btn btn-primary" >
         
             Add sale
   
           </button>
-          
+
         </a>
 
       </div>

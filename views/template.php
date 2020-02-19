@@ -75,6 +75,7 @@
             $_GET["route"] == 'sales' ||
             $_GET["route"] == 'sales-manager' ||
             $_GET["route"] == 'reports' ||
+            $_GET["route"] == 'till' ||
             $_GET["route"] == 'logout'){
 
           include "modules/".$_GET["route"].".php";
@@ -102,6 +103,7 @@
 <script src="views/javascript/users.js"></script>
 <script src="views/javascript/categories.js"></script>
 <script src="views/javascript/products.js"></script>
+<script src="views/javascript/sales.js"></script>
 
 </body>
 </html>
