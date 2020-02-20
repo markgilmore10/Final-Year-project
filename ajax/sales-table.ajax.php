@@ -31,7 +31,7 @@ class salesProductTable{
 		  			$buttons =  "<div class='btn-group'><button class='btn btn-primary addProductSale recoverButton' idProduct='".$products[$i]["id"]."'>".$products[$i]["product"]."</button></div>";
 
 					$jsonData .='[
-                        "'.$buttons.'"
+						"'.$buttons.'"
 					],';
 				}
 

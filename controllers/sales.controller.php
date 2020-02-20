@@ -55,7 +55,7 @@ class SalesController{
 
 				swal({
 					  type: "success",
-					  title: "Sale Succesfully",
+					  title: "Sale Succesfull",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar"
 					  }).then((result) => {
