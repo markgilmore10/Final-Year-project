@@ -31,7 +31,6 @@
 
                     </div>
 
-
                     <!-- Receipt Number -->
                     <div class="form-group">
 
@@ -66,6 +65,27 @@
                       </div>
 
                     </div>
+
+                    <!-- Table Number -->              
+                    <div class="form-group">
+
+                      <div class="input-group">
+                        
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+                        <input type="text" class="form-control" name="tableNo" id="tableNo" placeholder="Table Number">
+
+                      </div>
+
+                    </div>
+
+                    <div class="form-group row newProduct"></div>
+
+                    <input type="hidden" name="productsList" id="productsList">
+
+                    <button type="button" class="btn btn-default hidden-lg btnAddProduct">Add Product</button>
+
+                    <hr>
 
                     <div class="row">
 
@@ -134,14 +154,16 @@
 
                     <div class="form-group row">
                       
-                      <div class="col-xs-6" style="padding-right: 0">
+                      <div>
 
                         <div class="btn-toolbar">
 
-                            <button type="button" class="btn btn-primary" value="cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
-                            <button type="button" class="btn btn-warning" value="card" name="newPaymentMethod" id="newPaymentMethod" required>Card</button>
-                            <button type="button" class="btn btn-danger" value="voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
-                            
+                            <button type="button" class="btn btn-primary pull-right" value="cash" name="newPaymenMethod" id="newPaymenMethod" required>Cash</button>
+                            <button type="button" class="btn btn-warning pull-right" value="card" name="newPaymeMethod" id="newPaymeMethod" required>Card</button>
+                            <button type="button" class="btn btn-danger pull-right" value="voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
+                            <button type="submit" class="btn btn-primary pull-right">Open Table</button>
+                            <button type="submit" class="btn btn-primary pull-right">Hold</button>
+
                         </div>
 
                       </div>
@@ -154,9 +176,6 @@
 
             </div>
 
-            <div class="box-footer">
-              <button type="submit" class="btn btn-primary pull-right">Save</button>
-            </div>
           </form>
 
         </div>
@@ -171,19 +190,25 @@
             
             <div class="box-header with-border"></div>
 
-                <div class="container">
+            <div class="box-body">
+              
+              <table class="table table-bordered salesTable">
+                  
+                <thead>
 
-                    <div class="row row-cols-3">
+                   <tr>
+                     
+                     <th>Product</th>
+                    
+                   </tr> 
 
-                        <button type = "button" class = "btn btn-default salesTable">Default Button</button>
+                </thead>
 
-                    </div>
+              </table>
 
-                </div>
+            </div>
 
           </div>
-
-      </div>
 
     </div>
 

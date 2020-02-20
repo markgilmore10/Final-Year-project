@@ -23,15 +23,15 @@ class SalesController{
 
 			    $getProduct = ProductsModel::ShowProductsModel($tableProducts, $item, $valueProductId, $order);
 
-				$item1a = "sales";
-				$value1a = $value["quantity"] + $getProduct["sales"];
+				$item1 = "sales";
+				$value1 = $value["quantity"] + $getProduct["sales"];
 
-			    $newSales = ProductsModel::UpdateProductModel($tableProducts, $item1a, $value1a, $valueProductId);
+			    $newSales = ProductsModel::UpdateProductModel($tableProducts, $item1, $value1, $valueProductId);
 
-				$item1b = "stock";
-				$value1b = $value["stock"];
+				$item2 = "stock";
+				$value2 = $value["stock"];
 
-				$newStock = ProductsModel::UpdateProductModel($tableProducts, $item1b, $value1b, $valueProductId);
+				$newStock = ProductsModel::UpdateProductModel($tableProducts, $item2, $value2, $valueProductId);
 
 			}
 

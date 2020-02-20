@@ -1,10 +1,10 @@
 <?php
-
+/*
 require_once 'connection.php';
 
-class productsModel{
+class productsTillModel{
 
-	public static function ProductsTillModel($table, $item, $value){
+	public static function ShowProductsTillModel($table, $item, $value){
 
 		if($item != null){
 
