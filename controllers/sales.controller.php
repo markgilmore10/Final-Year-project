@@ -4,6 +4,7 @@ class SalesController{
 
     static public function SaleController(){
 
+        // Make Sale
 		if(isset($_POST["newSale"])){
 
 			$productsList = json_decode($_POST["productsList"], true);
@@ -70,6 +71,17 @@ class SalesController{
 			}
 
 		}
+
+    }
+    
+    // Show Sales
+    static public function ShowSalesController($item, $value){
+
+		$table = "sales";
+
+		$answer = ModelSales::ShowSalesModel($table, $item, $value);
+
+		return $answer;
 
 	}
 
