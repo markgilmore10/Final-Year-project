@@ -43,7 +43,7 @@
                           $item = null;
                           $value = null;
 
-                          $sales = ControllerSales::ShowSalesController($item, $value);
+                          $sales = SalesController::ShowSalesController($item, $value);
 
                           if(!$sales){
 
@@ -94,18 +94,19 @@
 
                                   <input type="hidden" name="tax" id="tax" required>
 
-                                  <input type="hidden" name="netPrice" id="nPrice" required>
+                                  <input type="hidden" name="netPrice" id="netPrice" required>
                                   
                                   <span class="input-group-addon"><i class="fa fa-percent"></i></span>
 
                                 </div>
+
                               </td>
 
                               <td style="width: 50%">
 
                                 <div class="input-group">
                                   
-                                  <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
+                                  <span class="input-group-addon"><i class="ion ion-social-euro"></i></span>
                                   
                                   <input type="number" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="" readonly required>
 
@@ -164,8 +165,6 @@
 
 
       <!-- Product Buttons -->
-
-
       <div class="col-lg-7 hidden-md hidden-sm hidden-xs">
         
           <div class="box box-warning">
