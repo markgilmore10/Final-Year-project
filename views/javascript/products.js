@@ -46,52 +46,58 @@ $("#newCategory").change(function(){
 
 
 // todo: VAT calculation
-$("#newBuyingPrice").change(function(){
+$("#newBuyingPrice, #editBuyingPrice").change(function(){
 
 	if($(".percentage").prop("checked")){
 
 		var vatPercent = $(".newPercentage").val();
 		
-		var percent = Number(($("#newBuyingPrice").val()*vatPercent/100))+Number($("#newSellingPrice").val());
+		var percent = Number(($("#newBuyingPrice").val()*vatPercent/100))+Number($("#newBuyingPrice").val());
 
+		var editPercent = Number(($("#editBuyingPrice").val()*vatPercent/100))+Number($("#editSellingPrice").val());
 
 		$("#newSellingPrice").val(percent);
 		$("#newSellingPrice").prop("readonly", true);
+
+		$("#editSellingPrice").val(editPercent);
+		$("#editSellingPrice").prop("readonly",true);
 	}
-	
-
-	
-
-
 })
 
-
-
-$("#newBuyingPrice").change(function(){
+//changing percent
+$("#newPercentage").change(function(){
 
 	if($(".percentage").prop("checked")){
 
-		var vatPercent = $(".newPercentage").val();
+		var vatPercent = $(this).val();
 		
-		var percentage = Number(($("#newBuyingPrice").val()*vatPercent/100))
+		var percent = Number(($("#newBuyingPrice").val()*vatPercent/100))
 		+Number($("#newBuyingPrice").val());
 
+		var editPercent = Number(($("#editBuyingPrice").val()*vatPercent/100))
+		+Number($("#editBuyingPrice").val());
 
-		$("#newSellingPrice").val(percentage);
+
+		$("#newSellingPrice").val(percent);
 		$("#newSellingPrice").prop("readonly",true);
+
+		$("#editSellingPrice").val(editPercent);
+		$("#editSellingPrice").prop("readonly",true);
 	}
 	
 })
 
-$(".percentage").on("ifUnchecked",function(){
+$(".percent").on("ifUnchecked",function(){
 	
 	$("#newSellingPrice").prop("readonly",false);
+	$("#editSellingPrice").prop("readonly",false);
 
 })
 
-$(".percentage").on("ifChecked",function(){
+$(".percent").on("ifChecked",function(){
 	
 	$("#newSellingPrice").prop("readonly",true);
+	$("#editSellingPrice").prop("readonly",true);
 
 })
 
