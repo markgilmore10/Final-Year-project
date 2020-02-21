@@ -145,4 +145,38 @@ class productsController{
 		}
 
 	}
+
+	//delete product
+	static public function DeleteProductsController(){
+
+		if(isset($_GET["idProduct"])){
+			
+			$table = "products";
+			$data = $_GET["idProduct"];
+
+			$answer = productsModel::DeleteProductModel($table, $data);
+
+			if($answer == "ok"){
+
+				echo'<script>
+
+				swal({
+						type: "success",
+						title: "Product Deleted Successfully",
+						showConfirmButton: true,
+						confirmButtonText: "Close"
+						}).then(function(result){
+								if (result.value) {
+
+								window.location = "products";
+
+								}
+							})
+
+				</script>';
+
+			}
+		}
+
+	}
 }

@@ -161,7 +161,26 @@ $(".productsTable tbody").on("click ", "button.btnDeleteProduct", function(){
 
 	var idProduct = $(this).attr("idProduct");
 	var code = $(this).attr("code");
-	console.log("idProduct", idProduct);
+	//console.log("idProduct", idProduct);
+
+	swal({
+
+		title: 'Are you certain you want to delete the product?',
+		text: "If not you can cancel this action!",
+		type: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		cancelButtonText: 'Cancel',
+		confirmButtonText: 'Yes, Delete Product'
+		}).then(function(result){
+        if (result.value) {
+
+        	window.location = "index.php?route=products&idProduct="+idProduct+"&Code="+code;
+
+        }
+
+	})
 })
 
 	

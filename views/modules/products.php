@@ -372,8 +372,8 @@
 
       <?php
 
-     //   $editProduct = new controllerProducts();
-     //   $editProduct -> ctrEditProduct();
+       // $editProduct = new controllerProducts();
+       // $editProduct -> EditProductsController();
 
       ?>   
 
@@ -384,3 +384,10 @@
   </div>
 
 </div>
+
+<?php
+
+   $deleteProduct = new controllerProducts();
+   $deleteProduct -> DeleteProductsController();
+
+ ?>   
