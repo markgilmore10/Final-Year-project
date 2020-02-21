@@ -85,4 +85,26 @@ class productsModel{
 		$stmt = null;
 
 	}
+
+	//delete product
+	static public function DeleteProductModel($table, $data){
+
+		$stmt = Connection::connect()->prepare("DELETE FROM $table WHERE id = :id");
+
+		$stmt -> bindParam(":id", $data, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+	}
 }

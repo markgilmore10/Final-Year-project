@@ -372,8 +372,8 @@
 
       <?php
 
-       // $editProduct = new controllerProducts();
-       // $editProduct -> EditProductsController();
+        $editProduct = new productsController();
+        $editProduct -> EditProductsController();
 
       ?>   
 
@@ -387,7 +387,7 @@
 
 <?php
 
-   $deleteProduct = new controllerProducts();
+   $deleteProduct = new productsController();
    $deleteProduct -> DeleteProductsController();
 
  ?>   
