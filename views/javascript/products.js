@@ -155,4 +155,13 @@ $(".productsTable tbody").on("click ", "button.btnEditProduct", function(){
 	})
 	
 })
+
+//Delete product
+$(".productsTable tbody").on("click ", "button.btnDeleteProduct", function(){
+
+	var idProduct = $(this).attr("idProduct");
+	var code = $(this).attr("code");
+	console.log("idProduct", idProduct);
+})
+
 	

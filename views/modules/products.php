@@ -372,8 +372,8 @@
 
       <?php
 
-        $editProduct = new controllerProducts();
-        $editProduct -> ctrEditProduct();
+     //   $editProduct = new controllerProducts();
+     //   $editProduct -> ctrEditProduct();
 
       ?>   
 
