@@ -127,9 +127,24 @@ $(".productsTable tbody").on("click ", "button.btnEditProduct", function(){
 				processData: false,
 				dataType:"json",
 				success:function(answer){
-					console.log("answer", answer);
+					//console.log("answer", answer);
+
+					$("#editCategory").val(answer["id"]);
+					$("#editCategory").html(answer["category"]);
 				}
 			 })
+
+			  $("#editCode").val(answer["code"]);
+
+			  $("#editProduct").val(answer["product"]);
+
+			  $("#editStock").val(answer["stock"]);
+
+			  $("#editBuyingPrice").val(answer["buyingPrice"]);
+
+			  $("#editSellingPrice").val(answer["sellingPrice"]);
+
+
 		}
 	})
 	
