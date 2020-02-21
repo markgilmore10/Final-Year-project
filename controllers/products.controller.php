@@ -77,4 +77,72 @@ class productsController{
 		}
 
 	}
+
+
+	//edit products controller
+	static public function EditProductsController(){
+
+		if(isset($_POST["editProduct"])){
+
+			if(preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["editProduct"]) &&
+			   preg_match('/^[0-9]+$/', $_POST["editStock"]) &&	
+			   preg_match('/^[0-9.]+$/', $_POST["editBuyingPrice"]) &&
+			   preg_match('/^[0-9.]+$/', $_POST["editSellingPrice"])){
+
+				$table = "products";
+
+				$data = array("idCategory" => $_POST["editCategory"],
+							   "code" => $_POST["editCode"],
+							   "product" => $_POST["editProduct"],
+							   "stock" => $_POST["editStock"],
+							   "buyingPrice" => $_POST["editBuyingPrice"],
+							   "sellingPrice" => $_POST["editSellingPrice"]);
+
+				$answer = productsModel::EditProductModel($table, $data);
+
+				if($answer == "ok"){
+
+					echo'<script>
+
+						swal({
+							  type: "success",
+							  title: "Product Edited Successfully",
+							  showConfirmButton: true,
+							  confirmButtonText: "Close"
+							  }).then(function(result){
+										if (result.value) {
+
+										window.location = "products";
+
+										}
+									})
+
+						</script>';
+
+				}
+
+
+			}else{
+
+				echo'<script>
+
+					swal({
+						  type: "error",
+						  title: "Sorry, Product Was Not Edited",
+						  showConfirmButton: true,
+						  confirmButtonText: "Close"
+						  }).then(function(result){
+							if (result.value) {
+
+							window.location = "products";
+
+							}
+						})
+
+			  	</script>';
+			}
+
+		}
+
+	}
 }

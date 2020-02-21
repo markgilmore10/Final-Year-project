@@ -370,6 +370,13 @@
 
       </form>
 
+      <?php
+
+        $editProduct = new controllerProducts();
+        $editProduct -> ctrEditProduct();
+
+      ?>   
+
       
 
     </div>
