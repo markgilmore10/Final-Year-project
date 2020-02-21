@@ -99,6 +99,23 @@ $(".percentage").on("ifChecked",function(){
 $(".productsTable tbody").on("click ", "button.btnEditProduct", function(){
 
 	var idProduct = $(this).attr("idProduct");
-	console.log("idProduct", idProduct);
+	//console.log("idProduct", idProduct);
+	var tData = new FormData();
+	tData.append("idProduct", idProduct);
+
+	$.ajax({
+
+		url:"ajax/products.ajax.php",
+		method: "POST",
+		data: tData,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType:"json",
+		success:function(answer){
+			console.log("answer",answer);
+		}
+	})
+	
 })
 	
