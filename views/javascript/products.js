@@ -113,7 +113,23 @@ $(".productsTable tbody").on("click ", "button.btnEditProduct", function(){
 		processData: false,
 		dataType:"json",
 		success:function(answer){
-			console.log("answer",answer);
+			//console.log("answer",answer);
+			var categoryData = new FormData();
+			categoryData.append("idCategory", answer["id_category"]);
+			 
+			 $.ajax({
+
+				url:"ajax/categories.ajax.php",
+				method: "POST",
+				data: categoryData,
+				cache: false,
+				contentType: false,
+				processData: false,
+				dataType:"json",
+				success:function(answer){
+					console.log("answer", answer);
+				}
+			 })
 		}
 	})
 	

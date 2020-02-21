@@ -19,6 +19,7 @@ class AjaxProducts{
 
 	}
 
+	//edit product
 	public $idProduct;
 
 	public function EditProductAjax(){
