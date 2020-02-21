@@ -78,8 +78,9 @@
                       </div>
 
                     </div>
-
-                    <div class="form-group row newProduct"></div>
+                    
+                    <!-- Products -->
+                    <div class="form-group row saleProduct"></div>
 
                     <input type="hidden" name="productsList" id="productsList">
 
