@@ -57,4 +57,32 @@ class productsModel{
 		$stmt = null;
 
 	}
+
+	//edit product
+	static public function EditProductModel($table, $data){
+
+		$stmt = Connection::connect()->prepare("UPDATE $table SET idCategory = :idCategory, product = :product,
+		 stock = :stock, buyingPrice = :buyingPrice, sellingPrice = :sellingPrice WHERE code = :code");
+
+		$stmt->bindParam(":idCategory", $data["idCategory"], PDO::PARAM_INT);
+		$stmt->bindParam(":code", $data["code"], PDO::PARAM_STR);
+		$stmt->bindParam(":product", $data["product"], PDO::PARAM_STR);
+		$stmt->bindParam(":stock", $data["stock"], PDO::PARAM_STR);
+		$stmt->bindParam(":buyingPrice", $data["buyingPrice"], PDO::PARAM_STR);
+		$stmt->bindParam(":sellingPrice", $data["sellingPrice"], PDO::PARAM_STR);
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
 }
