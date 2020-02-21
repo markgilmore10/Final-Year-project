@@ -43,6 +43,8 @@ $("#newCategory").change(function(){
 
 })
 
+
+
 // todo: VAT calculation
 $("#newBuyingPrice").change(function(){
 
@@ -94,5 +96,9 @@ $(".percentage").on("ifChecked",function(){
 })
 
 //Edit product
+$(".productsTable tbody").on("click ", "button.btnEditProduct", function(){
 
+	var idProduct = $(this).attr("idProduct");
+	console.log("idProduct", idProduct);
+})
 	

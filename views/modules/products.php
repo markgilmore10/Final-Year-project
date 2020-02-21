@@ -370,12 +370,7 @@
 
       </form>
 
-      <?php
-
-        //  $editProduct = new productsController();
-        //  $editProduct -> EditProductsController();
-
-      ?> 
+      
 
     </div>
 
