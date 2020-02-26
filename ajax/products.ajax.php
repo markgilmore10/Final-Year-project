@@ -29,4 +29,4 @@ if(isset($_POST["idCategory"])){
 	$productCode -> CreateProductCodeAjax();
 
 }
-
+  

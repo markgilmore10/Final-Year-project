@@ -11,28 +11,31 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
     var idProduct = $(this).attr("idProduct");
     console.log("idProduct", idProduct);
 
-	$(this).removeClass("btn-primary addProductSale");
+	//$(this).removeClass("btn-primary addProductSale");
 
-	$(this).addClass("btn-default");
+	//$(this).addClass("btn-default");
 
 	var datum = new FormData();
     datum.append("idProduct", idProduct);
-
+	
      $.ajax({
 
-     	url:"ajax/products.ajax.php",
-      	method: "POST",
-      	data: datum,
-      	cache: false,
-      	contentType: false,
-      	processData: false,
-      	dataType:"json",
-      	success:function(answer){
+		url:"ajax/products.ajax.php",
+		method: "POST",
+		data: datum,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType:"json",
+		success:function(answer){
 
+			console.log("answer", answer);
       	    var product = answer["product"];
-          	var price = answer["sellingPrice"];
+			var price = answer["sellingPrice"];
+			console.log("product", product);
+			console.log("price", price);
 
-          	$(".saleProduct").append(
+          	$(".newProduct").append(
 
           	'<div class="row" style="padding:5px 15px">'+
 	          
@@ -52,7 +55,7 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 
 	            '<div class="input-group">'+
 
-	              '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
+	              '<span class="input-group-addon"><i class="ion ion-social-euro"></i></span>'+
 	                 
 	              '<input type="text" class="form-control newProductPrice" realPrice="'+price+'" name="newProductPrice" value="'+price+'" readonly required>'+
 	 

@@ -2,6 +2,17 @@
 
 class SalesController{
 
+	// Show Sales
+    static public function ShowSalesController($item, $value){
+
+		$table = "sales";
+
+		$answer = ModelSales::ShowSalesModel($table, $item, $value);
+
+		return $answer;
+
+	}
+
     static public function SaleController(){
 
         // Make Sale
@@ -73,16 +84,5 @@ class SalesController{
 		}
 
     }
-    
-    // Show Sales
-    static public function ShowSalesController($item, $value){
-
-		$table = "sales";
-
-		$answer = ModelSales::ShowSalesModel($table, $item, $value);
-
-		return $answer;
-
-	}
 
 }

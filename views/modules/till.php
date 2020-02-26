@@ -80,7 +80,7 @@
                     </div>
                     
                     <!-- Products -->
-                    <div class="form-group row saleProduct"></div>
+                    <div class="form-group row newProduct"></div>
 
                     <input type="hidden" name="productsList" id="productsList">
 
