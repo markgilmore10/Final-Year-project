@@ -71,5 +71,6 @@ class productsTable{
 	}
 }
 
+
 $showProducts = new productsTable();
 $showProducts -> showProductsTable();

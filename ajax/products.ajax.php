@@ -19,6 +19,18 @@ class AjaxProducts{
 
 	}
 
+	//edit product
+	public $idProduct;
+
+	public function EditProductAjax(){
+		$item = "id";
+		$value - $this->idProduct;
+
+		$answer = productsController::ShowProductsController($item,$value);
+
+		echo json_encode($answer);
+	}
+
 }
 
 // Generate Category Code
@@ -29,4 +41,12 @@ if(isset($_POST["idCategory"])){
 	$productCode -> CreateProductCodeAjax();
 
 }
-  
+
+//Edit Product
+if(isset($_POST["idProduct"])){
+	
+	$editProduct = new AjaxProducts();
+	$editProduct -> idProduct = $_POST["idProduct"];
+	$editProduct -> EditProductAjax();
+}
+
