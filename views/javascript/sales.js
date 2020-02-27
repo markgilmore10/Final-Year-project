@@ -9,13 +9,9 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 
 
     var idProduct = $(this).attr("idProduct");
-    console.log("idProduct", idProduct);
-
-	//$(this).removeClass("btn-primary addProductSale");
-
-	//$(this).addClass("btn-default");
-
+   
 	var datum = new FormData();
+
     datum.append("idProduct", idProduct);
 	
 	$.ajax({
@@ -28,11 +24,8 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 		dataType:"json",
 		success:function(answer){
 
-			console.log("answer", answer);
       	    var product = answer["product"];
 			var price = answer["sellingPrice"];
-			console.log("product", product);
-			console.log("price", price);
 
           	$(".newProduct").append(
 
@@ -42,9 +35,9 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 	          
 	            '<div class="input-group">'+
 	              
-	              '<span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs removeProduct" idProduct="'+idProduct+'"><i class="fa fa-times"></i></button></span>'+
+	              '<span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs removeProduct" idProduct="' + idProduct + '"><i class="fa fa-times"></i></button></span>'+
 
-	              '<input type="text" class="form-control newProductDescription" idProduct="'+idProduct+'" name="addProductSale" value="'+product+'" readonly required>'+
+	              '<input type="text" class="form-control newProductDescription" idProduct="' + idProduct + '" name="addProductSale" value="' + product + '" readonly required>' +
 
 	            '</div>'+
 
@@ -56,7 +49,7 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 
 	              '<span class="input-group-addon"><i class="ion ion-social-euro"></i></span>'+
 	                 
-	              '<input type="text" class="form-control newProductPrice" realPrice="'+price+'" name="newProductPrice" value="'+price+'" readonly required>'+
+	              '<input type="text" class="form-control newProductPrice" realPrice="' + price + '" name="newProductPrice" value="' + price + '" readonly required>'+
 	 
 	            '</div>'+
 	             
@@ -64,10 +57,43 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 
 	        '</div>')
 
-	    	
-
       	}
 
      })
 
 });
+
+var idRemoveProduct = [];
+
+localStorage.removeItem("removeProduct");
+
+$(".saleForm").on("click", "button.removeProduct", function(){
+
+	$(this).parent().parent().parent().parent().remove();
+
+	var idProduct = $(this).attr("idProduct");
+
+	if(localStorage.getItem("removeProduct") == null){
+
+		idRemoveProduct = [];
+	
+	}else{
+
+		idRemoveProduct.concat(localStorage.getItem("removeProduct"))
+
+	}
+
+	idRemoveProduct.push({"idProduct":idProduct});
+
+	localStorage.setItem("removeProduct", JSON.stringify(idRemoveProduct));
+
+	if($(".newProduct").children().length == 0){
+
+		$("#newTaxSale").val(0);
+		$("#newTotalSale").val(0);
+		$("#totalSale").val(0);
+		$("#newTotalSale").attr("totalSale",0);
+
+	}
+
+})
