@@ -225,7 +225,7 @@
 
 
 <!-- Edit Product -->
-<div id="editProduct" class="modal fade" role="dialog">
+<div id="editAProduct" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
 
@@ -255,7 +255,6 @@
 
                   <option id="editCategory"></option>
 
-
                 </select>
 
               </div>
@@ -280,7 +279,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
 
-                <input class="form-control input-lg" type="text" id="editProduct" name="editProduct" required>
+                <input class="form-control input-lg" type="text" id="editProducts" name="editProducts" required>
 
               </div>
 
@@ -376,8 +375,6 @@
         $editProduct -> EditProductsController();
 
       ?>   
-
-      
 
     </div>
 

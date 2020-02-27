@@ -82,9 +82,9 @@ class productsController{
 	//edit products controller
 	static public function EditProductsController(){
 
-		if(isset($_POST["editProduct"])){
+		if(isset($_POST["editProducts"])){
 
-			if(preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["editProduct"]) &&
+			if(preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["editProducts"]) &&
 			   preg_match('/^[0-9]+$/', $_POST["editStock"]) &&	
 			   preg_match('/^[0-9.]+$/', $_POST["editBuyingPrice"]) &&
 			   preg_match('/^[0-9.]+$/', $_POST["editSellingPrice"])){
@@ -93,7 +93,7 @@ class productsController{
 
 				$data = array("idCategory" => $_POST["editCategory"],
 							   "code" => $_POST["editCode"],
-							   "product" => $_POST["editProduct"],
+							   "product" => $_POST["editProducts"],
 							   "stock" => $_POST["editStock"],
 							   "buyingPrice" => $_POST["editBuyingPrice"],
 							   "sellingPrice" => $_POST["editSellingPrice"]);

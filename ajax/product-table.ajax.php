@@ -6,7 +6,7 @@ require_once "../models/products.model.php";
 require_once "../controllers/categories.controller.php";
 require_once "../models/categories.model.php";
 
-class productsTable{
+class productsTables{
 
 	public function ShowProductsTable(){
 
@@ -48,7 +48,7 @@ class productsTable{
 
                       }
                       
-		  			$buttons =  "<div class='btn-group'><button class='btn btn-warning btnEditProduct' productId='".$products[$i]["id"]."' data-toggle='modal' data-target='#EditProductModel'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnDeleteProduct' idProduct='".$products[$i]["id"]."' code='".$products[$i]["code"]."'><i class='fa fa-times'></i></button></div>";
+		  			$buttons =  "<div class='btn-group'><button class='btn btn-warning btnEditProduct' idProduct='".$products[$i]["id"]."' data-toggle='modal' data-target='#editAProduct'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnDeleteProduct' idProduct='".$products[$i]["id"]."' code='".$products[$i]["code"]."'><i class='fa fa-times'></i></button></div>";
 
 					$jsonData .='[
 						"'.($i+1).'",
@@ -72,5 +72,5 @@ class productsTable{
 }
 
 
-$showProducts = new productsTable();
+$showProducts = new productsTables();
 $showProducts -> showProductsTable();

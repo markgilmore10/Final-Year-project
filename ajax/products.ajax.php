@@ -24,7 +24,7 @@ class AjaxProducts{
 
 	public function EditProductAjax(){
 		$item = "id";
-		$value - $this->idProduct;
+		$value = $this->idProduct;
 
 		$answer = productsController::ShowProductsController($item,$value);
 

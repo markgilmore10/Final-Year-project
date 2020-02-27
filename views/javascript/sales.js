@@ -18,8 +18,7 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 	var datum = new FormData();
     datum.append("idProduct", idProduct);
 	
-     $.ajax({
-
+	$.ajax({
 		url:"ajax/products.ajax.php",
 		method: "POST",
 		data: datum,
