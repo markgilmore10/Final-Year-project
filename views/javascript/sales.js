@@ -55,7 +55,9 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 	             
 	          '</div>'+
 
-	        '</div>')
+			'</div>')
+			
+			totalPrice()
 
       	}
 
@@ -87,13 +89,36 @@ $(".saleForm").on("click", "button.removeProduct", function(){
 
 	localStorage.setItem("removeProduct", JSON.stringify(idRemoveProduct));
 
-	if($(".newProduct").children().length == 0){
+	totalPrice()
 
-		$("#newTaxSale").val(0);
-		$("#newTotalSale").val(0);
-		$("#totalSale").val(0);
-		$("#newTotalSale").attr("totalSale",0);
+	
+
+})
+
+function totalPrice(){
+
+	var priceItem = $(".newProductPrice");
+	var priceArray = [];  
+
+	for(var i = 0; i < priceItem.length; i++){
+
+		priceArray.push(Number($(priceItem[i]).val()));
+		 
+	}
+
+	function totalPriceArray(totalSale, numberArray){
+
+		return totalSale + numberArray;
 
 	}
 
-})
+	var totalPrices = priceArray.reduce(totalPriceArray);
+	
+	$("#newSaleTotal").val(totalPrices);
+	$("#saleTotal").val(totalPrices);
+	$("#newSaleTotal").attr("totalSale",totalPrices);
+
+
+}
+
+// todo: Adding Products from a Device -> Switch from till screen to buttons and back

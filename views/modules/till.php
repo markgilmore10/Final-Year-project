@@ -97,7 +97,6 @@
                           
                           <thead>
                             
-                            <th>Tax</th>
                             <th>Total</th>
 
                           </thead>
@@ -107,7 +106,7 @@
                             
                             <tr>
                               
-                              <td style="width: 50%">
+                            <!-- <td style="width: 50%">
 
                                 <div class="input-group">
                                   
@@ -121,9 +120,9 @@
 
                                 </div>
 
-                              </td>
+                              </td> -->
 
-                              <td style="width: 50%">
+                              <td style="width: 25%">
 
                                 <div class="input-group">
                                   
