@@ -59,6 +59,8 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 			
 			totalPrice()
 
+			$(".newProductPrice").number(true, 2);
+
       	}
 
      })
@@ -89,9 +91,17 @@ $(".saleForm").on("click", "button.removeProduct", function(){
 
 	localStorage.setItem("removeProduct", JSON.stringify(idRemoveProduct));
 
-	totalPrice()
+	//if($(".newProductTotal").children().length == 0){
 
-	
+		$("#newTotalSale").val(0);
+		$("#totalSale").val(0);
+		$("#newTotalSale").attr("totalSale",0);
+
+	//}else{
+
+    	totalPrice()
+
+	//}
 
 })
 
@@ -118,7 +128,29 @@ function totalPrice(){
 	$("#saleTotal").val(totalPrices);
 	$("#newSaleTotal").attr("totalSale",totalPrices);
 
-
 }
+
+$("#newSaleTotal").number(true, 2); // jQuery number plugin trying to format total - not working
+
+// Payment Method
+$("#newPaymentMethod").change(function(){
+
+	var method = $(this).val();
+
+	if(method == "cash"){
+
+		console.log(method);
+
+	}else{
+
+		console.log(method);
+
+	}
+
+	
+
+})
+
+// todo: Changing stock number after sale
 
 // todo: Adding Products from a Device -> Switch from till screen to buttons and back

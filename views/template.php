@@ -37,6 +37,8 @@
  
   <!-- jQuery -->
   <script src="views/bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- jQuery Number -->
+  <script src="views/plugins/jQueryNo/jQueryNo.min.js"></script>
   <!-- AdminLTE App -->
   <script src="views/dist/js/adminlte.min.js"></script>
   <!-- FastClick -->

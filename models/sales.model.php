@@ -33,5 +33,30 @@ class ModelSales{
 		$stmt = null;
 
 	}
+
+	static public function AddSaleModel($table, $data){
+
+		$stmt = Connection::connect()->prepare("INSERT INTO $table(code, idSeller, products, totalPrice, paymentMethod) VALUES (:code, :idSeller, :products, :totalPrice, :paymentMethod)");
+
+		$stmt->bindParam(":code", $data["code"], PDO::PARAM_INT);
+		$stmt->bindParam(":idSeller", $data["idSeller"], PDO::PARAM_INT);
+		$stmt->bindParam(":products", $data["products"], PDO::PARAM_STR);
+		$stmt->bindParam(":totalPrice", $data["totalPrice"], PDO::PARAM_STR);
+		$stmt->bindParam(":paymentMethod", $data["paymentMethod"], PDO::PARAM_STR);
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
 	
 }

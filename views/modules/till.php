@@ -128,7 +128,7 @@
                                   
                                   <span class="input-group-addon"><i class="ion ion-social-euro"></i></span>
                                   
-                                  <input type="number" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="" readonly required>
+                                  <input type="text" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="" readonly required>
 
                                   <input type="hidden" name="saleTotal" id="saleTotal" required>
 
@@ -158,15 +158,17 @@
 
                         <div class="btn-toolbar">
 
-                            <button type="button" class="btn btn-primary pull-right" value="cash" name="newPaymenMethod" id="newPaymenMethod" required>Cash</button>
-                            <button type="button" class="btn btn-warning pull-right" value="card" name="newPaymeMethod" id="newPaymeMethod" required>Card</button>
-                            <button type="button" class="btn btn-danger pull-right" value="voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
+                            <button type="submit" class="btn btn-primary pull-right" value="cash" name="newPaymenMethod" id="newPaymenMethod" required>Cash</button>
+                            <button type="submit" class="btn btn-warning pull-right" value="card" name="newPaymeMethod" id="newPaymeMethod" required>Card</button>
+                            <button type="submit" class="btn btn-danger pull-right" value="voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
                             <button type="submit" class="btn btn-primary pull-right">Open Table</button>
                             <button type="submit" class="btn btn-primary pull-right">Hold</button>
 
                         </div>
 
                       </div>
+
+                      <input type="hidden" name="showPaymentMethod" id="showPaymentMethod" required>
 
                     </div>
 
@@ -177,6 +179,13 @@
             </div>
 
           </form>
+
+          <?php
+
+            $saveSale = new SalesController();
+            $saveSale -> SaleController();
+            
+          ?>
 
         </div>
 

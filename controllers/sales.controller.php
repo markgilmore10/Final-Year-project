@@ -51,10 +51,8 @@ class SalesController{
             $data = array("idSeller"=>$_POST["idSeller"],
                           "code"=>$_POST["newSale"],
 						  "products"=>$_POST["productsList"],
-						  "tax"=>$_POST["newSaleTotal"],
-						  "netPrice"=>$_POST["netPrice"],
 						  "totalPrice"=>$_POST["newSaleTotal"],
-						  "paymentMethod"=>$_POST["newPaymentMethod"]);
+						  "paymentMethod"=>$_POST["showPaymentMethod"]);
 
 			$answer = ModelSales::AddSaleModel($table, $data);
 
@@ -68,7 +66,7 @@ class SalesController{
 					  type: "success",
 					  title: "Sale Succesfull",
 					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar"
+					  confirmButtonText: "Close"
 					  }).then((result) => {
 								if (result.value) {
 
