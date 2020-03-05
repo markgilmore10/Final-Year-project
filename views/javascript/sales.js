@@ -26,6 +26,7 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 
       	    var product = answer["product"];
 			var price = answer["sellingPrice"];
+			var stock = answer["stock"];
 
           	$(".newProduct").append(
 
@@ -58,6 +59,7 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 			'</div>')
 			
 			totalPrice()
+			listProducts()
 
 			$(".newProductPrice").number(true, 2);
 
@@ -99,7 +101,8 @@ $(".saleForm").on("click", "button.removeProduct", function(){
 
 	//}else{
 
-    	totalPrice()
+		totalPrice()
+		listProducts()
 
 	//}
 
@@ -149,6 +152,129 @@ $("#newPaymentMethod").change(function(){
 
 	
 
+})
+
+function listProducts(){
+
+	var productsList = [];
+
+	var product = $(".newProductDescription");
+
+	var quantity = $(".newProductQuantity");
+
+	var price = $(".newProductPrice");
+
+	for(var i = 0; i < product.length; i++){
+
+		productsList.push({ "id" : $(product[i]).attr("idProduct"), 
+							  "product" : $(product[i]).val(),
+							  "quantity" : $(quantity[i]).val(),
+							  "stock" : $(quantity[i]).attr("newStock"),
+							  "price" : $(price[i]).attr("realPrice"),
+							  "totalPrice" : $(price[i]).val()})
+
+	}
+
+	console.log("productsList", productsList);
+	$("#productsList").val(JSON.stringify(productsList)); 
+
+}
+
+function paymentMethod(){
+
+	if($("#newPaymentMethod").val() == "cash"){
+
+		$("#showPaymentMethod").val("cash");
+
+	}else if($("#newPaymentMethod").val() == "card"){
+
+		$("#showPaymentMethod").val("card");
+
+	}else{
+
+		$("#showPaymentMethod").val("voucher");
+
+	}
+
+}
+
+$(".saleForm").on("change", "input.newProductQuantity", function(){
+
+	var price = $(this).parent().parent().children(".enterPrice").children().children(".newProductPrice");
+
+	var finalPrice = $(this).val() * price.attr("realPrice");
+	
+	price.val(finalPrice);
+
+	var newStock = Number($(this).attr("stock")) - $(this).val();
+
+	$(this).attr("newStock", newStock);
+
+	console.log("$(this).attr(\"stock\")", $(this).attr("stock"));
+	if(Number($(this).val()) > Number($(this).attr("stock"))){
+
+		$(this).val(1);
+
+		var finalPrice = $(this).val() * price.attr("realPrice");
+
+		price.val(finalPrice);
+
+		addingTotalPrices();
+
+		swal({
+	      title: "Out of stock !!!",
+	      text: "¡There's only"+$(this).attr("stock")+" units!",
+	      type: "error",
+	      confirmButtonText: "Close!"
+	    });
+
+	    return;
+
+	}
+
+	totalPrice()
+	listProducts()
+
+})
+
+$(".saleForm").on("change", "select.newProductDescription", function(){
+
+	var productName = $(this).val();
+
+	var newProductDescription = $(this).parent().parent().parent().children().children().children(".newProductDescription");
+
+	var newProductPrice = $(this).parent().parent().parent().children(".enterPrice").children().children(".newProductPrice");
+
+	var newProductQuantity = $(this).parent().parent().parent().children(".enterQuantity").children(".newProductQuantity");
+
+	var datum = new FormData();
+    datum.append("productName", productName);
+
+
+	  $.ajax({
+
+     	url:"ajax/products.ajax.php",
+      	method: "POST",
+      	data: datum,
+      	cache: false,
+      	contentType: false,
+      	processData: false,
+      	dataType:"json",
+      	success:function(answer){
+      	    
+      	    $(newProductDescription).attr("idProduct", answer["id"]);
+      	    $(newProductQuantity).attr("stock", answer["stock"]);
+      	    $(newProductQuantity).attr("newStock", Number(answer["stock"])-1);
+      	    $(newProductPrice).val(answer["sellingPrice"]);
+      	    $(newProductPrice).attr("realPrice", answer["sellingPrice"]);
+
+  	      // GROUP PRODUCTS IN JSON FORMAT
+
+	        listProducts()
+
+      	}
+
+      })
 })
 
 // todo: Changing stock number after sale
