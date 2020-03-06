@@ -26,7 +26,6 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 
       	    var product = answer["product"];
 			var price = answer["sellingPrice"];
-			var stock = answer["stock"];
 
           	$(".newProduct").append(
 

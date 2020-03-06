@@ -18,6 +18,13 @@
 			</li>
 
 			<li>
+				<a href="customers">
+					<i class="fa fa-users"></i>
+					<span>Customers</span>
+				</a>
+			</li>
+
+			<li>
 				<a href="categories">
 					<i class="fa fa-th"></i>
 					<span>Categories</span>
@@ -28,6 +35,13 @@
 				<a href="products">
                     <i class="fa fa-coffee"></i>
 					<span>Products</span>
+				</a>
+			</li>
+
+			<li>
+				<a href="open-tables">
+					<i class="fa fa-edit"></i>
+					<span>Open Tables</span>
 				</a>
 			</li>
 
