@@ -192,6 +192,34 @@
 
                 </div>
 
+                <div class="col-xs-6"> 
+
+                  <div class="form-group">   
+
+                    <label>     
+
+                      <input type="checkbox" class="minimal tax" checked>
+
+                      Tax
+
+                    </label>
+
+                  </div>
+
+                </div>
+
+                <div class="col-xs-6" style="padding:0">
+
+                  <div class="input-group"> 
+
+                    <input type="number" class="form-control input-lg newTax" min="12" max="15" value="13" required>
+
+                    <span class="input-group-addon"><i class="fa fa-percent"></i></span>
+
+                  </div>
+
+                </div>
+
               </div>
 
             </div>

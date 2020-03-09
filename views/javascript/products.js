@@ -101,6 +101,9 @@ $(".percent").on("ifChecked",function(){
 
 })
 
+//TAX TODO:
+
+
 //Edit product
 $(".productsTable tbody").on("click", "button.btnEditProduct", function(){
 

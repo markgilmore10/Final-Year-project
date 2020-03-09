@@ -1,5 +1,5 @@
 <?php
-
+ 
 class productsController{
 	
 	static public function ShowProductsController($item, $value){
