@@ -102,6 +102,18 @@ $(".percent").on("ifChecked",function(){
 })
 
 //TAX TODO:
+$("#newBuyingPrice, #editBuyingPrice").change(function(){
+
+	if($(".tax").prop("checked")){
+
+		var taxPercent = $(".newTax").val();
+		
+		var tax = Number(($("#newBuyingPrice").val()*taxPercent/100))+Number($("#newBuyingPrice").val());
+
+		$("#newSellingPrice").val(tax);
+		$("#newSellingPrice").prop("readonly", true);
+	}
+})
 
 
 //Edit product
