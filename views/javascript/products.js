@@ -130,6 +130,13 @@ $("#newTax").change(function(){
 	
 })
 
+$(".tax").on("ifUnchecked",function(){
+	
+	$("#newSellingPrice").prop("readonly",false);
+	$("#editSellingPrice").prop("readonly",false);
+
+})
+
 
 //Edit product
 $(".productsTable tbody").on("click", "button.btnEditProduct", function(){
