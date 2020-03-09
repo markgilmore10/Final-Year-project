@@ -54,6 +54,10 @@
       <script src="views/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
       <!-- Sweet Alert -->
       <script src="views/plugins/sweetalert/sweetalert.all.js"></script>
+      <!-- InputMask -->
+      <script src="views/plugins/input-mask/jquery.inputmask.js"></script>
+      <script src="views/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+      <script src="views/plugins/input-mask/jquery.inputmask.extensions.js"></script>
       
     </head>
 

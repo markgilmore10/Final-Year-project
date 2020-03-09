@@ -181,7 +181,7 @@
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                <input class="form-control input-lg" type="text" name="newDob" placeholder="Birth Date" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
+                <input class="form-control input-lg" type="text" name="newDob" placeholder="Date of Birth" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask required>
 
               </div>
 
@@ -206,7 +206,7 @@
         $createCustomer -> CreateCustomerController();
 
       ?>
-      
+
     </div>
 
   </div>
