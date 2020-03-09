@@ -115,6 +115,21 @@ $("#newBuyingPrice, #editBuyingPrice").change(function(){
 	}
 })
 
+$("#newTax").change(function(){
+
+	if($(".tax").prop("checked")){
+
+		var taxPercent = $(this).val();
+		
+		var tax = Number(($("#newBuyingPrice").val()*vatPercent/100))
+		+Number($("#newBuyingPrice").val());
+
+		$("#newSellingPrice").val(tax);
+		$("#newSellingPrice").prop("readonly",true);
+	}
+	
+})
+
 
 //Edit product
 $(".productsTable tbody").on("click", "button.btnEditProduct", function(){
