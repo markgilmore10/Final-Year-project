@@ -137,6 +137,13 @@ $(".tax").on("ifUnchecked",function(){
 
 })
 
+$(".tax").on("ifChecked",function(){
+	
+	$("#newSellingPrice").prop("readonly",true);
+	$("#editSellingPrice").prop("readonly",true);
+
+})
+
 
 //Edit product
 $(".productsTable tbody").on("click", "button.btnEditProduct", function(){
