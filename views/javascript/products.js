@@ -108,10 +108,11 @@ $("#newBuyingPrice, #editBuyingPrice").change(function(){
 
 		var taxPercent = $(".newTax").val();
 		
-		var tax = Number(($("#newBuyingPrice").val()*taxPercent/100))+Number($("#newBuyingPrice").val());
+		var tax = Number(($("#newBuyingPrice").val()*taxPercent/100))
+		+Number($("#newBuyingPrice").val());
 
-		$("#newSellingPrice").val(tax);
-		$("#newSellingPrice").prop("readonly", true);
+		$("#newTaxPrice").val(tax);
+		$("#newTaxPrice").prop("readonly", true);
 	}
 })
 
@@ -121,25 +122,25 @@ $("#newTax").change(function(){
 
 		var taxPercent = $(this).val();
 		
-		var tax = Number(($("#newBuyingPrice").val()*vatPercent/100))
+		var tax = Number(($("#newBuyingPrice").val()*taxPercent/100))
 		+Number($("#newBuyingPrice").val());
 
-		$("#newSellingPrice").val(tax);
-		$("#newSellingPrice").prop("readonly",true);
+		$("#newTaxPrice").val(tax);
+		$("#newTaxPrice").prop("readonly",true);
 	}
 	
 })
 
 $(".tax").on("ifUnchecked",function(){
 	
-	$("#newSellingPrice").prop("readonly",false);
+	$("#newTaxPrice").prop("readonly",false);
 	$("#editSellingPrice").prop("readonly",false);
 
 })
 
 $(".tax").on("ifChecked",function(){
 	
-	$("#newSellingPrice").prop("readonly",true);
+	$("#newTaxPrice").prop("readonly",true);
 	$("#editSellingPrice").prop("readonly",true);
 
 })
