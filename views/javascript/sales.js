@@ -7,7 +7,6 @@ $('.salesTable').DataTable({
 
 $(".salesTable tbody").on("click", "button.addProductSale", function(){
 
-
     var idProduct = $(this).attr("idProduct");
    
 	var datum = new FormData();
@@ -26,6 +25,7 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 
       	    var product = answer["product"];
 			var price = answer["sellingPrice"];
+			var stock = answer["stock"];
 
           	$(".newProduct").append(
 
@@ -41,7 +41,13 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 
 	            '</div>'+
 
-	          '</div>'+
+			  '</div>'+
+			  
+			  '<div class="col-xs-3">'+
+	            
+	             '<input type="number" class="form-control newProductQuantity" name="newProductQuantity" min="1" value="1" stock="' + stock + '" newStock="' + Number(stock-1) + '" required>'+
+
+	          '</div>' +
 
 	          '<div class="col-xs-3 enterPrice" style="padding-left:0px">'+
 
@@ -201,9 +207,9 @@ $(".saleForm").on("change", "input.newProductQuantity", function(){
 
 	var price = $(this).parent().parent().children(".enterPrice").children().children(".newProductPrice");
 
-	var finalPrice = $(this).val() * price.attr("realPrice");
+	//var finalPrice = $(this).val() * price.attr("realPrice");
 	
-	price.val(finalPrice);
+	//price.val(finalPrice);
 
 	var newStock = Number($(this).attr("stock")) - $(this).val();
 
@@ -214,11 +220,11 @@ $(".saleForm").on("change", "input.newProductQuantity", function(){
 
 		$(this).val(1);
 
-		var finalPrice = $(this).val() * price.attr("realPrice");
+		//var finalPrice = $(this).val() * price.attr("realPrice");
 
-		price.val(finalPrice);
+		//price.val(finalPrice);
 
-		addingTotalPrices();
+		//addingTotalPrices();
 
 		swal({
 	      title: "Out of stock !!!",
@@ -244,7 +250,7 @@ $(".saleForm").on("change", "select.newProductDescription", function(){
 
 	var newProductPrice = $(this).parent().parent().parent().children(".enterPrice").children().children(".newProductPrice");
 
-	var newProductQuantity = $(this).parent().parent().parent().children(".enterQuantity").children(".newProductQuantity");
+	var newProductQuantity = $(this).val(); // need to fetch new quantity
 
 	var datum = new FormData();
     datum.append("productName", productName);
@@ -266,8 +272,6 @@ $(".saleForm").on("change", "select.newProductDescription", function(){
       	    $(newProductQuantity).attr("newStock", Number(answer["stock"])-1);
       	    $(newProductPrice).val(answer["sellingPrice"]);
       	    $(newProductPrice).attr("realPrice", answer["sellingPrice"]);
-
-  	      // GROUP PRODUCTS IN JSON FORMAT
 
 	        listProducts()
 

@@ -10,7 +10,7 @@
 
           <div class="box-header with-border"></div>
 
-          <form role="form" method="post" class="saleForm">
+          <form role="form" method="post" class="saleForm"> <!-- Sale Form --> 
 
             <div class="box-body">
                 
@@ -23,9 +23,9 @@
                         
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                        <input type="text" class="form-control" name="newSeller" id="newSeller" value="<?php echo $_SESSION["name"]; ?>" readonly>
+                        <input type="text" class="form-control" name="newSeller" id="newSeller" value="<?php echo $_SESSION["name"]; ?>" readonly> <!-- Variable Session Name -->
 
-                        <input type="hidden" name="idSeller" value="<?php echo $_SESSION["id"]; ?>">
+                        <input type="hidden" name="idSeller" value="<?php echo $_SESSION["id"]; ?>"> <!-- ID Code for Database -->
 
                       </div>
 
@@ -47,8 +47,8 @@
                           if(!$sales){
 
                             echo '<input type="text" class="form-control" name="newSale" id="newSale" value="10001" readonly>';
-                          }
-                          else{
+                            
+                          }else{
 
                             foreach ($sales as $key => $value) {
                               
@@ -78,19 +78,32 @@
                       </div>
 
                     </div>
+
+                    <!-- Customer Number -->              
+                    <div class="form-group">
+
+                      <div class="input-group">
+                        
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+                        <input type="text" class="form-control" name="custNo" id="custNo" placeholder="Customer Number">
+
+                      </div>
+
+                    </div>
                     
                     <!-- Products -->
                     <div class="form-group row newProduct"></div>
 
                     <input type="hidden" name="productsList" id="productsList">
 
-                    <button type="button" class="btn btn-default hidden-lg btnAddProduct">Add Product</button>
+                    <button type="button" class="btn btn-default hidden-lg btnAddProduct">Products</button> <!-- Button view for tablet to switch screens -->
 
                     <hr>
 
                     <div class="row">
 
-                      <!-- Tax and Total -->
+                      <!-- Total -->
                       <div class="col-xs-8 pull-right">
 
                         <table class="table">

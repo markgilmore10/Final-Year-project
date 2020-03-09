@@ -4,7 +4,7 @@
 
     <h1>
 
-      Open Tables
+      Sales
 
     </h1>
 
@@ -37,11 +37,11 @@
            <tr>
              
              <th style="width:10px">#</th>
-             <th>Receipt Number</th>
+             <th>Table Number</th>
              <th>Staff</th>
+             <th>Products</th>
              <th>Net cost</th>
              <th>Total cost</th>
-             <th>Payment Method</th>
              <th>Date</th>
 
            </tr> 
