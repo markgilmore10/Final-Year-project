@@ -2,6 +2,16 @@
 
 class CustomerController{
 
+    static public function ShowCustomerController($item, $value){
+
+		$table = "customers";
+
+		$answer = CustomersModel::ShowCustomersModel($table, $item, $value);
+
+		return $answer;
+
+	}
+
 	static public function CreateCustomerController(){
 
 		if(isset($_POST["newCustomer"])){
@@ -67,4 +77,5 @@ class CustomerController{
 
 		}
 
-	}
+    }
+}

@@ -114,6 +114,7 @@
       <script src="views/javascript/categories.js"></script>
       <script src="views/javascript/products.js"></script>
       <script src="views/javascript/sales.js"></script>
+      <script src="views/javascript/customers.js"></script>
 
     </body>
 

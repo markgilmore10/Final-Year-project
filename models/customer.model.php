@@ -5,7 +5,7 @@ require_once "connection.php";
 class CustomersModel{
 
     // Create Customer
-	static public function mdlAddCustomer($table, $data){
+	static public function AddCustomerModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("INSERT INTO $table(name, idNumber, address, email, phone, dob) VALUES (:name, :idNumber, :address, :email, :phone, :dob)");
 
@@ -27,6 +27,35 @@ class CustomersModel{
 		}
 
 		$stmt->close();
+		$stmt = null;
+
+    }
+    
+    // Show Customers
+    static public function ShowCustomersModel($table, $item, $value){
+
+		if($item != null){
+
+			$stmt = Connection::connect()->prepare("SELECT * FROM $table WHERE $item = :$item");
+
+			$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetch();
+
+		}else{
+
+			$stmt = Connection::connect()->prepare("SELECT * FROM $table");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+
+		$stmt -> close();
+
 		$stmt = null;
 
 	}

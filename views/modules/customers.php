@@ -53,7 +53,7 @@
             $item = null;
             $valor = null;
 
-            $Customers = controllerCustomers::ctrShowCustomers($item, $valor);
+            $Customers = CustomerController::ShowCustomerController($item, $valor);
 
             foreach ($Customers as $key => $value) {
               
@@ -202,7 +202,7 @@
 
       <?php
 
-        $createCustomer = new CustomersController();
+        $createCustomer = new CustomerController();
         $createCustomer -> CreateCustomerController();
 
       ?>
