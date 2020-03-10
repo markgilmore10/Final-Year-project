@@ -38,7 +38,7 @@
              <th>Phone Number</th>
              <th>D.O.B</th>
              <th>Discount</th>
-             <th>Total purchases</th>
+             <!--<th>Total purchases</th>-->
              <th>Last Purchase</th>
              <th>Registered</th>
              <th>Actions</th>
@@ -69,7 +69,7 @@
                       <td>'.$value["mobile"].'</td>
                       <td>'.$value["dob"].'</td>   
                       <td>'.$value["discount"].'</td>        
-                      <td>'.$value["totalPurchases"].'</td>
+    
                       <td>'.$value["lastPurchase"].'</td>
                       <td>'.$value["registerDate"].'</td>
 
@@ -183,7 +183,7 @@
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                <input class="form-control input-lg" type="text" name="newDob" placeholder="Date of Birth" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask required>
+                <input class="form-control input-lg" type="text" name="newDob" placeholder="Date of Birth" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
 
               </div>
 
@@ -251,7 +251,8 @@
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input class="form-control input-lg" type="text" name="editCustomer" placeholder="Name" required>
+                <input class="form-control input-lg" type="text" name="editCustomer" id="editCustomer" required>
+                <input type="hidden" id="idCustomer" name="idCustomer">
 
               </div>
 
@@ -262,7 +263,7 @@
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                <input class="form-control input-lg" type="number" min="0" name="editId" placeholder="ID Number" required>
+                <input class="form-control input-lg" type="number" min="0" name="editId" id="editId" required>
 
               </div>
 
@@ -273,7 +274,7 @@
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                <input class="form-control input-lg" type="text" name="editAddress" placeholder="Address" required>
+                <input class="form-control input-lg" type="text" name="editAddress" id="editAddress" required>
 
               </div>
 
@@ -284,7 +285,7 @@
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                <input class="form-control input-lg" type="text" name="editEmail" placeholder="Email" required>
+                <input class="form-control input-lg" type="text" name="editEmail" id="editEmail" required>
 
               </div>
 
@@ -295,7 +296,7 @@
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                <input class="form-control input-lg" type="text" name="editMobile" placeholder="Mobile Number" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
+                <input class="form-control input-lg" type="text" name="editMobile" id="editMobile" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
 
               </div>
 
@@ -306,7 +307,7 @@
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                <input class="form-control input-lg" type="text" name="editDob" placeholder="Date of Birth" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask required>
+                <input class="form-control input-lg" type="text" name="editDob" id="editDob" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
 
               </div>
 
@@ -317,7 +318,7 @@
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                <input class="form-control input-lg" type="number" min="0" name="editDiscount" placeholder="Discount" required>
+                <input class="form-control input-lg" type="number" min="0" name="editDiscount" id="editDiscount" required>
 
               </div>
 
@@ -337,9 +338,24 @@
 
       </form>
 
+      <?php
+
+        $EditCustomer = new CustomerController();
+        $EditCustomer -> EditCustomerController();
+
+      ?>
+
+
       </div>
 
   </div>
 
 </div>
+
+<?php
+
+  $deleteCustomer = new CustomerController();
+  $deleteCustomer -> DeleteCustomerController();
+
+?>
 

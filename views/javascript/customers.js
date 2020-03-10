@@ -30,3 +30,25 @@ $(".tables").on("click", "tbody .btnEditCustomer", function(){
   	})
 
 })
+
+$(".tables").on("click", "tbody .btnDeleteCustomer", function(){
+
+	var idCustomer = $(this).attr("idCustomer");
+	
+	swal({
+        title: 'Delete this customer?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancel',
+        confirmButtonText: 'Delete'
+      }).then(function(result){
+        if (result.value) {
+          
+            window.location = "index.php?route=customers&idCustomer="+idCustomer;
+        }
+
+  })
+
+})
