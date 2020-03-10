@@ -35,8 +35,9 @@
              <th>ID</th>
              <th>Address</th>
              <th>Email</th>
-             <th>Phone</th>
+             <th>Phone Number</th>
              <th>D.O.B</th>
+             <th>Discount</th>
              <th>Total purchases</th>
              <th>Last Purchase</th>
              <th>Registered</th>
@@ -65,8 +66,9 @@
                       <td>'.$value["idNumber"].'</td>
                       <td>'.$value["address"].'</td>
                       <td>'.$value["email"].'</td>
-                      <td>'.$value["phone"].'</td>
-                      <td>'.$value["dob"].'</td>         
+                      <td>'.$value["mobile"].'</td>
+                      <td>'.$value["dob"].'</td>   
+                      <td>'.$value["discount"].'</td>        
                       <td>'.$value["totalPurchases"].'</td>
                       <td>'.$value["lastPurchase"].'</td>
                       <td>'.$value["registerDate"].'</td>
@@ -224,7 +226,7 @@
 
 </div>
 
-<div id="modalEditCustomer" class="modal fade" role="dialog">
+<div id="modEditCustomer" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
 
