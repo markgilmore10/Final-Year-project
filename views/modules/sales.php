@@ -39,8 +39,11 @@
              <th style="width:10px">#</th>
              <th>Receipt Number</th>
              <th>Staff</th>
-             <th>Net cost</th>
-             <th>Total cost</th>
+             <th>Customer</th>
+             <th>Products</th>
+             <th>Net Price</th>
+             <th>Staff</th>
+             <th>Total Price</th>
              <th>Payment Method</th>
              <th>Date</th>
 

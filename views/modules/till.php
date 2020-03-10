@@ -84,14 +84,33 @@
 
                       <div class="input-group">
                         
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                        <select class="form-control" name="selectCustomer" id="selectCustomer" required>
+                          
+                            <option value="">Select customer</option>
 
-                        <input type="text" class="form-control" name="custNo" id="custNo" placeholder="Customer Number">
+                            <?php 
+
+                            $item = null;
+                            $value = null;
+
+                            $customers = CustomerController::ShowCustomerController($item, $value);
+
+                            foreach ($customers as $key => $value) {
+                              echo '<option value="'.$value["id"].'">'.$value["name"].'</option>';
+                            }
+
+
+                            ?>
+
+                        </select>
+
+                        <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalAddCustomer" data-dismiss="modal">Add Customer</button></span>
 
                       </div>
 
                     </div>
-                    
+
                     <!-- Products -->
                     <div class="form-group row newProduct"></div>
 
