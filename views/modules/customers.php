@@ -62,7 +62,7 @@
 
                       <td>'.($key+1).'</td>
                       <td>'.$value["name"].'</td>
-                      <td>'.$value["id"].'</td>
+                      <td>'.$value["idNumber"].'</td>
                       <td>'.$value["address"].'</td>
                       <td>'.$value["email"].'</td>
                       <td>'.$value["phone"].'</td>
@@ -187,6 +187,17 @@
 
             </div>
 
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <input class="form-control input-lg" type="number" min="0" name="newDiscount" placeholder="Discount" required>
+
+              </div>
+
+            </div>
+
           </div>
 
         </div>
@@ -212,3 +223,121 @@
   </div>
 
 </div>
+
+<div id="modalEditCustomer" class="modal fade" role="dialog">
+  
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="post">
+
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Edit Customer</h4>
+
+        </div>
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input class="form-control input-lg" type="text" name="editCustomer" placeholder="Name" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <input class="form-control input-lg" type="number" min="0" name="editId" placeholder="ID Number" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <input class="form-control input-lg" type="text" name="editAddress" placeholder="Address" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                <input class="form-control input-lg" type="text" name="editEmail" placeholder="Email" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                <input class="form-control input-lg" type="text" name="editMobile" placeholder="Mobile Number" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                <input class="form-control input-lg" type="text" name="editDob" placeholder="Date of Birth" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <input class="form-control input-lg" type="number" min="0" name="editDiscount" placeholder="Discount" required>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+
+          <button type="submit" class="btn btn-primary">Save</button>
+
+        </div>
+
+      </form>
+
+      </div>
+
+  </div>
+
+</div>
+
