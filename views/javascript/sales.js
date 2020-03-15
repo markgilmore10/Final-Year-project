@@ -102,7 +102,7 @@ $(".saleForm").on("click", "button.removeProduct", function(){
 	//if($(".newProductTotal").children().length == 0){
 
 		$("#newTotalSale").val(0);
-		$("#totalSale").val(0);
+		$("#saleTotal").val(0);
 		$("#newTotalSale").attr("totalSale",0);
 
 	//}else{
@@ -161,27 +161,33 @@ $("#newPaymentMethod").change(function(){
 
 })
 
-// Sale - Discount
+// Sale Less Discount
 
 function lessDiscount(){
 
 	var discount = $("#newDiscountSale").val();
 
-	var totalPrice = $("#newDiscountSale").attr("totalSale");
+	var totalPrice = $("#newSaleTotal").attr("totalSale");
 
-	var totalLessDiscount = Math.round(Number(totalPrice * (1 - discount/100)));
-// discount price
-	//var totalLessDiscount = Number(discountPrice) - Number(totalPrice);
+	var discountPrice = Number(1 - discount/100);
+
+	var totalLessDiscount = Number(totalPrice) * Number(discountPrice);
 	
 	$("#newSaleTotal").val(totalLessDiscount);
 
 	$("#saleTotal").val(totalLessDiscount);
 
-	$("#newDiscountPrice").val(totalLessDiscount);
+	$("#newDiscountPrice").val(discountPrice);
 
 	$("#newNetPrice").val(totalPrice);
 
 }
+
+$("#newDiscountSale").change(function(){
+
+	lessDiscount();
+
+});
 
 function listProducts(){
 
