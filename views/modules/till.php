@@ -191,8 +191,8 @@
 
                         <div class="btn-toolbar">
 
-                            <button type="submit" class="btn btn-primary pull-right" value="cash" name="newPaymenMethod" id="newPaymenMethod" required>Cash</button>
-                            <button type="submit" class="btn btn-warning pull-right" value="card" name="newPaymeMethod" id="newPaymeMethod" required>Card</button>
+                            <button type="submit" class="btn btn-primary pull-right" value="cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
+                            <button type="submit" class="btn btn-warning pull-right" value="card" name="newPaymentMethod" id="newPaymentMethod" required>Card</button>
                             <button type="submit" class="btn btn-danger pull-right" value="voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
                             <button type="submit" class="btn btn-primary pull-right">Split Bill</button>
                             <button type="submit" class="btn btn-primary pull-right">Open Table</button>

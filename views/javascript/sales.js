@@ -145,18 +145,7 @@ $("#newSaleTotal").number(true, 2); // jQuery number plugin trying to format tot
 // Payment Method
 $("#newPaymentMethod").change(function(){
 
-	var method = $(this).val();
-
-	if(method == "cash"){
-
-		console.log(method);
-
-	}else{
-
-		console.log(method);
-
-	}
-
+	paymentMethod()
 	
 
 })
