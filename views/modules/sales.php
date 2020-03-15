@@ -46,6 +46,7 @@
              <th>Total Price</th>
              <th>Payment Method</th>
              <th>Date</th>
+             <th>Actions</th>
 
            </tr> 
 

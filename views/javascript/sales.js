@@ -65,6 +65,7 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 			
 			totalPrice()
 			listProducts()
+			lessDiscount()
 
 			$(".newProductPrice").number(true, 2);
 
@@ -108,6 +109,7 @@ $(".saleForm").on("click", "button.removeProduct", function(){
 
 		totalPrice()
 		listProducts()
+		lessDiscount()
 
 	//}
 
@@ -159,6 +161,28 @@ $("#newPaymentMethod").change(function(){
 
 })
 
+// Sale - Discount
+
+function lessDiscount(){
+
+	var discount = $("#newDiscountSale").val();
+
+	var totalPrice = $("#newDiscountSale").attr("totalSale");
+
+	var totalLessDiscount = Math.round(Number(totalPrice * (1 - discount/100)));
+// discount price
+	//var totalLessDiscount = Number(discountPrice) - Number(totalPrice);
+	
+	$("#newSaleTotal").val(totalLessDiscount);
+
+	$("#saleTotal").val(totalLessDiscount);
+
+	$("#newDiscountPrice").val(totalLessDiscount);
+
+	$("#newNetPrice").val(totalPrice);
+
+}
+
 function listProducts(){
 
 	var productsList = [];
@@ -207,30 +231,28 @@ $(".saleForm").on("change", "input.newProductQuantity", function(){
 
 	var price = $(this).parent().parent().children(".enterPrice").children().children(".newProductPrice");
 
-	//var finalPrice = $(this).val() * price.attr("realPrice");
+	var finalPrice = $(this).val() * price.attr("realPrice");
 	
-	//price.val(finalPrice);
+	price.val(finalPrice);
 
 	var newStock = Number($(this).attr("stock")) - $(this).val();
 
 	$(this).attr("newStock", newStock);
 
-	console.log("$(this).attr(\"stock\")", $(this).attr("stock"));
 	if(Number($(this).val()) > Number($(this).attr("stock"))){
 
-		$(this).val(1);
+		$(this).val(0);
 
-		//var finalPrice = $(this).val() * price.attr("realPrice");
+		var finalPrice = $(this).val() * price.attr("realPrice");
 
-		//price.val(finalPrice);
+		price.val(finalPrice);
 
-		//addingTotalPrices();
+		totalPrice()
 
 		swal({
-	      title: "Out of stock !!!",
-	      text: "¡There's only"+$(this).attr("stock")+" units!",
+	      title: "Not enough stock !!!",
 	      type: "error",
-	      confirmButtonText: "Close!"
+	      confirmButtonText: "Close"
 	    });
 
 	    return;
@@ -239,6 +261,7 @@ $(".saleForm").on("change", "input.newProductQuantity", function(){
 
 	totalPrice()
 	listProducts()
+	lessDiscount()
 
 })
 

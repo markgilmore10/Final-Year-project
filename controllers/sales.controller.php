@@ -48,9 +48,13 @@ class SalesController{
 
 			$table = "sales";
 
-            $data = array("idSeller"=>$_POST["idSeller"],
-                          "code"=>$_POST["newSale"],
+			$data = array("code"=>$_POST["newSale"],
+						  "idSeller"=>$_POST["idSeller"],
+						  "tableNo"=>$_POST["tableNo"],
+						  "idCustomer"=>$_POST["selectCustomer"],
 						  "products"=>$_POST["productsList"],
+						  "netPrice"=>$_POST["newNetPrice"],
+						  "discount"=>$_POST["newDiscountPrice"],
 						  "totalPrice"=>$_POST["newSaleTotal"],
 						  "paymentMethod"=>$_POST["showPaymentMethod"]);
 

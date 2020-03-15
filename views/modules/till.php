@@ -54,7 +54,7 @@
                               
                             }
 
-                            $code = $value["code"] +1;
+                            $code = $value["code"] + 1;
 
                             echo '<input type="text" class="form-control" name="newSale" id="newSale" value="'.$code.'" readonly>';
 
@@ -100,12 +100,11 @@
                               echo '<option value="'.$value["id"].'">'.$value["name"].'</option>';
                             }
 
-
                             ?>
 
                         </select>
 
-                        <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalAddCustomer" data-dismiss="modal">Add Customer</button></span>
+                        <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#addCustomer" data-dismiss="modal">Add Customer</button></span>
 
                       </div>
 
@@ -120,15 +119,17 @@
 
                     <hr>
 
-                    <div class="row">
+                    <!-- Total -->
 
-                      <!-- Total -->
+                    <div class="row">
+                      
                       <div class="col-xs-8 pull-right">
 
                         <table class="table">
                           
                           <thead>
                             
+                            <th>Discount</th>
                             <th>Total</th>
 
                           </thead>
@@ -138,29 +139,29 @@
                             
                             <tr>
                               
-                            <!-- <td style="width: 50%">
+                              <td style="width: 50%">
 
                                 <div class="input-group">
                                   
-                                  <input type="number" class="form-control" name="tax" id="tax" placeholder="0" min="0" required>
+                                  <input type="number" class="form-control" name="newDiscountSale" id="newDiscountSale" placeholder="0" min="0" required>
 
-                                  <input type="hidden" name="tax" id="tax" required>
+                                  <input type="hidden" name="newDiscountPrice" id="newDiscountPrice" required>
 
-                                  <input type="hidden" name="netPrice" id="netPrice" required>
+                                  <input type="hidden" name="newNetPrice" id="newNetPrice" required>
                                   
                                   <span class="input-group-addon"><i class="fa fa-percent"></i></span>
 
                                 </div>
 
-                              </td> -->
+                              </td>
 
-                              <td style="width: 25%">
+                              <td style="width: 50%">
 
                                 <div class="input-group">
                                   
                                   <span class="input-group-addon"><i class="ion ion-social-euro"></i></span>
                                   
-                                  <input type="text" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="" readonly required>
+                                  <input type="number" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="" readonly required>
 
                                   <input type="hidden" name="saleTotal" id="saleTotal" required>
 
@@ -193,6 +194,7 @@
                             <button type="submit" class="btn btn-primary pull-right" value="cash" name="newPaymenMethod" id="newPaymenMethod" required>Cash</button>
                             <button type="submit" class="btn btn-warning pull-right" value="card" name="newPaymeMethod" id="newPaymeMethod" required>Card</button>
                             <button type="submit" class="btn btn-danger pull-right" value="voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
+                            <button type="submit" class="btn btn-primary pull-right">Split Bill</button>
                             <button type="submit" class="btn btn-primary pull-right">Open Table</button>
                             <button type="submit" class="btn btn-primary pull-right">Hold</button>
 

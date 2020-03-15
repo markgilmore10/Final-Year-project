@@ -4,7 +4,7 @@
 
     <h1>
 
-      Sales
+      Open Tables
 
     </h1>
 
@@ -14,20 +14,6 @@
 
     <div class="box">
 
-      <div class="box-header with-border">
-
-        <a href="till">
-
-          <button class="btn btn-primary" >
-        
-            Add sale
-  
-          </button>
-
-        </a>
-
-      </div>
-
       <div class="box-body">
 
         <table class="table table-bordered table-striped dt-responsive tables" width="100%">
@@ -36,13 +22,14 @@
            
            <tr>
              
-             <th style="width:10px">#</th>
-             <th>Table Number</th>
-             <th>Staff</th>
-             <th>Products</th>
-             <th>Net cost</th>
-             <th>Total cost</th>
-             <th>Date</th>
+            <th style="width:10px">#</th>
+            <th>Receipt Number</th>
+            <th>Staff</th>
+            <th>Table Number</th>
+            <th>Products</th>
+            <th>Net Price</th>
+            <th>Date</th>
+            <th>Actions</th>
 
            </tr> 
 
