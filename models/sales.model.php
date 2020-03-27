@@ -62,5 +62,16 @@ class ModelSales{
 		$stmt = null;
 
 	}
+
+	public static function getAll () {
+
+        $stmt = Connection::connect()->prepare("SELECT sales.*, customers.name AS customer FROM sales LEFT JOIN customers ON sales.idCustomer = customers.id ORDER BY id ASC");
+		
+		$stmt->execute();
+		
+		$stmt->setFetchMode(PDO::FETCH_OBJ);
+		
+        return $stmt->fetchAll();
+    }
 	
 }
