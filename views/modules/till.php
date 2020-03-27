@@ -96,7 +96,7 @@
 
                           </div>
                                         
-                          <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#addCustomer" data-dismiss="modal">Add Customer</button></span>
+                          <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#addNewCustomer" data-dismiss="modal">Add Customer</button></span>
                                     
                         </div>
                                 
@@ -248,6 +248,129 @@
     </div>
 
   </section>
+
+</div>
+
+<div id="addNewCustomer" class="modal fade" role="dialog">
+  
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="POST">
+
+        <div class="modal-header" style="background: #3c8dbc; color: #fff">
+          
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+          <h4 class="modal-title">Add Customer</h4>
+
+        </div>
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input class="form-control input-lg" type="text" name="newCustomer" placeholder="Name" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <input class="form-control input-lg" type="number" min="0" name="newId" placeholder="ID Number" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <input class="form-control input-lg" type="text" name="newAddress" placeholder="Address" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                <input class="form-control input-lg" type="text" name="newEmail" placeholder="Email" required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                <input class="form-control input-lg" type="text" name="newMobile" placeholder="Mobile Number" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                <input class="form-control input-lg" type="text" name="newDob" placeholder="Date of Birth" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <input class="form-control input-lg" type="number" min="0" name="newDiscount" placeholder="Discount" required>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+
+        </div>
+
+      </form>
+
+      <?php
+
+        $createCustomer = new CustomerController();
+        $createCustomer -> CreateCustomerController();
+
+      ?>
+
+    </div>
+
+  </div>
 
 </div>
 
