@@ -51,12 +51,12 @@ class SalesController{
 			$data = array("code"=>$_POST["newSale"],
 						  "idSeller"=>$_POST["idSeller"],
 						  "tableNo"=>$_POST["tableNo"],
-						  "idCustomer"=>$_POST["selectCustomer"],
+						  "idCustomer"=>$_POST["customerSearch"],
 						  "products"=>$_POST["productsList"],
 						  "netPrice"=>$_POST["newNetPrice"],
 						  "discount"=>$_POST["newDiscountPrice"],
 						  "totalPrice"=>$_POST["newSaleTotal"],
-						  "paymentMethod"=>$_POST["showPaymentMethod"]);
+						  "paymentMethod"=>$_POST["newPaymentMethod"]);
 
 			$answer = ModelSales::AddSaleModel($table, $data);
 
@@ -85,6 +85,10 @@ class SalesController{
 
 		}
 
+	}
+	
+	public static function index () {
+        return ModelSales::getAll();
     }
 
 }

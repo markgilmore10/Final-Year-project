@@ -82,7 +82,7 @@
                     <!-- Customer Number -->              
                     <div class="form-group">
 
-                      <input type="hidden" name="selectCustomer" id="customer_id" required>
+                      <input type="hidden" name="selectCustomer" id="selectCustomer" required>
 
                         <div class="input-group">
                                         
@@ -90,7 +90,7 @@
 
                           <div id="customer_div">
 
-                            <input type="text" class="form-control" id="customerSearch" name="idNumber" placeholder="Search Customer">
+                            <input type="text" class="form-control" id="customerSearch" name="customerSearch" placeholder="Search Customer">
                             
                             <div class="dropdown" id="results" style="display: none"></div>
 
@@ -183,9 +183,9 @@
 
                         <div class="btn-toolbar">
 
-                            <button type="submit" class="btn btn-primary pull-right" value="cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
-                            <button type="submit" class="btn btn-warning pull-right" value="card" name="newPaymentMethod" id="newPaymentMethod" required>Card</button>
-                            <button type="submit" class="btn btn-danger pull-right" value="voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
+                            <button type="submit" class="btn btn-primary pull-right" value="Cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
+                            <button type="submit" class="btn btn-warning pull-right" value="Card" name="newPaymentMethod" id="newPaymentMethod" required>Card</button>
+                            <button type="submit" class="btn btn-danger pull-right" value="Voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
                             <button type="submit" class="btn btn-primary pull-right">Split Bill</button>
                             <button type="submit" class="btn btn-primary pull-right">Open Table</button>
                             <button type="submit" class="btn btn-primary pull-right">Hold</button>
@@ -194,7 +194,7 @@
 
                       </div>
 
-                      <input type="hidden" name="showPaymentMethod" id="showPaymentMethod" required>
+                      
 
                     </div>
 
@@ -385,7 +385,7 @@
 
         $("#customerSearch").val($number);
 
-        $("#customer_id").val();
+        $("#selectCustomer").val();
 
         $("#newDiscountSale").val($discount);
 

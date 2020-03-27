@@ -142,14 +142,6 @@ function totalPrice(){
 
 $("#newSaleTotal").number(true, 2); // jQuery number plugin trying to format total - not working
 
-// Payment Method
-$("#newPaymentMethod").change(function(){
-
-	paymentMethod()
-	
-
-})
-
 // Sale Less Discount
 
 function lessDiscount(){
@@ -201,24 +193,6 @@ function listProducts(){
 
 	console.log("productsList", productsList);
 	$("#productsList").val(JSON.stringify(productsList)); 
-
-}
-
-function paymentMethod(){
-
-	if($("#newPaymentMethod").val() == "cash"){
-
-		$("#showPaymentMethod").val("cash");
-
-	}else if($("#newPaymentMethod").val() == "card"){
-
-		$("#showPaymentMethod").val("card");
-
-	}else{
-
-		$("#showPaymentMethod").val("voucher");
-
-	}
 
 }
 
