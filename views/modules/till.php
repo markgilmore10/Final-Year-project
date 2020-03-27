@@ -135,7 +135,7 @@
 
                                 <div class="input-group">
                                   
-                                  <input type="number" class="form-control" name="newDiscountSale" id="newDiscountSale" placeholder="0" min="0" required>
+                                  <input type="number" class="form-control" name="newDiscountSale" id="newDiscountSale" placeholder="0" min="0">
 
                                   <input type="hidden" name="newDiscountPrice" id="newDiscountPrice" required>
 

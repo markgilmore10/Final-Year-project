@@ -32,7 +32,7 @@ class SalesController{
 			    $valueProductId = $value["id"];
 			    $order = "id";
 
-			    $getProduct = ProductsModel::ShowProductsModel($tableProducts, $item, $valueProductId, $order);
+			    $getProduct = ProductsModel::ShowProductsModel($tableProducts, $item, $valueProductId);
 
 				$item1 = "sales";
 				$value1 = $value["quantity"] + $getProduct["sales"];
@@ -45,6 +45,28 @@ class SalesController{
 				$newStock = ProductsModel::UpdateProductModel($tableProducts, $item2, $value2, $valueProductId);
 
 			}
+
+			$tableCustomers = "customers";
+
+			$item = "id";
+			$valueCustomer = $_POST["selectCustomer"];
+
+			$getCustomer = CustomersModel::ShowCustomersModel($tableCustomers, $item, $valueCustomer);
+
+			$item1a = "purchases";
+			$value1a = array_sum($totalPurchase) + $getCustomer["purchases"];
+
+			$customerPurchases = CustomersModel::UpdateCustomerModel($tableCustomers, $item1a, $value1a, $value);
+
+			$item1b = "lastPurchase";
+
+			date_default_timezone_set("Europe/Dublin");
+
+			$date = date('Y-m-d');
+			$hour = date('H:i:s');
+			$value1b = $date.' '.$hour;
+
+			$dateCustomer = CustomersModel::UpdateCustomerModel($tableCustomers, $item1b, $value1b, $value);
 
 			$table = "sales";
 
