@@ -82,32 +82,24 @@
                     <!-- Customer Number -->              
                     <div class="form-group">
 
-                      <div class="input-group">
-                        
-                        <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                        <select class="form-control" name="selectCustomer" id="selectCustomer" required>
-                          
-                            <option value="">Select customer</option>
+                      <input type="hidden" name="selectCustomer" id="customer_id" required>
 
-                            <?php 
+                        <div class="input-group">
+                                        
+                          <span class="input-group-addon"><i class="fa fa-users"></i></span>
 
-                            $item = null;
-                            $value = null;
+                          <div id="customer_div">
 
-                            $customers = CustomerController::ShowCustomerController($item, $value);
+                            <input type="text" class="form-control" id="customerSearch" name="idNumber" placeholder="Search Customer">
+                            
+                            <div class="dropdown" id="results" style="display: none"></div>
 
-                            foreach ($customers as $key => $value) {
-                              echo '<option value="'.$value["id"].'">'.$value["name"].'</option>';
-                            }
-
-                            ?>
-
-                        </select>
-
-                        <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#addCustomer" data-dismiss="modal">Add Customer</button></span>
-
-                      </div>
-
+                          </div>
+                                        
+                          <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#addCustomer" data-dismiss="modal">Add Customer</button></span>
+                                    
+                        </div>
+                                
                     </div>
 
                     <!-- Products -->
@@ -258,3 +250,27 @@
   </section>
 
 </div>
+
+<script>
+    $(document).on("click", ".customer_row", function () {
+
+        var $number = $(this).find('.number').html();
+
+        var $id = $(this).data("id");
+
+        var $discount = $(this).data("discount");
+
+        $("#customerSearch").val($number);
+
+        $("#customer_id").val();
+
+        $("#newDiscountSale").val($discount);
+
+        totalPrice();
+
+        lessDiscount();
+
+        $("#results").hide();
+        
+    });
+</script>

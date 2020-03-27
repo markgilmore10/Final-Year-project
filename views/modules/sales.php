@@ -42,7 +42,6 @@
              <th>Customer</th>
              <th>Products</th>
              <th>Net Price</th>
-             <th>Staff</th>
              <th>Total Price</th>
              <th>Payment Method</th>
              <th>Date</th>
