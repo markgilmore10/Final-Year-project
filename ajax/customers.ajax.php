@@ -21,32 +21,35 @@ class CustomerAjax{
 
 	public function searchCustomer ($request) {
         
-        $customers = CustomerController::searchCustomer($request);
-        
+		$customers = CustomerController::searchCustomer($request);
+		
+		$str = "";
+		
         if ($customers) {
             
             foreach ($customers as $customer) {
 
-				echo '<div class="customer_row" data-id="' . $customer->id . '" data-discount="' . $customer->discount . '" >' +
+				$str .= '<div class="customer_row" data-id="' . $customer->id . '" data-discount="' . $customer->discount . '" >' .
 				
-					 '<div class="name">' . $customer->name . '</div>' +
+						'<div class="name">' . $customer->name . '</div>' .
 					
-					 '<div class="number">' . $customer->idNumber . '</div>' +
+						'<div class="number">' . $customer->idNumber . '</div>' .
 					
-                     '</div>';
+                    	'</div>';
             }
             
         } else {
 
-			echo '<div class="customer_row" data-id="">' +
+			$str .= '<div class="customer_row" data-id="">' .
 			
-				 '<div class="name">No data found</div>' +
-				 
-				 '<div class="number"></div>' +
-				 
-                 '</div>';
+					'<div class="name">No data found</div>' .
+				
+					'<div class="number"></div>' .
+				
+                	'</div>';
         }
-         
+        
+        echo json_encode($str);
     }
 
 }
