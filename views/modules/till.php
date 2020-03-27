@@ -271,6 +271,38 @@
         lessDiscount();
 
         $("#results").hide();
-        
+
     });
+
+    $(document).on("keyup", "#customerSearch", function () {
+
+        var size = $(this).val().length;
+
+        if (size > 2) {
+            $.ajax({
+                url: "ajax/customers.ajax.php",
+                type: "post",
+                data: {
+                    search: true,
+                    number: $(this).val(),
+                },
+                dataType: 'json',
+                success: function (response) {
+                    $("#results").html(response);
+                    $("#results").show();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    $("#results").html('<div class="customer_row" data-id="">Error. Please Try Again</div>');
+                    $("#results").show();
+                    console.log(errorThrown)
+                }
+                
+            });
+            
+            
+        } else {
+            $("#results").html("");
+            $("#results").hide();
+        }
+    })
 </script>
