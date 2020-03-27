@@ -111,5 +111,17 @@ class CustomersModel{
 		$stmt = null;
 
 	}
+
+	static public function searchByNumberId($query){
+
+		$stmt = Connection::connect()->prepare("SELECT * FROM customers WHERE idNumber LIKE '%$query%'");
+		
+		$stmt->setFetchMode(PDO::FETCH_OBJ);
+		
+		$stmt -> execute();
+		
+        return $stmt -> fetchAll();
+    
+    }
 	
 }

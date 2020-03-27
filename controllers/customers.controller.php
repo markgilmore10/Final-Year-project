@@ -182,4 +182,9 @@ class CustomerController{
 		}
 
 	}
+    
+    static public function searchCustomer($request){
+		
+        return CustomersModel::searchByNumberId($request);
+    }
 }
