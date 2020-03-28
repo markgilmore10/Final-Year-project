@@ -16,6 +16,25 @@
                 
                 <div class="box">
 
+                <?php
+
+                    $item = "id";
+                    $value = $_GET["idSale"];
+
+                    $sale = SalesController::ShowSalesController($item, $value);
+
+                    $itemUser = "id";
+                    $valueUser = $sale["idSeller"];
+
+                    $seller = ControllerUsers::ShowUsers($itemUser, $valueUser);
+
+                    $itemCustomers = "id";
+                    $valueCustomers = $sale["idCustomer"];
+
+                    $customers = CustomerController::ShowCustomerController($itemCustomers, $valueCustomers);
+
+                ?>
+
                     <!-- Employee Name -->              
                     <div class="form-group">
 
@@ -23,9 +42,9 @@
                         
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                        <input type="text" class="form-control" name="newSeller" id="newSeller" value="<?php echo $_SESSION["name"]; ?>" readonly> <!-- Variable Session Name -->
+                        <input type="text" class="form-control" name="newSeller" id="newSeller" value="<?php echo $seller["name"]; ?>" readonly>
 
-                        <input type="hidden" name="idSeller" value="<?php echo $_SESSION["id"]; ?>"> <!-- ID Code for Database -->
+                        <input type="hidden" name="idSeller" value="<?php echo $seller["id"]; ?>">
 
                       </div>
 
@@ -38,31 +57,10 @@
                         
                         <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                        <?php 
-                          $item = null;
-                          $value = null;
-
-                          $sales = SalesController::ShowSalesController($item, $value);
-
-                          if(!$sales){
-
-                            echo '<input type="text" class="form-control" name="newSale" id="newSale" value="10001" readonly>';
-                            
-                          }else{
-
-                            foreach ($sales as $key => $value) {
-                              
-                            }
-
-                            $code = $value["code"] + 1;
-
-                            echo '<input type="text" class="form-control" name="newSale" id="newSale" value="'.$code.'" readonly>';
-
-                          }
-
-                        ?>
+                        <input type="text" class="form-control" id="newSale" name="editSale" value="<?php echo $sale["code"]; ?>" readonly>
 
                       </div>
+
 
                     </div>
 
@@ -103,14 +101,62 @@
                     </div>
 
                     <!-- Products -->
-                    <div class="form-group row newProduct"></div>
+                    <div class="form-group row newProduct">
+                      <?php
+
+                        $productList = json_decode($sale["products"], true);
+
+                        foreach ($productList as $key => $value) {
+
+                          $item = "id";
+                          $valueProduct = $value["id"];
+                          $order = "id";
+
+                          $answer = productsController::ShowProductsController($item, $valueProduct, $order);
+
+                          $lastStock = $answer["stock"] + $value["quantity"];
+                          
+                          echo '<div class="row" style="padding:5px 15px">
+                    
+                                <div class="col-xs-6" style="padding-right:0px">
+                    
+                                  <div class="input-group">
+                        
+                                    <span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs removeProduct" idProduct="'.$value["id"].'"><i class="fa fa-times"></i></button></span>
+
+                                    <input type="text" class="form-control newProduct" idProduct="'.$value["id"].'" name="addProduct" value="'.$value["product"].'" readonly required>
+
+                                  </div>
+
+                                </div>
+
+                                <div class="col-xs-3">
+                      
+                                  <input type="number" class="form-control newProductQuantity" name="newProductQuantity" min="1" value="'.$value["quantity"].'" stock="'.$lastStock.'" newStock="'.$value["stock"].'" required>
+
+                                </div>
+
+                                <div class="col-xs-3 enterPrice" style="padding-left:0px">
+
+                                  <div class="input-group">
+
+                                    <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
+                           
+                                    <input type="text" class="form-control newProductPrice" realPrice="'.$answer["sellingPrice"].'" name="newProductPrice" value="'.$value["totalPrice"].'" readonly required>
+           
+                                  </div>
+                       
+                                </div>
+
+                              </div>';
+                        }
+
+
+                        ?>
+
+                    </div>
 
                     <input type="hidden" name="productsList" id="productsList">
-
-                    <button type="button" class="btn btn-default hidden-lg btnAddProduct">Products</button> <!-- Button view for tablet to switch screens -->
-
-                    <hr>
-
                     <!-- Total -->
 
                     <div class="row">
