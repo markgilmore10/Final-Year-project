@@ -41,7 +41,6 @@
              <th>Staff</th>
              <th>Table Number</th>
              <th>Customer</th>
-             <th>Products</th>
              <th>Net Price</th>
              <th>Discount</th>
              <th>Total Price</th>
@@ -54,33 +53,73 @@
           </thead>
 
           <tbody>
-                    <?php
-                    $sr = 1;
-                    $sales = SalesController::index();
-                    foreach ($sales as $sale) :?>
-                        <tr>
-                            <td><?= $sr++ ?></td>
-                            <td><?= $sale->code ?></td>
-                            <td><?= $sale->idSeller ?></td>
-                            <td><?= $sale->tableNo ?></td>
-                            <td><?= $sale->idCustomer ?></td>
-                            <td><?php
-                                $products = json_decode($sale->products);
-                                $str = "";
-                                foreach ($products as $product){
-                                    $str .= $product->product. ", ";
-                                }
-                                
-                                echo $str;
-                                ?></td>
-                            <td><?= $sale->netPrice ?></td>
-                            <td><?= $sale->discount ?></td>
-                            <td><?= $sale->totalPrice ?></td>
-                            <td><?= $sale->paymentMethod ?></td>
-                            <td><?= $sale->saledate ?></td>
-                            <td></td>
-                        </tr>
-                    <?php endforeach; ?>
+          <?php
+
+
+
+  $item = null;
+  $value = null;
+
+
+$answer = SalesController::ShowSalesController($item, $value);
+
+foreach ($answer as $key => $value) {
+ 
+
+ echo '<td>'.($key+1).'</td>
+
+        <td>'.$value["code"].'</td>';
+
+        $itemUser = "id";
+        $valueUser = $value["idSeller"];
+
+        $userAnswer = ControllerUsers::ShowUsers($itemUser, $valueUser);
+
+        echo '<td>'.$userAnswer["name"].'</td>
+
+        <td>'.$value["tableNo"].'</td>';
+
+        $itemCustomer = "id";
+        $valueCustomer = $value["idCustomer"];
+
+        $customerAnswer = CustomerController::ShowCustomerController($itemCustomer, $valueCustomer);
+
+        echo '<td>'.$customerAnswer["name"].'</td>
+
+        <td>$ '.number_format($value["netPrice"],2).'</td>
+
+        <td>'.$value["discount"].'</td>
+
+        <td>$ '.number_format($value["totalPrice"],2).'</td>
+
+        <td>'.$value["paymentMethod"].'</td>
+
+        <td>'.$value["saledate"].'</td>
+
+        <td>
+
+          <div class="btn-group">
+              
+            <div class="btn-group">
+              
+            <button class="btn btn-info btnPrintBill" saleCode="'.$value["code"].'">
+
+              <i class="fa fa-print"></i>
+
+            </button>';
+
+               echo '<button class="btn btn-warning btnEditSale" idSale="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+
+                <button class="btn btn-danger btnDeleteSale" idSale="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+
+         echo '</div>  
+
+        </td>
+
+      </tr>';
+  }
+
+?>
                     
                     </tbody>
 

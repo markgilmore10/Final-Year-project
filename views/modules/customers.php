@@ -38,7 +38,7 @@
              <th>Phone Number</th>
              <th>D.O.B</th>
              <th>Discount</th>
-             <!--<th>Total purchases</th>-->
+             <th>Total purchases</th>
              <th>Last Purchase</th>
              <th>Registered</th>
              <th>Actions</th>
@@ -69,7 +69,6 @@
                       <td>'.$value["mobile"].'</td>
                       <td>'.$value["dob"].'</td>   
                       <td>'.$value["discount"].'</td>        
-    
                       <td>'.$value["lastPurchase"].'</td>
                       <td>'.$value["registerDate"].'</td>
 

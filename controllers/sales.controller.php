@@ -49,13 +49,13 @@ class SalesController{
 			$tableCustomers = "customers";
 
 			$item = "id";
-			$valueCustomer = $_POST["selectCustomer"];
+			$valueCustomer = $_POST["customerSearch"];
 
 			$getCustomer = CustomersModel::ShowCustomersModel($tableCustomers, $item, $valueCustomer);
 
 			$item1a = "purchases";
 			$value1a = array_sum($totalPurchase) + $getCustomer["purchases"];
-
+			var_dump($value1a);
 			$customerPurchases = CustomersModel::UpdateCustomerModel($tableCustomers, $item1a, $value1a, $value);
 
 			$item1b = "lastPurchase";

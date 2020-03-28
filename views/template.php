@@ -84,6 +84,7 @@
                   $_GET["route"] == 'open-tables' ||
                   $_GET["route"] == 'sales' ||
                   $_GET["route"] == 'sales-manager' ||
+                  $_GET["route"] == 'reopen-table' ||
                   $_GET["route"] == 'reports' ||
                   $_GET["route"] == 'till' ||
                   $_GET["route"] == 'logout'){

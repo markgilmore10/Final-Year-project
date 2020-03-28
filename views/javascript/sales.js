@@ -272,6 +272,16 @@ $(".saleForm").on("change", "select.newProductDescription", function(){
       })
 })
 
+// Edit Sale
+$(".tables").on("click", ".btnEditSale", function(){
+
+	var idSale = $(this).attr("idSale");
+
+	window.location = "index.php?route=reopen-table&idSale="+idSale;
+
+
+})
+
 // todo: Changing stock number after sale
 
 // todo: Adding Products from a Device -> Switch from till screen to buttons and back
