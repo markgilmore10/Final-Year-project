@@ -72,6 +72,35 @@ class ModelSales{
 		$stmt->setFetchMode(PDO::FETCH_OBJ);
 		
         return $stmt->fetchAll();
-    }
+	}
+	
+	static public function ReopenSaleModel($table, $data){
+
+		$stmt = Connection::connect()->prepare("UPDATE $table SET idSeller = :idSeller, tableNo = :tableNo, idCustomer = :idCustomer, products = :products, netPrice = :netPrice, discount = :discount, totalPrice = :totalPrice, paymentMethod = :paymentMethod WHERE code = :code");
+
+		$stmt->bindParam(":code", $data["code"], PDO::PARAM_INT);
+		$stmt->bindParam(":idSeller", $data["idSeller"], PDO::PARAM_INT);
+		$stmt->bindParam(":tableNo", $data["tableNo"], PDO::PARAM_STR);
+		$stmt->bindParam(":idCustomer", $data["idCustomer"], PDO::PARAM_STR);
+		$stmt->bindParam(":products", $data["products"], PDO::PARAM_STR);
+		$stmt->bindParam(":netPrice", $data["netPrice"], PDO::PARAM_STR);
+		$stmt->bindParam(":discount", $data["discount"], PDO::PARAM_STR);
+		$stmt->bindParam(":totalPrice", $data["totalPrice"], PDO::PARAM_STR);
+		$stmt->bindParam(":paymentMethod", $data["paymentMethod"], PDO::PARAM_STR);
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
 	
 }
