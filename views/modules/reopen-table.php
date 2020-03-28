@@ -33,6 +33,10 @@
 
                     $customers = CustomerController::ShowCustomerController($itemCustomers, $valueCustomers);
 
+                    //$discountPrice = Number(1 - discount/100);
+
+	                //$totalLessDiscount = Number(totalPrice) * Number(discountPrice);
+
                 ?>
 
                     <!-- Employee Name -->              
@@ -57,10 +61,9 @@
                         
                         <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                        <input type="text" class="form-control" id="newSale" name="editSale" value="<?php echo $sale["code"]; ?>" readonly>
+                        <input type="text" class="form-control" id="reopenSale" name="reopenSale" value="<?php echo $sale["code"]; ?>" readonly>
 
                       </div>
-
 
                     </div>
 
@@ -87,7 +90,7 @@
                           <span class="input-group-addon"><i class="fa fa-users"></i></span>
 
                           <div id="customer_div">
-
+                            
                             <input type="text" class="form-control" id="customerSearch" name="customerSearch" placeholder="Search Customer">
                             
                             <div class="dropdown" id="results" style="display: none"></div>
@@ -181,11 +184,11 @@
 
                                 <div class="input-group">
                                   
-                                  <input type="number" class="form-control" name="newDiscountSale" id="newDiscountSale" placeholder="0" min="0">
+                                  <input type="number" class="form-control" name="newDiscountSale" id="newDiscountSale" value="<?php echo $taxPercentage; ?>" min="0">
 
-                                  <input type="hidden" name="newDiscountPrice" id="newDiscountPrice" required>
+                                  <input type="hidden" name="newDiscountPrice" id="newDiscountPrice" value="<?php echo $sale["discount"]; ?>" required>
 
-                                  <input type="hidden" name="newNetPrice" id="newNetPrice" required>
+                                  <input type="hidden" name="newNetPrice" id="newNetPrice" value="<?php echo $sale["netPrice"]; ?>" required>
                                   
                                   <span class="input-group-addon"><i class="fa fa-percent"></i></span>
 
@@ -199,9 +202,9 @@
                                   
                                   <span class="input-group-addon"><i class="ion ion-social-euro"></i></span>
                                   
-                                  <input type="number" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="" readonly required>
+                                  <input type="number" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="<?php echo $sale["netPrice"]; ?>" value="<?php echo $sale["totalPrice"]; ?>" readonly required>
 
-                                  <input type="hidden" name="saleTotal" id="saleTotal" required>
+                                  <input type="hidden" name="saleTotal" id="saleTotal" value="<?php echo $sale["totalPrice"]; ?>" required>
 
                                 </div>
 
@@ -252,8 +255,8 @@
 
           <?php
 
-            $saveSale = new SalesController();
-            $saveSale -> SaleController();
+            $reopenSale = new SalesController();
+            $reopenSale -> OpenTableController();
             
           ?>
 
