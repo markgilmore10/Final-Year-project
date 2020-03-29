@@ -191,7 +191,6 @@ function listProducts(){
 
 	}
 
-	console.log("productsList", productsList);
 	$("#productsList").val(JSON.stringify(productsList)); 
 
 }
@@ -273,7 +272,7 @@ $(".saleForm").on("change", "select.newProductDescription", function(){
 })
 
 // Edit Sale
-$(".tables").on("click", ".btnEditSale", function(){
+$(".tables").on("click", ".btnReopenSale", function(){
 
 	var idSale = $(this).attr("idSale");
 
@@ -281,6 +280,28 @@ $(".tables").on("click", ".btnEditSale", function(){
 
 
 })
+
+$(".tables").on("click", ".btnDeleteSale", function(){
+
+	var idSale = $(this).attr("idSale");
+  
+	swal({
+		  title: 'Delete Sale?',
+		  type: 'warning',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  cancelButtonText: 'Cancel',
+		  confirmButtonText: 'Yes'
+		}).then(function(result){
+		  if (result.value) {
+			
+			  window.location = "index.php?route=sales&idSale="+idSale;
+		  }
+  
+	})
+  
+  })
 
 // todo: Changing stock number after sale
 
