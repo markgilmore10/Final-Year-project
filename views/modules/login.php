@@ -36,7 +36,7 @@
 
       <?php
 
-        $login = new ControllerUsers();
+        $login = new UserController();
         $login -> UserLogin();
 
       ?>

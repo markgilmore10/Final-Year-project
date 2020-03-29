@@ -73,7 +73,7 @@ foreach ($answer as $key => $value) {
         $itemUser = "id";
         $valueUser = $value["idSeller"];
 
-        $userAnswer = ControllerUsers::ShowUsers($itemUser, $valueUser);
+        $userAnswer = UserController::ShowUsersController($itemUser, $valueUser);
 
         echo '<td>'.$userAnswer["name"].'</td>
 

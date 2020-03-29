@@ -16,7 +16,7 @@ class AjaxUsers{
         
 		$value = $this->idUser;
 
-		$answer = ControllerUsers::ShowUsers($item, $value);
+		$answer = UserController::ShowUsersController($item, $value);
 
 		echo json_encode($answer);
 
@@ -52,7 +52,7 @@ class AjaxUsers{
 		$item = "user";
 		$value = $this->validateUser;
 
-		$answer = ControllerUsers::ShowUsers($item, $value);
+		$answer = UserController::ShowUsersController($item, $value);
 
 		echo json_encode($answer);
 

@@ -1,6 +1,6 @@
 <?php
 
-class ControllerUsers{
+class UserController{
 
 	// User Login
 	
@@ -136,7 +136,7 @@ class ControllerUsers{
 	}
 
 	// Show Users
-	public static function ShowUsers($item, $value){
+	public static function ShowUsersController($item, $value){
 
 		$table = "users";
 

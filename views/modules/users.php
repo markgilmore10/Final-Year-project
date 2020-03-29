@@ -2,15 +2,14 @@
 
   <section class="content-header">
 
-    <h1>
-      Users
-    </h1>
+    <h1> Users </h1>
 
   </section>
 
   <section class="content">
 
     <div class="box">
+
       <div class="box-header with-border">
 
         <button class="btn btn-primary" data-toggle="modal" data-target="#addUser">
@@ -19,10 +18,10 @@
 
         </button>
 
-
       </div>
 
       <div class="box-body">
+
         <table class="table table-bordered table-striped dt-responsive tables" width="100%">
 
           <thead>
@@ -45,51 +44,51 @@
           
             <?php
 
-                $item = null; 
-                $value = null;
+              $item = null; 
+              $value = null;
 
-                $users = ControllerUsers::ShowUsers($item, $value);
+              $users = UserController::ShowUsersController($item, $value);
 
-                foreach ($users as $key => $value) {
+              foreach ($users as $key => $value) {
 
-                  echo '
+                echo '
 
-                    <tr>
-                      <td>'.($key+1).'</td>
-                      <td>'.$value["name"].'</td>
-                      <td>'.$value["user"].'</td>';
+                  <tr>
+                    <td>'.($key+1).'</td>
+                    <td>'.$value["name"].'</td>
+                    <td>'.$value["user"].'</td>';
 
-                      echo '<td>'.$value["profile"].'</td>';
+                    echo '<td>'.$value["profile"].'</td>';
 
-                      if($value["status"] != 0){
+                    if($value["status"] != 0){
 
-                        echo '<td><button class="btn btn-success btnActivate btn-xs" userId="'.$value["id"].'" userStatus="0">Activated</button></td>';
+                      echo '<td><button class="btn btn-success btnActivate btn-xs" userId="'.$value["id"].'" userStatus="0">Activated</button></td>';
 
-                      }else{
+                    }else{
 
-                        echo '<td><button class="btn btn-danger btnActivate btn-xs" userId="'.$value["id"].'" userStatus="1">Deactivated</button></td>';
-                      }
-                      
-                      echo '<td>'.$value["lastLogin"].'</td>
+                      echo '<td><button class="btn btn-danger btnActivate btn-xs" userId="'.$value["id"].'" userStatus="1">Deactivated</button></td>';
+                    }
+                    
+                    echo '<td>'.$value["lastLogin"].'</td>
 
-                      <td>
+                    <td>
 
-                        <div class="btn-group">
-                            
-                          <button class="btn btn-warning btnEditUser" idUser="'.$value["id"].'" data-toggle="modal" data-target="#editUser"><i class="fa fa-pencil"></i></button>
+                      <div class="btn-group">
+                          
+                        <button class="btn btn-warning btnEditUser" idUser="'.$value["id"].'" data-toggle="modal" data-target="#editUser"><i class="fa fa-pencil"></i></button>
 
-                          <button class="btn btn-danger btnDeleteUser" userId="'.$value["id"].'" username="'.$value["user"].'"><i class="fa fa-times"></i></button>
+                        <button class="btn btn-danger btnDeleteUser" userId="'.$value["id"].'" username="'.$value["user"].'"><i class="fa fa-times"></i></button>
 
-                        </div>  
+                      </div>  
 
-                      </td>
+                    </td>
 
-                    </tr>';
-                }
+                  </tr>';
+              }
 
-              ?>
+            ?>
 
-            </tbody>
+          </tbody>
 
         </table>
 
@@ -124,6 +123,7 @@
 
           <div class="box-body">
 
+            <!------- Add Name ------->
             <div class="form-group">
 
               <div class="input-group">
@@ -136,6 +136,7 @@
 
             </div>
 
+            <!------- Add Username ------->
             <div class="form-group">
 
               <div class="input-group">
@@ -148,6 +149,7 @@
 
             </div>
 
+            <!------- Add Password ------->
             <div class="form-group">
 
               <div class="input-group">
@@ -160,6 +162,7 @@
 
             </div>
 
+            <!------- Add Position ------->
             <div class="form-group">
 
               <div class="input-group">
@@ -183,7 +186,6 @@
 
         </div>
 
-
         <div class="modal-footer">
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -192,10 +194,12 @@
 
         </div>
 
-          <?php
-            $createUser = new ControllerUsers();
-            $createUser -> CreateUser();
-          ?>
+        <?php
+
+          $createUser = new UserController();
+          $createUser -> CreateUser();
+          
+        ?>
 
       </form>
 
@@ -227,6 +231,7 @@
 
           <div class="box-body">
 
+            <!------- Edit name ------->
             <div class="form-group">
 
               <div class="input-group">
@@ -239,6 +244,7 @@
 
             </div>
 
+            <!------- Edit Username ------->
             <div class="form-group">
 
               <div class="input-group">
@@ -251,6 +257,7 @@
 
             </div>
 
+            <!------- Edit Password ------->
             <div class="form-group">
 
               <div class="input-group">
@@ -265,6 +272,7 @@
 
             </div>
 
+            <!------- Edit Position ------->
             <div class="form-group">
 
               <div class="input-group">
@@ -297,10 +305,12 @@
 
         </div>
 
-          <?php
-            $editUser = new ControllerUsers();
-            $editUser -> EditUserController();
-          ?>
+        <?php
+
+          $editUser = new UserController();
+          $editUser -> EditUserController();
+
+        ?>
 
       </form>
 
@@ -312,7 +322,7 @@
 
 <?php
 
-  $deleteUser = new ControllerUsers();
+  $deleteUser = new UserController();
   $deleteUser -> DeleteUserController();
 
 ?> 

@@ -26,7 +26,7 @@
                     $itemUser = "id";
                     $valueUser = $sale["idSeller"];
 
-                    $seller = ControllerUsers::ShowUsers($itemUser, $valueUser);
+                    $seller = UserController::ShowUsersController($itemUser, $valueUser);
 
                     $itemCustomers = "id";
                     $valueCustomers = $sale["idCustomer"];
