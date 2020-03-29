@@ -2,7 +2,7 @@
 
 class OpenTableController{
 
-    static public function TableController(){
+    public static function TableController(){
 
         // Hold Table
 		if(isset($_POST["newTable"])){

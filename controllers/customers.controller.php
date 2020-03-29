@@ -2,7 +2,7 @@
 
 class CustomerController{
 
-    static public function ShowCustomerController($item, $value){
+    public static function ShowCustomerController($item, $value){
 
 		$table = "customers";
 
@@ -12,7 +12,7 @@ class CustomerController{
 
 	}
 
-	static public function CreateCustomerController(){
+	public static function CreateCustomerController(){
 
 		if(isset($_POST["newCustomer"])){
 
@@ -80,7 +80,7 @@ class CustomerController{
 
     }
 
-    static public function EditCustomerController(){
+    public static function EditCustomerController(){
 
 		if(isset($_POST["editCustomer"])){
 
@@ -149,7 +149,7 @@ class CustomerController{
 
     }
 
-    static public function DeleteCustomerController(){
+    public static function DeleteCustomerController(){
 
 		if(isset($_GET["idCustomer"])){
 
@@ -183,7 +183,7 @@ class CustomerController{
 
 	}
     
-    static public function searchCustomer($request){
+    public static function searchCustomer($request){
 		
         return CustomersModel::searchByNumberId($request);
     }

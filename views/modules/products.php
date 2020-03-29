@@ -78,7 +78,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <select class="form-control input-lg" id="newCategory" name="newCategory">
+                <select class="form-control input-lg" id="newCategory" name="newCategory" required>
 
                   <option value="">Select Category</option>
 
@@ -212,7 +212,7 @@
 
       <?php
 
-          $addProduct = new productsController();
+          $addProduct = new ProductsController();
           $addProduct -> AddProductsController();
 
       ?>
@@ -244,7 +244,8 @@
         <div class="modal-body">
 
           <div class="box-body">
-
+            
+            <!-- Edit Product -->
             <div class="form-group">
 
               <div class="input-group">
@@ -260,7 +261,8 @@
               </div>
 
             </div>
-
+            
+            <!-- Edit Code -->
             <div class="form-group">
 
               <div class="input-group">
@@ -273,6 +275,7 @@
 
             </div>
 
+            <!-- Edit Product -->
             <div class="form-group">
 
               <div class="input-group">
@@ -285,6 +288,7 @@
 
             </div>
 
+            <!-- Edit Stock -->
             <div class="form-group">
 
               <div class="input-group">
@@ -297,6 +301,7 @@
 
             </div>
 
+            <!-- Edit Buying Price -->
             <div class="form-group row">
 
               <div class="col-xs-12 col-sm-6">
@@ -311,6 +316,7 @@
 
               </div>
 
+              <!-- Edit Selling Price -->
               <div class="col-xs-12 col-sm-6">  
 
                 <div class="input-group"> 
@@ -371,7 +377,7 @@
 
       <?php
 
-        $editProduct = new productsController();
+        $editProduct = new ProductsController();
         $editProduct -> EditProductsController();
 
       ?>   
@@ -384,7 +390,7 @@
 
 <?php
 
-   $deleteProduct = new productsController();
-   $deleteProduct -> DeleteProductsController();
+  $deleteProduct = new ProductsController();
+  $deleteProduct -> DeleteProductsController();
 
  ?>   

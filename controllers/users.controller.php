@@ -3,8 +3,7 @@
 class UserController{
 
 	// User Login
-	
-	public static function UserLogin(){
+	public static function UserLoginController(){
 
 		if (isset($_POST["loginUser"])) {
 			
@@ -18,7 +17,7 @@ class UserController{
 
 				$crypt = crypt($_POST["loginPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
-				$answer = UserModel::ModelShowUsers($table, $item, $value);
+				$answer = UserModel::ShowUsersModel($table, $item, $value);
 
 				if($answer["user"] == $_POST["loginUser"] && $answer["password"] == $crypt){
 
@@ -68,7 +67,8 @@ class UserController{
 		}
 	}
 
-	public function CreateUser(){
+	// Create User
+	public static function CreateUserController(){
 
 		if (isset($_POST["newUser"])) {
 			
@@ -85,7 +85,7 @@ class UserController{
 							  'password' => $crypt,
 							  'profile' => $_POST["newProfile"]);
 
-				$answer = UserModel::modelAddUser($table, $data);
+				$answer = UserModel::AddUserModel($table, $data);
 
 				if ($answer == 'ok') {
 
@@ -140,7 +140,7 @@ class UserController{
 
 		$table = "users";
 
-		$answer = UserModel::ModelShowUsers($table, $item, $value);
+		$answer = UserModel::ShowUsersModel($table, $item, $value);
 
 		return $answer;
 	}
@@ -195,7 +195,7 @@ class UserController{
 								'password' => $encryptpassword,
 								'profile' => $_POST["EditProfile"]);
 
-				$answer = UserModel::ModelEditUser($table, $data);
+				$answer = UserModel::EditUserModel($table, $data);
 
 				if ($answer == 'ok') {
 					
@@ -246,7 +246,6 @@ class UserController{
 	}
 
 	// Delete User
-
 	public static function DeleteUserController(){
 
 		if(isset($_GET["userId"])){

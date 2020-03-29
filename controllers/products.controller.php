@@ -1,8 +1,8 @@
 <?php
 
-class productsController{
+class ProductsController{
 	
-	static public function ShowProductsController($item, $value){
+	public static function ShowProductsController($item, $value){
 
 		$table = "products";
 
@@ -12,7 +12,7 @@ class productsController{
 
     }
 
-    static public function AddProductsController(){
+    public static function AddProductsController(){
 
 		if(isset($_POST["newProduct"])){
 
@@ -80,7 +80,7 @@ class productsController{
 
 
 	//edit products controller
-	static public function EditProductsController(){
+	public static function EditProductsController(){
 
 		if(isset($_POST["editProducts"])){
 
@@ -147,7 +147,7 @@ class productsController{
 	}
 
 	//delete product
-	static public function DeleteProductsController(){
+	public static function DeleteProductsController(){
 
 		if(isset($_GET["idProduct"])){
 			

@@ -1,5 +1,4 @@
 // Edit Category
-
 $(".tables").on("click", ".btnEditCategory", function(){
 
 	var idCategory = $(this).attr("idCategory");
@@ -29,7 +28,6 @@ $(".tables").on("click", ".btnEditCategory", function(){
 })
 
 // Delete Category
-
 $(".tables").on("click", ".btnDeleteCategory", function(){
 
     var idCategory = $(this).attr("idCategory");

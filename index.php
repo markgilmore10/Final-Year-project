@@ -16,4 +16,4 @@ require_once "models/customer.model.php";
 //require_once "models/open-tables.model.php";
 
 $template = new TemplateController();
-$template -> tempController();
+$template -> TemplatesController();

@@ -32,7 +32,7 @@ class productsModel{
 
     }
 
-    static public function AddProductModel($table, $data){
+    public static function AddProductModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("INSERT INTO $table(idCategory, code, product, stock, buyingPrice, sellingPrice) VALUES (:idCategory, :code, :product, :stock, :buyingPrice, :sellingPrice)");
 
@@ -59,7 +59,7 @@ class productsModel{
 	}
 
 	//edit product
-	static public function EditProductModel($table, $data){
+	public static function EditProductModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("UPDATE $table SET idCategory = :idCategory, product = :product,
 		 stock = :stock, buyingPrice = :buyingPrice, sellingPrice = :sellingPrice WHERE code = :code");
@@ -87,7 +87,7 @@ class productsModel{
 	}
 
 	//delete product
-	static public function DeleteProductModel($table, $data){
+	public static function DeleteProductModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("DELETE FROM $table WHERE id = :id");
 
@@ -108,7 +108,7 @@ class productsModel{
 		$stmt = null;
 	}
 
-	static public function UpdateProductModel($table, $item1, $value1, $value){
+	public static function UpdateProductModel($table, $item1, $value1, $value){
 
 		$stmt = Connection::connect()->prepare("UPDATE $table SET $item1 = :$item1 WHERE id = :id");
 

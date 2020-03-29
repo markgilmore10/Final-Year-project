@@ -3,7 +3,7 @@
 class SalesController{
 
 	// Show Sales
-    static public function ShowSalesController($item, $value){
+    public static function ShowSalesController($item, $value){
 
 		$table = "sales";
 
@@ -13,7 +13,7 @@ class SalesController{
 
 	}
 
-    static public function SaleController(){
+    public static function SaleController(){
 
         // Make Sale
 		if(isset($_POST["newSale"])){
@@ -113,7 +113,7 @@ class SalesController{
         return ModelSales::getAll();
 	}
 	
-	static public function OpenTableController(){
+	public static function OpenTableController(){
 
         // Make Sale
 		if(isset($_POST["reopenSale"])){
@@ -270,7 +270,7 @@ class SalesController{
 	}
 
 	// Delete Sales
-	static public function DeleteSaleController(){
+	public static function DeleteSaleController(){
 
 		if(isset($_GET["idSale"])){
 

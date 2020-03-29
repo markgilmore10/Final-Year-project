@@ -6,7 +6,7 @@ require_once 'connection.php';
 class ModelTables{
 	
     // Show Open Tables
-	static public function ShowTablesModel($table, $item, $value){
+	public static function ShowTablesModel($table, $item, $value){
 
 		if($item != null){
 
@@ -34,7 +34,7 @@ class ModelTables{
 
 	}
 
-	static public function AddTableModel($table, $data){
+	public static function AddTableModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("INSERT INTO $table(code, idSeller, tableNo, products, netPrice) VALUES (:code, :idSeller, :tableNo, :products, :netPrice)");
 

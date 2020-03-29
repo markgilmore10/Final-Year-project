@@ -197,8 +197,8 @@
         <?php
 
           $createUser = new UserController();
-          $createUser -> CreateUser();
-          
+          $createUser -> CreateUserController();
+
         ?>
 
       </form>

@@ -4,7 +4,7 @@
 
     // Create Category
 	
-	static public function CreateCategoryController(){
+	public static function CreateCategoryController(){
 
 		if(isset($_POST['newCategory'])){
 
@@ -12,10 +12,11 @@
 
 				$table = 'categories';
 
-				$data = $_POST['newCategory'];
+				$data = array("category"=>$_POST["newCategory"],
+							  "vat"=>$_POST["newVat"],
+							  "tax"=>$_POST["newTax"]);
 
 				$answer = CategoriesModel::AddCategoryModel($table, $data);
-				// var_dump($answer);
 
 				if($answer == 'ok'){
 
@@ -63,8 +64,7 @@
     }
 
     // Show Categories
-
-    static public function ShowCategoriesController($item, $value){
+    public static function ShowCategoriesController($item, $value){
 
 		$table = "categories";
 
@@ -73,7 +73,7 @@
 		return $answer;
     }
     
-    static public function EditCategoryController(){
+    public static function EditCategoryController(){
 
 		if(isset($_POST["editCategory"])){
 
@@ -92,7 +92,7 @@
 
 					swal({
 						  type: "success",
-						  title: "Category edited successfully",
+						  title: "Category Edited Successfully",
 						  showConfirmButton: true,
 						  confirmButtonText: "Close"
 						  }).then(function(result){
@@ -133,7 +133,7 @@
 
     }
     
-    static public function DeleteCategoryController(){
+    public static function DeleteCategoryController(){
 
 		if(isset($_GET["idCategory"])){
 

@@ -37,7 +37,7 @@
       <?php
 
         $login = new UserController();
-        $login -> UserLogin();
+        $login -> UserLoginController();
 
       ?>
 

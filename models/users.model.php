@@ -6,7 +6,7 @@ class UserModel{
 
 	// Show User
 
-	static public function ModelShowUsers($table, $item, $value){
+	public static function ShowUsersModel($table, $item, $value){
 
 		if($item != null){
 
@@ -33,7 +33,7 @@ class UserModel{
 
 	}
 
-	static public function ModelAddUser($table, $data){
+	public static function AddUserModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("INSERT INTO $table(name, user, password, profile) VALUES (:name, :user, :password, :profile)");
 
@@ -56,7 +56,7 @@ class UserModel{
 		$stmt = null;
 	}
 
-	static public function ModelEditUser($table, $data){
+	public static function EditUserModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("UPDATE $table set name = :name, password = :password, profile = :profile WHERE user = :user");
 
@@ -80,7 +80,7 @@ class UserModel{
 		$stmt = null;
 	}
 
-	static public function UpdateUserModel($table, $item1, $value1, $item2, $value2){
+	public static function UpdateUserModel($table, $item1, $value1, $item2, $value2){
 
 		$stmt = Connection::connect()->prepare("UPDATE $table set $item1 = :$item1 WHERE $item2 = :$item2");
 
@@ -102,7 +102,7 @@ class UserModel{
 		$stmt = null;
 	}
 
-	static public function DeleteUserModel($table, $data){
+	public static function DeleteUserModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("DELETE FROM $table WHERE id = :id");
 

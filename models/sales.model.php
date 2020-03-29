@@ -6,7 +6,7 @@ require_once 'connection.php';
 class ModelSales{
 	
     // Show Sales
-	static public function ShowSalesModel($table, $item, $value){
+	public static function ShowSalesModel($table, $item, $value){
 
 		if($item != null){
 
@@ -34,7 +34,7 @@ class ModelSales{
 
 	}
 
-	static public function AddSaleModel($table, $data){
+	public static function AddSaleModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("INSERT INTO $table(code, idSeller, tableNo, idCustomer, products, netPrice, discount, totalPrice, paymentMethod) VALUES (:code, :idSeller, :tableNo, :idCustomer, :products, :netPrice, :discount, :totalPrice, :paymentMethod)");
 
@@ -74,7 +74,7 @@ class ModelSales{
         return $stmt->fetchAll();
 	}
 	
-	static public function ReopenSaleModel($table, $data){
+	public static function ReopenSaleModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("UPDATE $table SET idSeller = :idSeller, tableNo = :tableNo, idCustomer = :idCustomer, products = :products, netPrice = :netPrice, discount = :discount, totalPrice = :totalPrice, paymentMethod = :paymentMethod WHERE code = :code");
 
@@ -103,7 +103,7 @@ class ModelSales{
 
 	}
 
-	static public function DeleteSalesModel($table, $data){
+	public static function DeleteSalesModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("DELETE FROM $table WHERE id = :id");
 

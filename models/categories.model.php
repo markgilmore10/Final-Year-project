@@ -5,12 +5,13 @@ require_once "connection.php";
 class CategoriesModel{
 
 	// Add Categories
+	public static function AddCategoryModel($table, $data){
 
-	static public function AddCategoryModel($table, $data){
+		$stmt = Connection::connect()->prepare("INSERT INTO $table(category, vat, tax) VALUES (:category, :vat, :tax)");
 
-		$stmt = Connection::connect()->prepare("INSERT INTO $table(category) VALUES (:category)");
-
-		$stmt -> bindParam(":category", $data, PDO::PARAM_STR);
+		$stmt -> bindParam(":category", $data["category"], PDO::PARAM_STR);
+		$stmt -> bindParam(":vat", $data["vat"], PDO::PARAM_STR);
+		$stmt -> bindParam(":tax", $data["tax"], PDO::PARAM_STR);
 
 		if ($stmt->execute()) {
 
@@ -28,8 +29,7 @@ class CategoriesModel{
     }
 
     // Show Categories
-    
-    static public function ShowCategoriesModel($table, $item, $value){
+    public static function ShowCategoriesModel($table, $item, $value){
 
 		if($item != null){
 
@@ -59,8 +59,7 @@ class CategoriesModel{
     }
     
     // Edit Category
-
-    static public function EditCategoryModel($table, $data){
+    public static function EditCategoryModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("UPDATE $table SET Category = :Category WHERE id = :id");
 
@@ -83,8 +82,9 @@ class CategoriesModel{
 		$stmt = null;
 
     }
-    
-    static public function DeleteCategoryModel($table, $data){
+	
+	// Delete Category
+    public static function DeleteCategoryModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("DELETE FROM $table WHERE id = :id");
 

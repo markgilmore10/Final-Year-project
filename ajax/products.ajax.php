@@ -13,7 +13,7 @@ class AjaxProducts{
 		$item = "idCategory";
 		$value = $this->idCategory;
 
-		$answer = productsController::ShowProductsController($item, $value);
+		$answer = ProductsController::ShowProductsController($item, $value);
 
 		echo json_encode($answer);
 
@@ -26,7 +26,7 @@ class AjaxProducts{
 		$item = "id";
 		$value = $this->idProduct;
 
-		$answer = productsController::ShowProductsController($item,$value);
+		$answer = ProductsController::ShowProductsController($item,$value);
 
 		echo json_encode($answer);
 	}

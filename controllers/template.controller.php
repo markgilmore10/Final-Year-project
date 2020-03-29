@@ -2,7 +2,7 @@
 
 class TemplateController {
 
-	public function tempController(){
+	public function TemplatesController(){
 		
 		include "views/template.php";
 
