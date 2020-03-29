@@ -269,4 +269,67 @@ class SalesController{
 
 	}
 
+	// Delete Sales
+	static public function DeleteSaleController(){
+
+		if(isset($_GET["idSale"])){
+
+			$table = "sales";
+
+			$item = "id";
+			$value = $_GET["idSale"];
+
+			$getSale = ModelSales::ShowSalesModel($table, $item, $value);
+
+			$tableCustomers = "customers";
+
+			$itemsales = null;
+			$valuesales = null;
+
+			$getSales = ModelSales::ShowSalesModel($table, $itemsales, $valuesales);
+
+			$saveDates = array();
+
+			foreach ($getSales as $key => $value) {
+				
+				if($value["idCustomer"] == $getSale["idCustomer"]){
+
+					array_push($saveDates, $value["saledate"]);
+
+				}
+
+			}
+
+			if(count($saveDates) > 1){
+
+				if($getSale["saledate"] > $saveDates[count($saveDates)-2]){
+
+					$item = "lastPurchase";
+					$value = $saveDates[count($saveDates)-2];
+					$valueIdCustomer = $getSale["idCustomer"];
+
+					$customerPurchases = CustomerController::UpdateCustomerModel($tableCustomers, $item, $value, $valueIdCustomer);
+
+				}else{
+
+					$item = "lastPurchase";
+					$value = $saveDates[count($saveDates)-1];
+					$valueIdCustomer = $getSale["idCustomer"];
+
+					$customerPurchases = CustomerController::UpdateCustomerModel($tableCustomers, $item, $value, $valueIdCustomer);
+
+				}
+
+
+			}else{
+
+				$item = "lastPurchase";
+				$value = "0000-00-00 00:00:00";
+				$valueIdCustomer = $getSale["idCustomer"];
+
+				$customerPurchases = CustomerController::UpdateCustomerModel($tableCustomers, $item, $value, $valueIdCustomer);
+
+			}
+
+
 }

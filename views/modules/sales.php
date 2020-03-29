@@ -125,6 +125,13 @@ foreach ($answer as $key => $value) {
 
         </table>
 
+        <?php
+
+          $deleteSale = new SalesController();
+          $deleteSale -> DeleteSaleController();
+
+          ?>
+
       </div>
     
     </div>
@@ -132,3 +139,4 @@ foreach ($answer as $key => $value) {
   </section>
 
 </div>
+
