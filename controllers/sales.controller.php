@@ -379,7 +379,7 @@ class SalesController{
 
 				swal({
 					  type: "success",
-					  title: "The sale has been deleted succesfully",
+					  title: "Sale Deleted",
 					  showConfirmButton: true,
 					  confirmButtonText: "Close",
 					  closeOnConfirm: false

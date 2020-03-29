@@ -102,5 +102,27 @@ class ModelSales{
 		$stmt = null;
 
 	}
+
+	static public function DeleteSalesModel($table, $data){
+
+		$stmt = Connection::connect()->prepare("DELETE FROM $table WHERE id = :id");
+
+		$stmt -> bindParam(":id", $data, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
 	
 }
