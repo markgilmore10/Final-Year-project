@@ -43,18 +43,35 @@ $("#newCategory").change(function(){
 
 })
 
-
-
-// todo: VAT calculation
 $("#newBuyingPrice, #editBuyingPrice").change(function(){
+
+	var vatPercent = $(".newVat").val();
+
+	var taxPercent = $(".newTax").val();
+	
+	var percent = Number(($("#newBuyingPrice").val()*vatPercent/100))+Number(($("#newBuyingPrice").val()*taxPercent/100))+Number($("#newBuyingPrice").val());
+
+	var editPercent = Number(($("#editBuyingPrice").val()*vatPercent/100))+Number(($("#editBuyingPrice").val()*taxPercent/100))+Number($("#editSellingPrice").val());
+
+	$("#newBuyingPricePlus").val(percent);
+	$("#newBuyingPricePlus").prop("readonly", true);
+
+	$("#editBuyingPricePlus").val(editPercent);
+	$("#editBuyingPricePlus").prop("readonly",true);
+})
+
+
+
+// Markup calculation
+$("#newBuyingPricePlus, #editBuyingPricePlus").change(function(){
 
 	if($(".percentage").prop("checked")){
 
-		var vatPercent = $(".newPercentage").val();
+		var markupPercent = $(".newPercentage").val();
 		
-		var percent = Number(($("#newBuyingPrice").val()*vatPercent/100))+Number($("#newBuyingPrice").val());
+		var percent = Number(($("#newBuyingPricePlus").val()*markupPercent/100))+Number($("#newBuyingPricePlus").val());
 
-		var editPercent = Number(($("#editBuyingPrice").val()*vatPercent/100))+Number($("#editSellingPrice").val());
+		var editPercent = Number(($("#editBuyingPricePlus").val()*markupPercent/100))+Number($("#editSellingPrice").val());
 
 		$("#newSellingPrice").val(percent);
 		$("#newSellingPrice").prop("readonly", true);
@@ -64,7 +81,7 @@ $("#newBuyingPrice, #editBuyingPrice").change(function(){
 	}
 })
 
-//changing percent
+//Changing percent
 $("#newPercentage").change(function(){
 
 	if($(".percentage").prop("checked")){

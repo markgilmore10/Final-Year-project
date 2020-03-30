@@ -427,6 +427,7 @@
 
 
 <script>
+
     $(document).on("click", ".customer_row", function () {
 
         var $number = $(this).find('.number').html();

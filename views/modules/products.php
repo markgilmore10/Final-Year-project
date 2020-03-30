@@ -158,12 +158,32 @@
 
                   <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
 
+                  <input type="number" class="form-control input-lg" id="newBuyingPricePlus" name="newBuyingPricePlus" step="any" min="0" placeholder="Selling price" required>
+
+                </div>
+
+              </div>
+
+            </div> 
+
+            <br>
+
+            <div class="form-group row">
+
+              <!-- INPUT SELLING PRICE -->
+              <div class="col-xs-12 col-sm-6">  
+
+                <div class="input-group"> 
+
+                  <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
+
                   <input type="number" class="form-control input-lg" id="newSellingPrice" name="newSellingPrice" step="any" min="0" placeholder="Selling price" required>
 
                 </div> 
 
                 <br>
 
+                <!-- CHECKBOX PERCENTAGE -->
                 <div class="col-xs-6"> 
 
                   <div class="form-group">   
@@ -172,7 +192,7 @@
 
                       <input type="checkbox" class="minimal percentage" checked>
 
-                      VAT
+                      Markup
 
                     </label>
 
@@ -180,6 +200,7 @@
 
                 </div>
 
+                <!-- INPUT PERCENTAGE -->
                 <div class="col-xs-6" style="padding:0">
 
                   <div class="input-group"> 
@@ -310,25 +331,44 @@
 
                   <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
 
-                  <input type="number" class="form-control input-lg" id="editBuyingPrice" name="editBuyingPrice" step="any" min="0" required>
+                  <input type="number" class="form-control input-lg" id="editBuyingPrice" name="editBuyingPrice" step="any" min="0" placeholder="Buying price" required>
 
                 </div>
 
               </div>
 
-              <!-- Edit Selling Price -->
               <div class="col-xs-12 col-sm-6">  
 
                 <div class="input-group"> 
 
                   <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
 
-                  <input type="number" class="form-control input-lg" id="editSellingPrice" name="editSellingPrice" step="any" min="0" readonly required>
+                  <input type="number" class="form-control input-lg" id="editBuyingPricePlus" name="editBuyingPricePlus" step="any" min="0" placeholder="Selling price" required>
+
+                </div>
+
+              </div>
+
+            </div> 
+
+            <br>
+
+            <div class="form-group row">
+
+              <!-- INPUT SELLING PRICE -->
+              <div class="col-xs-12 col-sm-6">  
+
+                <div class="input-group"> 
+
+                  <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
+
+                  <input type="number" class="form-control input-lg" id="editSellingPrice" name="editSellingPrice" step="any" min="0" placeholder="Selling price" required>
 
                 </div> 
 
                 <br>
 
+                <!-- CHECKBOX PERCENTAGE -->
                 <div class="col-xs-6"> 
 
                   <div class="form-group">   
@@ -337,7 +377,7 @@
 
                       <input type="checkbox" class="minimal percentage" checked>
 
-                      VAT
+                      Markup
 
                     </label>
 
@@ -345,11 +385,12 @@
 
                 </div>
 
+                <!-- INPUT PERCENTAGE -->
                 <div class="col-xs-6" style="padding:0">
 
                   <div class="input-group"> 
 
-                    <input type="number" class="form-control input-lg newPercentage" min="0" value="40" required>
+                    <input type="number" class="form-control input-lg editPercentage" min="0" value="40" required>
 
                     <span class="input-group-addon"><i class="fa fa-percent"></i></span>
 
