@@ -306,3 +306,12 @@ $(".tables").on("click", ".btnDeleteSale", function(){
 // todo: Changing stock number after sale
 
 // todo: Adding Products from a Device -> Switch from till screen to buttons and back
+
+//Print receipt
+$(".tables").on("click", ".btnPrintBill", function(){
+
+	var saleCode = $(this).attr("saleCode");
+
+	window.open("extensions/tcpdf/pdf/receipt.php", "_blank");
+
+})
