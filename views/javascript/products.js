@@ -138,7 +138,7 @@ $(".productsTable tbody").on("click", "button.btnEditProduct", function(){
 		success:function(answer){
 
 			var categoryData = new FormData();
-			categoryData.append("idCategory", answer["id_Category"]);
+			categoryData.append("idCategory", answer["idCategory"]);
 			 
 			 $.ajax({
 				url:"ajax/categories.ajax.php",
@@ -151,7 +151,7 @@ $(".productsTable tbody").on("click", "button.btnEditProduct", function(){
 				success:function(answer){
 
 					$("#editCategory").val(answer["id"]);
-					$("#editCategory").html(answer["category"]);
+					$("#editCategory").html(answer["Category"]);
 				}
 			 })
 

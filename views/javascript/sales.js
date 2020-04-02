@@ -27,6 +27,18 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 			var price = answer["sellingPrice"];
 			var stock = answer["stock"];
 
+			if(stock == 0){
+
+				swal({
+					title: "Out of Stock",
+					type: "error",
+					confirmButtonText: "Close!"
+				});
+
+			  return;
+
+			}
+
           	$(".newProduct").append(
 
           	'<div class="row" style="padding:5px 15px">'+
@@ -103,7 +115,7 @@ $(".saleForm").on("click", "button.removeProduct", function(){
 
 		$("#newTotalSale").val(0);
 		$("#saleTotal").val(0);
-		$("#newTotalSale").attr("totalSale",0);
+		$("#newTotalSale").attr("saleTotal",0);
 
 	//}else{
 

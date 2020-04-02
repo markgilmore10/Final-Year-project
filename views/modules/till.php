@@ -49,9 +49,9 @@
                             echo '<input type="text" class="form-control" name="newSale" id="newSale" value="10001" readonly>';
                             
                           }else{
-
+                            // Incrementing value via number of sales
                             foreach ($sales as $key => $value) {
-                              
+                              // Leave Blank
                             }
 
                             $code = $value["code"] + 1;
