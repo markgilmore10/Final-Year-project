@@ -196,7 +196,7 @@
               <div class="input-group">
 
                   <span class="input-group-addon"><i class="fa fa-th"></i></span>
-                  <input class="form-control input-lg" type="number" min="0" name="newVat" placeholder="Add VAT" required>
+                  <input class="form-control input-lg" type="number" min="0" id="newVat" name="newVat" placeholder="Add VAT" required>
 
               </div>
 
@@ -207,7 +207,7 @@
               <div class="input-group">
 
                   <span class="input-group-addon"><i class="fa fa-th"></i></span>
-                  <input class="form-control input-lg" type="number" min="0" name="newTax" placeholder="Add Tax" required>
+                  <input class="form-control input-lg" type="number" min="0" id="newTax" name="newTax" placeholder="Add Tax" required>
 
               </div>
 

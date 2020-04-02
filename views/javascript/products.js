@@ -122,10 +122,10 @@ $(".percent").on("ifChecked",function(){
 $(".productsTable tbody").on("click", "button.btnEditProduct", function(){
 
 	var idProduct = $(this).attr("idProduct");
-	console.log("idProduct", idProduct);
+
 	var datum = new FormData();
     datum.append("idProduct", idProduct);
-	console.log("idProduct", idProduct);
+
 	$.ajax({
 
 		url:"ajax/products.ajax.php",
@@ -136,7 +136,7 @@ $(".productsTable tbody").on("click", "button.btnEditProduct", function(){
 		processData: false,
 		dataType:"json",
 		success:function(answer){
-			console.log("answer",answer);
+
 			var categoryData = new FormData();
 			categoryData.append("idCategory", answer["id_Category"]);
 			 
@@ -149,7 +149,6 @@ $(".productsTable tbody").on("click", "button.btnEditProduct", function(){
 				processData: false,
 				dataType:"json",
 				success:function(answer){
-					console.log("answer", answer);
 
 					$("#editCategory").val(answer["id"]);
 					$("#editCategory").html(answer["category"]);

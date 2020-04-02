@@ -58,5 +58,12 @@ class ModelTables{
 		$stmt = null;
 
 	}
+
+	public static function all () {
+        $stmt = Connection::connect()->prepare("SELECT open_tables.* FROM open_tables ORDER BY id ASC");
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        return $stmt->fetchAll();
+	}
 	
 }

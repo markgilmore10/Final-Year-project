@@ -70,6 +70,10 @@ class OpenTableController{
 
 		}
 
+	}
+	
+	public static function index () {
+        return ModelTables::all();
     }
 
 }

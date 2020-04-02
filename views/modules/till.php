@@ -186,7 +186,6 @@
                             <button type="submit" class="btn btn-primary pull-right" value="Cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
                             <button type="submit" class="btn btn-warning pull-right" value="Card" name="newPaymentMethod" id="newPaymentMethod" required>Card</button>
                             <button type="submit" class="btn btn-danger pull-right" value="Voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#splitBill">Split Bill</button>
                             <button type="submit" class="btn btn-primary pull-right">Open Table</button>
                             <button type="submit" class="btn btn-primary pull-right">Hold</button>
 
@@ -372,59 +371,6 @@
   </div>
 
 </div>
-
-<div id="splitBill" class="modal fade" role="dialog">
-  
-  <div class="modal-dialog">
-
-    <div class="modal-content">
-
-      <form role="form" method="POST">
-
-        <div class="modal-header" style="background: #3c8dbc; color: #fff">
-          
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          
-          <h4 class="modal-title">Slit Bill</h4>
-
-        </div>
-
-        <div class="modal-body">
-
-          <div class="box-body">
-
-            <div class="form-group">
-
-              
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="modal-footer">
-
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Split</button>
-
-        </div>
-
-      </form>
-
-      <?php
-
-        $createCustomer = new CustomerController();
-        $createCustomer -> CreateCustomerController();
-
-      ?>
-
-    </div>
-
-  </div>
-
-</div>
-
 
 <script>
 
