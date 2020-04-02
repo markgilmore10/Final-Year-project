@@ -2,6 +2,17 @@
 
 class OpenTableController{
 
+	// Show Sales
+    public static function ShowTableController($item, $value){
+
+		$table = "open_tables";
+
+		$answer = ModelTables::ShowTablesModel($table, $item, $value);
+
+		return $answer;
+
+	}
+
     public static function TableController(){
 
         // Hold Table

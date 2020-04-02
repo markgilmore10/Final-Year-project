@@ -153,7 +153,7 @@
                                   
                                   <span class="input-group-addon"><i class="ion ion-social-euro"></i></span>
                                   
-                                  <input type="number" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="" readonly required>
+                                  <input type="text" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="" readonly required>
 
                                   <input type="hidden" name="saleTotal" id="saleTotal" required>
 

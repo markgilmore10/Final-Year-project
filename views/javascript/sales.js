@@ -111,19 +111,19 @@ $(".saleForm").on("click", "button.removeProduct", function(){
 
 	localStorage.setItem("removeProduct", JSON.stringify(idRemoveProduct));
 
-	//if($(".newProductTotal").children().length == 0){
+	if($(".newProduct").children().length == 0){
 
-		$("#newTotalSale").val(0);
+		$("#newSaleTotal").val(0);
 		$("#saleTotal").val(0);
-		$("#newTotalSale").attr("saleTotal",0);
+		$("#newSaleTotal").attr("saleTotal",0);
 
-	//}else{
+	}else{
 
 		totalPrice()
 		listProducts()
 		lessDiscount()
 
-	//}
+	}
 
 })
 
@@ -207,6 +207,7 @@ function listProducts(){
 
 }
 
+// Updating stock and adding up price when quantity changes
 $(".saleForm").on("change", "input.newProductQuantity", function(){
 
 	var price = $(this).parent().parent().children(".enterPrice").children().children(".newProductPrice");
@@ -314,7 +315,3 @@ $(".tables").on("click", ".btnDeleteSale", function(){
 	})
   
   })
-
-// todo: Changing stock number after sale
-
-// todo: Adding Products from a Device -> Switch from till screen to buttons and back

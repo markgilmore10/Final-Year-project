@@ -60,6 +60,8 @@
       <script src="views/plugins/input-mask/jquery.inputmask.js"></script>
       <script src="views/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
       <script src="views/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+      <!-- jQuery Number -->
+      <script src="views/plugins/jQueryNo/jQueryNo.min.js"></script>
       
     </head>
 
