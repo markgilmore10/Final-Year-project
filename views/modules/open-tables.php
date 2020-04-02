@@ -35,7 +35,32 @@
 
           </thead>
 
-          
+          <tbody>
+            <?php
+            $sr = 1;
+            $data = OpenTableController::index();
+            foreach ($data as $row) :?>
+                <tr>
+                    <td><?= $sr++ ?></td>
+                    <td><?= $row->code ?></td>
+                    <td><?= $row->idSeller ?></td>
+                    <td><?= $row->tableNo ?></td>
+                    <td><?php
+                        $products = json_decode($row->products);
+                        $str = "";
+                        foreach ($products as $product){
+                            $str .= $product->product. ", ";
+                        }
+                
+                        echo $str;
+                        ?></td>
+                    <td><?= $row->netPrice ?></td>
+                    <td><?= $row->date ?></td>
+                    <td></td>
+                </tr>
+            <?php endforeach; ?>
+    
+            </tbody>
 
         </table>
 
