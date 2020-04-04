@@ -312,6 +312,6 @@ $(".tables").on("click", ".btnPrintBill", function(){
 
 	var saleCode = $(this).attr("saleCode");
 
-	window.open("extensions/tcpdf/pdf/receipt.php", "_blank");
+	window.open("extensions/tcpdf/pdf/receipt.php?code="+saleCode, "_blank");
 
 })
