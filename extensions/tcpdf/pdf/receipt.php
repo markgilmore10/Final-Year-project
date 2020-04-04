@@ -152,6 +152,26 @@ EOF;
 
 $pdf->writeHTML($block2, false, false, false, false, '');
 
+$block3 = <<<EOF
+
+	<table style="font-size:10px; padding:5px 10px;">
+
+		<tr>
+
+		<td style="border: 1px solid #666; background-color:white; width:260px; text-align:center">Product</td>
+		<td style="border: 1px solid #666; background-color:white; width:80px; text-align:center">Quantity</td>
+		<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">Item Cost</td>
+		<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">Total Price</td>
+
+		</tr>
+
+	</table>
+
+
+EOF;
+
+$pdf->writeHTML($block3, false, false, false, false, '');
+
 ob_end_clean();
 $pdf->Output('receipt.pdf');
 
