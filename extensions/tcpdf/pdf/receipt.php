@@ -22,25 +22,25 @@ public function getReceiptPrinting(){
 $itemSale = "code";
 $saleValue = $this->code;
     
-$answerSale = SalesController::ShowSalesController($itemSale, $saleValue);
+$saleAnswer = SalesController::ShowSalesController($itemSale, $saleValue);
 
-$saledate = substr($answerSale["saledate"],0,-8);
-$products = json_decode($answerSale["products"], true);
-$netPrice = number_format($answerSale["netPrice"],2);
-$tax = number_format($answerSale["tax"],2);
-$totalPrice = number_format($answerSale["totalPrice"],2);
+$saledate = substr($saleAnswer["saledate"],0,-8);
+$products = json_decode($saleAnswer["products"], true);
+$netPrice = number_format($saleAnswer["netPrice"],2);
+$tax = number_format($saleAnswer["tax"],2);
+$totalPrice = number_format($saleAnswer["totalPrice"],2);
 
 // Customer Info
 $itemCustomer = "id";
-$CustomerValue = $answerSale["customerId"];
+$CustomerValue = $saleAnswer["customerId"];
 
-$answerCustomer = CustomerController::ShowCustomerController($itemCustomer, $valueCustomer);
+$customerAnswer = CustomerController::ShowCustomerController($itemCustomer, $CustomerValue);
 
 //User Info
 $itemUser = "id";
-$userValue = $answerSale["userId"];
+$userValue = $saleAnswer["UserId"];
 
-$answerUser = ControllerUsers::ShowUsers($itemUser, $userValue);
+$userAnswer = ControllerUsers::ShowUsers($itemUser, $userValue);
 
 
 
@@ -90,6 +90,9 @@ $block1 = <<<EOF
 
 			<td style="background-color:white; width:110px; text-align:center; color:red"><br><br>Rec N.<br>$saleValue</td>
 
+			
+
+
 		</tr>
 
 	</table>
@@ -102,13 +105,24 @@ $pdf->writeHTML($block1, false, false, false, false, '');
 
 $block2 = <<<EOF
 
+
+    <table>
+            
+        <tr>
+            
+            <td style="width:540px"><img src="images/back.jpg"></td>
+
+        </tr>
+
+    </table>
+
     <table style="font-size:10px; padding:5px 10px;">
 
         <tr>
 
             <td style="border: 1px solid #666; background-color:white; width:390px">
 
-				Customer: $answerCustomer[name]
+				Customer: $customerAnswer[name]
 
             </td>
 
@@ -116,9 +130,21 @@ $block2 = <<<EOF
 			
 				Date: $saledate
 
-			</td>
+            </td>
+            
+            
             
         </tr>
+
+        <tr>
+		
+			<td style="border: 1px solid #666; background-color:white; width:540px">
+
+				Staff: $userAnswer[name]
+
+			</td>
+
+		</tr>
     
     </table>
 
