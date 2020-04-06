@@ -182,6 +182,7 @@ $("#newDiscountSale").change(function(){
 
 });
 
+// Putting sale products into json data to save in the database
 function listProducts(){
 
 	var productsList = [];
@@ -315,3 +316,25 @@ $(".tables").on("click", ".btnDeleteSale", function(){
 	})
   
   })
+
+  $(".saleForm").on("change", "input#newTransactionCode", function(){
+
+     listMethods()
+
+})
+
+function listMethods(){
+
+	var listMethods = "";
+
+	if($("#newPaymentMethod").val() == "cash"){
+
+		$("#listPaymentMethod").val("cash");
+
+	}else{
+
+		$("#listPaymentMethod").val($("#newPaymentMethod").val()+"-"+$("#newTransactionCode").val());
+
+	}
+
+}

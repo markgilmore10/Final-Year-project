@@ -20,11 +20,11 @@ class SalesController{
 
 			$productsList = json_decode($_POST["productsList"], true);
 
-			$totalPurchase = array();
+			//$totalPurchases = array();
 
 			foreach ($productsList as $key => $value) {
 
-			   array_push($totalPurchase, $value["quantity"]);
+			   //array_push($totalPurchases, $value["quantity"]);
 				
 			   $tableProducts = "products";
 
@@ -54,7 +54,7 @@ class SalesController{
 			$getCustomer = CustomersModel::ShowCustomersModel($tableCustomers, $item, $valueCustomer);
 
 			$item1a = "purchases";
-			$value1a = array_sum($totalPurchase) + $getCustomer["purchases"];
+			$value1a = $getCustomer["purchases"] + 1; //array_sum($totalPurchases) + $getCustomer["purchases"];
 			var_dump($value1a);
 			$customerPurchases = CustomersModel::UpdateCustomerModel($tableCustomers, $item1a, $value1a, $value);
 
@@ -67,7 +67,7 @@ class SalesController{
 			$value1b = $date.' '.$hour;
 
 			$dateCustomer = CustomersModel::UpdateCustomerModel($tableCustomers, $item1b, $value1b, $value);
-
+			
 			$table = "sales";
 
 			$data = array("code"=>$_POST["newSale"],

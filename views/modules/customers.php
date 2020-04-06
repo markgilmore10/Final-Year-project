@@ -68,7 +68,8 @@
                       <td>'.$value["email"].'</td>
                       <td>'.$value["mobile"].'</td>
                       <td>'.$value["dob"].'</td>   
-                      <td>'.$value["discount"].'</td>        
+                      <td>'.$value["discount"].'</td> 
+                      <td>'.$value["purchases"].'</td>       
                       <td>'.$value["lastPurchase"].'</td>
                       <td>'.$value["registerDate"].'</td>
 

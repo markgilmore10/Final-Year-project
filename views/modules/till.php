@@ -52,6 +52,7 @@
                             // Incrementing value via number of sales
                             foreach ($sales as $key => $value) {
                               // Leave Blank
+                              //var_dump($value);
                             }
 
                             $code = $value["code"] + 1;
