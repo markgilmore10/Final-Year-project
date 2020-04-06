@@ -1,0 +1,96 @@
+%----------------------------------------------------------------------------------------
+%                   Galway-Mayo Institute of Technology (GMIT)
+%                Department of Computer Science and Applied Physics
+%
+%                      *** Latex template for dissertations ***
+%----------------------------------------------------------------------------------------
+
+\documentclass{book}
+
+\usepackage{graphicx} % Required for the inclusion of images
+\usepackage[numbers]{natbib} % Required to change bibliography style to APA
+\usepackage{amsmath} % Required for some math elements 
+\usepackage{makecell}
+\usepackage{eurosym}
+\usepackage{tabularx}
+\usepackage{pbox}
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+\newcommand*{\customTitle}{\begingroup % Create the command for including the title page in the document
+\centering % Center all text
+\vspace*{\baselineskip} % White space at the top of the page
+
+\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} % Thick horizontal line
+\rule{\textwidth}{0.4pt}\\[\baselineskip] % Thin horizontal line
+
+%----------------------------------------------------------------------------------------
+%	1) Change Dissertation Title
+%----------------------------------------------------------------------------------------
+{\Large Restaurant Management and POS System
+}\\[0.2\baselineskip] % Title
+%----------------------------------------------------------------------------------------
+
+
+\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} % Thin horizontal line
+\rule{\textwidth}{1.6pt}\\[\baselineskip] % Thick horizontal line
+\scshape % Small caps \\[\baselineskip] % Tagline(s) or further description
+\Large \textbf{Final Year Project}\\
+\textbf{B.Sc.(Hons) in Software Development}\par % Location and year
+\normalsize
+\vspace*{2\baselineskip} % Whitespace between location/year and editors
+
+
+%----------------------------------------------------------------------------------------
+%	2) Change Student Name(s)
+%----------------------------------------------------------------------------------------
+{by \\ Mark Gilmore \\ Joseph Griffith  \par} % Editor list
+%----------------------------------------------------------------------------------------
+
+
+\vspace*{2\baselineskip} % Whitespace between location/year and editors
+\vfill % Whitespace between editor names and publisher logo
+{\scshape \today} \\[0.3\baselineskip] % Year published
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	3) Change Supervisor
+%----------------------------------------------------------------------------------------
+
+{\textbf{Advised by Martin Hynes}}\par % Supervisor
+
+{Department of Computer Science and Applied Physics Galway-Mayo Institute of Technology (GMIT)}\par % Department
+%----------------------------------------------------------------------------------------
+
+
+\endgroup}
+\begin{document} 
+\pagenumbering{gobble}
+\begin{figure}
+\begin{center}
+\includegraphics[width=8cm,height=3.3cm,keepaspectratio]{gmit-logo} % Include the image placeholder.png
+\end{center}
+\end{figure}
+\customTitle % This command includes the title page
+\tableofcontents
+\listoffigures
+\pagenumbering{arabic} 
+
+
+
+%----------------------------------------------------------------------------------------
+%	4) Change Chapters
+%      Write each chapter in a separate TEX file and include here
+%----------------------------------------------------------------------------------------
+
+\include{introduction}
+\include{methodology}
+\include{techreview}
+\include{sysdesign}
+\include{sysevaluation}
+\include{conclusion}
+
+%----------------------------------------------------------------------------------------
+\bibliographystyle{unsrt}
+\bibliography{references.bib}
+\end{document}
