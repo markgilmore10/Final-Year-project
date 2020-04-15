@@ -125,4 +125,39 @@ class ModelSales{
 
 	}
 
+	///// date ranges
+
+	static public function DatesRangeModel($table, $initialDate, $finalDate){
+
+		if($initialDate == null){
+
+			$stmt = Connection::connect()->prepare("SELECT * FROM $table ORDER BY id ASC");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();	
+
+
+		}else if($initialDate == $finalDate){
+
+			$stmt = Connection::connect()->prepare("SELECT * FROM $table WHERE saledate like '%$finalDate%'");
+
+			$stmt -> bindParam(":saledate", $finalDate, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}else{
+
+			$stmt = Connection::connect()->prepare("SELECT * FROM $table WHERE saledate BETWEEN '$initialDate' AND '$finalDate'");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+		}
+	}
+
+
+	
 }

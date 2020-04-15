@@ -81,11 +81,11 @@ if(isset($_GET["initialDate"])){
 $answer = SalesController::salesDatesRangeController($initialDate, $finalDate);
 
 
-$item = null;
-$value = null;
+//$item = null;
+//$value = null;
 
 
-$answer = SalesController::ShowSalesController($item, $value);
+//$answer = SalesController::ShowSalesController($item, $value);
 
 foreach ($answer as $key => $value) {
  
