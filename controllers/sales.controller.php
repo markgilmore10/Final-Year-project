@@ -397,4 +397,15 @@ class SalesController{
 		}
 	}
 
+	//date ranges
+	static public function salesDatesRangeController($initialDate, $finalDate){
+
+		$table = "sales";
+
+		$answer = ModelSales::DatesRangeModel($table, $initialDate, $finalDate);
+
+		return $answer;
+		
+	}
+
 }

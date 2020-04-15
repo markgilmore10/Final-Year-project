@@ -78,7 +78,7 @@ if(isset($_GET["initialDate"])){
 
 }
 
-//$answer = SalesController::salesDatesRangeController($initialDate, $finalDate);
+$answer = SalesController::salesDatesRangeController($initialDate, $finalDate);
 
 
 $item = null;

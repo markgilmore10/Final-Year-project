@@ -124,5 +124,5 @@ class ModelSales{
 		$stmt = null;
 
 	}
-	
+
 }
