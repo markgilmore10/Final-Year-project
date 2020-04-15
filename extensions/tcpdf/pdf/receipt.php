@@ -52,6 +52,8 @@ $pdf->startPageGroup();
 
 $pdf->AddPage();
 
+//blocks made to 540px as the pdf is 540px wide
+
 $block1 = <<<EOF
 
 	<table>
@@ -145,6 +147,12 @@ $block2 = <<<EOF
 			</td>
 
 		</tr>
+
+		<tr>
+		
+		<td style="border-bottom: 1px solid #666; background-color:white; width:540px"></td>
+
+		</tr>
     
     </table>
 
@@ -171,6 +179,60 @@ $block3 = <<<EOF
 EOF;
 
 $pdf->writeHTML($block3, false, false, false, false, '');
+
+////
+
+foreach ($products as $key => $item) {
+
+$itemProduct = "description";
+$productValue = $item["description"];
+$order = null;
+
+$answerProduct = productsController::ShowProductsController($itemProduct, $productValue, $order);
+
+$unitValue = number_format($answerProduct["sellingPrice"], 2);
+
+$totalPrice = number_format($item["totalPrice"], 2);
+
+$block4 = <<<EOF
+
+<table style="font-size:10px; padding:5px 10px;">
+
+		<tr>
+			
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:260px; text-align:center">
+				$item[description]
+			</td>
+
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:80px; text-align:center">
+				$item[quantity]
+			</td>
+
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">$ 
+				$unitValue
+			</td>
+
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">$ 
+				$totalPrice
+			</td>
+
+
+		</tr>
+
+	</table>
+
+
+	
+
+EOF;
+
+$pdf->writeHTML($block4, false, false, false, false, '');
+
+}
+
+////
+
+
 
 ob_end_clean();
 $pdf->Output('receipt.pdf');
