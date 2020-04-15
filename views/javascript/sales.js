@@ -356,5 +356,15 @@ $('#daterange-btn').daterangepicker(
    	 window.location = "index.php?route=sales&initialDate="+initialDate+"&finalDate="+finalDate;
 
 	}
+
+	
 )
+
+//clear daterange
+$(".daterangepicker.opensleft .range_inputs .cancelBtn").on("click", function(){
+
+	localStorage.removeItem("captureRange");
+	localStorage.clear();
+	window.location = "sales";
+})
 
