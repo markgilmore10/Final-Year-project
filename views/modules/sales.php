@@ -66,9 +66,23 @@
           <?php
 
 
+if(isset($_GET["initialDate"])){
 
-  $item = null;
-  $value = null;
+  $initialDate = $_GET["initialDate"];
+  $finalDate = $_GET["finalDate"];
+
+}else{
+
+  $initialDate = null;
+  $finalDate = null;
+
+}
+
+//$answer = SalesController::salesDatesRangeController($initialDate, $finalDate);
+
+
+$item = null;
+$value = null;
 
 
 $answer = SalesController::ShowSalesController($item, $value);
