@@ -232,6 +232,68 @@ $pdf->writeHTML($block4, false, false, false, false, '');
 
 ////
 
+$block5 = <<<EOF
+
+	<table style="font-size:10px; padding:5px 10px;">
+
+		<tr>
+
+			<td style="color:#333; background-color:white; width:340px; text-align:center"></td>
+
+			<td style="border-bottom: 1px solid #666; background-color:white; width:100px; text-align:center"></td>
+
+			<td style="border-bottom: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center"></td>
+
+		</tr>
+		
+		<tr>
+		
+			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
+
+			<td style="border: 1px solid #666;  background-color:white; width:100px; text-align:center">
+				Net:
+			</td>
+
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
+				$ $netPrice
+			</td>
+
+		</tr>
+
+		<tr>
+
+			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
+
+			<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">
+				Tax:
+			</td>
+		
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
+				$ $tax
+			</td>
+
+		</tr>
+
+		<tr>
+		
+			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
+
+			<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">
+				Total:
+			</td>
+			
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
+				$ $totalPrice
+			</td>
+
+		</tr>
+
+
+	</table>
+
+EOF;
+
+$pdf->writeHTML($block5, false, false, false, false, '');
 
 
 ob_end_clean();

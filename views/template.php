@@ -59,6 +59,7 @@
       <script src="views/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
       <script src="views/plugins/input-mask/jquery.inputmask.extensions.js"></script>
       
+      
     </head>
 
     <body class="hold-transition skin-black sidebar-collapse sidebar-mini login-page">
