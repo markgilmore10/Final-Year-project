@@ -33,6 +33,9 @@
       <link rel="stylesheet" href="views/bower_components/font-awesome/css/font-awesome.min.css">
       <!-- Google Font ----------------------------------->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+      <!-- Daterange picker -->
+      <link rel="stylesheet" href="views/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+
       
       
       <!-- Javascript Plugins -->
@@ -58,6 +61,12 @@
       <script src="views/plugins/input-mask/jquery.inputmask.js"></script>
       <script src="views/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
       <script src="views/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+      <!-- daterangepicker -->
+      <!-- http://www.daterangepicker.com official website -->
+      <script src="views/bower_components/moment/min/moment.min.js"></script>
+      <script src="views/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+
       
       
     </head>
