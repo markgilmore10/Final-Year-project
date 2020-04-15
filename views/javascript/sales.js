@@ -315,3 +315,37 @@ $(".tables").on("click", ".btnPrintBill", function(){
 	window.open("extensions/tcpdf/pdf/receipt.php?code="+saleCode, "_blank");
 
 })
+
+// Date ranges 
+$('#daterange-btn').daterangepicker(
+	{
+	  ranges   : {
+		'Today'       : [moment(), moment()],
+		'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+		'Last 7 days' : [moment().subtract(6, 'days'), moment()],
+		'Last 30 days': [moment().subtract(29, 'days'), moment()],
+		'this month'  : [moment().startOf('month'), moment().endOf('month')],
+		'Last month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+	  },
+	  startDate: moment(),
+	  endDate  : moment()
+	},
+	function (start, end) {
+	  $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+
+	 var initialDate = start.format('YYYY-MM-DD');
+	 //console.log("initialDate", initialDate);
+
+     var finalDate = end.format('YYYY-MM-DD');
+	 //console.log("finalDate", finalDate);
+
+     var captureRange = $("#daterange-btn span").html();
+   
+   	 localStorage.setItem("captureRange", captureRange);
+   	 console.log("localStorage", localStorage);
+
+   	 window.location = "index.php?route=sales&initialDate="+initialDate+"&finalDate="+finalDate;
+
+	}
+)
+
