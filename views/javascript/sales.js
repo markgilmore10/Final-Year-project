@@ -1,3 +1,12 @@
+//local stoarage variable
+if(localStorage.getItem("captureRange") != null){
+
+	$("#daterange-btn span").html(localStorage.getItem("captureRange"));
+
+}else{
+	$("#daterange-btn span").html('<i class="fa fa-calendar"></i> Date Range')
+}
+
 $('.salesTable').DataTable({
 	"ajax": "ajax/sales-table.ajax.php", 
 	"deferRender": true,
