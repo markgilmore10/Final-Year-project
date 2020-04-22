@@ -42,7 +42,7 @@ $('#daterange-btn2').daterangepicker(
   
   //cancel dateranges
   
-  $(".daterangepicker.opensleft .range_inputs .cancelBtn").on("click", function(){
+  $(".daterangepicker.opensright .range_inputs .cancelBtn").on("click", function(){
   
       localStorage.removeItem("captureRange2");
       localStorage.clear();
@@ -50,7 +50,7 @@ $('#daterange-btn2').daterangepicker(
   })
   
   //today 
-  $(".daterangepicker.opensleft .ranges li").on("click", function(){
+  $(".daterangepicker.opensright .ranges li").on("click", function(){
   
       var todayButton = $(this).attr("data-range-key");
   
