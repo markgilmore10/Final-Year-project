@@ -43,7 +43,7 @@ $("#newCategory").change(function(){
 
 })
 
-$("#newBuyingPrice, #editBuyingPrice").change(function(){
+var taxing = function(){
 
 	var vatPercent = $(".newVat").val();
 
@@ -58,6 +58,10 @@ $("#newBuyingPrice, #editBuyingPrice").change(function(){
 
 	$("#editBuyingPricePlus").val(editPercent);
 	$("#editBuyingPricePlus").prop("readonly",true);
+}
+
+$("#newBuyingPrice, #editBuyingPrice, #newCategory").change(function(){
+	taxing()
 })
 
 

@@ -88,13 +88,14 @@
                     $value1 = null;
 
                     $categories = ControllerCategories::ShowCategoriesController($item, $value1);
-
-                    foreach ($categories as $key => $value) {
-                      
-                      echo '<option value="'.$value["id"].'">'.$value["Category"].'</option>';
-                    }
-
-                  ?>
+                  
+                    foreach ($categories as $key => $value):
+                    ?>
+                        <option value="<?= $value["id"] ?>" data-vat="<?= $value["Vat"] ?>" data-tax="<?= $value["Tax"] ?>" ><?= $value["Category"] ?></option>
+                    
+                    <?php
+                    endforeach;
+                    ?>
 
                 </select>
 
@@ -147,8 +148,8 @@
                   <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
 
                   <input type="number" class="form-control input-lg" id="newBuyingPrice" name="newBuyingPrice" step="any" min="0" placeholder="Buying price" required>
-                  <input type="hidden" class="form-control input-lg" id="newVatPrice" name="newVatPrice" step="any" min="0" required>
-                  <input type="hidden" class="form-control input-lg" id="newTaxPrice" name="newTaxPrice" step="any" min="0" required>
+                  <input type="hidden" class="form-control input-lg" id="newVatPrice" name="newVatPrice" step="any" min="0" value="" required>
+                  <input type="hidden" class="form-control input-lg" id="newTaxPrice" name="newTaxPrice" step="any" min="0" value="" required>
 
                 </div>
 
