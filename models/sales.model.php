@@ -147,14 +147,32 @@ class ModelSales{
 			$stmt -> execute();
 
 			return $stmt -> fetchAll();
-
+			
 		}else{
 
-			$stmt = Connection::connect()->prepare("SELECT * FROM $table WHERE saledate BETWEEN '$initialDate' AND '$finalDate'");
+			$actualDate = new DateTime();
+			$actualDate ->add(new DateInterval("P1D"));
+			$actualDatePlusOne = $actualDate->format("Y-m-d");
 
+			$finalDate2 = new DateTime($finalDate);
+			$finalDate2 ->add(new DateInterval("P1D"));
+			$finalDatePlusOne = $finalDate2->format("Y-m-d");
+
+			if($finalDatePlusOne == $actualDatePlusOne){
+
+				$stmt = Connection::connect()->prepare("SELECT * FROM $table WHERE saledate BETWEEN '$initialDate' AND '$finalDatePlusOne'");
+
+			}else{
+
+
+				$stmt = Connection::connect()->prepare("SELECT * FROM $table WHERE saledate BETWEEN '$initialDate' AND '$finalDate'");
+
+			}
+		
 			$stmt -> execute();
 
 			return $stmt -> fetchAll();
+
 		}
 	}
 
