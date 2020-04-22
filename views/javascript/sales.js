@@ -360,7 +360,7 @@ $('#daterange-btn').daterangepicker(
 	
 )
 
-//clear daterange
+//clear daterange*/
 $(".daterangepicker.opensleft .range_inputs .cancelBtn").on("click", function(){
 
 	localStorage.removeItem("captureRange");
@@ -368,3 +368,45 @@ $(".daterangepicker.opensleft .range_inputs .cancelBtn").on("click", function(){
 	window.location = "sales";
 })
 
+//today
+$(".daterangepicker.opensleft .ranges li").on("click", function(){
+
+	var todayButton = $(this).attr("data-range-key");
+
+	if(todayButton == "Today"){
+
+		var d = new Date();
+		
+		var day = d.getDate();
+		var month= d.getMonth()+1;
+		var year = d.getFullYear();
+
+		if(month < 10){
+
+			var initialDate = year+"-0"+month+"-"+day;
+			var finalDate = year+"-0"+month+"-"+day;
+
+		}else if(day < 10){
+
+			var initialDate = year+"-"+month+"-0"+day;
+			var finalDate = year+"-"+month+"-0"+day;
+
+		}else if(month < 10 && day < 10){
+
+			var initialDate = year+"-0"+month+"-0"+day;
+			var finalDate = year+"-0"+month+"-0"+day;
+
+		}else{
+
+			var initialDate = year+"-"+month+"-"+day;
+	    	var finalDate = year+"-"+month+"-"+day;
+
+		}	
+
+    	localStorage.setItem("captureRange", "Today");
+
+    	window.location = "index.php?route=sales&initialDate="+initialDate+"&finalDate="+finalDate;
+
+	}
+
+})
