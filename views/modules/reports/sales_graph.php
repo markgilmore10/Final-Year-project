@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(0);
+
 if(isset($_GET["initialDate"])){
 
     $initialDate = $_GET["initialDate"];
@@ -15,6 +17,8 @@ $finalDate = null;
 $answer = SalesController::salesDatesRangeController($initialDate, $finalDate);
 
 $arrayDates = array();
+$arraySales = array();
+$monthlyPayments = array();
 
 foreach ($answer as $key => $value) {
 
@@ -25,12 +29,26 @@ foreach ($answer as $key => $value) {
 	$singleDate = substr($value["saledate"],0,7);
 
     //dates in arrayDates
-	array_push($arrayDates, $singleDate);
+    array_push($arrayDates, $singleDate);
+    
+    //captures sales
+    $arraySales = array($singleDate => $value["totalPrice"]);
+    
+    foreach ($arraySales as $key => $value) {
+		
+		$monthlyPayments[$key] += $value;
+    }
 
 }
 
-var_dump($arrayDates);
+//var_dump($monthlyPayments);
+foreach ($arraySales as $key => $value) {
+		
+    var_dump($key);
+}
 
+$noRepeatDates = array_unique($arrayDates);
+//var_dump($noRepeatDates);
 
 ?>
 
@@ -61,10 +79,18 @@ var_dump($arrayDates);
     element          : 'Sales-line-chart',
     resize           : true,
     data             : [
-      { y: '2011 Q1', Sales: 2666 },
-      { y: '2012 Q2', Sales: 2778 },
-      { y: '2013 Q3', Sales: 4912 },
-      { y: '2014 Q4', Sales: 3767 }
+      
+    <?php
+
+    foreach($arrayDates as $key => $value){
+
+	    echo "{ y: '".$value."', Sales: '2121' }";
+
+	}
+
+	echo "{ y: '".$value."', Sales: '2121' }";
+
+    ?>
     ],
     xkey             : 'y',
     ykeys            : ['Sales'],
