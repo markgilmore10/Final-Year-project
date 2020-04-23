@@ -34,7 +34,13 @@ foreach ($answer as $key => $value) {
  		<i class="fa fa-th"></i>
 
   		<h3 class="box-title">Sales Graph</h3>
+        
+    </div>
 
-	</div>
+    <div class="box-body border-radius-none newSalesGraph">
+
+        <div class="chart" id="Sales-line-chart" style="height: 250px; width: 1400px;"></div>
+
+    </div>
 
 </div>
