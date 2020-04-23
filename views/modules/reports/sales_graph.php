@@ -14,11 +14,22 @@ $finalDate = null;
 
 $answer = SalesController::salesDatesRangeController($initialDate, $finalDate);
 
+$arrayDates = array();
+
 foreach ($answer as $key => $value) {
 
     //var_dump($value);
+    //var_dump($saledate);
+
+    //captures only year and month
+	$singleDate = substr($value["saledate"],0,7);
+
+    //dates in arrayDates
+	array_push($arrayDates, $singleDate);
 
 }
+
+var_dump($arrayDates);
 
 
 ?>
@@ -50,20 +61,14 @@ foreach ($answer as $key => $value) {
     element          : 'Sales-line-chart',
     resize           : true,
     data             : [
-      { y: '2011 Q1', item1: 2666 },
-      { y: '2011 Q2', item1: 2778 },
-      { y: '2011 Q3', item1: 4912 },
-      { y: '2011 Q4', item1: 3767 },
-      { y: '2012 Q1', item1: 6810 },
-      { y: '2012 Q2', item1: 5670 },
-      { y: '2012 Q3', item1: 4820 },
-      { y: '2012 Q4', item1: 15073 },
-      { y: '2013 Q1', item1: 10687 },
-      { y: '2013 Q2', item1: 8432 }
+      { y: '2011 Q1', Sales: 2666 },
+      { y: '2012 Q2', Sales: 2778 },
+      { y: '2013 Q3', Sales: 4912 },
+      { y: '2014 Q4', Sales: 3767 }
     ],
     xkey             : 'y',
-    ykeys            : ['item1'],
-    labels           : ['Item 1'],
+    ykeys            : ['Sales'],
+    labels           : ['Sales'],
     lineColors       : ['#efefef'],
     lineWidth        : 2,
     hideHover        : 'auto',
@@ -73,6 +78,7 @@ foreach ($answer as $key => $value) {
     pointStrokeColors: ['#efefef'],
     gridLineColor    : '#efefef',
     gridTextFamily   : 'Open Sans',
+    preUnits         : '€',
     gridTextSize     : 10
   });
 </script>
