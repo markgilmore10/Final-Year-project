@@ -34,6 +34,7 @@ foreach ($answer as $key => $value) {
     //captures sales
     $arraySales = array($singleDate => $value["totalPrice"]);
     
+    //adding sales in same months
     foreach ($arraySales as $key => $value) {
 		
 		$monthlyPayments[$key] += $value;
@@ -41,14 +42,8 @@ foreach ($answer as $key => $value) {
 
 }
 
-//var_dump($monthlyPayments);
-foreach ($arraySales as $key => $value) {
-		
-    var_dump($key);
-}
-
-$noRepeatDates = array_unique($arrayDates);
-//var_dump($noRepeatDates);
+$dontRepeatDates = array_unique($arrayDates);
+//var_dump($dontRepeatDates);
 
 ?>
 
@@ -75,6 +70,7 @@ $noRepeatDates = array_unique($arrayDates);
 </div>
 
 <script>
+
   var line = new Morris.Line({
     element          : 'Sales-line-chart',
     resize           : true,
@@ -82,15 +78,25 @@ $noRepeatDates = array_unique($arrayDates);
       
     <?php
 
-    foreach($arrayDates as $key => $value){
+    if($dontRepeatDates != null){
 
-	    echo "{ y: '".$value."', Sales: '2121' }";
+        foreach($dontRepeatDates as $key){
 
-	}
+            echo "{ y: '".$key."', Sales: ".$monthlyPayments[$key]." },";
 
-	echo "{ y: '".$value."', Sales: '2121' }";
+        }
+
+        echo "{ y: '".$key."', Sales: ".$monthlyPayments[$key]." }";
+
+    }else{
+
+        echo "{ y: '0', Sales: '0' }";
+    }
+ 
+     
 
     ?>
+
     ],
     xkey             : 'y',
     ykeys            : ['Sales'],
