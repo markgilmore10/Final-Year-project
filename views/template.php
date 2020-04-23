@@ -35,7 +35,8 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
       <!-- Daterange picker -->
       <link rel="stylesheet" href="views/bower_components/bootstrap-daterangepicker/daterangepicker.css">
-
+      <!-- Morris chart -->
+      <link rel="stylesheet" href="views/bower_components/morris.js/morris.css">  
       
       
       <!-- Javascript Plugins -->
@@ -65,8 +66,10 @@
       <!-- http://www.daterangepicker.com official website -->
       <script src="views/bower_components/moment/min/moment.min.js"></script>
       <script src="views/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-
-
+      <!-- Morris.js charts-->
+      <!-- http://morrisjs.github.io/morris.js/ -->
+      <script src="views/bower_components/raphael/raphael.min.js"></script>
+      <script src="views/bower_components/morris.js/morris.min.js"></script>
       
       
     </head>
