@@ -179,4 +179,14 @@ class productsController{
 		}
 
 	}
+
+	static public function sumOfSalesController(){
+
+		$table = "products";
+
+		$answer = productsModel::sumOfSalesModel($table);
+
+		return $answer;
+
+	}
 }

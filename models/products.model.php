@@ -130,4 +130,18 @@ class productsModel{
 		$stmt = null;
 
 	}
+
+
+	static public function sumOfSalesModel($table){
+
+		$stmt = Connection::connect()->prepare("SELECT SUM(sales) as total FROM $table");
+
+		$stmt -> execute();
+
+		return $stmt -> fetch();
+
+		$stmt -> close();
+
+		$stmt = null;
+	}
 }

@@ -8,6 +8,8 @@ $products = ProductsController::ShowProductsController($item, $value, $order);
 
 $colours = array("red", "green", "yellow", "blue", "pink", "cyan", "gold", "brown", "orange", "black"); 
 
+$salesTotal = ProductsController::sumOfSalesController();
+
 //var_dump($products);
 ?>
 
@@ -60,33 +62,28 @@ $colours = array("red", "green", "yellow", "blue", "pink", "cyan", "gold", "brow
 
         <ul class="nav nav-pills nav-stacked">
 
-            <li>
+        <?php
+
+          for($i = 0; $i <5; $i++){
+
+            echo'<li>
             
-            <a href="#">
-                Bob
-                <span class="pull-right text-red">
-                <i class="fa fa-angle-down"></i>
-                12%</span>
-            </a>
-            </li>
+                  <a href="#">
 
-            <li>
-            <a href="#">
-                Dan
-                <span class="pull-right text-green">
-                <i class="fa fa-angle-up"></i> 4%
-                </span>
-            </a>
-            </li>
+                    '.$products[$i]["product"].'
 
-            <li>
-            <a href="#">
-                Yoda
-                <span class="pull-right text-yellow">
-                <i class="fa fa-angle-left"></i> 0%
-                </span>
-            </a>
-            </li>
+                    <span class="pull-right text-'.$colours[$i].'"> 
+
+                    '.ceil($products[$i]["sales"]*100/$salesTotal["total"]).'%
+                    
+						       </span>
+
+                  </a>
+
+                  </li>';
+
+          }
+        ?>
 
         </ul>
 
