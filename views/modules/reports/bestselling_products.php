@@ -1,22 +1,12 @@
+
+
+
+
 <div class="box box-default">
 
     <div class="box-header with-border">
 
-        <h3 class="box-title">Browser Usage</h3>
-
-        <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-card-widget="collapse">
-            
-                <i class="fa fa-minus"></i>
-            
-            </button>
-
-            <button type="button" class="btn btn-box-tool" data-card-widget="remove">
-
-                <i class="fa fa-times"></i>
-
-            </button>
-        </div>
+        <h3 class="box-title">Best selling products</h3>
     </div>
 
 
@@ -38,12 +28,12 @@
         
             <ul class="chart-legend clearfix">
 
-                <li><i class="fa fa-circle-o text-red"></i> Chrome</li>
-                <li><i class="fa fa-circle-o text-green"></i> IE</li>
-                <li><i class="fa fa-circle-o text-yellow"></i> FireFox</li>
-                <li><i class="fa fa-circle-o text-aqua"></i> Safari</li>
-                <li><i class="fa fa-circle-o text-light-blue"></i> Opera</li>
-                <li><i class="fa fa-circle-o text-gray"></i> Navigator</li>
+                <li><i class="fa fa-circle-o text-red"></i> Food1</li>
+                <li><i class="fa fa-circle-o text-green"></i> Food2</li>
+                <li><i class="fa fa-circle-o text-yellow"></i> Food3</li>
+                <li><i class="fa fa-circle-o text-aqua"></i> Food4</li>
+                <li><i class="fa fa-circle-o text-light-blue"></i> Food5</li>
+                <li><i class="fa fa-circle-o text-gray"></i> Food6</li>
 
             </ul>
 
@@ -60,7 +50,7 @@
             <li>
             
             <a href="#">
-                United States of America
+                Bob
                 <span class="pull-right text-red">
                 <i class="fa fa-angle-down"></i>
                 12%</span>
@@ -69,7 +59,7 @@
 
             <li>
             <a href="#">
-                India
+                Dan
                 <span class="pull-right text-green">
                 <i class="fa fa-angle-up"></i> 4%
                 </span>
@@ -78,7 +68,7 @@
 
             <li>
             <a href="#">
-                China
+                Yoda
                 <span class="pull-right text-yellow">
                 <i class="fa fa-angle-left"></i> 0%
                 </span>
@@ -92,9 +82,7 @@
 </div>
 
 <script>
-// -------------
-  // - PIE CHART -
-  // -------------
+
   // Get context with jQuery - using jQuery's .get() method.
   var pieChartCanvas = $('#pieChart').get(0).getContext('2d');
   var pieChart       = new Chart(pieChartCanvas);
@@ -104,42 +92,42 @@
       value    : 700,
       color    : '#f56954',
       highlight: '#f56954',
-      label    : '#Chrome'
+      label    : '#Food1'
     }, 
 
     {
       value    : 500,
       color    : '#00a65a',
       highlight: '#00a65a',
-      label    : 'IE'
+      label    : 'Food2'
     },
 
     {
       value    : 400,
       color    : '#f39c12',
       highlight: '#f39c12',
-      label    : 'FireFox'
+      label    : 'Food3'
     },
 
     {
       value    : 600,
       color    : '#00c0ef',
       highlight: '#00c0ef',
-      label    : 'Safari'
+      label    : 'Food4'
     },
 
     {
       value    : 300,
       color    : '#3c8bdc',
       highlight: '#3c8bdc',
-      label    : 'Opera'
+      label    : 'Food5'
     },
 
     {
       value    : 100,
       color    : '#d2d6de',
       highlight: '#d2d6de',
-      label    : 'Navigator'
+      label    : 'Food6'
     }
 
   
@@ -173,9 +161,7 @@
   // Create pie or douhnut chart
   // You can switch between pie and douhnut using the method below.
   pieChart.Doughnut(PieData, pieOptions);
-  // -----------------
-  // - END PIE CHART -
-  // -----------------
+
 
 
 </script>
