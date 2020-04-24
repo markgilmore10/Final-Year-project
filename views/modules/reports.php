@@ -44,6 +44,16 @@
 
         </div>
 
+        <div class="col-md-6 col-xs-12">
+             
+            <?php
+
+            include "reports/bestselling_products.php";
+
+            ?>
+ 
+        </div>
+
     </div>
 
     </div>
