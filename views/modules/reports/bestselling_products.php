@@ -6,6 +6,8 @@ $order = "sales";
 
 $products = ProductsController::ShowProductsController($item, $value, $order);
 
+$colours = array("red", "green", "yellow", "blue", "pink", "cyan", "gold", "brown", "orange", "black"); 
+
 //var_dump($products);
 ?>
 
@@ -21,7 +23,7 @@ $products = ProductsController::ShowProductsController($item, $value, $order);
 
         <div class="row">
 
-            <div class="col-md-8">
+            <div class="col-md-7">
 
                 <div class="chart-responsive">
 
@@ -31,7 +33,7 @@ $products = ProductsController::ShowProductsController($item, $value, $order);
        
             </div>
       
-        <div class="col-md-4">
+        <div class="col-md-5">
         
             <ul class="chart-legend clearfix">
 
@@ -39,7 +41,7 @@ $products = ProductsController::ShowProductsController($item, $value, $order);
 
             for($i = 0; $i < 10; $i++){
 
-              echo ' <li><i class="fa fa-circle-o text-red"></i>'.$products[$i]["product"].'</li>';
+              echo ' <li><i class="fa fa-circle-o text-'.$colours[$i].'"></i> '.$products[$i]["product"].'</li>';
 
             }
 
