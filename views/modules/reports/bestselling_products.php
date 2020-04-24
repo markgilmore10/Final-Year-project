@@ -98,49 +98,23 @@ $salesTotal = ProductsController::sumOfSalesController();
   var pieChart       = new Chart(pieChartCanvas);
   var PieData        = [
 
-    {
-      value    : 700,
-      color    : '#f56954',
-      highlight: '#f56954',
-      label    : '#Food1'
-    }, 
+    <?php
 
-    {
-      value    : 500,
-      color    : '#00a65a',
-      highlight: '#00a65a',
-      label    : 'Food2'
-    },
+    for($i = 0; $i < 10; $i++){
 
-    {
-      value    : 400,
-      color    : '#f39c12',
-      highlight: '#f39c12',
-      label    : 'Food3'
-    },
+      echo "{
+        value    : ".$products[$i]["sales"].",
+        color    : '".$colours[$i]."',
+        highlight: '".$colours[$i]."',
+        label    : '".$products[$i]["product"]."'
+      },";
 
-    {
-      value    : 600,
-      color    : '#00c0ef',
-      highlight: '#00c0ef',
-      label    : 'Food4'
-    },
-
-    {
-      value    : 300,
-      color    : '#3c8bdc',
-      highlight: '#3c8bdc',
-      label    : 'Food5'
-    },
-
-    {
-      value    : 100,
-      color    : '#d2d6de',
-      highlight: '#d2d6de',
-      label    : 'Food6'
     }
 
-  
+
+
+
+    ?>
   ];
   var pieOptions     = {
     // Boolean - Whether we should show a stroke on each segment
