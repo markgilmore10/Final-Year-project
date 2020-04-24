@@ -13,18 +13,17 @@ class SalesController{
 
 	}
 
-    public static function SaleController(){
+    public static function CreateSaleController(){
 
-        // Make Sale
-		if(isset($_POST["newSale"])){
+		if (isset($_POST["openTable"])) {
 
 			$productsList = json_decode($_POST["productsList"], true);
 
-			//$totalPurchases = array();
+			$totalPurchases = array();
 
 			foreach ($productsList as $key => $value) {
 
-			   //array_push($totalPurchases, $value["quantity"]);
+			   array_push($totalPurchases, $value["quantity"]);
 				
 			   $tableProducts = "products";
 
@@ -45,6 +44,70 @@ class SalesController{
 				$newStock = ProductsModel::UpdateProductModel($tableProducts, $item2, $value2, $valueProductId);
 
 			}
+            
+			$table = "open_tables";
+			
+            $data = array("code"       => $_POST["newSale"],
+                          "idSeller"   => $_POST["idSeller"],
+                          "tableNo"    => $_POST["tableNo"],
+                          "idCustomer" => $_POST["selectCustomer"],
+                          "products"   => $_POST["productsList"],
+                          "netPrice"   => $_POST["newNetPrice"],
+            );
+            
+            $answer = ModelTables::AddTableModel($table, $data);
+            if ($answer == "ok") {
+                
+                echo '<script>
+
+				localStorage.removeItem("range");
+
+				swal({
+					  type: "success",
+					  title: "Order Saved",
+					  showConfirmButton: true,
+					  confirmButtonText: "Close"
+					  }).then((result) => {
+								if (result.value) {
+
+								window.location = "open-tables";
+
+								}
+							})
+
+				</script>';
+            
+            }
+            
+        } elseif(isset($_POST["newSale"])){
+
+			$productsList = json_decode($_POST["productsList"], true);
+
+			$totalPurchases = array();
+
+			foreach ($productsList as $key => $value) {
+
+			   array_push($totalPurchases, $value["quantity"]);
+				
+			   $tableProducts = "products";
+
+			    $item = "id";
+			    $valueProductId = $value["id"];
+			    $order = "id";
+
+			    $getProduct = ProductsModel::ShowProductsModel($tableProducts, $item, $valueProductId, $order);
+
+				$item1 = "sales";
+				$value1 = $value["quantity"] + $getProduct["sales"];
+
+			    $newSales = ProductsModel::UpdateProductModel($tableProducts, $item1, $value1, $valueProductId);
+
+				$item2 = "stock";
+				$value2 = $value["stock"];
+
+				$newStock = ProductsModel::UpdateProductModel($tableProducts, $item2, $value2, $valueProductId);
+
+			}
 
 			$tableCustomers = "customers";
 
@@ -53,20 +116,21 @@ class SalesController{
 
 			$getCustomer = CustomersModel::ShowCustomersModel($tableCustomers, $item, $valueCustomer);
 
-			$item1a = "purchases";
-			$value1a = $getCustomer["purchases"] + 1; //array_sum($totalPurchases) + $getCustomer["purchases"];
-			var_dump($value1a);
-			$customerPurchases = CustomersModel::UpdateCustomerModel($tableCustomers, $item1a, $value1a, $value);
+			$item1 = "purchases";
+			//$value1a = $getCustomer["purchases"] + 1; 
+			$value1 = array_sum($totalPurchases) + $getCustomer["purchases"];
+			//var_dump($value1a);
+			$customerPurchases = CustomersModel::UpdateCustomerModel($tableCustomers, $item1, $value1, $valueCustomer);
 
-			$item1b = "lastPurchase";
+			$item2 = "lastPurchase";
 
 			date_default_timezone_set("Europe/Dublin");
 
 			$date = date('Y-m-d');
 			$hour = date('H:i:s');
-			$value1b = $date.' '.$hour;
+			$value2 = $date.' '.$hour;
 
-			$dateCustomer = CustomersModel::UpdateCustomerModel($tableCustomers, $item1b, $value1b, $value);
+			$dateCustomer = CustomersModel::UpdateCustomerModel($tableCustomers, $item2, $value2, $valueCustomer);
 			
 			$table = "sales";
 
@@ -113,7 +177,7 @@ class SalesController{
         return ModelSales::getAll();
 	}
 	
-	public static function OpenTableController(){
+	public static function ReOpenTableController(){
 
         // Make Sale
 		if(isset($_POST["reopenSale"])){

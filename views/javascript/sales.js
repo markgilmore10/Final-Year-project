@@ -9,14 +9,14 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 
     var idProduct = $(this).attr("idProduct");
    
-	var datum = new FormData();
+	var data = new FormData();
 
-    datum.append("idProduct", idProduct);
+    data.append("idProduct", idProduct);
 	
 	$.ajax({
 		url:"ajax/products.ajax.php",
 		method: "POST",
-		data: datum,
+		data: data,
 		cache: false,
 		contentType: false,
 		processData: false,
@@ -257,15 +257,15 @@ $(".saleForm").on("change", "select.newProductDescription", function(){
 
 	var newProductQuantity = $(this).val(); // need to fetch new quantity
 
-	var datum = new FormData();
-    datum.append("productName", productName);
+	var data = new FormData();
+    data.append("productName", productName);
 
 
 	  $.ajax({
 
      	url:"ajax/products.ajax.php",
       	method: "POST",
-      	data: datum,
+      	data: data,
       	cache: false,
       	contentType: false,
       	processData: false,

@@ -11,14 +11,20 @@ $("#newCategory").change(function(){
 
 	var idCategory = $(this).val();
 
-	var datum = new FormData();
-  	datum.append("idCategory", idCategory);
+	var data = new FormData();
+	data.append("idCategory", idCategory);
 
+  	var Vat = $(this).find(':selected').attr('data-Vat');
+  	var Tax = $(this).find(':selected').attr('data-Tax');
+	
+  	$("#newVatPrice").val(Vat);
+  	$("#newTaxPrice").val(Tax);
+  	
   	$.ajax({
 
       url:"ajax/products.ajax.php",
       method: "POST",
-      data: datum,
+      data: data,
       cache: false,
       contentType: false,
       processData: false,
@@ -42,24 +48,16 @@ $("#newCategory").change(function(){
   	})
 
 })
-
 var taxing = function(){
-
-	var vatPercent = $(".newVat").val();
-
-	var taxPercent = $(".newTax").val();
-	
+	var vatPercent = $("#newVatPrice").val();
+	var taxPercent = $("#newTaxPrice").val();
 	var percent = Number(($("#newBuyingPrice").val()*vatPercent/100))+Number(($("#newBuyingPrice").val()*taxPercent/100))+Number($("#newBuyingPrice").val());
-
 	var editPercent = Number(($("#editBuyingPrice").val()*vatPercent/100))+Number(($("#editBuyingPrice").val()*taxPercent/100))+Number($("#editSellingPrice").val());
-
 	$("#newBuyingPricePlus").val(percent);
 	$("#newBuyingPricePlus").prop("readonly", true);
-
 	$("#editBuyingPricePlus").val(editPercent);
 	$("#editBuyingPricePlus").prop("readonly",true);
 }
-
 $("#newBuyingPrice, #editBuyingPrice, #newCategory").change(function(){
 	taxing()
 })
@@ -127,14 +125,14 @@ $(".productsTable tbody").on("click", "button.btnEditProduct", function(){
 
 	var idProduct = $(this).attr("idProduct");
 
-	var datum = new FormData();
-    datum.append("idProduct", idProduct);
+	var data = new FormData();
+    data.append("idProduct", idProduct);
 
 	$.ajax({
 
 		url:"ajax/products.ajax.php",
 		method: "POST",
-		data: datum,
+		data: data,
 		cache: false,
 		contentType: false,
 		processData: false,

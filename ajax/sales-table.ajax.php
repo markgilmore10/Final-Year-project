@@ -24,14 +24,21 @@ class salesProductTable{
 		}
 
 		$jsonData = '{
+
 			"data":[';
-                $buttons ='';
+
+				$buttons ='';
+				
 				for($i=0; $i < count($products); $i++){
 
 		  			$buttons .=  "<button class='btn btn-primary btn-block addProductSale recoverButton pull-left' style='width:20%' idProduct='".$products[$i]["id"]."'>".$products[$i]["product"]."</button> ";
-                    if ($i%4==0){
+					
+					  if ($i%4==0){
+
                         $jsonData .='[
+							
 						"'.$buttons.'"
+
 					],';
                         $buttons ='';
                     }

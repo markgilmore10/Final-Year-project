@@ -13,75 +13,75 @@ class OpenTableController{
 
 	}
 
-    public static function TableController(){
+    // public static function TableController(){
 
-        // Hold Table
-		if(isset($_POST["newTable"])){
+    //     // Hold Table
+	// 	if(isset($_POST["openTable"])){
 
-			$productsList = json_decode($_POST["productsList"], true);
+	// 		$productsList = json_decode($_POST["productsList"], true);
 
-			$totalPurchase = array();
+	// 		$totalPurchase = array();
 
-			foreach ($productsList as $key => $value) {
+	// 		foreach ($productsList as $key => $value) {
 
-			   array_push($totalPurchase, $value["quantity"]);
+	// 		   array_push($totalPurchase, $value["quantity"]);
 				
-			   $tableProducts = "products";
+	// 		   $tableProducts = "products";
 
-			    $item = "id";
-			    $valueProductId = $value["id"];
-			    $order = "id";
+	// 		    $item = "id";
+	// 		    $valueProductId = $value["id"];
+	// 		    $order = "id";
 
-			    $getProduct = ProductsModel::ShowProductsModel($tableProducts, $item, $valueProductId, $order);
+	// 		    $getProduct = ProductsModel::ShowProductsModel($tableProducts, $item, $valueProductId, $order);
 
-				$item1 = "sales";
-				$value1 = $value["quantity"] + $getProduct["sales"];
+	// 			$item1 = "sales";
+	// 			$value1 = $value["quantity"] + $getProduct["sales"];
 
-			    $newSales = ProductsModel::UpdateProductModel($tableProducts, $item1, $value1, $valueProductId);
+	// 		    $newSales = ProductsModel::UpdateProductModel($tableProducts, $item1, $value1, $valueProductId);
 
-				$item2 = "stock";
-				$value2 = $value["stock"];
+	// 			$item2 = "stock";
+	// 			$value2 = $value["stock"];
 
-				$newStock = ProductsModel::UpdateProductModel($tableProducts, $item2, $value2, $valueProductId);
+	// 			$newStock = ProductsModel::UpdateProductModel($tableProducts, $item2, $value2, $valueProductId);
 
-			}
+	// 		}
 
-			$table = "opentables";
+	// 		$table = "opentables";
 
-			$data = array("code"=>$_POST["newSale"],
-						  "idSeller"=>$_POST["idSeller"],
-						  "tableNo"=>$_POST["tableNo"],
-						  "products"=>$_POST["productsList"],
-						  "netPrice"=>$_POST["newNetPrice"]);
+	// 		$data = array("code"=>$_POST["newSale"],
+	// 					  "idSeller"=>$_POST["idSeller"],
+	// 					  "tableNo"=>$_POST["tableNo"],
+	// 					  "products"=>$_POST["productsList"],
+	// 					  "netPrice"=>$_POST["newNetPrice"]);
 
-			$answer = ModelTables::AddTableModel($table, $data);
+	// 		$answer = ModelTables::AddTableModel($table, $data);
 
-			if($answer == "ok"){
+	// 		if($answer == "ok"){
 
-				echo'<script>
+	// 			echo'<script>
 
-				localStorage.removeItem("range");
+	// 			localStorage.removeItem("range");
 
-				swal({
-					  type: "success",
-					  title: "Table Succesfull",
-					  showConfirmButton: true,
-					  confirmButtonText: "Close"
-					  }).then((result) => {
-								if (result.value) {
+	// 			swal({
+	// 				  type: "success",
+	// 				  title: "Table on Hold",
+	// 				  showConfirmButton: true,
+	// 				  confirmButtonText: "Close"
+	// 				  }).then((result) => {
+	// 							if (result.value) {
 
-								window.location = "opentables";
+	// 							window.location = "opentables";
 
-								}
-							})
+	// 							}
+	// 						})
 
-				</script>';
+	// 			</script>';
 
-			}
+	// 		}
 
-		}
+	// 	}
 
-	}
+	// }
 	
 	public static function index () {
         return ModelTables::all();

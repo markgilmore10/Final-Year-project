@@ -18,24 +18,21 @@
 
                 <?php
 
-                    $item = "id";
-                    $value = $_GET["idSale"];
+                  $item = "id";
+                  $value = $_GET["idSale"];
 
-                    $sale = SalesController::ShowSalesController($item, $value);
+                  $sale = SalesController::ShowSalesController($item, $value);
+                  $openSale = OpenTableController::ShowTableController($item, $value);
 
-                    $itemUser = "id";
-                    $valueUser = $sale["idSeller"];
+                  $itemUser = "id";
+                  $valueUser = $sale["idSeller"];
 
-                    $seller = UserController::ShowUsersController($itemUser, $valueUser);
+                  $seller = UserController::ShowUsersController($itemUser, $valueUser);
 
-                    $itemCustomers = "id";
-                    $valueCustomers = $sale["idCustomer"];
+                  $itemCustomers = "id";
+                  $valueCustomers = $sale["idCustomer"];
 
-                    $customers = CustomerController::ShowCustomerController($itemCustomers, $valueCustomers);
-
-                    //$discountPrice = Number(1 - discount/100);
-
-	                //$totalLessDiscount = Number(totalPrice) * Number(discountPrice);
+                  $customers = CustomerController::ShowCustomerController($itemCustomers, $valueCustomers);
 
                 ?>
 
@@ -108,7 +105,9 @@
                       <?php
 
                         $productList = json_decode($sale["products"], true);
+                        $productList2 = json_decode($openSale["products"], true);
 
+                        if (is_array($productList)) {
                         foreach ($productList as $key => $value) {
 
                           $item = "id";
@@ -153,6 +152,53 @@
 
                               </div>';
                         }
+                      }else{
+
+                        foreach ($productList2 as $key => $value) {
+
+                          $item = "id";
+                          $valueProduct = $value["id"];
+                          $order = "id";
+
+                          $answer = ProductsController::ShowProductsController($item, $valueProduct, $order);
+
+                          $lastStock = $answer["stock"] + $value["quantity"];
+                          
+                          echo '<div class="row" style="padding:5px 15px">
+                    
+                                <div class="col-xs-6" style="padding-right:0px">
+                    
+                                  <div class="input-group">
+                        
+                                    <span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs removeProduct" idProduct="'.$value["id"].'"><i class="fa fa-times"></i></button></span>
+
+                                    <input type="text" class="form-control newProduct" idProduct="'.$value["id"].'" name="addProduct" value="'.$value["product"].'" readonly required>
+
+                                  </div>
+
+                                </div>
+
+                                <div class="col-xs-3">
+                      
+                                  <input type="number" class="form-control newProductQuantity" name="newProductQuantity" min="1" value="'.$value["quantity"].'" stock="'.$lastStock.'" newStock="'.$value["stock"].'" required>
+
+                                </div>
+
+                                <div class="col-xs-3 enterPrice" style="padding-left:0px">
+
+                                  <div class="input-group">
+
+                                    <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
+                           
+                                    <input type="text" class="form-control newProductPrice" realPrice="'.$answer["sellingPrice"].'" name="newProductPrice" value="'.$value["totalPrice"].'" readonly required>
+           
+                                  </div>
+                       
+                                </div>
+
+                              </div>';
+                        }
+                      }
 
 
                         ?>
@@ -235,9 +281,7 @@
                             <button type="submit" class="btn btn-primary pull-right" value="Cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
                             <button type="submit" class="btn btn-warning pull-right" value="Card" name="newPaymentMethod" id="newPaymentMethod" required>Card</button>
                             <button type="submit" class="btn btn-danger pull-right" value="Voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#splitBill">Split Bill</button>
-                            <button type="submit" class="btn btn-primary pull-right">Open Table</button>
-                            <button type="submit" class="btn btn-primary pull-right">Hold</button>
+                            <button type="submit" class="btn btn-primary pull-right"  value="hold" name="openTable">Hold</button>
 
                         </div>
 
@@ -256,7 +300,7 @@
           <?php
 
             $reopenSale = new SalesController();
-            $reopenSale -> OpenTableController();
+            $reopenSale -> ReOpenTableController();
             
           ?>
 
@@ -434,7 +478,7 @@
           
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           
-          <h4 class="modal-title">Slit Bill</h4>
+          <h4 class="modal-title">Split Bill</h4>
 
         </div>
 

@@ -156,7 +156,7 @@
                                   
                                   <input type="text" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="" readonly required>
 
-                                  <input type="hidden" name="saleTotal" id="saleTotal" required>
+                                  <input type="hidden" name="saleTotal" id="saleTotal" required> <!-- total sale without format to save in database -->
 
                                 </div>
 
@@ -187,8 +187,7 @@
                             <button type="submit" class="btn btn-primary pull-right" value="Cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
                             <button type="submit" class="btn btn-warning pull-right" value="Card" name="newPaymentMethod" id="newPaymentMethod" required>Card</button>
                             <button type="submit" class="btn btn-danger pull-right" value="Voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
-                            <button type="submit" class="btn btn-primary pull-right">Open Table</button>
-                            <button type="submit" class="btn btn-primary pull-right">Hold</button>
+                            <button type="submit" class="btn btn-primary pull-right"  value="hold" name="openTable">Hold</button>
 
                         </div>
 
@@ -207,7 +206,7 @@
           <?php
 
             $saveSale = new SalesController();
-            $saveSale -> SaleController();
+            $saveSale -> CreateSaleController();
             
           ?>
 

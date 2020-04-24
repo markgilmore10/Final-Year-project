@@ -41,16 +41,16 @@ $(document).on("click", ".btnActivate", function(){
 	var userId = $(this).attr("userId");
 	var userStatus = $(this).attr("userStatus");
 
-	var datum = new FormData();
+	var data = new FormData();
 
- 	datum.append("activateId", userId);
-  	datum.append("activateUser", userStatus);
+	data.append("activateId", userId);
+	data.append("activateUser", userStatus);
 
   	$.ajax({
 
 	  url:"ajax/users.ajax.php",
 	  method: "POST",
-	  data: datum,
+	  data: data,
 	  cache: false,
       contentType: false,
       processData: false,

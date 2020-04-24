@@ -3,14 +3,14 @@ $(".tables").on("click", "tbody .btnEditCustomer", function(){
 
 	var idCustomer = $(this).attr("idCustomer");
 
-	var datum = new FormData();
-    datum.append("idCustomer", idCustomer);
+	var data = new FormData();
+    data.append("idCustomer", idCustomer);
 
     $.ajax({
 
       url:"ajax/customers.ajax.php",
       method: "POST",
-      data: datum,
+      data: data,
       cache: false,
       contentType: false,
       processData: false,
