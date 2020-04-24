@@ -1,6 +1,13 @@
+<?php
 
+$item = null;
+$value = null;
+$order = "sales";
 
+$products = ProductsController::ShowProductsController($item, $value, $order);
 
+var_dump($products);
+?>
 
 <div class="box box-default">
 

@@ -4,7 +4,7 @@ require_once 'connection.php';
 
 class productsModel{
 
-	public static function ShowProductsModel($table, $item, $value){
+	public static function ShowProductsModel($table, $item, $value, $order){
 
 		if($item != null){
 
@@ -18,7 +18,7 @@ class productsModel{
 
 		}else{
 
-			$stmt = Connection::connect()->prepare("SELECT * FROM $table");
+			$stmt = Connection::connect()->prepare("SELECT * FROM $table ORDER BY $order DESC");
 
 			$stmt -> execute();
 
