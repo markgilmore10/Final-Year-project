@@ -6,7 +6,7 @@ $order = "sales";
 
 $products = ProductsController::ShowProductsController($item, $value, $order);
 
-var_dump($products);
+//var_dump($products);
 ?>
 
 <div class="box box-default">
@@ -35,12 +35,16 @@ var_dump($products);
         
             <ul class="chart-legend clearfix">
 
-                <li><i class="fa fa-circle-o text-red"></i> Food1</li>
-                <li><i class="fa fa-circle-o text-green"></i> Food2</li>
-                <li><i class="fa fa-circle-o text-yellow"></i> Food3</li>
-                <li><i class="fa fa-circle-o text-aqua"></i> Food4</li>
-                <li><i class="fa fa-circle-o text-light-blue"></i> Food5</li>
-                <li><i class="fa fa-circle-o text-gray"></i> Food6</li>
+            <?php
+
+            for($i = 0; $i < 10; $i++){
+
+              echo ' <li><i class="fa fa-circle-o text-red"></i>'.$products[$i]["product"].'</li>';
+
+            }
+
+
+            ?>
 
             </ul>
 
