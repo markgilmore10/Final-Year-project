@@ -54,6 +54,16 @@
  
         </div>
 
+        <div class="col-md-6 col-xs-12">
+             
+            <?php
+
+            include "reports/staffSales.php";
+
+            ?>
+ 
+        </div>
+
     </div>
 
     </div>
