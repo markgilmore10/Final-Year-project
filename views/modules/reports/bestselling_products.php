@@ -64,7 +64,7 @@ $salesTotal = ProductsController::sumOfSalesController();
 
         <?php
 
-          for($i = 0; $i <5; $i++){
+          for($i = 0; $i <12; $i++){
 
             echo'<li>
             

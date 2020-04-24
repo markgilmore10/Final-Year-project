@@ -64,6 +64,16 @@
  
         </div>
 
+        <div class="col-md-6 col-xs-12">
+             
+            <?php
+
+            include "reports/customerTransactions.php";
+
+            ?>
+ 
+        </div>
+
     </div>
 
     </div>
