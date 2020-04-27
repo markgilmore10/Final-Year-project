@@ -42,17 +42,20 @@
                           $item = null;
                           $value = null;
 
-                          $sales = SalesController::ShowSalesController($item, $value);
+                          $sales1 = SalesController::ShowSalesController($item, $value);
+                          $sales2 = OpenTableController::ShowTableController($item, $value);
 
-                          if(!$sales){
+                          if(!$sales1 && !$sales2){
 
                             echo '<input type="text" class="form-control" name="newSale" id="newSale" value="10001" readonly>';
                             
                           }else{
-                            // Incrementing value via number of sales
-                            foreach ($sales as $key => $value) {
-                              // Leave Blank
-                              //var_dump($value);
+                            // Incrementing receipt number via number of sales and open tables
+                            foreach ($sales1 as $key => $value) {
+                              foreach ($sales2 as $key => $value) {
+                                // Leave Blank
+                                //var_dump($value);
+                              }
                             }
 
                             $code = $value["code"] + 1;

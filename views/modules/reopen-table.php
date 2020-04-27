@@ -25,10 +25,12 @@
                   $openSale = OpenTableController::ShowTableController($item, $value);
 
                   $itemUser = "id";
-                  $valueUser = $sale["idSeller"];
+                  $valueUser1 = $sale["idSeller"];
+                  $valueUser2 = $openSale["idSeller"];
 
-                  $seller = UserController::ShowUsersController($itemUser, $valueUser);
-
+                  $seller1 = UserController::ShowUsersController($itemUser, $valueUser1);
+                  $seller2 = UserController::ShowUsersController($itemUser, $valueUser2);
+                
                   $itemCustomers = "id";
                   $valueCustomers = $sale["idCustomer"];
 
@@ -36,33 +38,75 @@
 
                 ?>
 
-                    <!-- Employee Name -->              
+                <?php
+
+                  if(!$seller2) {
+
+                  echo '            
                     <div class="form-group">
 
                       <div class="input-group">
                         
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                        <input type="text" class="form-control" name="newSeller" id="newSeller" value="<?php echo $seller["name"]; ?>" readonly>
+                        <input type="text" class="form-control" name="newSeller" id="newSeller" value="'.$seller1["name"].'" readonly>
 
-                        <input type="hidden" name="idSeller" value="<?php echo $seller["id"]; ?>">
+                        <input type="hidden" name="idSeller" value="'.$seller1["id"].'">
 
                       </div>
 
-                    </div>
-
-                    <!-- Receipt Number -->
-                    <div class="form-group">
+                    </div>'; }else{
+                      
+                      echo '
+                      <div class="form-group">
 
                       <div class="input-group">
                         
-                        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                        <input type="text" class="form-control" id="reopenSale" name="reopenSale" value="<?php echo $sale["code"]; ?>" readonly>
+                        <input type="text" class="form-control" name="newSeller" id="newSeller" value="'.$seller2["name"].'" readonly>
+                    
+                        <input type="hidden" name="idSeller" value="'.$seller1["id"].'">
 
                       </div>
 
-                    </div>
+                    </div>'; }
+
+                    ?>
+
+                    <?php
+
+                      if(!$openSale) {
+
+                      echo '
+            
+                      <div class="form-group">
+
+                        <div class="input-group">
+                          
+                          <span class="input-group-addon"><i class="fa fa-key"></i></span>
+
+                          <input type="text" class="form-control" id="reopenSale" name="reopenSale" value="'.$sale["code"].'" readonly>
+                                                
+                        </div>
+
+                      </div>'; }else{
+                      
+                      echo '
+                      <div class="form-group">
+
+                        <div class="input-group">
+                          
+                          <span class="input-group-addon"><i class="fa fa-key"></i></span>
+
+                          <input type="text" class="form-control" id="reopenSale" name="reopenSale" value="'.$openSale["code"].'" readonly>
+
+                        </div>
+
+                      </div>';
+
+                      }
+                    ?>
 
                     <!-- Table Number -->              
                     <div class="form-group">

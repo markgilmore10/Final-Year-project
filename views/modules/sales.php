@@ -102,17 +102,17 @@
               
             <div class="btn-group">
               
-            <button class="btn btn-info btnPrintBill" saleCode="'.$value["code"].'">
+              <button class="btn btn-info btnPrintBill" saleCode="'.$value["code"].'">
 
-              <i class="fa fa-print"></i>
+                <i class="fa fa-print"></i>
 
-            </button>';
+              </button>';
 
-               echo '<button class="btn btn-warning btnReopenSale" idSale="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+              echo '<button class="btn btn-warning btnReopenSale" idSale="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
 
-                <button class="btn btn-danger btnDeleteSale" idSale="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+              <button class="btn btn-danger btnDeleteSale" idSale="'.$value["id"].'"><i class="fa fa-times"></i></button>';
 
-         echo '</div>  
+          echo '</div>  
 
         </td>
 

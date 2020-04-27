@@ -292,7 +292,6 @@ $(".tables").on("click", ".btnReopenSale", function(){
 
 	window.location = "index.php?route=reopen-table&idSale="+idSale;
 
-
 })
 
 $(".tables").on("click", ".btnDeleteSale", function(){
