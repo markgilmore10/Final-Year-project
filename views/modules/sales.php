@@ -79,16 +79,12 @@
 
         <td>'.$value["tableNo"].'</td>';
 
-        // Tried to get customer name using the customerId - come back to it
+        $itemCustomer = "idNumber";
+        $valueCustomer = $value["idCustomer"];
+        
+        $customerAnswer = CustomerController::ShowCustomerController($itemCustomer, $valueCustomer);
 
-        // $itemCustomer = "id";
-        // $valueCustomer = $value["idCustomer"];
-
-        // $customerAnswer = CustomerController::ShowCustomerController($itemCustomer, $valueCustomer);
-
-        // echo '<td>'.$customerAnswer["name"].'</td>
-
-        echo '<td>'.$value["idCustomer"].'</td>
+        echo '<td>'.$customerAnswer["name"].'</td>
 
         <td>$ '.number_format($value["netPrice"],2).'</td>
 

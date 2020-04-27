@@ -50,12 +50,13 @@ class SalesController{
             $data = array("code"       => $_POST["newSale"],
                           "idSeller"   => $_POST["idSeller"],
                           "tableNo"    => $_POST["tableNo"],
-                          "idCustomer" => $_POST["selectCustomer"],
+                          "idCustomer" => $_POST["customerSearch"],
                           "products"   => $_POST["productsList"],
                           "netPrice"   => $_POST["newNetPrice"],
             );
             
-            $answer = ModelTables::AddTableModel($table, $data);
+			$answer = ModelTables::AddTableModel($table, $data);
+			
             if ($answer == "ok") {
                 
                 echo '<script>
@@ -111,17 +112,18 @@ class SalesController{
 
 			$tableCustomers = "customers";
 
-			$item = "id";
+			$item = "idNumber";
 			$valueCustomer = $_POST["customerSearch"];
-
+			var_dump($item);
+			var_dump($valueCustomer);
 			$getCustomer = CustomersModel::ShowCustomersModel($tableCustomers, $item, $valueCustomer);
-
+			//var_dump($getCustomer);
 			$item1 = "purchases";
 			//$value1a = $getCustomer["purchases"] + 1; 
 			$value1 = array_sum($totalPurchases) + $getCustomer["purchases"];
-			//var_dump($value1a);
+			//var_dump($value1);
 			$customerPurchases = CustomersModel::UpdateCustomerModel($tableCustomers, $item1, $value1, $valueCustomer);
-
+			var_dump($customerPurchases);
 			$item2 = "lastPurchase";
 
 			date_default_timezone_set("Europe/Dublin");
@@ -140,7 +142,7 @@ class SalesController{
 						  "idCustomer"=>$_POST["customerSearch"],
 						  "products"=>$_POST["productsList"],
 						  "netPrice"=>$_POST["newNetPrice"],
-						  "discount"=>$_POST["newDiscountPrice"],
+						  "discount"=>$_POST["newDiscountSale"],
 						  "totalPrice"=>$_POST["newSaleTotal"],
 						  "paymentMethod"=>$_POST["newPaymentMethod"]);
 
@@ -233,8 +235,8 @@ class SalesController{
 
 				$tableCustomers = "customers";
 
-				$itemCustomer = "id";
-				$valueCustomer = $_POST["selectCustomer"];
+				$itemCustomer = "idNumber";
+				$valueCustomer = $_POST["customerSearch"];
 
 				$getCustomer = CustomersModel::ShowCustomersModel($tableCustomers, $itemCustomer, $valueCustomer);
 
@@ -273,8 +275,8 @@ class SalesController{
 
 				$tableCustomers_2 = "customers";
 
-				$item_2 = "id";
-				$value_2 = $_POST["selectCustomer"];
+				$item_2 = "idNumber";
+				$value_2 = $_POST["customerSearch"];
 
 				$getCustomer_2 = CustomersModel::ShowCustomersModel($tableCustomers_2, $item_2, $value_2);
 
@@ -301,7 +303,7 @@ class SalesController{
 						  "idCustomer"=>$_POST["customerSearch"],
 						  "products"=>$_POST["productsList"],
 						  "netPrice"=>$_POST["newNetPrice"],
-						  "discount"=>$_POST["newDiscountPrice"],
+						  "discount"=>$_POST["newDiscountSale"],
 						  "totalPrice"=>$_POST["newSaleTotal"],
 						  "paymentMethod"=>$_POST["newPaymentMethod"]);
 
@@ -425,7 +427,7 @@ class SalesController{
 
 			$tableCustomers = "customers";
 
-			$itemCustomer = "id";
+			$itemCustomer = "idNumber";
 			$valueCustomer = $getSale["idCustomer"];
 
 			$getCustomer = CustomersModel::ShowCustomersModel($tableCustomers, $itemCustomer, $valueCustomer);

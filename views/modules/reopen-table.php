@@ -80,23 +80,21 @@
                     <!-- Customer Number -->              
                     <div class="form-group">
 
-                    <input type="hidden" name="selectCustomer" id="selectCustomer" required>
-                    
-                        <div class="input-group">
-                                        
-                          <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                      <div class="input-group">
+                                      
+                        <span class="input-group-addon"><i class="fa fa-users"></i></span>
 
-                          <div id="customer_div">
-                            
-                            <input type="text" class="form-control" id="customerSearch" name="customerSearch" placeholder="Search Customer">
+                        <div id="customer_div">
+                          
+                          <input type="text" class="form-control" id="customerSearch" name="customerSearch" placeholder="Search Customer">
 
-                            <div class="dropdown" id="results" style="display: none"></div>
+                          <div class="dropdown" id="results" style="display: none"></div>
 
-                          </div>
-                                        
-                          <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#addNewCustomer" data-dismiss="modal">Add Customer</button></span>
-                                    
                         </div>
+                                      
+                        <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#addNewCustomer" data-dismiss="modal">Add Customer</button></span>
+                                  
+                      </div>
                                 
                     </div>
 
@@ -530,7 +528,7 @@
 
         $("#customerSearch").val($number);
 
-        $("#selectCustomer").val();
+        $("#customerSearch").val();
 
         $("#newDiscountSale").val($discount);
 
