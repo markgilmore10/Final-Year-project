@@ -61,12 +61,12 @@
   $value = null;
 
 
-$answer = SalesController::ShowSalesController($item, $value);
+  $answer = SalesController::ShowSalesController($item, $value);
 
-foreach ($answer as $key => $value) {
+  foreach ($answer as $key => $value) {
  
 
- echo '<td>'.($key+1).'</td>
+        echo '<td>'.($key+1).'</td>
 
         <td>'.$value["code"].'</td>';
 
@@ -79,12 +79,16 @@ foreach ($answer as $key => $value) {
 
         <td>'.$value["tableNo"].'</td>';
 
-        $itemCustomer = "id";
-        $valueCustomer = $value["idCustomer"];
+        // Tried to get customer name using the customerId - come back to it
 
-        $customerAnswer = CustomerController::ShowCustomerController($itemCustomer, $valueCustomer);
+        // $itemCustomer = "id";
+        // $valueCustomer = $value["idCustomer"];
 
-        echo '<td>'.$customerAnswer["name"].'</td>
+        // $customerAnswer = CustomerController::ShowCustomerController($itemCustomer, $valueCustomer);
+
+        // echo '<td>'.$customerAnswer["name"].'</td>
+
+        echo '<td>'.$value["idCustomer"].'</td>
 
         <td>$ '.number_format($value["netPrice"],2).'</td>
 

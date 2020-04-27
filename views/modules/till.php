@@ -83,7 +83,7 @@
                     <!-- Customer Number -->              
                     <div class="form-group">
 
-                      <input type="hidden" name="selectCustomer" id="selectCustomer" required>
+                    <input type="hidden" name="selectCustomer" id="selectCustomer" required>
 
                         <div class="input-group">
                                         
@@ -92,7 +92,7 @@
                           <div id="customer_div">
 
                             <input type="text" class="form-control" id="customerSearch" name="customerSearch" placeholder="Search Customer">
-                            
+
                             <div class="dropdown" id="results" style="display: none"></div>
 
                           </div>

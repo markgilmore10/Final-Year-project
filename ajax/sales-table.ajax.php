@@ -10,7 +10,7 @@ class salesProductTable{
 
 		$item = null;
 		$value = null;
-		$order = "id";
+		$order = "idCategory";
 
 		$products = ProductsController::ShowProductsController($item, $value, $order);
 		
@@ -31,18 +31,12 @@ class salesProductTable{
 				
 				for($i=0; $i < count($products); $i++){
 
-		  			$buttons .=  "<button class='btn btn-primary btn-block addProductSale recoverButton pull-left' style='width:20%' idProduct='".$products[$i]["id"]."'>".$products[$i]["product"]."</button> ";
-					
-					  if ($i%4==0){
+		  			$buttons .=  "<button class='btn btn-primary btn-block addProductSale recoverButton pull-left' style='width:50%' idProduct='".$products[$i]["id"]."'>".$products[$i]["product"]." - ".$products[$i]["code"]."</button> ";
 
-                        $jsonData .='[
-							
-						"'.$buttons.'"
+					$jsonData .='["'.$buttons.'"],';
 
-					],';
-                        $buttons ='';
-                    }
-		  			
+					$buttons ='';
+    
 				}
 
 				$jsonData = substr($jsonData, 0, -1);
