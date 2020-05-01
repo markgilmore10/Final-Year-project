@@ -66,7 +66,7 @@
 
                         <input type="text" class="form-control" name="newSeller" id="newSeller" value="'.$seller2["name"].'" readonly>
                     
-                        <input type="hidden" name="idSeller" value="'.$seller1["id"].'">
+                        <input type="hidden" name="idSeller" value="'.$seller2["id"].'">
 
                       </div>
 
@@ -86,7 +86,7 @@
                           
                           <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                          <input type="text" class="form-control" id="reopenSale" name="reopenSale" value="'.$sale["code"].'" readonly>
+                          <input type="text" class="form-control" id="newSale" name="reopenSale" value="'.$sale["code"].'" readonly>
                                                 
                         </div>
 
@@ -99,7 +99,7 @@
                           
                           <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                          <input type="text" class="form-control" id="reopenSale" name="reopenSale" value="'.$openSale["code"].'" readonly>
+                          <input type="text" class="form-control" id="newSale" name="reopenSale" value="'.$openSale["code"].'" readonly>
 
                         </div>
 
@@ -108,19 +108,41 @@
                       }
                     ?>
 
-                    <!-- Table Number -->              
-                    <div class="form-group">
+                    <!-- Table Number -->    
+                    <?php
+
+                      if(!$openSale) {
+
+                        echo '
+
+                        <div class="form-group">
+  
+                        <div class="input-group">
+                          
+                          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+  
+                          <input type="text" class="form-control" name="tableNo" id="tableNo" value="'.$sale["tableNo"].'">
+  
+                        </div>
+  
+                      </div>'; }else{
+
+                      echo '
+                      <div class="form-group">
 
                       <div class="input-group">
                         
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                        <input type="text" class="form-control" name="tableNo" id="tableNo" placeholder="Table Number">
+                        <input type="text" class="form-control" name="tableNo" id="tableNo" value="'.$openSale["tableNo"].'">
 
                       </div>
 
-                    </div>
+                    </div>';
 
+                      }
+                    ?>
+                    
                     <!-- Customer Number -->              
                     <div class="form-group">
 
@@ -184,7 +206,7 @@
 
                                   <div class="input-group">
 
-                                    <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
+                                    <span class="input-group-addon"><i class="ion ion-social-euro"></i></span>
                            
                                     <input type="text" class="form-control newProductPrice" realPrice="'.$answer["sellingPrice"].'" name="newProductPrice" value="'.$value["totalPrice"].'" readonly required>
            
@@ -230,7 +252,7 @@
 
                                   <div class="input-group">
 
-                                    <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
+                                    <span class="input-group-addon"><i class="ion ion-social-euro"></i></span>
                            
                                     <input type="text" class="form-control newProductPrice" realPrice="'.$answer["sellingPrice"].'" name="newProductPrice" value="'.$value["totalPrice"].'" readonly required>
            
