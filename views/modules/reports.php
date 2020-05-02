@@ -25,8 +25,15 @@
           <i class="fa fa-caret-down"></i>
 
         </button>
+      </div>
 
       <div class="box-tools pull-right">
+
+        <a href="views/modules/print_report.php">
+
+          <button class="btn btn-success" style="margin-top:5px">Download to Excel</button>
+
+        </a>
         
     </div>
 
