@@ -176,6 +176,21 @@ class ModelSales{
 		}
 	}
 
+	//adding total sales
+
+	static public function sumTotalSalesModel($table){	
+
+		$stmt = Connection::connect()->prepare("SELECT SUM(netPrice) as total FROM $table");
+
+		$stmt -> execute();
+
+		return $stmt -> fetch();
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
 
 	
 }

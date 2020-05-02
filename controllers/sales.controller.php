@@ -408,4 +408,16 @@ class SalesController{
 		
 	}
 
+
+
+	public function sumTotalSalesController(){
+
+		$table = "sales";
+
+		$answer = ModelSales::sumTotalSalesModel($table);
+
+		return $answer;
+
+	}
+
 }

@@ -1,3 +1,46 @@
+<?php
+
+$item = null;
+$value = null;
+
+$sales = SalesController::showSalesController($item, $value);
+$users = ControllerUsers::showUsers($item, $value);
+
+$arrayStaff = array();
+$arrayStaffList = array();
+
+foreach ($sales as $key => $valueSales) {
+
+  foreach ($users as $key => $valueUsers) {
+
+    if($valueUsers["id"] == $valueSales["idSeller"]){
+
+        #capture staff in an array
+        array_push($arrayStaff, $valueUsers["name"]);
+
+        #capture names and net values in the same array
+        $arrayStaffList = array($valueUsers["name"] => $valueSales["netPrice"]);
+
+        #We add the netprice of each seller
+
+        foreach ($arrayStaffList as $key => $value) {
+
+            $sumTotalSales[$key] += $value;
+
+         }
+
+    }
+  
+  }
+
+}
+
+#Avoiding repeated names
+$dontrepeatnames = array_unique($arrayStaff);
+
+?>
+
+
 <div class="box box-success">
 	
 	<div class="box-header with-border">
@@ -24,13 +67,15 @@
         element: 'bar-chart1',
         resize: true,
         data: [
-            {y: '2016', a: 100, b: 90},
-            {y: '2017', a: 50, b: 65},
-            {y: '2018', a: 20, b: 40},
-            {y: '2019', a: 64, b: 65},
-            {y: '2020', a: 73, b: 90},
-            {y: '2020', a: 73, b: 90},
-            {y: '2020', a: 73, b: 90}
+            <?php
+    
+                foreach($dontrepeatnames as $value){
+
+                    echo "{y: '".$value."', a: '".$sumTotalSales[$value]."'},";
+
+                }
+
+            ?>
         ],
         barColors: ['#0af'],
         xkey: 'y',
