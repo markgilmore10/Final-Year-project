@@ -180,7 +180,7 @@ class ModelSales{
 
 	static public function sumTotalSalesModel($table){	
 
-		$stmt = Connection::connect()->prepare("SELECT SUM(netPrice) as total FROM $table");
+		$stmt = Connection::connect()->prepare("SELECT SUM(netPrice) as totalPrice FROM $table");
 
 		$stmt -> execute();
 

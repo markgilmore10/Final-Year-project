@@ -134,7 +134,7 @@ class productsModel{
 
 	static public function sumOfSalesModel($table){
 
-		$stmt = Connection::connect()->prepare("SELECT SUM(sales) as total FROM $table");
+		$stmt = Connection::connect()->prepare("SELECT SUM(sales) as totalPrice FROM $table");
 
 		$stmt -> execute();
 

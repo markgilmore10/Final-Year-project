@@ -27,20 +27,20 @@ $saleAnswer = SalesController::ShowSalesController($itemSale, $saleValue);
 $saledate = substr($saleAnswer["saledate"],0,-8);
 $products = json_decode($saleAnswer["products"], true);
 $netPrice = number_format($saleAnswer["netPrice"],2);
-$tax = number_format($saleAnswer["tax"],2);
+$discount = number_format($saleAnswer["discount"],2);
 $totalPrice = number_format($saleAnswer["totalPrice"],2);
 
 // Customer Info
 $itemCustomer = "id";
-$CustomerValue = $saleAnswer["customerId"];
+$CustomerValue = $saleAnswer["idCustomer"];
 
 $customerAnswer = CustomerController::ShowCustomerController($itemCustomer, $CustomerValue);
 
 //User Info
 $itemUser = "id";
-$userValue = $saleAnswer["UserId"];
+$userValue = $saleAnswer["userId"];
 
-$userAnswer = ControllerUsers::ShowUsers($itemUser, $userValue);
+$userAnswer = UserController::ShowUsersController($itemUser, $userValue);
 
 
 
@@ -269,7 +269,7 @@ $block5 = <<<EOF
 			</td>
 		
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
-				$ $tax
+				$ $discount
 			</td>
 
 		</tr>

@@ -74,7 +74,7 @@ $salesTotal = ProductsController::sumOfSalesController();
 
                     <span class="pull-right text-'.$colours[$i].'"> 
 
-                    '.ceil($products[$i]["sales"]*100/$salesTotal["total"]).'%
+                    '.ceil($products[$i]["sales"]*100/$salesTotal["totalPrice"]).'%
                     
 						       </span>
 
