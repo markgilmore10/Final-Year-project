@@ -19,7 +19,9 @@ $(".tables").on("click", ".btnEditCategory", function(){
      		// console.log("answer", answer);
 
      		$("#editCategory").val(answer["Category"]);
-     		$("#idCategory").val(answer["id"]);
+			 $("#idCategory").val(answer["id"]);
+			 $("#Vat").val(answer["Vat"]);
+			 $("#Tax").val(answer["Tax"]);
 
      	}
 

@@ -293,7 +293,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-code"></i></span>
 
-                <input class="form-control input-lg" type="text" id="editCode" name="editCode" required readonly>
+                <input class="form-control input-lg" type="text" id="editCode" name="editCode" required>
 
               </div>
 
@@ -319,7 +319,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-check"></i></span>
 
-                <input class="form-control input-lg" type="number" id="editStock" name="editStock" min="0" required>
+                <input class="form-control input-lg" type="number" id="editStock" name="editStock" placeholder="Stock" required>
 
               </div>
 

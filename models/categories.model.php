@@ -61,10 +61,13 @@ class CategoriesModel{
     // Edit Category
     public static function EditCategoryModel($table, $data){
 
-		$stmt = Connection::connect()->prepare("UPDATE $table SET Category = :Category WHERE id = :id");
+		$stmt = Connection::connect()->prepare("UPDATE $table SET Category = :Category, Vat = :Vat, Tax = :Tax WHERE id = :id");
 
-        $stmt -> bindParam(":Category", $data["Category"], PDO::PARAM_STR);
-        
+		
+		$stmt -> bindParam(":Category", $data["Category"], PDO::PARAM_STR);
+		$stmt -> bindParam(":Vat", $data["Vat"], PDO::PARAM_STR);
+		$stmt -> bindParam(":Tax", $data["Tax"], PDO::PARAM_STR);
+
 		$stmt -> bindParam(":id", $data["id"], PDO::PARAM_INT);
 
 		if($stmt->execute()){

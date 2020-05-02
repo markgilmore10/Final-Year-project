@@ -82,7 +82,9 @@
 				$table = "categories";
 
 				$data = array("Category"=>$_POST["editCategory"],
-							   "id"=>$_POST["idCategory"]);
+							   "id"=>$_POST["idCategory"],
+							   "Vat"=>$_POST["newVat"],
+							   "Tax"=>$_POST["newTax"]);
 
 				$answer = CategoriesModel::EditCategoryModel($table, $data);
 
