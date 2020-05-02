@@ -29,7 +29,19 @@
 
       <div class="box-tools pull-right">
 
-        <a href="views/modules/print_report.php">
+      <?php
+
+      if(isset($_GET["initialDate"])){
+
+        echo '<a href="views/modules/print_report.php?report=report&initialDate="'.$_GET["initialDate"].'&finalDate='.$_GET["finalDate"].'>';
+
+      }else{
+
+        echo '<a href="views/modules/print_report.php?report=report">';
+
+      }
+
+      ?>
 
           <button class="btn btn-success" style="margin-top:5px">Download to Excel</button>
 
