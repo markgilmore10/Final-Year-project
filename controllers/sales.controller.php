@@ -408,7 +408,6 @@ class SalesController{
 	}
 
 
-
 	public function sumTotalSalesController(){
 
 		$table = "sales";
@@ -416,6 +415,67 @@ class SalesController{
 		$answer = ModelSales::sumTotalSalesModel($table);
 
 		return $answer;
+
+	}
+
+
+	//print report to excell
+
+	public function printReportController(){
+
+		if(isset($_GET["report"])){
+
+			$table = "sales";
+
+			if(isset($_GET["initialDate"]) && isset($_GET["finalDate"])){
+
+				$sales = ModelSales::DatesRangeModel($table,$_GET["initialDate"], $_GET["finalDate"]);
+
+			}else{
+
+				$item = null;
+				$value = null;
+
+				$sales = ModelSales::ShowSalesModel($table, $item, $value);
+
+
+			}
+
+
+			//Excel file - https://stackoverflow.com/questions/37958282/php-generate-xlsx
+
+			$name = $_GET["report"].'.xls';
+
+			header('Expires: 0');
+			header('Cache-control: private');
+			header("Content-type: application/vnd.ms-excel"); // Excel file
+			header("Cache-Control: cache, must-revalidate"); 
+			header('Content-Description: File Transfer');
+			header('Last-Modified: '.date('D, d M Y H:i:s'));
+			header("Pragma: public"); 
+			header('Content-Disposition:; filename="'.$name.'"');
+			header("Content-Transfer-Encoding: binary");
+
+			echo utf8_decode("<table border='0'>
+
+					<tr> 
+					<td style='font-weight:bold; border:1px solid #eee;'>Code</td> 
+					<td style='font-weight:bold; border:1px solid #eee;'>Customer</td>
+					<td style='font-weight:bold; border:1px solid #eee;'>Staff</td>
+					<td style='font-weight:bold; border:1px solid #eee;'>Quantity</td>
+					<td style='font-weight:bold; border:1px solid #eee;'>Products</td>
+					<td style='font-weight:bold; border:1px solid #eee;'>Discount</td>
+					<td style='font-weight:bold; border:1px solid #eee;'>NetPrice</td>		
+					<td style='font-weight:bold; border:1px solid #eee;'>Total</td>		
+					<td style='font-weight:bold; border:1px solid #eee;'>Payment Method</td	
+					<td style='font-weight:bold; border:1px solid #eee;'>Sale Date</td>		
+					</tr>
+			
+				</table>");
+		}
+
+
+
 
 	}
 
