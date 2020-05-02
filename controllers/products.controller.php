@@ -2,11 +2,11 @@
 
 class ProductsController{
 	
-	public static function ShowProductsController($item, $value){
+	static public function ShowProductsController($item, $value, $order){
 
 		$table = "products";
 
-		$answer = productsModel::ShowProductsModel($table, $item, $value);
+		$answer = productsModel::ShowProductsModel($table, $item, $value, $order);
 
 		return $answer;
 
@@ -177,6 +177,16 @@ class ProductsController{
 
 			}
 		}
+
+	}
+
+	static public function sumOfSalesController(){
+
+		$table = "products";
+
+		$answer = productsModel::sumOfSalesModel($table);
+
+		return $answer;
 
 	}
 }

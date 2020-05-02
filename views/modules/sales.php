@@ -26,6 +26,16 @@
 
         </a>
 
+        <button type="button" class="btn btn-default pull-right" id="daterange-btn">
+           
+            <span>
+              <i class="fa fa-calendar"></i> Date Range
+            </span>
+
+            <i class="fa fa-caret-down"></i>
+
+        </button>
+
       </div>
 
       <div class="box-body">
@@ -56,9 +66,23 @@
           <?php
 
 
+if(isset($_GET["initialDate"])){
 
-  $item = null;
-  $value = null;
+  $initialDate = $_GET["initialDate"];
+  $finalDate = $_GET["finalDate"];
+
+}else{
+
+  $initialDate = null;
+  $finalDate = null;
+
+}
+
+$answer = SalesController::salesDatesRangeController($initialDate, $finalDate);
+
+
+//$item = null;
+//$value = null;
 
 
   $answer = SalesController::ShowSalesController($item, $value);

@@ -36,6 +36,11 @@
       <!-- DataTables -->
       <link rel="stylesheet" href="views/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
       <link rel="stylesheet" href="views/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
+      <!-- Daterange picker -->
+      <link rel="stylesheet" href="views/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+      <!-- Morris chart -->
+      <link rel="stylesheet" href="views/bower_components/morris.js/morris.css">  
+      
       
       <!-- Javascript Plugins -->
     
@@ -62,6 +67,18 @@
       <script src="views/plugins/input-mask/jquery.inputmask.extensions.js"></script>
       <!-- jQuery Number -->
       <script src="views/plugins/jQueryNo/jQueryNo.min.js"></script>
+      <!-- daterangepicker -->
+      <!-- http://www.daterangepicker.com official website -->
+      <script src="views/bower_components/moment/min/moment.min.js"></script>
+      <script src="views/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+      <!-- Morris.js charts-->
+      <!-- http://morrisjs.github.io/morris.js/ -->
+      <script src="views/bower_components/raphael/raphael.min.js"></script>
+      <script src="views/bower_components/morris.js/morris.min.js"></script>
+      <!-- ChartJS -->
+      <!-- http://www.chartjs.org/-->
+      <script src="views/bower_components/chart.js/Chart.js"></script>
+      
       
     </head>
 
@@ -120,6 +137,8 @@
       <script src="views/javascript/products.js"></script>
       <script src="views/javascript/sales.js"></script>
       <script src="views/javascript/customers.js"></script>
+      <script src="views/javascript/reports.js"></script>
+
 
     </body>
 
