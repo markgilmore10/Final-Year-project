@@ -21,8 +21,12 @@
     <div class ="row">
 
       <?php
-    
-        include "dashboard/box_views.php"
+
+        if($_SESSION["profile"] =="Administrator"){
+
+          include "dashboard/box_views.php";
+
+        }
 
       ?>
     
@@ -34,7 +38,11 @@
 
       <?php
 
-        include "reports/sales_graph.php";
+        if($_SESSION["profile"] =="Administrator"){
+
+          include "reports/sales_graph.php";
+
+        }
         
       ?>
 
@@ -44,7 +52,11 @@
         
         <?php
 
+          if($_SESSION["profile"] =="Administrator"){
+
             include "reports/bestselling_products.php";
+
+          }
 
         ?>
 
@@ -53,12 +65,36 @@
       <div class="col-lg-6">
         
         <?php
+        
+          if($_SESSION["profile"] =="Administrator"){
 
             include "dashboard/recentlyAdded_products.php";
+
+          }
 
         ?>
 
       </div>
+
+      <div class="col-lg-12">
+           
+        <?php
+
+        if($_SESSION["profile"] =="Manager" || $_SESSION["profile"] =="Staff"){
+
+           echo '<div class="box box-success">
+
+           <div class="box-header">
+
+           <h1>Welcome ' .$_SESSION["name"].'</h1>
+
+           </div>
+
+           </div>';
+
+        }
+
+        ?>
 
     
     </div>
