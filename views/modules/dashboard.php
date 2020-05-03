@@ -50,6 +50,16 @@
 
       </div>
 
+      <div class="col-lg-6">
+        
+        <?php
+
+            include "dashboard/recentlyAdded_products.php";
+
+        ?>
+
+      </div>
+
     
     </div>
 
