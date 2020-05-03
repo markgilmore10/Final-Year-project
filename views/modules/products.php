@@ -43,6 +43,8 @@
 
         </table>
 
+        <input type="hidden" value="<?php echo $_SESSION['profile']; ?>" id="hiddenProfile">
+
       </div>
     
     </div>

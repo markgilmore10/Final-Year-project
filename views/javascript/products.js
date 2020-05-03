@@ -1,6 +1,10 @@
+
+var hiddenProfile = $('#hiddenProfile').val();;
+
+
 // Dynamically Populate Products Page
 $('.productsTable').DataTable({
-	"ajax": "ajax/product-table.ajax.php", 
+	"ajax": "ajax/product-table.ajax.php?hiddenProfile="+hiddenProfile, 
 	"deferRender": true,
 	"retrieve": true,
 	"processing": true

@@ -47,9 +47,18 @@ class productsTables{
 
 		  				$stock = "<button class='btn btn-success'>".$products[$i]["stock"]."</button>";
 
-                      }
-                      
-		  			$buttons =  "<div class='btn-group'><button class='btn btn-warning btnEditProduct' idProduct='".$products[$i]["id"]."' data-toggle='modal' data-target='#editAProduct'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnDeleteProduct' idProduct='".$products[$i]["id"]."' code='".$products[$i]["code"]."'><i class='fa fa-times'></i></button></div>";
+					  }
+					  
+					  if (isset($_GET["hiddenProfile"]) && $_GET["hiddenProfile"] == "Special") {
+
+						$buttons =  "<div class='btn-group'><button class='btn btn-warning btnEditProduct' idProduct='"
+							.$products[$i]["id"]."' data-toggle='modal' data-target='#editAProduct'><i class='fa fa-pencil'></i></button>";
+
+					}else{
+
+						$buttons =  "<div class='btn-group'><button class='btn btn-warning btnEditProduct' idProduct='"
+						.$products[$i]["id"]."' data-toggle='modal' data-target='#editAProduct'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnDeleteProduct' idProduct='".$products[$i]["id"]."' code='".$products[$i]["code"]."'><i class='fa fa-times'></i></button></div>";
+					}
 
 					$jsonData .='[
 						"'.($i+1).'",

@@ -55,7 +55,7 @@
 
 		}
 
-		if($_SESSION["profile"] == "Administrator" || $_SESSION["profile"] == "Seller"){
+		if($_SESSION["profile"] == "Administrator" || $_SESSION["profile"] == "Staff"){
 
 			echo'
 

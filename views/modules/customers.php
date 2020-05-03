@@ -77,11 +77,15 @@
 
                         <div class="btn-group">
                             
-                          <button class="btn btn-warning btnEditCustomer" data-toggle="modal" data-target="#modEditCustomer" idCustomer="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+                          <button class="btn btn-warning btnEditCustomer" data-toggle="modal" data-target="#modEditCustomer" idCustomer="'.$value["id"].'"><i class="fa fa-pencil"></i></button>';
 
-                          <button class="btn btn-danger btnDeleteCustomer" idCustomer="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
-                        </div>  
+                          if ($_SESSION["profile"] == "Administrator") {
+
+                          echo '<button class="btn btn-danger btnDeleteCustomer" idCustomer="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+                          }
+
+                        echo '</div>  
 
                       </td>
 
