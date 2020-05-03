@@ -28,6 +28,36 @@
     
     </div>
 
+    <div class ="row">
+
+      <div class="col-lg-12">
+
+      <?php
+
+        include "reports/sales_graph.php";
+        
+      ?>
+
+      </div>
+
+      <div class="col-lg-6">
+        
+        <?php
+
+            include "reports/bestselling_products.php";
+
+        ?>
+
+      </div>
+
+    
+    </div>
+
+</div>
+
+
+    </div>
+
   </section>
 
 </div>

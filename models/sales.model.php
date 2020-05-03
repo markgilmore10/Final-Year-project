@@ -127,7 +127,7 @@ class ModelSales{
 
 	///// date ranges
 
-	static public function DatesRangeModel($table, $initialDate, $finalDate){
+	public static function DatesRangeModel($table, $initialDate, $finalDate){
 
 		if($initialDate == null){
 
@@ -178,7 +178,7 @@ class ModelSales{
 
 	//adding total sales
 
-	static public function sumTotalSalesModel($table){	
+	public 	static function sumTotalSalesModel($table){	
 
 		$stmt = Connection::connect()->prepare("SELECT SUM(netPrice) as totalPrice FROM $table");
 
