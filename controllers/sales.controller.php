@@ -469,9 +469,50 @@ class SalesController{
 					<td style='font-weight:bold; border:1px solid #eee;'>Total</td>		
 					<td style='font-weight:bold; border:1px solid #eee;'>Payment Method</td	
 					<td style='font-weight:bold; border:1px solid #eee;'>Sale Date</td>		
-					</tr>
+					</tr>");
+
+
+			foreach ($sales as $row => $item){
+
+				$customer = CustomerController::ShowCustomerController("id", $item["idCustomer"]);
+				$staff = UserController::ShowUsersController("id", $item["idSeller"]);
+
+			echo utf8_decode("<tr>
+					<td style='border:1px solid #eee;'>".$item["code"]."</td> 
+					<td style='border:1px solid #eee;'>".$customer["name"]."</td>
+					<td style='border:1px solid #eee;'>".$staff["name"]."</td>
+					<td style='border:1px solid #eee;'>");
+
+				$products =  json_decode($item["products"], true);
+
+				//foreach ($products as $key => $valueproducts) {
+			 			
+				//	echo utf8_decode($valueproducts["sales"]."<br>");
+
+				//	}
+
+				echo utf8_decode("</td><td style='border:1px solid #eee;'>");	
+
+				foreach ($products as $key => $valueproducts) {
+						
+					echo utf8_decode($valueproducts["product"]."<br>");
+				
+				}
+
+				echo utf8_decode("</td>
+					<td style='border:1px solid #eee;'>$ ".number_format($item["discount"],2)."</td>
+					<td style='border:1px solid #eee;'>$ ".number_format($item["netPrice"],2)."</td>	
+					<td style='border:1px solid #eee;'>$ ".number_format($item["totalPrice"],2)."</td>
+					<td style='border:1px solid #eee;'>".$item["paymentMethod"]."</td>
+					<td style='border:1px solid #eee;'>".substr($item["saledate"],0,10)."</td>		
+		 			</tr>");
+
+
+
+			}
+
 			
-				</table>");
+			echo "</table>";
 		}
 
 
