@@ -3,7 +3,12 @@
 	<section class="sidebar">
 		
 		<ul class="sidebar-menu">
-			<li class="active">
+
+		<?php
+
+		if ($_SESSION["profile"] == "Administrator") {
+		
+			echo '<li class="active">
 				<a href="dashboard">
 					<i class="fa fa-home"></i>
 					<span>Dashboard</span>
@@ -15,14 +20,24 @@
 					<i class="fa fa-user"></i>
 					<span>Users</span>
 				</a>
-			</li>
+			</li>';
+		}
+
+		if($_SESSION["profile"] == "Administrator" || $_SESSION["profile"] == "Staff"){
+			echo '
 
 			<li>
 				<a href="customers">
 					<i class="fa fa-users"></i>
 					<span>Customers</span>
 				</a>
-			</li>
+			</li>';
+
+		}
+
+		if($_SESSION["profile"] == "Administrator" || $_SESSION["profile"] == "Manager"){
+
+			echo '
 
 			<li>
 				<a href="categories">
@@ -36,7 +51,13 @@
                     <i class="fa fa-coffee"></i>
 					<span>Products</span>
 				</a>
-			</li>
+			</li>';
+
+		}
+
+		if($_SESSION["profile"] == "Administrator" || $_SESSION["profile"] == "Seller"){
+
+			echo'
 
 			<li>
 				<a href="open-tables">
@@ -68,17 +89,28 @@
 							<i class="fa fa-circle"></i>
 							<span>Manage sales</span>
 						</a>
-					</li>
+					</li>';
+
+		}
+
+		if($_SESSION["profile"] == "Administrator"){
+
+			echo '
 
 					<li>
 						<a href="reports">
 							<i class="fa fa-circle"></i>
 							<span>Reports</span>
 						</a>
-					</li>
+					</li>';
 
-				</ul>
-			</li>
+		}
+
+		echo '</ul>
+
+			</li>';
+
+			?>
 		</ul>
 
 	</section>
