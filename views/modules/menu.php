@@ -6,7 +6,7 @@
 
 		<?php
 
-		if ($_SESSION["profile"] == "Administrator") {
+		if ($_SESSION["profile"] == "administrator") {
 		
 			echo '<li class="active">
 				<a href="dashboard">
@@ -23,7 +23,7 @@
 			</li>';
 		}
 
-		if($_SESSION["profile"] == "Administrator" || $_SESSION["profile"] == "Staff"){
+		if($_SESSION["profile"] == "administrator" || $_SESSION["profile"] == "staff"){
 			echo '
 
 			<li>
@@ -35,7 +35,7 @@
 
 		}
 
-		if($_SESSION["profile"] == "Administrator" || $_SESSION["profile"] == "Manager"){
+		if($_SESSION["profile"] == "administrator" || $_SESSION["profile"] == "manager"){
 
 			echo '
 
@@ -55,7 +55,7 @@
 
 		}
 
-		if($_SESSION["profile"] == "Administrator" || $_SESSION["profile"] == "Staff"){
+		if($_SESSION["profile"] == "administrator" || $_SESSION["profile"] == "staff"){
 
 			echo'
 
@@ -93,7 +93,7 @@
 
 		}
 
-		if($_SESSION["profile"] == "Administrator"){
+		if($_SESSION["profile"] == "administrator"){
 
 			echo '
 

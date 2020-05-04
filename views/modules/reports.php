@@ -1,3 +1,19 @@
+<?php
+
+if($_SESSION["profile"] == "Manager" || $_SESSION["profile"] == "Staff"){
+
+  echo '<script>
+
+    window.location = "dashboard";
+
+  </script>';
+
+  return;
+
+}
+
+?>
+
 <div class="content-wrapper">
   
   <section class="content-header">
