@@ -32,7 +32,7 @@ class SalesController{
 			    $valueProductId = $value["id"];
 			    $order = "id";
 
-			    $getProduct = ProductsModel::ShowProductsModel($tableProducts, $item, $valueProductId);
+			    $getProduct = ProductsModel::ShowProductsModel($tableProducts, $item, $valueProductId, $order);
 
 				$item1 = "sales";
 				$value1 = $value["quantity"] + $getProduct["sales"];

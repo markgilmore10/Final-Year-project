@@ -76,7 +76,7 @@ if($_SESSION["profile"] == "staff"){
                                 
                               <button class="btn btn-warning btnEditCategory" idCategory="'.$value["id"].'" data-toggle="modal" data-target="#editCategories"><i class="fa fa-pencil"></i></button>';
 
-                              if ($_SESSION["profile"] == "Administrator") {
+                              if ($_SESSION["profile"] == "administrator") {
 
                               echo '<button class="btn btn-danger btnDeleteCategory" idCategory="'.$value["id"].'"><i class="fa fa-times"></i></button>';
                               

@@ -96,11 +96,11 @@ if(isset($_GET["initialDate"])){
 $answer = SalesController::salesDatesRangeController($initialDate, $finalDate);
 
 
-//$item = null;
-//$value = null;
+// $item = null;
+// $value = null;
 
 
-  $answer = SalesController::ShowSalesController($item, $value);
+//   $answer = SalesController::ShowSalesController($item, $value);
 
   foreach ($answer as $key => $value) {
  
@@ -147,7 +147,7 @@ $answer = SalesController::salesDatesRangeController($initialDate, $finalDate);
 
               </button>';
 
-              if ($_SESSION["profile"] == "Administrator") {
+              if ($_SESSION["profile"] == "administrator") {
 
               echo '<button class="btn btn-warning btnReopenSale" idSale="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
 

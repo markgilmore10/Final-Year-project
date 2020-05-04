@@ -223,7 +223,7 @@ if($_SESSION["profile"] == "manager"){
           <?php
 
             $saveSale = new SalesController();
-            $saveSale -> CreateSaleController();
+            $saveSale -> SaleController();
             
           ?>
 

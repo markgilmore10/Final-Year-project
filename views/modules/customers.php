@@ -95,7 +95,7 @@ if($_SESSION["profile"] == "manager"){
                           <button class="btn btn-warning btnEditCustomer" data-toggle="modal" data-target="#modEditCustomer" idCustomer="'.$value["id"].'"><i class="fa fa-pencil"></i></button>';
 
 
-                          if ($_SESSION["profile"] == "Administrator") {
+                          if ($_SESSION["profile"] == "administrator") {
 
                           echo '<button class="btn btn-danger btnDeleteCustomer" idCustomer="'.$value["id"].'"><i class="fa fa-times"></i></button>';
                           }
