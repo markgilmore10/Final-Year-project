@@ -126,10 +126,10 @@ class CustomersModel{
 	
 	public static function UpdateCustomerModel($table, $item1, $value1, $value){
 
-		$stmt = Connection::connect()->prepare("UPDATE $table SET $item1 = :$item1 WHERE id = :id");
+		$stmt = Connection::connect()->prepare("UPDATE $table SET $item1 = :$item1 WHERE idNumber = :idNumber");
 
 		$stmt -> bindParam(":".$item1, $value1, PDO::PARAM_STR);
-		$stmt -> bindParam(":id", $value, PDO::PARAM_STR);
+		$stmt -> bindParam(":idNumber", $value, PDO::PARAM_STR);
 
 		if($stmt -> execute()){
 

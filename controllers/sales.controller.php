@@ -13,18 +13,86 @@ class SalesController{
 
 	}
 
-    public static function SaleController(){
+	// Create / Edit Sale
+    public static function CreateSaleController(){
 
-        // Make Sale
-		if(isset($_POST["newSale"])){
+		if (isset($_POST["openTable"])) {
 
+			// Update customer purchases, stock levels and product sale figures
 			$productsList = json_decode($_POST["productsList"], true);
 
-			$totalPurchase = array();
+			$totalPurchases = array();
 
 			foreach ($productsList as $key => $value) {
 
-			   array_push($totalPurchase, $value["quantity"]);
+			   array_push($totalPurchases, $value["quantity"]);
+				
+			   $tableProducts = "products";
+
+			    $item = "id";
+			    $valueProductId = $value["id"];
+			    $order = "id";
+
+			    $getProduct = ProductsModel::ShowProductsModel($tableProducts, $item, $valueProductId, $order);
+
+				$item1 = "sales";
+				$value1 = $value["quantity"] + $getProduct["sales"];
+
+			    $newSales = ProductsModel::UpdateProductModel($tableProducts, $item1, $value1, $valueProductId);
+
+				$item2 = "stock";
+				$value2 = $value["stock"];
+
+				$newStock = ProductsModel::UpdateProductModel($tableProducts, $item2, $value2, $valueProductId);
+
+			}
+			
+			// Save sale to database
+			$table = "open_tables";
+			
+            $data = array("code"       => $_POST["newSale"],
+                          "idSeller"   => $_POST["idSeller"],
+                          "tableNo"    => $_POST["tableNo"],
+                          "idCustomer" => $_POST["customerSearch"],
+                          "products"   => $_POST["productsList"],
+                          "netPrice"   => $_POST["newNetPrice"],
+            );
+            
+			$answer = ModelTables::AddTableModel($table, $data);
+			
+            if ($answer == "ok") {
+                
+                echo '<script>
+
+				localStorage.removeItem("range");
+
+				swal({
+					  type: "success",
+					  title: "Order Saved",
+					  showConfirmButton: true,
+					  confirmButtonText: "Close"
+					  }).then((result) => {
+								if (result.value) {
+
+								window.location = "open-tables";
+
+								}
+							})
+
+				</script>';
+            
+            }
+            
+        } elseif(isset($_POST["newSale"])){
+
+			// Update customer purchases, stock levels and product sale figures
+			$productsList = json_decode($_POST["productsList"], true);
+
+			$totalPurchases = array();
+
+			foreach ($productsList as $key => $value) {
+
+			   array_push($totalPurchases, $value["quantity"]);
 				
 			   $tableProducts = "products";
 
@@ -48,35 +116,36 @@ class SalesController{
 
 			$tableCustomers = "customers";
 
-			$item = "id";
+			$item = "idNumber";
 			$valueCustomer = $_POST["customerSearch"];
-
+			
 			$getCustomer = CustomersModel::ShowCustomersModel($tableCustomers, $item, $valueCustomer);
+	
+			$item1 = "purchases";
+			$value1 = array_sum($totalPurchases) + $getCustomer["purchases"];
+		
+			$customerPurchases = CustomersModel::UpdateCustomerModel($tableCustomers, $item1, $value1, $valueCustomer);
 
-			$item1a = "purchases";
-			$value1a = array_sum($totalPurchase) + $getCustomer["purchases"];
-			var_dump($value1a);
-			$customerPurchases = CustomersModel::UpdateCustomerModel($tableCustomers, $item1a, $value1a, $value);
-
-			$item1b = "lastPurchase";
+			$item2 = "lastPurchase";
 
 			date_default_timezone_set("Europe/Dublin");
 
 			$date = date('Y-m-d');
 			$hour = date('H:i:s');
-			$value1b = $date.' '.$hour;
+			$value2 = $date.' '.$hour;
 
-			$dateCustomer = CustomersModel::UpdateCustomerModel($tableCustomers, $item1b, $value1b, $value);
-
+			$dateCustomer = CustomersModel::UpdateCustomerModel($tableCustomers, $item2, $value2, $valueCustomer);
+			
 			$table = "sales";
 
+			// Save sale to database
 			$data = array("code"=>$_POST["newSale"],
 						  "idSeller"=>$_POST["idSeller"],
 						  "tableNo"=>$_POST["tableNo"],
 						  "idCustomer"=>$_POST["customerSearch"],
 						  "products"=>$_POST["productsList"],
 						  "netPrice"=>$_POST["newNetPrice"],
-						  "discount"=>$_POST["newDiscountPrice"],
+						  "discount"=>$_POST["newDiscountSale"],
 						  "totalPrice"=>$_POST["newSaleTotal"],
 						  "paymentMethod"=>$_POST["newPaymentMethod"]);
 
@@ -113,7 +182,7 @@ class SalesController{
         return ModelSales::getAll();
 	}
 	
-	public static function OpenTableController(){
+	public static function ReOpenTableController(){
 
         // Make Sale
 		if(isset($_POST["reopenSale"])){
@@ -125,6 +194,7 @@ class SalesController{
 
 			$getSale = ModelSales::ShowSalesModel($table, $item, $value);
 
+			// if statement checking if the sale was actually changed
 			if($_POST["productsList"] == ""){
 
 				$productsList = $getSale["products"];
@@ -150,10 +220,10 @@ class SalesController{
 					$tableProducts = "products";
 
 					$item = "id";
-					$value = $value["id"];
+					$value1 = $value["id"];
 					$order = "id";
 
-					$getProduct = ProductsModel::ShowProductsModel($tableProducts, $item, $value, $order);
+					$getProduct = ProductsModel::ShowProductsModel($tableProducts, $item, $value1, $order);
 
 					$item1a = "sales";
 					$value1a = $getProduct["sales"] - $value["quantity"];
@@ -169,8 +239,8 @@ class SalesController{
 
 				$tableCustomers = "customers";
 
-				$itemCustomer = "id";
-				$valueCustomer = $_POST["selectCustomer"];
+				$itemCustomer = "idNumber";
+				$valueCustomer = $_POST["customerSearch"];
 
 				$getCustomer = CustomersModel::ShowCustomersModel($tableCustomers, $itemCustomer, $valueCustomer);
 
@@ -209,8 +279,8 @@ class SalesController{
 
 				$tableCustomers_2 = "customers";
 
-				$item_2 = "id";
-				$value_2 = $_POST["selectCustomer"];
+				$item_2 = "idNumber";
+				$value_2 = $_POST["customerSearch"];
 
 				$getCustomer_2 = CustomersModel::ShowCustomersModel($tableCustomers_2, $item_2, $value_2);
 
@@ -235,13 +305,13 @@ class SalesController{
 						  "idSeller"=>$_POST["idSeller"],
 						  "tableNo"=>$_POST["tableNo"],
 						  "idCustomer"=>$_POST["customerSearch"],
-						  "products"=>$_POST["productsList"],
+						  "products"=>$productsList,
 						  "netPrice"=>$_POST["newNetPrice"],
-						  "discount"=>$_POST["newDiscountPrice"],
+						  "discount"=>$_POST["newDiscountSale"],
 						  "totalPrice"=>$_POST["newSaleTotal"],
 						  "paymentMethod"=>$_POST["newPaymentMethod"]);
 
-			$answer = ModelSales::AddSaleModel($table, $data);
+			$answer = ModelSales::ReopenSaleModel($table, $data);
 
 			if($answer == "ok"){
 
@@ -361,7 +431,8 @@ class SalesController{
 
 			$tableCustomers = "customers";
 
-			$itemCustomer = "id";
+			$itemCustomer = "idNumber";
+			$valueCustomer = $getSale["idCustomer"];
 
 			$getCustomer = CustomersModel::ShowCustomersModel($tableCustomers, $itemCustomer, $valueCustomer);
 
@@ -395,6 +466,7 @@ class SalesController{
 			}		
 		}
 	}
+
 
 	//date ranges
 	public static function salesDatesRangeController($initialDate, $finalDate){
