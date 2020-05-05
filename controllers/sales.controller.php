@@ -557,11 +557,11 @@ class SalesController{
 
 				$products =  json_decode($item["products"], true);
 
-				//foreach ($products as $key => $valueproducts) {
+				foreach ($products as $key => $valueproducts) {
 			 			
-				//	echo utf8_decode($valueproducts["sales"]."<br>");
+					echo utf8_decode($valueproducts["quantity"]."<br>");
 
-				//	}
+					}
 
 				echo utf8_decode("</td><td style='border:1px solid #eee;'>");	
 
@@ -572,7 +572,7 @@ class SalesController{
 				}
 
 				echo utf8_decode("</td>
-					<td style='border:1px solid #eee;'>$ ".number_format($item["discount"],2)."</td>
+					<td style='border:1px solid #eee;'>".number_format($item["discount"])."%</td>
 					<td style='border:1px solid #eee;'>$ ".number_format($item["netPrice"],2)."</td>	
 					<td style='border:1px solid #eee;'>$ ".number_format($item["totalPrice"],2)."</td>
 					<td style='border:1px solid #eee;'>".$item["paymentMethod"]."</td>

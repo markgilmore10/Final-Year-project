@@ -346,7 +346,6 @@ function listMethods(){
 	}
 
 }
-// todo: Adding Products from a Device -> Switch from till screen to buttons and back
 
 //Print receipt
 $(".tables").on("click", ".btnPrintBill", function(){
@@ -413,12 +412,12 @@ $(".daterangepicker.opensleft .ranges li").on("click", function(){
 		var month= d.getMonth()+1;
 		var year = d.getFullYear();
 
-		if(month < 10){
+		if(month < 10 && day > 10){
 
 			var initialDate = year+"-0"+month+"-"+day;
 			var finalDate = year+"-0"+month+"-"+day;
 
-		}else if(day < 10){
+		}else if(day < 10 && month > 10){
 
 			var initialDate = year+"-"+month+"-0"+day;
 			var finalDate = year+"-"+month+"-0"+day;

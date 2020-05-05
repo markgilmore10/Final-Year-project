@@ -27,18 +27,12 @@ $saleAnswer = SalesController::ShowSalesController($itemSale, $saleValue);
 $saledate = substr($saleAnswer["saledate"],0,-8);
 $products = json_decode($saleAnswer["products"], true);
 $netPrice = number_format($saleAnswer["netPrice"],2);
-$discount = number_format($saleAnswer["discount"],2);
+$discount = number_format($saleAnswer["discount"]);
 $totalPrice = number_format($saleAnswer["totalPrice"],2);
-
-// Customer Info
-$itemCustomer = "id";
-$CustomerValue = $saleAnswer["idCustomer"];
-
-$customerAnswer = CustomerController::ShowCustomerController($itemCustomer, $CustomerValue);
 
 //User Info
 $itemUser = "id";
-$userValue = $saleAnswer["userId"];
+$userValue = $saleAnswer["idSeller"];
 
 $userAnswer = UserController::ShowUsersController($itemUser, $userValue);
 
@@ -124,7 +118,7 @@ $block2 = <<<EOF
 
             <td style="border: 1px solid #666; background-color:white; width:390px">
 
-				Customer: $customerAnswer[name]
+				Staff Member: $userAnswer[name]
 
             </td>
 
@@ -134,19 +128,7 @@ $block2 = <<<EOF
 
             </td>
             
-            
-            
         </tr>
-
-        <tr>
-		
-			<td style="border: 1px solid #666; background-color:white; width:540px">
-
-				Staff: $userAnswer[name]
-
-			</td>
-
-		</tr>
 
 		<tr>
 		
@@ -166,10 +148,10 @@ $block3 = <<<EOF
 
 		<tr>
 
-		<td style="border: 1px solid #666; background-color:white; width:260px; text-align:center">Product</td>
-		<td style="border: 1px solid #666; background-color:white; width:80px; text-align:center">Quantity</td>
-		<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">Item Cost</td>
-		<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">Total Price</td>
+			<td style="border: 1px solid #666; background-color:white; width:260px; text-align:center">Product</td>
+			<td style="border: 1px solid #666; background-color:white; width:80px; text-align:center">Quantity</td>
+			<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">Item Cost</td>
+			<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">Total Price</td>
 
 		</tr>
 
@@ -184,11 +166,11 @@ $pdf->writeHTML($block3, false, false, false, false, '');
 
 foreach ($products as $key => $item) {
 
-$itemProduct = "description";
-$productValue = $item["description"];
+$itemProduct = "product";
+$productValue = $item["product"];
 $order = null;
 
-$answerProduct = productsController::ShowProductsController($itemProduct, $productValue, $order);
+$answerProduct = ProductsController::ShowProductsController($itemProduct, $productValue, $order);
 
 $unitValue = number_format($answerProduct["sellingPrice"], 2);
 
@@ -201,7 +183,7 @@ $block4 = <<<EOF
 		<tr>
 			
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:260px; text-align:center">
-				$item[description]
+				$item[product]
 			</td>
 
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:80px; text-align:center">
@@ -265,11 +247,11 @@ $block5 = <<<EOF
 			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
 
 			<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">
-				Tax:
+				Discount:
 			</td>
 		
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
-				$ $discount
+				$discount%
 			</td>
 
 		</tr>
