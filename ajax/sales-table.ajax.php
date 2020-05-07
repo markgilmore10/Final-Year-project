@@ -3,9 +3,15 @@
 require_once "../controllers/products.controller.php";
 require_once "../models/products.model.php";
 
+/**
+ * Class salesProductTable
+ */
 class salesProductTable{
 
 	// Show Products 
+	/**
+	 * @return void
+	 */
 	public function showSalesTable(){
 
 		$item = null;

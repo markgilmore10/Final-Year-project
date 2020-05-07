@@ -3,10 +3,19 @@
 require_once "../controllers/categories.controller.php";
 require_once "../models/categories.model.php";
 
+/**
+ * Class AjaxCategories
+ */
 class AjaxCategories{
 
+	/**
+	 * @var undefined
+	 */
 	public $idCategory;
 
+	/**
+	 * @return void
+	 */
 	public function EditCategoryAjax(){
 
 		$item = "id";

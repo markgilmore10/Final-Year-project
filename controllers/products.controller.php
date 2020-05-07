@@ -1,7 +1,17 @@
 <?php
 
+/**
+ * Class ProductsController
+ */
 class ProductsController{
 	
+ /**
+  * @param mixed $item
+  * @param mixed $value
+  * @param mixed $order
+  * 
+  * @return void
+  */
 	static public function ShowProductsController($item, $value, $order){
 
 		$table = "products";
@@ -12,6 +22,9 @@ class ProductsController{
 
     }
 
+    /**
+     * @return void
+     */
     public static function AddProductsController(){
 
 		if(isset($_POST["newProduct"])){
@@ -80,6 +93,9 @@ class ProductsController{
 
 
 	//edit products controller
+	/**
+	 * @return void
+	 */
 	public static function EditProductsController(){
 
 		if(isset($_POST["editProducts"])){
@@ -147,6 +163,9 @@ class ProductsController{
 	}
 
 	//delete product
+	/**
+	 * @return void
+	 */
 	public static function DeleteProductsController(){
 
 		if(isset($_GET["idProduct"])){
@@ -180,6 +199,9 @@ class ProductsController{
 
 	}
 
+ /**
+  * @return void
+  */
 	static public function sumOfSalesController(){
 
 		$table = "products";

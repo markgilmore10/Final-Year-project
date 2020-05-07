@@ -1,8 +1,17 @@
 <?php
 
+/**
+ * Class SalesController
+ */
 class SalesController{
 
 	// Show Sales
+    /**
+     * @param mixed $item
+     * @param mixed $value
+     * 
+     * @return void
+     */
     public static function ShowSalesController($item, $value){
 
 		$table = "sales";
@@ -14,6 +23,9 @@ class SalesController{
 	}
 
 	// Create / Edit Sale
+    /**
+     * @return void
+     */
     public static function CreateSaleController(){
 
 		if (isset($_POST["openTable"])) {
@@ -178,10 +190,16 @@ class SalesController{
 
 	}
 	
+	/**
+	 * @return void
+	 */
 	public static function index () {
         return ModelSales::getAll();
 	}
 	
+	/**
+	 * @return void
+	 */
 	public static function ReOpenTableController(){
 
         // Make Sale
@@ -340,6 +358,9 @@ class SalesController{
 	}
 
 	// Delete Sales
+	/**
+	 * @return void
+	 */
 	public static function DeleteSaleController(){
 
 		if(isset($_GET["idSale"])){
@@ -469,6 +490,12 @@ class SalesController{
 
 
 	//date ranges
+	/**
+	 * @param mixed $initialDate
+	 * @param mixed $finalDate
+	 * 
+	 * @return void
+	 */
 	public static function salesDatesRangeController($initialDate, $finalDate){
 
 		$table = "sales";
@@ -480,6 +507,9 @@ class SalesController{
 	}
 
 
+	/**
+	 * @return void
+	 */
 	public function sumTotalSalesController(){
 
 		$table = "sales";
@@ -493,6 +523,9 @@ class SalesController{
 
 	//print report to excell
 
+	/**
+	 * @return void
+	 */
 	public function printReportController(){
 
 		if(isset($_GET["report"])){

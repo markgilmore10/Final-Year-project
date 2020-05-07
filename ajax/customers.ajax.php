@@ -3,10 +3,19 @@
 require_once "../controllers/customers.controller.php";
 require_once "../models/customer.model.php";
 
+/**
+ * Class CustomerAjax
+ */
 class CustomerAjax{
 
+	/**
+	 * @var undefined
+	 */
 	public $idCustomer;
 
+	/**
+	 * @return void
+	 */
 	public function EditCustomerAjax(){
 
 		$item = "id";
@@ -19,6 +28,11 @@ class CustomerAjax{
 
 	}
 
+	/**
+	 * @param mixed $request
+	 * 
+	 * @return void
+	 */
 	public function searchCustomer ($request) {
         
 		$customers = CustomerController::searchCustomer($request);

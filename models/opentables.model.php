@@ -3,9 +3,19 @@
 require_once 'connection.php';
 
 
+/**
+ * Class ModelTables
+ */
 class ModelTables{
 	
     // Show Open Tables
+	/**
+	 * @param mixed $table
+	 * @param mixed $item
+	 * @param mixed $value
+	 * 
+	 * @return void
+	 */
 	public static function ShowTablesModel($table, $item, $value){
 
 		if($item != null){
@@ -34,6 +44,12 @@ class ModelTables{
 
 	}
 
+	/**
+	 * @param mixed $table
+	 * @param mixed $data
+	 * 
+	 * @return void
+	 */
 	public static function AddTableModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("INSERT INTO $table(code, idSeller, tableNo, products, netPrice) VALUES (:code, :idSeller, :tableNo, :products, :netPrice)");
@@ -59,6 +75,9 @@ class ModelTables{
 
 	}
 
+	/**
+	 * @return void
+	 */
 	public static function all () {
         $stmt = Connection::connect()->prepare("SELECT open_tables.* FROM open_tables ORDER BY id ASC");
         $stmt->execute();

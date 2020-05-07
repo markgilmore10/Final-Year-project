@@ -3,9 +3,19 @@
 require_once 'connection.php';
 
 
+/**
+ * Class ModelSales
+ */
 class ModelSales{
 	
     // Show Sales
+	/**
+	 * @param mixed $table
+	 * @param mixed $item
+	 * @param mixed $value
+	 * 
+	 * @return void
+	 */
 	public static function ShowSalesModel($table, $item, $value){
 
 		if($item != null){
@@ -34,6 +44,12 @@ class ModelSales{
 
 	}
 
+	/**
+	 * @param mixed $table
+	 * @param mixed $data
+	 * 
+	 * @return void
+	 */
 	public static function AddSaleModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("INSERT INTO $table(code, idSeller, tableNo, idCustomer, products, netPrice, discount, totalPrice, paymentMethod) VALUES (:code, :idSeller, :tableNo, :idCustomer, :products, :netPrice, :discount, :totalPrice, :paymentMethod)");
@@ -63,6 +79,9 @@ class ModelSales{
 
 	}
 
+	/**
+	 * @return void
+	 */
 	public static function getAll () {
 
         $stmt = Connection::connect()->prepare("SELECT sales.*, customers.name AS customer FROM sales LEFT JOIN customers ON sales.idCustomer = customers.id ORDER BY id ASC");
@@ -74,6 +93,12 @@ class ModelSales{
         return $stmt->fetchAll();
 	}
 	
+	/**
+	 * @param mixed $table
+	 * @param mixed $data
+	 * 
+	 * @return void
+	 */
 	public static function ReopenSaleModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("UPDATE $table SET idSeller = :idSeller, tableNo = :tableNo, idCustomer = :idCustomer, products = :products, netPrice = :netPrice, discount = :discount, totalPrice = :totalPrice, paymentMethod = :paymentMethod WHERE code = :code");
@@ -103,6 +128,12 @@ class ModelSales{
 
 	}
 
+	/**
+	 * @param mixed $table
+	 * @param mixed $data
+	 * 
+	 * @return void
+	 */
 	public static function DeleteSalesModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("DELETE FROM $table WHERE id = :id");
@@ -127,6 +158,13 @@ class ModelSales{
 
 	///// date ranges
 
+	/**
+	 * @param mixed $table
+	 * @param mixed $initialDate
+	 * @param mixed $finalDate
+	 * 
+	 * @return void
+	 */
 	public static function DatesRangeModel($table, $initialDate, $finalDate){
 
 		if($initialDate == null){
@@ -178,6 +216,11 @@ class ModelSales{
 
 	//adding total sales
 
+	/**
+	 * @param mixed $table
+	 * 
+	 * @return void
+	 */
 	public 	static function sumTotalSalesModel($table){	
 
 		$stmt = Connection::connect()->prepare("SELECT SUM(netPrice) as totalPrice FROM $table");

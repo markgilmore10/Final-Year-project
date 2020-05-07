@@ -1,8 +1,17 @@
 <?php
 
+/**
+ * Class OpenTableController
+ */
 class OpenTableController{
 
 	// Show Sales
+    /**
+     * @param mixed $item
+     * @param mixed $value
+     * 
+     * @return void
+     */
     public static function ShowTableController($item, $value){
 
 		$table = "open_tables";
@@ -83,6 +92,9 @@ class OpenTableController{
 
 	// }
 	
+	/**
+	 * @return void
+	 */
 	public static function index () {
         return ModelTables::all();
     }

@@ -1,9 +1,15 @@
 <?php
 
+/**
+ * Class ControllerCategories
+ */
  class ControllerCategories{
 
     // Create Category
 	
+	/**
+	 * @return void
+	 */
 	public static function CreateCategoryController(){
 
 		if(isset($_POST['newCategory'])){
@@ -64,6 +70,12 @@
     }
 
     // Show Categories
+    /**
+     * @param mixed $item
+     * @param mixed $value
+     * 
+     * @return void
+     */
     public static function ShowCategoriesController($item, $value){
 
 		$table = "categories";
@@ -73,6 +85,9 @@
 		return $answer;
     }
     
+    /**
+     * @return void
+     */
     public static function EditCategoryController(){
 
 		if(isset($_POST["editCategory"])){
@@ -135,6 +150,9 @@
 
     }
     
+    /**
+     * @return void
+     */
     public static function DeleteCategoryController(){
 
 		if(isset($_GET["idCategory"])){

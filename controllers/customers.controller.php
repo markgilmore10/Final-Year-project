@@ -1,7 +1,16 @@
 <?php
 
+/**
+ * Class CustomerController
+ */
 class CustomerController{
 
+    /**
+     * @param mixed $item
+     * @param mixed $value
+     * 
+     * @return void
+     */
     public static function ShowCustomerController($item, $value){
 
 		$table = "customers";
@@ -12,6 +21,9 @@ class CustomerController{
 
 	}
 
+	/**
+	 * @return void
+	 */
 	public static function CreateCustomerController(){
 
 		if(isset($_POST["newCustomer"])){
@@ -80,6 +92,9 @@ class CustomerController{
 
     }
 
+    /**
+     * @return void
+     */
     public static function EditCustomerController(){
 
 		if(isset($_POST["editCustomer"])){
@@ -149,6 +164,9 @@ class CustomerController{
 
     }
 
+    /**
+     * @return void
+     */
     public static function DeleteCustomerController(){
 
 		if(isset($_GET["idCustomer"])){
@@ -183,6 +201,11 @@ class CustomerController{
 
 	}
     
+    /**
+     * @param mixed $request
+     * 
+     * @return void
+     */
     public static function searchCustomer($request){
 		
         return CustomersModel::searchByNumberId($request);

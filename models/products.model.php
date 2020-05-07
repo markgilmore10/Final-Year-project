@@ -2,8 +2,19 @@
 
 require_once 'connection.php';
 
+/**
+ * Class productsModel
+ */
 class productsModel{
 
+	/**
+	 * @param mixed $table
+	 * @param mixed $item
+	 * @param mixed $value
+	 * @param mixed $order
+	 * 
+	 * @return void
+	 */
 	public static function ShowProductsModel($table, $item, $value, $order){
 
 		if($item != null){
@@ -32,6 +43,12 @@ class productsModel{
 
     }
 
+    /**
+     * @param mixed $table
+     * @param mixed $data
+     * 
+     * @return void
+     */
     public static function AddProductModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("INSERT INTO $table(idCategory, code, product, stock, buyingPrice, sellingPrice) VALUES (:idCategory, :code, :product, :stock, :buyingPrice, :sellingPrice)");
@@ -59,6 +76,12 @@ class productsModel{
 	}
 
 	//edit product
+	/**
+	 * @param mixed $table
+	 * @param mixed $data
+	 * 
+	 * @return void
+	 */
 	public static function EditProductModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("UPDATE $table SET idCategory = :idCategory, product = :product,
@@ -87,6 +110,12 @@ class productsModel{
 	}
 
 	//delete product
+	/**
+	 * @param mixed $table
+	 * @param mixed $data
+	 * 
+	 * @return void
+	 */
 	public static function DeleteProductModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("DELETE FROM $table WHERE id = :id");
@@ -108,6 +137,14 @@ class productsModel{
 		$stmt = null;
 	}
 
+	/**
+	 * @param mixed $table
+	 * @param mixed $item1
+	 * @param mixed $value1
+	 * @param mixed $value
+	 * 
+	 * @return void
+	 */
 	public static function UpdateProductModel($table, $item1, $value1, $value){
 
 		$stmt = Connection::connect()->prepare("UPDATE $table SET $item1 = :$item1 WHERE id = :id");
@@ -132,6 +169,11 @@ class productsModel{
 	}
 
 
+ /**
+  * @param mixed $table
+  * 
+  * @return void
+  */
 	static public function sumOfSalesModel($table){
 
 		$stmt = Connection::connect()->prepare("SELECT SUM(sales) as totalPrice FROM $table");

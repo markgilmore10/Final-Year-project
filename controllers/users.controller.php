@@ -1,8 +1,14 @@
 <?php
 
+/**
+ * Class UserController
+ */
 class UserController{
 
 	// User Login
+	/**
+	 * @return void
+	 */
 	public static function UserLoginController(){
 
 		if (isset($_POST["loginUser"])) {
@@ -68,6 +74,9 @@ class UserController{
 	}
 
 	// Create User
+	/**
+	 * @return void
+	 */
 	public static function CreateUserController(){
 
 		if (isset($_POST["newUser"])) {
@@ -136,6 +145,12 @@ class UserController{
 	}
 
 	// Show Users
+	/**
+	 * @param mixed $item
+	 * @param mixed $value
+	 * 
+	 * @return void
+	 */
 	public static function ShowUsersController($item, $value){
 
 		$table = "users";
@@ -146,6 +161,9 @@ class UserController{
 	}
 
 	// Edit User
+	/**
+	 * @return void
+	 */
 	public static function EditUserController(){
 
 		if (isset($_POST["EditUser"])) {
@@ -246,6 +264,9 @@ class UserController{
 	}
 
 	// Delete User
+	/**
+	 * @return void
+	 */
 	public static function DeleteUserController(){
 
 		if(isset($_GET["userId"])){
