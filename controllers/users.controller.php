@@ -48,7 +48,7 @@ class UserController{
 					
 						echo '<script>
 
-							window.location = "dashboard";
+							window.location = "till";
 
 						</script>';
 

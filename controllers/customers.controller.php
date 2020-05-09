@@ -16,11 +16,11 @@ class CustomerController{
 
 		if(isset($_POST["newCustomer"])){
 
-			if(//preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["newCustomer"]) &&
-			   preg_match('/^[0-9]+$/', $_POST["newId"])){ // &&
-			   //preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["newEmail"]) && 
-			   //preg_match('/^[()\-0-9 ]+$/', $_POST["newMobile"]) && 
-			   //preg_match('/^[#\.\-a-zA-Z0-9 ]+$/', $_POST["newAddress"])){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["newCustomer"]) &&
+			   preg_match('/^[0-9]+$/', $_POST["newId"]) &&
+			   preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["newEmail"]) && 
+			   preg_match('/^[()\-0-9 ]+$/', $_POST["newMobile"]) && 
+			   preg_match('/^[#\.\-a-zA-Z0-9 ]+$/', $_POST["newAddress"])){
 
 			   	$table = "customers";
 
@@ -84,11 +84,11 @@ class CustomerController{
 
 		if(isset($_POST["editCustomer"])){
 
-			if(//preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editCustomer"]) &&
-			   preg_match('/^[0-9]+$/', $_POST["editId"])){ // &&
-			   //preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["editEmail"]) && 
-			   //preg_match('/^[()\-0-9 ]+$/', $_POST["editMobile"]) && 
-			   //preg_match('/^[#\.\-a-zA-Z0-9 ]+$/', $_POST["editAddress"])){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editCustomer"]) &&
+			   preg_match('/^[0-9]+$/', $_POST["editId"]) &&
+			   preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["editEmail"]) && 
+			   preg_match('/^[()\-0-9 ]+$/', $_POST["editMobile"]) && 
+			   preg_match('/^[#\.\-a-zA-Z0-9 ]+$/', $_POST["editAddress"])){
 
 			   	$table = "customers";
 
@@ -130,7 +130,7 @@ class CustomerController{
 
 					swal({
 						  type: "error",
-						  title: "Please Fill in all Customer Details",
+						  title: "Error Filling in Customer Details. Try Again !!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Close"
 						  }).then(function(result){

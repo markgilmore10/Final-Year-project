@@ -38,7 +38,7 @@ $("#newCategory").change(function(){
       	if(!answer){
 
       		var newCode = idCategory+"01";
-      		$("#newCode").val(newCode);
+			$("#newCode").val(newCode);
 
       	}else{
 
@@ -56,12 +56,13 @@ var taxing = function(){
 	var vatPercent = $("#newVatPrice").val();
 	var taxPercent = $("#newTaxPrice").val();
 	var percent = Number(($("#newBuyingPrice").val()*vatPercent/100))+Number(($("#newBuyingPrice").val()*taxPercent/100))+Number($("#newBuyingPrice").val());
-	var editPercent = Number(($("#editBuyingPrice").val()*vatPercent/100))+Number(($("#editBuyingPrice").val()*taxPercent/100))+Number($("#editSellingPrice").val());
+	var editPercent = Number(($("#editBuyingPrice").val()*vatPercent/100))+Number(($("#editBuyingPrice").val()*taxPercent/100))+Number($("#editBuyingPrice").val());
 	$("#newBuyingPricePlus").val(percent);
 	$("#newBuyingPricePlus").prop("readonly", true);
 	$("#editBuyingPricePlus").val(editPercent);
 	$("#editBuyingPricePlus").prop("readonly",true);
 }
+
 $("#newBuyingPrice, #editBuyingPrice, #newCategory").change(function(){
 	taxing()
 })
@@ -77,52 +78,38 @@ $("#newBuyingPricePlus, #editBuyingPricePlus").change(function(){
 		
 		var percent = Number(($("#newBuyingPricePlus").val()*markupPercent/100))+Number($("#newBuyingPricePlus").val());
 
-		var editPercent = Number(($("#editBuyingPricePlus").val()*markupPercent/100))+Number($("#editSellingPrice").val());
+		var editPercent = Number(($("#editBuyingPricePlus").val()*markupPercent/100))+Number($("#editBuyingPricePlus").val());
 
 		$("#newSellingPrice").val(percent);
-		$("#newSellingPrice").prop("readonly", true);
 
 		$("#editSellingPrice").val(editPercent);
-		$("#editSellingPrice").prop("readonly",true);
 	}
 })
 
 //Changing percent
-$("#newPercentage").change(function(){
+$(".newPercentage").change(function(){
 
 	if($(".percentage").prop("checked")){
 
-		var vatPercent = $(this).val();
+		var markupPercent = $(this).val();
 		
-		var percent = Number(($("#newBuyingPrice").val()*vatPercent/100))
-		+Number($("#newBuyingPrice").val());
+		var percent = Number(($("#newBuyingPricePlus").val()*markupPercent/100))
+		+Number($("#newBuyingPricePlus").val());
 
-		var editPercent = Number(($("#editBuyingPrice").val()*vatPercent/100))
-		+Number($("#editBuyingPrice").val());
+		var editPercent = Number(($("#editBuyingPricePlus").val()*markupPercent/100))
+		+Number($("#editBuyingPricePlus").val());
 
 
 		$("#newSellingPrice").val(percent);
-		$("#newSellingPrice").prop("readonly",true);
 
 		$("#editSellingPrice").val(editPercent);
-		$("#editSellingPrice").prop("readonly",true);
 	}
 	
 })
 
-$(".percent").on("ifUnchecked",function(){
-	
-	$("#newSellingPrice").prop("readonly",false);
-	$("#editSellingPrice").prop("readonly",false);
-
-})
-
-$(".percent").on("ifChecked",function(){
-	
-	$("#newSellingPrice").prop("readonly",true);
-	$("#editSellingPrice").prop("readonly",true);
-
-})
+// Rounding numbers off
+$("#newSellingPrice").number(true, 2);
+$("#editSellingPrice").number(true, 2);
 
 //Edit product
 $(".productsTable tbody").on("click", "button.btnEditProduct", function(){
@@ -130,7 +117,7 @@ $(".productsTable tbody").on("click", "button.btnEditProduct", function(){
 	var idProduct = $(this).attr("idProduct");
 
 	var data = new FormData();
-    data.append("idProduct", idProduct);
+	data.append("idProduct", idProduct);
 
 	$.ajax({
 
@@ -158,6 +145,11 @@ $(".productsTable tbody").on("click", "button.btnEditProduct", function(){
 
 					$("#editCategory").val(answer["id"]);
 					$("#editCategory").html(answer["Category"]);
+
+					$("#newVatPrice").val(answer["Vat"]);
+
+					$("#newTaxPrice").val(answer["Tax"]);
+					
 				}
 			 })
 
@@ -167,7 +159,7 @@ $(".productsTable tbody").on("click", "button.btnEditProduct", function(){
 
 			  $("#editStock").val(answer["stock"]);
 
-			  $("#editBuyingPrice").val(answer["buyingPrice"]);
+			  $("#editBuyingPricePlus").val(answer["buyingPrice"]);
 
 			  $("#editSellingPrice").val(answer["sellingPrice"]);
 
@@ -187,13 +179,12 @@ $(".productsTable tbody").on("click ", "button.btnDeleteProduct", function(){
 	swal({
 
 		title: 'Are you certain you want to delete the product?',
-		text: "If not you can cancel this action!",
 		type: 'warning',
 		showCancelButton: true,
 		confirmButtonColor: '#3085d6',
 		cancelButtonColor: '#d33',
 		cancelButtonText: 'Cancel',
-		confirmButtonText: 'Yes, Delete Product'
+		confirmButtonText: 'Delete'
 		}).then(function(result){
         if (result.value) {
 

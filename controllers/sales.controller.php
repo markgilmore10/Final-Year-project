@@ -425,7 +425,7 @@ class SalesController{
 				$item1b = "stock";
 				$value1b = $value["quantity"] + $getProduct["stock"];
 
-				$nuevoStock = productsModel::UpdateProductModel($tableProducts, $item1b, $value1b, $valueProductId);
+				$newStock = productsModel::UpdateProductModel($tableProducts, $item1b, $value1b, $valueProductId);
 
 			}
 

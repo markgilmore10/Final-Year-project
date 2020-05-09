@@ -60,36 +60,25 @@
 			echo'
 
 			<li>
+				<a href="till">
+					<i class="fa fa-calculator"></i>
+					<span>Till</span>
+				</a>
+			</li>
+
+			<li>
+						<a href="sales">
+							<i class="fa fa-credit-card-alt"></i>
+							<span>Sales</span>
+						</a>
+					</li>
+					
+					<li>
 				<a href="open-tables">
 					<i class="fa fa-edit"></i>
 					<span>Open Tables</span>
 				</a>
-			</li>
-
-			<li class="treeview">
-				<a href="#">
-                    <i class="fa fa-folder"></i>
-					<span>Reports</span>
-					<span class="pull-right-container">
-						<i class="fa fa-angle-left pull-right"></i>
-					</span>
-				</a>
-
-				<ul class="treeview-menu">
-
-                    <li>
-						<a href="sales">
-							<i class="fa fa-circle"></i>
-							<span>Sales</span>
-						</a>
-					</li>
-
-					<li>
-						<a href="sales-manager">
-							<i class="fa fa-circle"></i>
-							<span>Manage sales</span>
-						</a>
-					</li>';
+			</li>';
 
 		}
 
@@ -99,7 +88,7 @@
 
 					<li>
 						<a href="reports">
-							<i class="fa fa-circle"></i>
+						<i class="fa fa-book"></i>
 							<span>Reports</span>
 						</a>
 					</li>';

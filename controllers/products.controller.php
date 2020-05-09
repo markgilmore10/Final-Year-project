@@ -27,7 +27,7 @@ class ProductsController{
 							   "code" => $_POST["newCode"],
 							   "product" => $_POST["newProduct"],
 							   "stock" => $_POST["newStock"],
-							   "buyingPrice" => $_POST["newBuyingPrice"],
+							   "buyingPrice" => $_POST["newBuyingPricePlus"],
 							   "sellingPrice" => $_POST["newSellingPrice"]);
 
 				$answer = productsModel::AddProductModel($table, $data);
@@ -95,7 +95,7 @@ class ProductsController{
 							   "code" => $_POST["editCode"],
 							   "product" => $_POST["editProducts"],
 							   "stock" => $_POST["editStock"],
-							   "buyingPrice" => $_POST["editBuyingPrice"],
+							   "buyingPrice" => $_POST["editBuyingPricePlus"],
 							   "sellingPrice" => $_POST["editSellingPrice"]);
 
 				$answer = productsModel::EditProductModel($table, $data);
