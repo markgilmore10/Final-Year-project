@@ -13,3 +13,12 @@
 | **Module Supervisor** | Dr. John Healy |
 | **Project Title** | Restaurant Management and POS System |
 
+## Video Demonstration
+A video demo of the Restaurant Management and POS System can be found below where we demonstrate how the project functions:
+
+## Overview
+
+## Technologies
+
+## Cloning/Running the application
+
