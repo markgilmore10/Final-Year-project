@@ -9,6 +9,8 @@ class CategoriesModel{
 
 	// Add Categories
 	/**
+	 * inserts input data into the table 
+	 * 
 	 * @param mixed $table
 	 * @param mixed $data
 	 * 
@@ -39,6 +41,8 @@ class CategoriesModel{
 
     // Show Categories
     /**
+	 * displays specific category or the full categories table
+	 * 
      * @param mixed $table
      * @param mixed $item
      * @param mixed $value
@@ -76,6 +80,8 @@ class CategoriesModel{
     
     // Edit Category
     /**
+	 * updates the catergory table with input data
+	 * 
      * @param mixed $table
      * @param mixed $data
      * 
@@ -110,6 +116,8 @@ class CategoriesModel{
 	
 	// Delete Category
     /**
+	 * deletes selected category from the category table
+	 * 
      * @param mixed $table
      * @param mixed $data
      * 

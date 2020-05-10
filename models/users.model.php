@@ -10,6 +10,8 @@ class UserModel{
 	// Show User
 
 	/**
+	 * shows the selected user from the user table in the database or displays all users in the table
+	 * 
 	 * @param mixed $table
 	 * @param mixed $item
 	 * @param mixed $value
@@ -44,6 +46,7 @@ class UserModel{
 	}
 
 	/**
+	 * adds users into the users table in the database using input data
 	 * @param mixed $table
 	 * @param mixed $data
 	 * 
@@ -73,6 +76,8 @@ class UserModel{
 	}
 
 	/**
+	 * edits the user in the users table using input data
+	 * 
 	 * @param mixed $table
 	 * @param mixed $data
 	 * 
@@ -103,6 +108,8 @@ class UserModel{
 	}
 
 	/**
+	 * updates the user table using input data
+	 * 
 	 * @param mixed $table
 	 * @param mixed $item1
 	 * @param mixed $value1
@@ -134,6 +141,7 @@ class UserModel{
 	}
 
 	/**
+	 * deletes selected user from the user table in the database by id
 	 * @param mixed $table
 	 * @param mixed $data
 	 * 

@@ -15,6 +15,7 @@ class AjaxProducts{
 	public $idCategory;
 
 	/**
+	 * creates product by product id
 	 * @return void
 	 */
 	public function CreateProductCodeAjax(){
@@ -33,6 +34,7 @@ class AjaxProducts{
 	public $idProduct;
 
 	/**
+	 * uses the products id to find products to edit
 	 * @return void
 	 */
 	public function EditProductAjax(){

@@ -14,6 +14,7 @@ class CustomerAjax{
 	public $idCustomer;
 
 	/**
+	 * uses the customer id to find customer to edit
 	 * @return void
 	 */
 	public function EditCustomerAjax(){
@@ -29,6 +30,7 @@ class CustomerAjax{
 	}
 
 	/**
+	 * sends request to search for specified customer
 	 * @param mixed $request
 	 * 
 	 * @return void

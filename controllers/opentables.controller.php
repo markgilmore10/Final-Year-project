@@ -2,11 +2,14 @@
 
 /**
  * Class OpenTableController
+ * showing of the openedtables and displays all tables
  */
 class OpenTableController{
 
 	// Show Sales
     /**
+	 * fetches the open_tables table from the database 
+	 * displays the table
      * @param mixed $item
      * @param mixed $value
      * 
@@ -93,6 +96,8 @@ class OpenTableController{
 	// }
 	
 	/**
+	 * fetches all data from the opentables table 
+	 * and returns it
 	 * @return void
 	 */
 	public static function index () {

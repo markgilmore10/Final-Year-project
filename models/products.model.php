@@ -8,6 +8,8 @@ require_once 'connection.php';
 class productsModel{
 
 	/**
+	 * displays the chosen product or displays the full table
+	 * 
 	 * @param mixed $table
 	 * @param mixed $item
 	 * @param mixed $value
@@ -44,6 +46,7 @@ class productsModel{
     }
 
     /**
+	 * adds a product to the database table using input data from the user
      * @param mixed $table
      * @param mixed $data
      * 
@@ -77,6 +80,7 @@ class productsModel{
 
 	//edit product
 	/**
+	 * edits product in the products table in the database using input data from the user
 	 * @param mixed $table
 	 * @param mixed $data
 	 * 
@@ -111,6 +115,7 @@ class productsModel{
 
 	//delete product
 	/**
+	 * deletes selected product in the  products table by id
 	 * @param mixed $table
 	 * @param mixed $data
 	 * 
@@ -138,6 +143,7 @@ class productsModel{
 	}
 
 	/**
+	 * updates the product table using input data
 	 * @param mixed $table
 	 * @param mixed $item1
 	 * @param mixed $value1
@@ -170,6 +176,8 @@ class productsModel{
 
 
  /**
+  * displays the sum of sales as total price from the database table
+  * 
   * @param mixed $table
   * 
   * @return void

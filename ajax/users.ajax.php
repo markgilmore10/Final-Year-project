@@ -17,6 +17,7 @@ class AjaxUsers{
 	public $idUser;
 
 	/**
+	 * uses the user id to find users to edit
 	 * @return void
 	 */
 	public function EditUserAjax(){
@@ -44,6 +45,7 @@ class AjaxUsers{
 	public $activateId;	
 
 	/**
+	 * upfates the table by activating users
 	 * @return void
 	 */
 	public function ActivateUserAjax(){
@@ -69,6 +71,7 @@ class AjaxUsers{
 	public $validateUser;
 
 	/**
+	 * validayes the user 
 	 * @return void
 	 */
 	public function ValidateUserAjax(){

@@ -10,6 +10,7 @@ class salesProductTable{
 
 	// Show Products 
 	/**
+	 * displays the json data of the sales table
 	 * @return void
 	 */
 	public function showSalesTable(){

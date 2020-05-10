@@ -12,6 +12,8 @@ require_once "../models/categories.model.php";
 class productsTables{
 
 	/**
+	 * displays the json data of the products table
+	 * 
 	 * @return void
 	 */
 	public function ShowProductsTable(){

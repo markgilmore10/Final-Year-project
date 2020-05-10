@@ -14,6 +14,7 @@ class AjaxCategories{
 	public $idCategory;
 
 	/**
+	 *  uses the category id to find category to edit
 	 * @return void
 	 */
 	public function EditCategoryAjax(){

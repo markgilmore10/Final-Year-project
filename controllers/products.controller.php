@@ -2,10 +2,14 @@
 
 /**
  * Class ProductsController
+ * Displaying, adding, editing, deleting products and shows the adding of sales
  */
 class ProductsController{
 	
  /**
+  * fetches the products table from the database and
+  * displays the contents of the table
+  * 
   * @param mixed $item
   * @param mixed $value
   * @param mixed $order
@@ -23,6 +27,11 @@ class ProductsController{
     }
 
     /**
+	 * Create new products to be added to the products database table
+	 * product details need to be correct and have no invalid chars
+	 * once completed will send a success message to user
+	 * if failure to enter valid chars user will recieve an error message
+	 * 
      * @return void
      */
     public static function AddProductsController(){
@@ -94,6 +103,13 @@ class ProductsController{
 
 	//edit products controller
 	/**
+	 * takes the product from the products table and allows the user
+	 * to change the values , if any of the values input are invalid
+	 * editing will fail
+	 * 
+	 * if edit is successful user will receive a success message
+	 * while if edit fails user will receive an error message
+	 * 
 	 * @return void
 	 */
 	public static function EditProductsController(){
@@ -164,6 +180,12 @@ class ProductsController{
 
 	//delete product
 	/**
+	 * fetches product id from the products table 
+	 * then deletes the product from the table
+	 * 
+	 * if deletion is successful user will recieve a success message 
+	 * while if deletion fails user will recieve an error message
+	 * 
 	 * @return void
 	 */
 	public static function DeleteProductsController(){
@@ -200,6 +222,8 @@ class ProductsController{
 	}
 
  /**
+  * Sums the total of all sales from the 
+  * products table
   * @return void
   */
 	static public function sumOfSalesController(){

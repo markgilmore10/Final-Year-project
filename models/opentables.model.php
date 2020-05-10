@@ -10,6 +10,8 @@ class ModelTables{
 	
     // Show Open Tables
 	/**
+	 * displays opentables chosen by the user or displays all opentables in the table of the database
+	 * 
 	 * @param mixed $table
 	 * @param mixed $item
 	 * @param mixed $value
@@ -45,6 +47,8 @@ class ModelTables{
 	}
 
 	/**
+	 * inserts a new opentable into the table using input data
+	 * 
 	 * @param mixed $table
 	 * @param mixed $data
 	 * 
@@ -76,6 +80,7 @@ class ModelTables{
 	}
 
 	/**
+	 * displays all opentables in the opentable table
 	 * @return void
 	 */
 	public static function all () {

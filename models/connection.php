@@ -6,6 +6,7 @@
 class Connection{
 
 	/**
+	 * establishes a connection with the db
 	 * @return void
 	 */
 	public function connect(){

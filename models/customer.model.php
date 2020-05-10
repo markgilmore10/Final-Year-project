@@ -9,6 +9,8 @@ class CustomersModel{
 
     // Create Customer
 	/**
+	 * creates customer using input data 
+	 * 
 	 * @param mixed $table
 	 * @param mixed $data
 	 * 
@@ -43,6 +45,7 @@ class CustomersModel{
     
     // Show Customers
     /**
+	 * displays the chosen customer or displays all customers
      * @param mixed $table
      * @param mixed $item
      * @param mixed $value
@@ -79,6 +82,7 @@ class CustomersModel{
     
     // Edit Customer
 	/**
+	 * edits customer using new input data
 	 * @param mixed $table
 	 * @param mixed $data
 	 * 
@@ -113,6 +117,7 @@ class CustomersModel{
     }
 
     /**
+	 * deletes selected customer from the customers table
      * @param mixed $table
      * @param mixed $data
      * 
@@ -141,6 +146,8 @@ class CustomersModel{
 	}
 
 	/**
+	 * searches for customer with the query made
+	 * 
 	 * @param mixed $query
 	 * 
 	 * @return void
@@ -158,6 +165,8 @@ class CustomersModel{
 	}
 	
 	/**
+	 * updates the customers by id
+	 * 
 	 * @param mixed $table
 	 * @param mixed $item1
 	 * @param mixed $value1

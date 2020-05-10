@@ -10,6 +10,9 @@ class ModelSales{
 	
     // Show Sales
 	/**
+	 * displays selected sale or displays the whole table
+	 * 
+	 * 
 	 * @param mixed $table
 	 * @param mixed $item
 	 * @param mixed $value
@@ -45,6 +48,8 @@ class ModelSales{
 	}
 
 	/**
+	 * adds sale to the sales table in the database using input data
+	 * 
 	 * @param mixed $table
 	 * @param mixed $data
 	 * 
@@ -80,6 +85,7 @@ class ModelSales{
 	}
 
 	/**
+	 * displays all sales from the sales table in the database
 	 * @return void
 	 */
 	public static function getAll () {
@@ -94,6 +100,8 @@ class ModelSales{
 	}
 	
 	/**
+	 * re-opens opentables and proccesses the sale
+	 * 
 	 * @param mixed $table
 	 * @param mixed $data
 	 * 
@@ -129,6 +137,7 @@ class ModelSales{
 	}
 
 	/**
+	 * deletes selected sale from the the sales table in the database by id
 	 * @param mixed $table
 	 * @param mixed $data
 	 * 
@@ -159,6 +168,8 @@ class ModelSales{
 	///// date ranges
 
 	/**
+	 * displays date ranges from the table from an initial date to a finaldate
+	 * 
 	 * @param mixed $table
 	 * @param mixed $initialDate
 	 * @param mixed $finalDate
@@ -217,6 +228,7 @@ class ModelSales{
 	//adding total sales
 
 	/**
+	 * sums the netprice as total price from the table
 	 * @param mixed $table
 	 * 
 	 * @return void
