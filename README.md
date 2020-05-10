@@ -62,3 +62,9 @@ Microsoft Excel is a spreadsheet program. That means it's used to create grids o
 
 # Cloning/Running the application
 
+```
+git clone https://github.com/markgilmore10/Final-Year-project.git
+```
+
+
+
