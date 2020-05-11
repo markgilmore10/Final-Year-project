@@ -21,11 +21,24 @@ public function getReceiptPrinting(){
 // Sale Info
 $itemSale = "code";
 $saleValue = $this->code;
+$order = null;
     
 $saleAnswer = SalesController::ShowSalesController($itemSale, $saleValue);
 
 $saledate = substr($saleAnswer["saledate"],0,-8);
 $products = json_decode($saleAnswer["products"], true);
+$products->results[0]->category;
+// foreach ($saleAnswer as $fproducts) {
+// 	//$products = json_decode($saleAnswer["products"], true);
+// 	$productsf = ProductsController::ShowProductsController("id", $item["category"], $order);
+// 	//$staff = UserController::ShowUsersController("id", $item["idSeller"]);
+// }
+// if($products == "2")
+// {
+// 	$products = json_decode($productsf["products"], true);
+// 	var_dump($products);
+// }
+
 $netPrice = number_format($saleAnswer["netPrice"],2);
 $discount = number_format($saleAnswer["discount"]);
 $totalPrice = number_format($saleAnswer["totalPrice"],2);

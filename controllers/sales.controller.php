@@ -54,7 +54,7 @@ class SalesController{
                           "idSeller"   => $_POST["idSeller"],
                           "tableNo"    => $_POST["tableNo"],
                           "idCustomer" => $_POST["customerSearch"],
-                          "products"   => $_POST["productsList"],
+						  "products"   => $_POST["productsList"],
                           "netPrice"   => $_POST["newNetPrice"],
             );
             

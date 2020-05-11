@@ -201,11 +201,11 @@ if($_SESSION["profile"] == "manager"){
 
                         <div class="btn-toolbar">
 
-                            <button class="btn btn-primary pull-right btnPrintBill" saleCode=".$value[code]." value="Cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
+                            <button class="btn btn-primary pull-right btnPrintBills" saleCode="'.$value[code].'" value="Cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
                             <button type="submit" class="btn btn-warning pull-right" value="Card" name="newPaymentMethod" id="newPaymentMethod" required>Card</button>
                             <button type="submit" class="btn btn-danger pull-right" value="Voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
-                            <button type="submit" class="btn btn-primary pull-right"  value="hold" name="openTable">Hold</button>
-
+                            <button type="submit" class="btn btn-primary pull-right btnPrintBills" saleCode="<?php echo $value["code"]; ?>" value="hold" name="openTable">Hold</button>
+                            <!-- value="<?php echo $_SESSION["id"]; ?>" -->
                         </div>
 
                       </div>

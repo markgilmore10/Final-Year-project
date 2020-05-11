@@ -32,7 +32,8 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 		dataType:"json",
 		success:function(answer){
 
-      	    var product = answer["product"];
+			var product = answer["product"];
+			var category = answer["idCategory"];
 			var price = answer["sellingPrice"];
 			var stock = answer["stock"];
 
@@ -58,7 +59,8 @@ $(".salesTable tbody").on("click", "button.addProductSale", function(){
 	              
 	              '<span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs removeProduct" idProduct="' + idProduct + '"><i class="fa fa-times"></i></button></span>'+
 
-	              '<input type="text" class="form-control newProductDescription" idProduct="' + idProduct + '" name="addProductSale" value="' + product + '" readonly required>' +
+				  '<input type="text" class="form-control newProductDescription" idProduct="' + idProduct + '" name="addProductSale" value="' + product + '" readonly required>' +
+				  '<input type="hidden" class="form-control newProductCategory" idProduct="' + idProduct + '" name="newProductCategory" value="' + category + '" readonly required>' +
 
 	            '</div>'+
 
@@ -200,12 +202,15 @@ function listProducts(){
 
 	var quantity = $(".newProductQuantity");
 
+	var category = $(".newProductCategory");
+
 	var price = $(".newProductPrice");
 
 	for(var i = 0; i < product.length; i++){
 
 		productsList.push({ "id" : $(product[i]).attr("idProduct"), 
 							  "product" : $(product[i]).val(),
+							  "category" : $(category[i]).val(),
 							  "quantity" : $(quantity[i]).val(),
 							  "stock" : $(quantity[i]).attr("newStock"),
 							  "price" : $(price[i]).attr("realPrice"),
@@ -256,11 +261,14 @@ $(".saleForm").on("change", "input.newProductQuantity", function(){
 
 })
 
+// Select Product
 $(".saleForm").on("change", "select.newProductDescription", function(){
 
 	var productName = $(this).val();
 
 	var newProductDescription = $(this).parent().parent().parent().children().children().children(".newProductDescription");
+
+	var newProductCategory = $(this).parent().parent().parent().children().children().children(".newProductCategory");
 
 	var newProductPrice = $(this).parent().parent().parent().children(".enterPrice").children().children(".newProductPrice");
 
@@ -281,7 +289,8 @@ $(".saleForm").on("change", "select.newProductDescription", function(){
       	dataType:"json",
       	success:function(answer){
       	    
-      	    $(newProductDescription).attr("idProduct", answer["id"]);
+			$(newProductDescription).attr("idProduct", answer["id"]);
+			$(newProductCategory).attr("category", answer["idCategory"]);
       	    $(newProductQuantity).attr("stock", answer["stock"]);
       	    $(newProductQuantity).attr("newStock", Number(answer["stock"])-1);
       	    $(newProductPrice).val(answer["sellingPrice"]);
@@ -353,6 +362,14 @@ $(".tables").on("click", ".btnPrintBill", function(){
 	var saleCode = $(this).attr("saleCode");
 
 	window.open("extensions/tcpdf/pdf/receipt.php?code="+saleCode, "_blank");
+
+})
+
+$(".saleForm").on("click", ".btnPrintBills", function(){
+
+	var saleCode = $(this).attr("saleCode");
+
+	window.open("extensions/tcpdf/pdf/food.php?code="+saleCode, "_blank");
 
 })
 
