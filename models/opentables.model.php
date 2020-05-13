@@ -43,7 +43,32 @@ class ModelTables{
 		$stmt->bindParam(":tableNo", $data["tableNo"], PDO::PARAM_STR);
 		$stmt->bindParam(":products", $data["products"], PDO::PARAM_STR);
 		$stmt->bindParam(":netPrice", $data["netPrice"], PDO::PARAM_STR);
+		
+		if($stmt->execute()){
 
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
+
+	public static function UpdateTableModel($table, $data){
+
+		$stmt = Connection::connect()->prepare("UPDATE $table SET code = :code, idSeller = :idSeller, tableNo = :tableNo, products = :products, netPrice= :netPrice");
+
+		$stmt->bindParam(":code", $data["code"], PDO::PARAM_INT);
+		$stmt->bindParam(":idSeller", $data["idSeller"], PDO::PARAM_INT);
+		$stmt->bindParam(":tableNo", $data["tableNo"], PDO::PARAM_STR);
+		$stmt->bindParam(":products", $data["products"], PDO::PARAM_STR);
+		$stmt->bindParam(":netPrice", $data["netPrice"], PDO::PARAM_STR);
+		
 		if($stmt->execute()){
 
 			return "ok";
@@ -65,5 +90,12 @@ class ModelTables{
         $stmt->setFetchMode(PDO::FETCH_OBJ);
         return $stmt->fetchAll();
 	}
-	
+    
+    
+    public static function getCode () {
+        $stmt = Connection::connect()->prepare("SELECT MAX(code) AS code FROM sales ");
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        return $stmt->fetch();
+	}
 }
