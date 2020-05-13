@@ -125,8 +125,6 @@ if($_SESSION["profile"] == "manager"){
 
                     <input type="hidden" name="productsList" id="productsList">
 
-                    <button type="button" class="btn btn-default hidden-lg btnAddProduct">Products</button> <!-- Button view for tablet to switch screens -->
-
                     <hr>
 
                     <!-- Total -->
@@ -143,7 +141,6 @@ if($_SESSION["profile"] == "manager"){
                             <th>Total</th>
 
                           </thead>
-
 
                           <tbody>
                             
@@ -201,11 +198,13 @@ if($_SESSION["profile"] == "manager"){
 
                         <div class="btn-toolbar">
 
-                            <button class="btn btn-primary pull-right btnPrintBills" saleCode="'.$value[code].'" value="Cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
+                            <button class="btn btn-primary pull-right" value="Cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
                             <button type="submit" class="btn btn-warning pull-right" value="Card" name="newPaymentMethod" id="newPaymentMethod" required>Card</button>
                             <button type="submit" class="btn btn-danger pull-right" value="Voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
-                            <button type="submit" class="btn btn-primary pull-right btnPrintBills" saleCode="<?php echo $value["code"]; ?>" value="hold" name="openTable">Hold</button>
+                            <button type="submit" class="btn btn-primary pull-right" value="hold" name="openTable">Hold</button>
                             <!-- value="<?php echo $_SESSION["id"]; ?>" -->
+                            <!-- btnPrintBills" saleCode="'.$value[code].'" -->
+                            <!-- btnPrintBills" saleCode="<?php echo $value["code"]; ?>" -->
                         </div>
 
                       </div>

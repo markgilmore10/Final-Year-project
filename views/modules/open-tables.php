@@ -78,9 +78,9 @@ foreach ($answer as $key => $value) {
 
             </button>';
 
-               echo '<button class="btn btn-warning btnReopenSale" idSale="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+               echo '<button class="btn btn-warning btnReopenTable" idSale="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
 
-                <button class="btn btn-danger btnDeleteSale" idSale="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+                <button class="btn btn-danger btnDeleteTable" idSale="'.$value["id"].'"><i class="fa fa-times"></i></button>';
 
          echo '</div>  
 
@@ -94,6 +94,13 @@ foreach ($answer as $key => $value) {
                     </tbody>
 
         </table>
+
+        <?php
+
+          $deleteTable = new OpenTableController();
+          $deleteTable -> DeleteOpenTableController();
+
+          ?>
 
       </div>
     

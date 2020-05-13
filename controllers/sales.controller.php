@@ -419,7 +419,7 @@ class SalesController{
 
 				$item1a = "sales";
 				$value1a = $getProduct["sales"] - $value["quantity"];
-
+				
 				$newSales = productsModel::UpdateProductModel($tableProducts, $item1a, $value1a, $valueProductId);
 
 				$item1b = "stock";

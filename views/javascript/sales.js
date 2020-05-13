@@ -308,7 +308,7 @@ $(".tables").on("click", ".btnReopenSale", function(){
 
 	var idSale = $(this).attr("idSale");
 
-	window.location = "index.php?route=reopen-table&idSale="+idSale;
+	window.location = "index.php?route=resale&idSale="+idSale;
 
 })
 
@@ -333,6 +333,29 @@ $(".tables").on("click", ".btnDeleteSale", function(){
 	})
   
   })
+
+  $(".tables").on("click", ".btnDeleteTable", function(){
+
+	var idSale = $(this).attr("idSale");
+  
+	swal({
+		  title: 'Delete Table?',
+		  type: 'warning',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  cancelButtonText: 'Cancel',
+		  confirmButtonText: 'Yes'
+		}).then(function(result){
+		  if (result.value) {
+			
+			  window.location = "open-tables";
+		  }
+  
+	})
+  
+  })
+
 
   $(".saleForm").on("change", "input#newTransactionCode", function(){
 

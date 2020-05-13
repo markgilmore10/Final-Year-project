@@ -104,7 +104,7 @@
                   $_GET["route"] == 'customers' ||
                   $_GET["route"] == 'open-tables' ||
                   $_GET["route"] == 'sales' ||
-                  $_GET["route"] == 'sales-manager' ||
+                  $_GET["route"] == 'resale' ||
                   $_GET["route"] == 'reopen-table' ||
                   $_GET["route"] == 'reports' ||
                   $_GET["route"] == 'till' ||
@@ -138,6 +138,7 @@
       <script src="views/javascript/sales.js"></script>
       <script src="views/javascript/customers.js"></script>
       <script src="views/javascript/reports.js"></script>
+      <script src="views/javascript/opentables.js"></script>
 
 
     </body>
