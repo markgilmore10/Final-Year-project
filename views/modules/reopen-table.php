@@ -16,132 +16,64 @@
                 
                 <div class="box">
 
-                <?php
-
-                  $item = "id";
-                  $value = $_GET["idSale"];
-
-                  $sale = SalesController::ShowSalesController($item, $value);
-                  $openSale = OpenTableController::ShowTableController($item, $value);
-
-                  $itemUser = "id";
-                  $valueUser1 = $sale["idSeller"];
-                  $valueUser2 = $openSale["idSeller"];
-
-                  $seller1 = UserController::ShowUsersController($itemUser, $valueUser1);
-                  $seller2 = UserController::ShowUsersController($itemUser, $valueUser2);
-                
-                  $itemCustomers = "id";
-                  $valueCustomers = $sale["idCustomer"];
-
-                  $customers = CustomerController::ShowCustomerController($itemCustomers, $valueCustomers);
-
-                ?>
-
-                <?php
-
-                  if(!$seller2) {
-
-                  echo '            
-                    <div class="form-group">
-
-                      <div class="input-group">
-                        
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-
-                        <input type="text" class="form-control" name="newSeller" id="newSeller" value="'.$seller1["name"].'" readonly>
-
-                        <input type="hidden" name="idSeller" value="'.$seller1["id"].'">
-
-                      </div>
-
-                    </div>'; }else{
-                      
-                      echo '
-                      <div class="form-group">
-
-                      <div class="input-group">
-                        
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-
-                        <input type="text" class="form-control" name="newSeller" id="newSeller" value="'.$seller2["name"].'" readonly>
+                  <?php
+                    $id = $_GET["id"];
+                    $openSale = OpenTableController::ShowTableController('id', $id);
+                    $seller_id = $openSale["idSeller"];
+                    $seller = UserController::ShowUsersController('id', $seller_id);
+                  ?>
                     
-                        <input type="hidden" name="idSeller" value="'.$seller2["id"].'">
+                  <?php
+                    echo '
+                        <div class="form-group">
 
-                      </div>
+                          <div class="input-group">
+                            
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                    </div>'; }
+                            <input type="text" class="form-control" name="newSeller" id="newSeller" value="' . $seller["name"] . '" readonly>
+                        
+                            <input type="hidden" name="idSeller" value="' . $seller["id"] . '">
 
+                          </div>
+
+                        </div>';
                     ?>
 
                     <?php
-
-                      if(!$openSale) {
-
+                                                    
                       echo '
-            
-                      <div class="form-group">
+                        <div class="form-group">
 
-                        <div class="input-group">
-                          
-                          <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                          <div class="input-group">
 
-                          <input type="text" class="form-control" id="newSale" name="reopenSale" value="'.$sale["code"].'" readonly>
-                                                
-                        </div>
+                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                      </div>'; }else{
-                      
-                      echo '
-                      <div class="form-group">
+                            <input type="text" class="form-control" id="newSale" name="reopenSale" value="' . $openSale["code"] . '" readonly>
 
-                        <div class="input-group">
-                          
-                          <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                          </div>
 
-                          <input type="text" class="form-control" id="newSale" name="reopenSale" value="'.$openSale["code"].'" readonly>
+                        </div>';
 
-                        </div>
 
-                      </div>';
-
-                      }
                     ?>
 
                     <!-- Table Number -->    
                     <?php
 
-                      if(!$openSale) {
-
-                        echo '
-
-                        <div class="form-group">
-  
-                        <div class="input-group">
-                          
-                          <span class="input-group-addon"><i class="fa fa-user"></i></span>
-  
-                          <input type="text" class="form-control" name="tableNo" id="tableNo" value="'.$sale["tableNo"].'">
-  
-                        </div>
-  
-                      </div>'; }else{
-
                       echo '
-                      <div class="form-group">
+                        <div class="form-group">
 
-                      <div class="input-group">
-                        
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                          <div class="input-group">
+                            
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                        <input type="text" class="form-control" name="tableNo" id="tableNo" value="'.$openSale["tableNo"].'">
+                            <input type="text" class="form-control" name="tableNo" id="tableNo" value="' . $openSale["tableNo"] . '">
 
-                      </div>
+                          </div>
 
-                    </div>';
-
-                      }
-                    ?>
+                        </div>';
+                      ?>
                     
                     <!-- Customer Number -->              
                     <div class="form-group">
@@ -168,10 +100,8 @@
                     <div class="form-group row newProduct">
                       <?php
 
-                        $productList = json_decode($sale["products"], true);
-                        $productList2 = json_decode($openSale["products"], true);
+                        $productList = json_decode($openSale["products"], true);
 
-                        if (is_array($productList)) {
                         foreach ($productList as $key => $value) {
 
                           $item = "id";
@@ -216,56 +146,8 @@
 
                               </div>';
                         }
-                      }else{
 
-                        foreach ($productList2 as $key => $value) {
-
-                          $item = "id";
-                          $valueProduct = $value["id"];
-                          $order = "id";
-
-                          $answer = ProductsController::ShowProductsController($item, $valueProduct, $order);
-
-                          $lastStock = $answer["stock"] + $value["quantity"];
-                          
-                          echo '<div class="row" style="padding:5px 15px">
-                    
-                                <div class="col-xs-6" style="padding-right:0px">
-                    
-                                  <div class="input-group">
-                        
-                                    <span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs removeProduct" idProduct="'.$value["id"].'"><i class="fa fa-times"></i></button></span>
-
-                                    <input type="text" class="form-control newProduct" idProduct="'.$value["id"].'" name="addProduct" value="'.$value["product"].'" readonly required>
-
-                                  </div>
-
-                                </div>
-
-                                <div class="col-xs-3">
-                      
-                                  <input type="number" class="form-control newProductQuantity" name="newProductQuantity" min="1" value="'.$value["quantity"].'" stock="'.$lastStock.'" newStock="'.$value["stock"].'" required>
-
-                                </div>
-
-                                <div class="col-xs-3 enterPrice" style="padding-left:0px">
-
-                                  <div class="input-group">
-
-                                    <span class="input-group-addon"><i class="ion ion-social-euro"></i></span>
-                           
-                                    <input type="text" class="form-control newProductPrice" realPrice="'.$answer["sellingPrice"].'" name="newProductPrice" value="'.$value["totalPrice"].'" readonly required>
-           
-                                  </div>
-                       
-                                </div>
-
-                              </div>';
-                        }
-                      }
-
-
-                        ?>
+                      ?>
 
                     </div>
 
@@ -294,7 +176,7 @@
 
                                 <div class="input-group">
                                   
-                                  <input type="number" class="form-control" name="newDiscountSale" id="newDiscountSale" value="<?php echo $taxPercentage; ?>" min="0">
+                                  <input type="number" class="form-control" name="newDiscountSale" id="newDiscountSale" value="<?php echo $netPrice; ?>" min="0">
 
                                   <input type="hidden" name="newDiscountPrice" id="newDiscountPrice" value="<?php echo $sale["discount"]; ?>" required>
 
@@ -345,7 +227,7 @@
                             <button type="submit" class="btn btn-primary pull-right" value="Cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
                             <button type="submit" class="btn btn-warning pull-right" value="Card" name="newPaymentMethod" id="newPaymentMethod" required>Card</button>
                             <button type="submit" class="btn btn-danger pull-right" value="Voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
-                            <button type="submit" class="btn btn-primary pull-right"  value="hold" name="openTable">Hold</button>
+                            <button type="submit" class="btn btn-primary pull-right" value="hold" name="openTable">Hold</button>
 
                         </div>
 
@@ -363,8 +245,8 @@
 
           <?php
 
-            $reopenSale = new SalesController();
-            $reopenSale -> ReOpenTableController();
+            $controller = new OpenTableController();
+            $controller->reopenTable();
             
           ?>
 
@@ -512,58 +394,6 @@
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Save</button>
-
-        </div>
-
-      </form>
-
-      <?php
-
-        $createCustomer = new CustomerController();
-        $createCustomer -> CreateCustomerController();
-
-      ?>
-
-    </div>
-
-  </div>
-
-</div>
-
-<div id="splitBill" class="modal fade" role="dialog">
-  
-  <div class="modal-dialog">
-
-    <div class="modal-content">
-
-      <form role="form" method="POST">
-
-        <div class="modal-header" style="background: #3c8dbc; color: #fff">
-          
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          
-          <h4 class="modal-title">Split Bill</h4>
-
-        </div>
-
-        <div class="modal-body">
-
-          <div class="box-body">
-
-            <div class="form-group">
-
-              
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="modal-footer">
-
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Split</button>
 
         </div>
 
