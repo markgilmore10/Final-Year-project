@@ -17,87 +17,102 @@ class OpenTableController{
         return ModelTables::all();
     }
     
-    public function reopenTable () {
+    public function ReopenTable () {
         // Make Sale
         if(isset($_POST["openTable"])){
         
             $table = "open_tables";
         
             $item = "code";
-            $value = $_POST["reopenSale"];
+            $value = $_POST["reopenTable"];
         
-            $getSale = ModelSales::ShowSalesModel($table, $item, $value);
-        
+            $getSale = ModelTables::ShowTablesModel($table, $item, $value);
+
             // if statement checking if the sale was actually changed
-      
-            $productsList = $_POST["productsList"];
-            $productChange = true;
-            
+
+            if($_POST["productsList"] == ""){
+
+                $productsList = $getSale["products"];
+           
+				$productChange = false;
+
+
+			}else{
+
+                $productsList = $_POST["productsList"];
+
+				$productChange = true;
+			}
         
             if($productChange){
-       
-                $productsList_2 = json_decode($productsList, true);
+ 
+                $products = json_decode($getSale["products"], true);
+ 
+                $totalPurchasedProducts = array();
             
-                $totalPurchasedProducts_2 = array();
-            
-                foreach ($productsList_2 as $key => $value) {
+                foreach ($productsList as $key => $value) {
                 
-                    array_push($totalPurchasedProducts_2, $value["quantity"]);
+                    array_push($totalPurchasedProducts, $value["quantity"]);
                 
-                    $tableProducts_2 = "products";
+                    $tableProducts = "products";
                 
-                    $item_2 = "id";
-                    $value_2 = $value["id"];
+                    $item = "id";
+                    $value = $value["id"];
                     $order = "id";
                 
-                    $getProduct_2 = ProductsModel::ShowProductsModel($tableProducts_2, $item_2, $value_2, $order);
+                    $getProduct = ProductsModel::ShowProductsModel($tableProducts, $item, $value, $order);
                 
-                    $item1a_2 = "sales";
-                    $value1a_2 = $value["quantity"] + $getProduct_2["sales"];
+                    $item1a = "sales";
+                    // $value1a_2 = $value["quantity"] + $getProduct_2["sales"];
+                    $value1a = $getProduct_2["sales"] - $value["quantity"];
+                    $newSales = ProductsModel::UpdateProductModel($tableProducts, $item1a, $value1a, $value);
                 
-                    $newSales_2 = ProductsModel::UpdateProductModel($tableProducts_2, $item1a_2, $value1a_2, $value_2);
-                
-                    $item1b_2 = "stock";
-                    $value1b_2 = $getProduct_2["stock"] - $value["quantity"];
-                
-                    $newStock_2 = ProductsModel::UpdateProductModel($tableProducts_2, $item1b_2, $value1b_2, $value_2);
+                    $item1b = "stock";
+                    // $value1b_2 = $getProduct_2["stock"] - $value["quantity"];
+                    $value1b = $value["quantity"] + $getProduct["stock"];
+                    $newStock = ProductsModel::UpdateProductModel($tableProducts, $item1b, $value1b, $value);
                 
                 }
+
+                $productsList_2 = json_decode($productsList, true);
+
+				$totalPurchasedProducts_2 = array();
+
+				foreach ($productsList_2 as $key => $value) {
+
+					array_push($totalPurchasedProducts_2, $value["quantity"]);
+					
+					$tableProducts_2 = "products";
+
+					$item_2 = "id";
+					$value_2 = $value["id"];
+					$order = "id";
+
+					$getProduct_2 = ProductsModel::ShowProductsModel($tableProducts_2, $item_2, $value_2, $order);
+
+					$item1a_2 = "sales";
+					$value1a_2 = $value["quantity"] + $getProduct_2["sales"];
+
+					$newSales_2 = ProductsModel::UpdateProductModel($tableProducts_2, $item1a_2, $value1a_2, $value_2);
+
+					$item1b_2 = "stock";
+					$value1b_2 = $getProduct_2["stock"] - $value["quantity"];
+
+					$newStock_2 = ProductsModel::UpdateProductModel($tableProducts_2, $item1b_2, $value1b_2, $value_2);
+
+				}
             
-                $tableCustomers_2 = "customers";
-            
-                $item_2 = "idNumber";
-                $value_2 = $_POST["customerSearch"];
-            
-                $getCustomer_2 = CustomersModel::ShowCustomersModel($tableCustomers_2, $item_2, $value_2);
-            
-                $item1a_2 = "purchases";
-                $value1a_2 = array_sum($totalPurchasedProducts_2) + $getCustomer_2["purchases"];
-            
-                $customerPurchases_2 = CustomersModel::UpdateCustomerModel($tableCustomers_2, $item1a_2, $value1a_2, $value_2);
-            
-                $item1b_2 = "lastPurchase";
-            
-                date_default_timezone_set("Europe/Dublin");
-            
-                $date = date('Y-m-d');
-                $hour = date('H:i:s');
-                $value1b_2 = $date.' '.$hour;
-            
-                $dateCustomer_2 = CustomersModel::UpdateCustomerModel($tableCustomers_2, $item1b_2, $value1b_2, $value_2);
-            
-            }
-        
-            $data = array("code"=>$_POST["reopenSale"],
+                
+        }
+       
+				$data = array("code"=>$_POST["reopenTable"],
                           "idSeller"=>$_POST["idSeller"],
                           "tableNo"=>$_POST["tableNo"],
                           "products"=>$productsList,
-                          "netPrice"=>$_POST["newNetPrice"],
-                          "discount"=>$_POST["newDiscountSale"],
-                          "totalPrice"=>$_POST["newSaleTotal"],
-                          );
-        
-            $answer = ModelTables::UpdateTableModel($table, $data);
+                          "netPrice"=>$_POST["newNetPrice"]);
+
+            	$answer = ModelTables::UpdateTableModel($table, $data);
+		
         
             if($answer == "ok"){
             
@@ -121,8 +136,7 @@ class OpenTableController{
 				</script>';
             
             }
-        }
-        elseif(isset($_POST["newPaymentMethod"])) {
+        }elseif(isset($_POST["newPaymentMethod"])) {
             // Update customer purchases, stock levels and product sale figures
             $productsList = json_decode($_POST["productsList"], true);
 
@@ -174,25 +188,20 @@ class OpenTableController{
     
             $dateCustomer = CustomersModel::UpdateCustomerModel($tableCustomers, $item2, $value2, $valueCustomer);
     
-            $table = "sales";
+            $table1 = "open_tables";
+            $table2 = "sales";
     
-            $codeObj = ModelTables::getCode();
-            if ($codeObj->code)
-            $code = $codeObj->code + 1;
-            else
-                $code = 10001;
-            // Save sale to database
-            $data = array("code"=>$code,
-                          "idSeller"=>$_POST["idSeller"],
-                          "tableNo"=>$_POST["tableNo"],
-                          "idCustomer"=>$_POST["customerSearch"],
-                          "products"=>$_POST["productsList"],
-                          "netPrice"=>$_POST["newNetPrice"],
-                          "discount"=>$_POST["newDiscountSale"],
-                          "totalPrice"=>$_POST["newSaleTotal"],
-                          "paymentMethod"=>$_POST["newPaymentMethod"]);
-    
-            $answer = ModelSales::AddSaleModel($table, $data);
+            $data = array("code"=>$_POST["reopenSale"],
+							"idSeller"=>$_POST["idSeller"],
+							"tableNo"=>$_POST["tableNo"],
+							"idCustomer"=>$_POST["customerSearch"],
+							"products"=>$productsList,
+							"netPrice"=>$_POST["newNetPrice"],
+							"discount"=>$_POST["newDiscountSale"],
+							"totalPrice"=>$_POST["newSaleTotal"],
+							"paymentMethod"=>$_POST["newPaymentMethod"]);
+
+				$answer = ModelSales::ReopenSaleModel($table1, $table2, $data);
     
             if($answer == "ok"){
         
@@ -247,7 +256,7 @@ class OpenTableController{
 				$valueProductId = $value["id"];
 				$order = "id";
 
-				$getProduct = productsModel::UpdateProductModel($tableProducts, $item, $valueProductId, $order);
+				$getProduct = productsModel::ShowProductsModel($tableProducts, $item, $valueProductId, $order);
 
 				$item1a = "sales";
 				$value1a = $getProduct["sales"] - $value["quantity"];
