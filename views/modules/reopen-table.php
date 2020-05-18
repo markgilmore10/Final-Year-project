@@ -17,10 +17,28 @@
                 <div class="box">
 
                   <?php
-                    $id = $_GET["id"];
-                    $openSale = OpenTableController::ShowTableController('id', $id);
-                    $seller_id = $openSale["idSeller"];
-                    $seller = UserController::ShowUsersController('id', $seller_id);
+                    
+                    // $openSale = OpenTableController::ShowTableController('id', $id);
+                    // $seller_id = $openSale["idSeller"];$id = $_GET["id"];
+                    // $seller = UserController::ShowUsersController('id', $seller_id);
+
+                    $item = "id";
+                    $value = $_GET["id"];
+
+                    $openSale = OpenTableController::ShowTableController($item, $value);
+                    //$openSale = OpenTableController::ShowTableController($item, $value);
+
+                    $itemUser = "id";
+                    $valueUser = $openSale["idSeller"];
+                    //$valueUser2 = $openSale["idSeller"];
+
+                    $seller = UserController::ShowUsersController($itemUser, $valueUser);
+                    //$seller2 = UserController::ShowUsersController($itemUser, $valueUser2);
+                  
+                    // $itemCustomers = "id";
+                    // $valueCustomers = $sale["idCustomer"];
+
+                    // $customers = CustomerController::ShowCustomerController($itemCustomers, $valueCustomers);
                   ?>
                     
                   <?php
@@ -49,7 +67,7 @@
 
                             <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                            <input type="text" class="form-control" id="newSale" name="reopenSale" value="' . $openSale["code"] . '" readonly>
+                            <input type="text" class="form-control" id="newSale" name="reopenTable" value="' . $openSale["code"] . '" readonly>
 
                           </div>
 
@@ -106,7 +124,7 @@
 
                           $item = "id";
                           $valueProduct = $value["id"];
-                          $order = "id";
+                          $order = null;
 
                           $answer = ProductsController::ShowProductsController($item, $valueProduct, $order);
 
@@ -178,9 +196,9 @@
                                   
                                   <input type="number" class="form-control" name="newDiscountSale" id="newDiscountSale" value="<?php echo $netPrice; ?>" min="0">
 
-                                  <input type="hidden" name="newDiscountPrice" id="newDiscountPrice" value="<?php echo $sale["discount"]; ?>" required>
+                                  <input type="hidden" name="newDiscountPrice" id="newDiscountPrice" value="" required>
 
-                                  <input type="hidden" name="newNetPrice" id="newNetPrice" value="<?php echo $sale["netPrice"]; ?>" required>
+                                  <input type="hidden" name="newNetPrice" id="newNetPrice" value="<?php echo $openSale["totalPrice"]; ?>" required>
                                   
                                   <span class="input-group-addon"><i class="fa fa-percent"></i></span>
 
@@ -194,9 +212,9 @@
                                   
                                   <span class="input-group-addon"><i class="ion ion-social-euro"></i></span>
                                   
-                                  <input type="number" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="<?php echo $sale["netPrice"]; ?>" value="<?php echo $sale["totalPrice"]; ?>" readonly required>
+                                  <input type="number" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="<?php echo $openSale["totalPrice"]; ?>" value="<?php echo $openSale["netPrice"]; ?>" readonly required>
 
-                                  <input type="hidden" name="saleTotal" id="saleTotal" value="<?php echo $sale["totalPrice"]; ?>" required>
+                                  <input type="hidden" name="saleTotal" id="saleTotal" value="<?php echo $openSale["netPrice"]; ?>" required>
 
                                 </div>
 
@@ -246,7 +264,7 @@
           <?php
 
             $controller = new OpenTableController();
-            $controller->reopenTable();
+            $controller->ReopenTable();
             
           ?>
 

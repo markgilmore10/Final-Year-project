@@ -31,7 +31,6 @@ class ModelTables{
 		$stmt -> close();
 
 		$stmt = null;
-
 	}
 
 	public static function AddTableModel($table, $data){
@@ -61,8 +60,35 @@ class ModelTables{
 
 	public static function UpdateTableModel($table, $data){
 
-		$stmt = Connection::connect()->prepare("UPDATE $table SET code = :code, idSeller = :idSeller, tableNo = :tableNo, products = :products, netPrice= :netPrice");
+		$stmt = Connection::connect()->prepare("UPDATE $table SET idSeller = :idSeller, tableNo = :tableNo, products = :products, netPrice= :netPrice WHERE code = :code");
 
+		$stmt->bindParam(":code", $data["code"], PDO::PARAM_INT);
+		$stmt->bindParam(":idSeller", $data["idSeller"], PDO::PARAM_INT);
+		$stmt->bindParam(":tableNo", $data["tableNo"], PDO::PARAM_STR);
+		$stmt->bindParam(":products", $data["products"], PDO::PARAM_STR);
+		$stmt->bindParam(":netPrice", $data["netPrice"], PDO::PARAM_STR);
+		
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
+
+	// Sale to open tables
+	public static function HoldSaleModel($table1, $table2, $data){
+
+		//$stmt = Connection::connect()->prepare("UPDATE $table SET idSeller = :idSeller, tableNo = :tableNo, products = :products, netPrice= :netPrice WHERE code = :code");
+		$stmt = Connection::connect()->prepare("INSERT INTO $table2(code, idSeller, tableNo, products, netPrice) SELECT (:code), (:idSeller), (:tableNo), (:products), (:netPrice) FROM $table1");
+		
 		$stmt->bindParam(":code", $data["code"], PDO::PARAM_INT);
 		$stmt->bindParam(":idSeller", $data["idSeller"], PDO::PARAM_INT);
 		$stmt->bindParam(":tableNo", $data["tableNo"], PDO::PARAM_STR);

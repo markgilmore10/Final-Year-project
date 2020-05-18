@@ -22,14 +22,14 @@
                   $value = $_GET["idSale"];
 
                   $sale = SalesController::ShowSalesController($item, $value);
-                  $openSale = OpenTableController::ShowTableController($item, $value);
+                  //$openSale = OpenTableController::ShowTableController($item, $value);
 
                   $itemUser = "id";
-                  $valueUser1 = $sale["idSeller"];
-                  $valueUser2 = $openSale["idSeller"];
+                  $valueUser = $sale["idSeller"];
+                  //$valueUser2 = $openSale["idSeller"];
 
-                  $seller1 = UserController::ShowUsersController($itemUser, $valueUser1);
-                  $seller2 = UserController::ShowUsersController($itemUser, $valueUser2);
+                  $seller = UserController::ShowUsersController($itemUser, $valueUser);
+                  //$seller2 = UserController::ShowUsersController($itemUser, $valueUser2);
                 
                   $itemCustomers = "id";
                   $valueCustomers = $sale["idCustomer"];
@@ -47,8 +47,6 @@
 
                 <?php
 
-                  if(!$seller2) {
-
                   echo '            
                     <div class="form-group">
 
@@ -56,34 +54,17 @@
                         
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                        <input type="text" class="form-control" name="newSeller" id="newSeller" value="'.$seller1["name"].'" readonly>
+                        <input type="text" class="form-control" name="newSeller" id="newSeller" value="'.$seller["name"].'" readonly>
 
-                        <input type="hidden" name="idSeller" value="'.$seller1["id"].'">
-
-                      </div>
-
-                    </div>'; }else{
-                      
-                      echo '
-                      <div class="form-group">
-
-                      <div class="input-group">
-                        
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-
-                        <input type="text" class="form-control" name="newSeller" id="newSeller" value="'.$seller2["name"].'" readonly>
-                    
-                        <input type="hidden" name="idSeller" value="'.$seller2["id"].'">
+                        <input type="hidden" name="idSeller" value="'.$seller["id"].'">
 
                       </div>
 
-                    </div>'; }
+                    </div>'; 
 
                     ?>
 
                     <?php
-
-                      if(!$openSale) {
 
                       echo '
             
@@ -93,32 +74,15 @@
                           
                           <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                          <input type="text" class="form-control" id="newSale" name="reopenSale" value="'.$sale["code"].'" readonly>
+                          <input type="text" class="form-control" id="reSale" name="reopenSale" value="'.$sale["code"].'" readonly>
                                                 
                         </div>
 
-                      </div>'; }else{
-                      
-                      echo '
-                      <div class="form-group">
-
-                        <div class="input-group">
-                          
-                          <span class="input-group-addon"><i class="fa fa-key"></i></span>
-
-                          <input type="text" class="form-control" id="newSale" name="reopenSale" value="'.$openSale["code"].'" readonly>
-
-                        </div>
-
-                      </div>';
-
-                      }
+                      </div>'; 
                     ?>
 
                     <!-- Table Number -->    
                     <?php
-
-                      if(!$openSale) {
 
                         echo '
 
@@ -132,22 +96,7 @@
   
                         </div>
   
-                      </div>'; }else{
-
-                      echo '
-                      <div class="form-group">
-
-                      <div class="input-group">
-                        
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-
-                        <input type="text" class="form-control" name="tableNo" id="tableNo" value="'.$openSale["tableNo"].'">
-
-                      </div>
-
-                    </div>';
-
-                      }
+                      </div>'; 
                     ?>
                     
                     <!-- Customer Number -->              
@@ -176,9 +125,7 @@
                       <?php
 
                         $productList = json_decode($sale["products"], true);
-                        $productList2 = json_decode($openSale["products"], true);
 
-                        if (is_array($productList)) {
                         foreach ($productList as $key => $value) {
 
                           $item = "id";
@@ -223,55 +170,7 @@
 
                               </div>';
                         }
-                      }else{
-
-                        foreach ($productList2 as $key => $value) {
-
-                          $item = "id";
-                          $valueProduct = $value["id"];
-                          $order = "id";
-
-                          $answer = ProductsController::ShowProductsController($item, $valueProduct, $order);
-
-                          $lastStock = $answer["stock"] + $value["quantity"];
-                          
-                          echo '<div class="row" style="padding:5px 15px">
-                    
-                                <div class="col-xs-6" style="padding-right:0px">
-                    
-                                  <div class="input-group">
-                        
-                                    <span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs removeProduct" idProduct="'.$value["id"].'"><i class="fa fa-times"></i></button></span>
-
-                                    <input type="text" class="form-control newProduct" idProduct="'.$value["id"].'" name="addProduct" value="'.$value["product"].'" readonly required>
-
-                                  </div>
-
-                                </div>
-
-                                <div class="col-xs-3">
                       
-                                  <input type="number" class="form-control newProductQuantity" name="newProductQuantity" min="1" value="'.$value["quantity"].'" stock="'.$lastStock.'" newStock="'.$value["stock"].'" required>
-
-                                </div>
-
-                                <div class="col-xs-3 enterPrice" style="padding-left:0px">
-
-                                  <div class="input-group">
-
-                                    <span class="input-group-addon"><i class="ion ion-social-euro"></i></span>
-                           
-                                    <input type="text" class="form-control newProductPrice" realPrice="'.$answer["sellingPrice"].'" name="newProductPrice" value="'.$value["totalPrice"].'" readonly required>
-           
-                                  </div>
-                       
-                                </div>
-
-                              </div>';
-                        }
-                      }
-
-
                         ?>
 
                     </div>
@@ -319,9 +218,9 @@
                                   
                                   <span class="input-group-addon"><i class="ion ion-social-euro"></i></span>
                                   
-                                  <input type="number" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="<?php echo $sale["totalPrice"]; ?>" value="<?php echo $sale["netPrice"]; ?>" readonly required>
+                                  <input type="number" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="<?php echo $sale["netPrice"]; ?>" value="<?php echo $sale["totalPrice"]; ?>" readonly required>
 
-                                  <input type="hidden" name="saleTotal" id="saleTotal" value="<?php echo $sale["netPrice"]; ?>" required>
+                                  <input type="hidden" name="saleTotal" id="saleTotal" value="<?php echo $sale["totalPrice"]; ?>" required>
 
                                 </div>
 

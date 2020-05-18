@@ -388,11 +388,47 @@ $(".tables").on("click", ".btnPrintBill", function(){
 
 })
 
-$(".saleForm").on("click", ".btnPrintBills", function(){
+$(".tables").on("click", ".btnPrintOpenBill", function(){
 
 	var saleCode = $(this).attr("saleCode");
 
-	window.open("extensions/tcpdf/pdf/food.php?code="+saleCode, "_blank");
+	window.open("extensions/tcpdf/pdf/open_receipt.php?code="+saleCode, "_blank");
+
+})
+
+function food(saleCode){
+
+	window.open('extensions/tcpdf/pdf/food_order.php?code='+saleCode);
+
+}
+
+function drink(saleCode){
+
+	window.open('extensions/tcpdf/pdf/drink_order.php?code='+saleCode);
+
+}
+
+// $(".saleForm").on("click", ".btnPrintOrder", function(){
+
+// 	var saleCode = $(this).attr("saleCode");
+
+// 	// setTimeout(food(saleCode), 50000);
+// 	// setTimeout(drink(saleCode), 50000);
+	
+//     window.open('extensions/tcpdf/pdf/food_order.php?code='+saleCode);
+//     window.open('extensions/tcpdf/pdf/drink_order.php?code='+saleCode);
+
+// })
+
+$(".saleForm").on("click", ".btnPrintOrder", function(){
+
+    var saleCode = $(this).data("sale-code");
+
+    setTimeout(food(saleCode), 100000);
+    setTimeout(drink(saleCode), 50000);
+
+    // window.open('extensions/tcpdf/pdf/food_order.php?code='+saleCode);
+    // window.open('extensions/tcpdf/pdf/drink_order.php?code='+saleCode);
 
 })
 

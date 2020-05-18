@@ -21,13 +21,19 @@ public function getReceiptPrinting(){
 // Sale Info
 $itemSale = "code";
 $saleValue = $this->code;
-$order = null;
+//$order = null;
     
 $saleAnswer = SalesController::ShowSalesController($itemSale, $saleValue);
 
 $saledate = substr($saleAnswer["saledate"],0,-8);
 $products = json_decode($saleAnswer["products"], true);
-$products->results[0]->category;
+// $products->results[0]->category;
+
+// $findCategory = 1;
+
+// $catProducts = array_filter($products, function ($product) use ($findCategory) {
+//     return $product['category'] == $findCategory;
+// });
 // foreach ($saleAnswer as $fproducts) {
 // 	//$products = json_decode($saleAnswer["products"], true);
 // 	$productsf = ProductsController::ShowProductsController("id", $item["category"], $order);
@@ -187,7 +193,7 @@ $answerProduct = ProductsController::ShowProductsController($itemProduct, $produ
 
 $unitValue = number_format($answerProduct["sellingPrice"], 2);
 
-$totalPrice = number_format($item["totalPrice"], 2);
+$totalProducts = number_format($item["totalPrice"], 2);
 
 $block4 = <<<EOF
 
@@ -208,7 +214,7 @@ $block4 = <<<EOF
 			</td>
 
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">$ 
-				$totalPrice
+				$totalProducts
 			</td>
 
 
@@ -246,11 +252,11 @@ $block5 = <<<EOF
 			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
 
 			<td style="border: 1px solid #666;  background-color:white; width:100px; text-align:center">
-				Net:
+				Total:
 			</td>
 
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
-				$ $netPrice
+				€ $netPrice
 			</td>
 
 		</tr>
@@ -274,11 +280,11 @@ $block5 = <<<EOF
 			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
 
 			<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">
-				Total:
+				Net:
 			</td>
 			
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
-				$ $totalPrice
+				€ $totalPrice
 			</td>
 
 		</tr>

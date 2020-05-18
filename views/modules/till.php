@@ -68,10 +68,15 @@ if($_SESSION["profile"] == "manager"){
                           }else{
                             // Incrementing receipt number via number of sales and open tables
                             foreach ($sales1 as $key => $value) {
-                              foreach ($sales2 as $key => $value) {
+                              // foreach ($sales2 as $key => $value) {
+                              //   // Leave Blank
+                              //   //var_dump($value);
+                              // }
+                            }
+
+                            foreach ($sales2 as $key => $value) {
                                 // Leave Blank
                                 //var_dump($value);
-                              }
                             }
 
                             $code = $value["code"] + 1;
@@ -201,10 +206,9 @@ if($_SESSION["profile"] == "manager"){
                             <button class="btn btn-primary pull-right" value="Cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
                             <button type="submit" class="btn btn-warning pull-right" value="Card" name="newPaymentMethod" id="newPaymentMethod" required>Card</button>
                             <button type="submit" class="btn btn-danger pull-right" value="Voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
-                            <button type="submit" class="btn btn-primary pull-right" value="hold" name="openTable">Hold</button>
-                            <!-- value="<?php echo $_SESSION["id"]; ?>" -->
-                            <!-- btnPrintBills" saleCode="'.$value[code].'" -->
-                            <!-- btnPrintBills" saleCode="<?php echo $value["code"]; ?>" -->
+                            <!-- <button type="submit" class="btn btn-primary pull-right btnPrintOrder" saleCode="<?php echo $value["code"]; ?>" value="hold" name="openTable">Hold</button> -->
+                            <!-- <button type="submit" id="hold" class="btn btn-primary pull-right btnPrintOrder" saleCode="<?php echo $code; ?>" value="hold" name="openTable">Hold</button> -->
+                            <button type="submit" class="btn btn-primary pull-right btnPrintOrder" data-sale-code="<?php echo $code; ?>" value="hold" name="openTable">Hold</button>
                         </div>
 
                       </div>

@@ -1,0 +1,8 @@
+{
+    "name": "mark/restaurantpos",
+    "description": "Restaurant Management System",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "9.1"
+    }
+}

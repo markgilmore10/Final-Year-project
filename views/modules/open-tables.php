@@ -72,7 +72,7 @@ foreach ($answer as $key => $value) {
               
             <div class="btn-group">
               
-            <button class="btn btn-info btnPrintBill" saleCode="'.$value["code"].'">
+            <button class="btn btn-info btnPrintOpenBill" saleCode="'.$value["code"].'">
 
               <i class="fa fa-print"></i>
 
