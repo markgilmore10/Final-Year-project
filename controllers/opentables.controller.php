@@ -297,7 +297,7 @@ class OpenTableController{
 
 				swal({
 					  type: "success",
-					  title: "Fucked",
+					  title: "Error",
 					  showConfirmButton: true,
 					  confirmButtonText: "Close",
 					  closeOnConfirm: false
