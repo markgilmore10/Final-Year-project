@@ -2,7 +2,7 @@
 
 $item = null;
 $value = null;
-$order = "id";
+//$order = "id";
 
 $sales = SalesController::sumTotalSalesController();
 
@@ -12,7 +12,7 @@ $totalCategories = count($categories);
 $customers = CustomerController::ShowCustomerController($item, $value);
 $totalCustomers = count($customers);
 
-$products = ProductsController::ShowProductsController($item, $value, $order);
+$products = ProductsController::ShowProductsController($item, $value); //, $order);
 $totalProducts = count($products);
 
 ?>

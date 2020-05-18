@@ -2,9 +2,9 @@
 
 $item = null;
 $value = null;
-$order = "id";
+//$order = "id";
 
-$products = ProductsController::ShowProductsController($item, $value, $order);
+$products = ProductsController::ShowProductsController($item, $value); //, $order);
 
  ?>
 

@@ -187,9 +187,9 @@ foreach ($products as $key => $item) {
 
 $itemProduct = "product";
 $productValue = $item["product"];
-$order = null;
+//$order = null;
 
-$answerProduct = ProductsController::ShowProductsController($itemProduct, $productValue, $order);
+$answerProduct = ProductsController::ShowProductsController($itemProduct, $productValue); //, $order);
 
 $unitValue = number_format($answerProduct["sellingPrice"], 2);
 

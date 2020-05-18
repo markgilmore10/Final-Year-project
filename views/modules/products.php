@@ -139,7 +139,7 @@ if($_SESSION["profile"] == "staff"){
 
                 <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
 
-                <input class="form-control input-lg" type="text" id="newProduct" name="newProduct" placeholder="Add Product" required>
+                <input class="form-control input-lg" type="text" id="newDescription" name="newDescription" placeholder="Add Product" required>
 
               </div>
 

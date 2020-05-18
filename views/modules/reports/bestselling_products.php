@@ -2,9 +2,9 @@
 
 $item = null;
 $value = null;
-$order = "sales";
+//$order = "sales";
 
-$products = ProductsController::ShowProductsController($item, $value, $order);
+$products = ProductsController::ShowProductsController($item, $value); //, $order);
 
 $colours = array("red", "green", "yellow", "blue", "pink", "cyan", "gold", "brown", "orange", "black"); 
 

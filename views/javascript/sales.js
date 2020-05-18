@@ -122,7 +122,7 @@ $(".saleForm").on("click", "button.removeProduct", function(){
 
 	localStorage.setItem("removeProduct", JSON.stringify(idRemoveProduct));
 
-	if($(".newProduct").children().length == 0){
+	if($(".newProducts").children().length == 0){
 
 		$("#newSaleTotal").val(0);
 		$("#saleTotal").val(0);

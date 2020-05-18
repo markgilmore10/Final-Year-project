@@ -130,9 +130,9 @@
 
                           $item = "id";
                           $valueProduct = $value["id"];
-                          $order = "id";
+                          //$order = "id";
 
-                          $answer = ProductsController::ShowProductsController($item, $valueProduct, $order);
+                          $answer = ProductsController::ShowProductsController($item, $valueProduct); //, $order);
 
                           $lastStock = $answer["stock"] + $value["quantity"];
                           
@@ -144,7 +144,7 @@
                         
                                     <span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs removeProduct" idProduct="'.$value["id"].'"><i class="fa fa-times"></i></button></span>
 
-                                    <input type="text" class="form-control newProduct" idProduct="'.$value["id"].'" name="addProduct" value="'.$value["product"].'" readonly required>
+                                    <input type="text" class="form-control newProductDescription" idProduct="'.$value["id"].'" name="addProduct" value="'.$value["product"].'" readonly required>
 
                                   </div>
 

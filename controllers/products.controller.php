@@ -2,11 +2,11 @@
 
 class ProductsController{
 	
-	static public function ShowProductsController($item, $value, $order){
+	static public function ShowProductsController($item, $value) { //, $order){
 
 		$table = "products";
 
-		$answer = productsModel::ShowProductsModel($table, $item, $value, $order);
+		$answer = productsModel::ShowProductsModel($table, $item, $value); //, $order);
 
 		return $answer;
 
@@ -14,9 +14,9 @@ class ProductsController{
 
     public static function AddProductsController(){
 
-		if(isset($_POST["newProduct"])){
+		if(isset($_POST["newDescription"])){
 
-			if(preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["newProduct"]) &&
+			if(preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["newDescription"]) &&
 			   preg_match('/^[0-9]+$/', $_POST["newStock"]) &&	
 			   preg_match('/^[0-9.]+$/', $_POST["newBuyingPrice"]) &&
 			   preg_match('/^[0-9.]+$/', $_POST["newSellingPrice"])){
@@ -25,7 +25,7 @@ class ProductsController{
 
 				$data = array("idCategory" => $_POST["newCategory"],
 							   "code" => $_POST["newCode"],
-							   "product" => $_POST["newProduct"],
+							   "product" => $_POST["newDescription"],
 							   "stock" => $_POST["newStock"],
 							   "buyingPrice" => $_POST["newBuyingPricePlus"],
 							   "sellingPrice" => $_POST["newSellingPrice"]);
