@@ -17,28 +17,10 @@
                 <div class="box">
 
                   <?php
-                    
-                    // $openSale = OpenTableController::ShowTableController('id', $id);
-                    // $seller_id = $openSale["idSeller"];$id = $_GET["id"];
-                    // $seller = UserController::ShowUsersController('id', $seller_id);
-
-                    $item = "id";
-                    $value = $_GET["id"];
-
-                    $openSale = OpenTableController::ShowTableController($item, $value);
-                    //$openSale = OpenTableController::ShowTableController($item, $value);
-
-                    $itemUser = "id";
-                    $valueUser = $openSale["idSeller"];
-                    //$valueUser2 = $openSale["idSeller"];
-
-                    $seller = UserController::ShowUsersController($itemUser, $valueUser);
-                    //$seller2 = UserController::ShowUsersController($itemUser, $valueUser2);
-                  
-                    // $itemCustomers = "id";
-                    // $valueCustomers = $sale["idCustomer"];
-
-                    // $customers = CustomerController::ShowCustomerController($itemCustomers, $valueCustomers);
+                    $id = $_GET["id"];
+                    $openSale = OpenTableController::ShowTableController('id', $id);
+                    $seller_id = $openSale["idSeller"];
+                    $seller = UserController::ShowUsersController('id', $seller_id);
                   ?>
                     
                   <?php
@@ -67,7 +49,7 @@
 
                             <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                            <input type="text" class="form-control" id="newSale" name="reopenTable" value="' . $openSale["code"] . '" readonly>
+                            <input type="text" class="form-control" id="newSale" name="reopenSale" value="' . $openSale["code"] . '" readonly>
 
                           </div>
 
@@ -124,9 +106,8 @@
 
                           $item = "id";
                           $valueProduct = $value["id"];
-                          //$order = null;
 
-                          $answer = ProductsController::ShowProductsController($item, $valueProduct); //, $order);
+                          $answer = ProductsController::ShowProductsController($item, $valueProduct);
 
                           $lastStock = $answer["stock"] + $value["quantity"];
                           
@@ -212,9 +193,9 @@
                                   
                                   <span class="input-group-addon"><i class="ion ion-social-euro"></i></span>
                                   
-                                  <input type="number" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="<?php echo $openSale["totalPrice"]; ?>" value="<?php echo $openSale["netPrice"]; ?>" readonly required>
+                                  <input type="number" class="form-control" name="newSaleTotal" id="newSaleTotal" placeholder="00000" totalSale="<?php echo $sale["totalPrice"]; ?>" value="<?php echo $sale["netPrice"]; ?>" readonly required>
 
-                                  <input type="hidden" name="saleTotal" id="saleTotal" value="<?php echo $openSale["netPrice"]; ?>" required>
+                                  <input type="hidden" name="saleTotal" id="saleTotal" value="<?php echo $sale["netPrice"]; ?>" required>
 
                                 </div>
 

@@ -4,11 +4,11 @@ require_once 'connection.php';
 
 class productsModel{
 
-	public static function ShowProductsModel($table, $item, $value){ //, $order){
+	public static function ShowProductsModel($table, $item, $value){
 
 		if($item != null){
 
-			$stmt = Connection::connect()->prepare("SELECT * FROM $table WHERE $item = :$item ORDER BY id DESC");
+			$stmt = Connection::connect()->prepare("SELECT * FROM $table WHERE $item = :$item");
 
 			$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
 

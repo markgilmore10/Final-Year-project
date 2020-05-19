@@ -41,7 +41,7 @@
 
                   // $discountPrice = round(1 - discount/100);
 
-	                // $netPrice = round($sale["totalPrice"]) * round($discountPrice);
+                  // $netPrice = round($sale["totalPrice"]) * round($discountPrice);
 
                 ?>
 
@@ -95,7 +95,7 @@
                           <input type="text" class="form-control" name="tableNo" id="tableNo" value="'.$sale["tableNo"].'">
   
                         </div>
-  
+
                       </div>'; 
                     ?>
                     
@@ -125,14 +125,15 @@
                       <?php
 
                         $productList = json_decode($sale["products"], true);
+                        //$productList2 = json_decode($openSale["products"], true);
 
+                        if (is_array($productList)) {
                         foreach ($productList as $key => $value) {
 
                           $item = "id";
                           $valueProduct = $value["id"];
-                          //$order = "id";
 
-                          $answer = ProductsController::ShowProductsController($item, $valueProduct); //, $order);
+                          $answer = ProductsController::ShowProductsController($item, $valueProduct);
 
                           $lastStock = $answer["stock"] + $value["quantity"];
                           
@@ -171,6 +172,7 @@
                               </div>';
                         }
                       
+                      }
                         ?>
 
                     </div>

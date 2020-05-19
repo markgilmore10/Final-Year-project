@@ -2,11 +2,11 @@
 
 class ProductsController{
 	
-	static public function ShowProductsController($item, $value) { //, $order){
+	static public function ShowProductsController($item, $value){
 
 		$table = "products";
 
-		$answer = productsModel::ShowProductsModel($table, $item, $value); //, $order);
+		$answer = productsModel::ShowProductsModel($table, $item, $value);
 
 		return $answer;
 

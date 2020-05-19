@@ -93,7 +93,7 @@ class UserController{
 						
 						swal({
 							type: "success",
-							title: "User Added Succesfully!",
+							title: "User Added Successfully!",
 							showConfirmButton: true,
 							confirmButtonText: "Close"
 
@@ -203,7 +203,7 @@ class UserController{
 					
 						swal({
 							type: "success",
-							title: "User Edited Succesfully!",
+							title: "User Edited Successfully!",
 							showConfirmButton: true,
 							confirmButtonText: "Close"
 

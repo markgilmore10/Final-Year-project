@@ -74,12 +74,9 @@ class ModelSales{
         return $stmt->fetchAll();
 	}
 	
-	public static function ReopenSaleModel($table1, $table2, $data){
+	public static function ReopenSaleModel($table, $data){
 
-		$stmt = Connection::connect()->prepare("INSERT INTO $table2(code, idSeller, tableNo, idCustomer, products, netPrice, discount, totalPrice, paymentMethod) SELECT (:code), (:idSeller), (:tableNo), (:idCustomer), (:products), (:netPrice), (:discount), (:totalPrice), (:paymentMethod) FROM $table1");
-		// $stmt1 = Connection::connect()->prepare("DELETE FROM $table1 WHERE id = :id");
-		// $stmt1 -> bindParam(":id", $data, PDO::PARAM_INT);
-		//$stmt = Connection::connect()->prepare("DELETE FROM $table1 OUTPUT [deleted].(:code), (:idSeller), (:tableNo), (:idCustomer), (:products), (:netPrice), (:discount), (:totalPrice), (:paymentMethod) INTO $table2 (code, idSeller, tableNo, idCustomer, products, netPrice, discount, totalPrice, paymentMethod)");
+		$stmt = Connection::connect()->prepare("UPDATE $table SET idSeller = :idSeller, tableNo = :tableNo, idCustomer = :idCustomer, products = :products, netPrice = :netPrice, discount = :discount, totalPrice = :totalPrice, paymentMethod = :paymentMethod WHERE code = :code");
 
 		$stmt->bindParam(":code", $data["code"], PDO::PARAM_INT);
 		$stmt->bindParam(":idSeller", $data["idSeller"], PDO::PARAM_INT);
