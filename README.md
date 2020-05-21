@@ -51,6 +51,8 @@ The aim when creating this Restaurant Management and POS System is to address ch
 # Dissertation <a name="Dissertation"></a>
 Below is the Dissertation PDF of our project. The Dissertation was completed using LaTex(Overleaf), it contains an indepth view of the ins and out of the project ranging from the conception of the project to the conclusion and final thoughts.
 
+**Link:** https://github.com/markgilmore10/Final-Year-project/blob/master/Overleaf/POS.pdf
+
 # Technologies <a name="Tech"></a>
 
 ## Xampp <a name="Xampp"></a>
