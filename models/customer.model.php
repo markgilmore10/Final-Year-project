@@ -2,9 +2,20 @@
 
 require_once "connection.php";
 
+/**
+ * Class CustomersModel
+ */
 class CustomersModel{
 
-    // Create Customer
+	// Create Customer
+	/**
+	 * creates customer using input data 
+	 * 
+	 * @param mixed $table
+	 * @param mixed $data
+	 * 
+	 * @return void
+	 */
 	public static function AddCustomerModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("INSERT INTO $table(name, idNumber, address, email, mobile, dob, discount) VALUES (:name, :idNumber, :address, :email, :mobile, :dob, :discount)");
@@ -32,7 +43,15 @@ class CustomersModel{
 
     }
     
-    // Show Customers
+	// Show Customers
+	/**
+	 * displays the chosen customer or displays all customers
+     * @param mixed $table
+     * @param mixed $item
+     * @param mixed $value
+     * 
+     * @return void
+     */
     public static function ShowCustomersModel($table, $item, $value){
 
 		if($item != null){
@@ -61,7 +80,14 @@ class CustomersModel{
 
     }
     
-    // Edit Customer
+	// Edit Customer
+	/**
+	 * edits customer using new input data
+	 * @param mixed $table
+	 * @param mixed $data
+	 * 
+	 * @return void
+	 */
 	public static function EditCustomerModel($table, $data){
 
         $stmt = Connection::connect()->prepare("UPDATE $table SET name = :name, idNumber = :idNumber, address = :address, email = :email, mobile = :mobile, dob = :dob, discount = :discount WHERE id = :id");
@@ -90,6 +116,13 @@ class CustomersModel{
 
     }
 
+	/**
+	 * deletes selected customer from the customers table
+     * @param mixed $table
+     * @param mixed $data
+     * 
+     * @return void
+     */
     public static function DeleteCustomerModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("DELETE FROM $table WHERE id = :id");
@@ -112,6 +145,13 @@ class CustomersModel{
 
 	}
 
+	/**
+	 * searches for customer with the query made
+	 * 
+	 * @param mixed $query
+	 * 
+	 * @return void
+	 */
 	public static function searchByNumberId($query){
 
 		$stmt = Connection::connect()->prepare("SELECT * FROM customers WHERE idNumber LIKE '%$query%'");
@@ -124,6 +164,16 @@ class CustomersModel{
     
 	}
 	
+	/**
+	 * updates the customers by id
+	 * 
+	 * @param mixed $table
+	 * @param mixed $item1
+	 * @param mixed $value1
+	 * @param mixed $value
+	 * 
+	 * @return void
+	 */
 	public static function UpdateCustomerModel($table, $item1, $value1, $value){
 
 		$stmt = Connection::connect()->prepare("UPDATE $table SET $item1 = :$item1 WHERE idNumber = :idNumber");
