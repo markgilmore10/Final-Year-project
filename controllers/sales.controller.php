@@ -1,8 +1,24 @@
 <?php
 
+/**
+ * Class SalesController
+ * This will be used to control the
+ * Displaying, creation, fetching all data from table, reopen/edit, delete sales, 
+ * display sales by date, sum all sales and print receipt of sale
+ * 
+ */
 class SalesController{
 
 	// Show Sales
+    /**
+	 * fetches sales table from the database
+	 * and displays the contents of the table
+	 * 
+     * @param mixed $item
+     * @param mixed $value
+     * 
+     * @return void
+     */
     public static function ShowSalesController($item, $value){
 
 		$table = "sales";
@@ -14,6 +30,19 @@ class SalesController{
 	}
 
 	// Create / Edit Sale
+
+	/**
+	 * Opens a table that can be re-opened to process the sale -
+	 * sale info placed into the open sales table
+	 * once order is placed user will recieve a order saved message.
+	 * 
+	 * Creates sale where when items are added to the order 
+	 * they take the same amount is taken from their stock
+	 * once sales is processed success message is delivered
+	 * 
+	 * 
+     * @return void
+     */
     public static function CreateSaleController(){
 
 		if (isset($_POST["openTable"])) {
@@ -178,10 +207,22 @@ class SalesController{
 
 	}
 	
+	/**
+	 * fetches all data from the sales table 
+	 * and returns it
+	 * @return void
+	 */
 	public static function index () {
         return ModelSales::getAll();
 	}
 	
+	/**
+	 * Re-opens saved orders from the opentables
+	 * and processes them as a sale.
+	 * 
+	 * 
+	 * @return void
+	 */
 	public static function ReOpenTableController(){
 
         // Make Sale
@@ -373,6 +414,11 @@ class SalesController{
 	}
 
 	// Delete Sales
+	/**
+	 * fetches the idsale from the sales table
+	 * deletes sale from the table
+	 * @return void
+	 */
 	public static function DeleteSaleController(){
 
 		if(isset($_GET["idSale"])){
@@ -502,6 +548,15 @@ class SalesController{
 
 
 	//date ranges
+	/**
+	 * 
+	 * displays sales in a specific date range chosen by the user
+	 * 
+	 * @param mixed $initialDate
+	 * @param mixed $finalDate
+	 * 
+	 * @return void
+	 */
 	public static function salesDatesRangeController($initialDate, $finalDate){
 
 		$table = "sales";
@@ -513,6 +568,12 @@ class SalesController{
 	}
 
 
+	/**
+	 * Sums the total of all sales from the 
+	 * sales table
+	 * 
+	 * @return void
+	 */
 	public static function sumTotalSalesController(){
 
 		$table = "sales";
@@ -526,6 +587,11 @@ class SalesController{
 
 	//print report to excell
 
+	/**
+	 * prints the details of a sale onto an excell sheet
+	 * 
+	 * @return void
+	 */
 	public function printReportController(){
 
 		if(isset($_GET["report"])){
