@@ -10,11 +10,20 @@ require_once "../../../models/users.model.php";
 
 require_once "../../../controllers/products.controller.php";
 require_once "../../../models/products.model.php";
-
+/**
+ * Class printDrinkReceipt
+ */
 class printDrinkReceipt{
 
+/**
+ * @var undefined
+ */
 public $code;
 
+/**
+ * takes in data from the table and displays on a pdf using tcpdf
+ * @return void
+ */
 public function getDrinkReceiptPrinting(){
 
 // Sale Info
