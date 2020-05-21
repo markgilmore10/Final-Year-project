@@ -1,7 +1,20 @@
 <?php
 
+/**
+ * Class CustomerController
+ * displaying, creation, editing, deletion and searching of customers
+ */
 class CustomerController{
 
+	/**
+	 * fetches data from the customers table
+	 * and displays the data
+	 * 
+     * @param mixed $item
+     * @param mixed $value
+     * 
+     * @return void
+     */
     public static function ShowCustomerController($item, $value){
 
 		$table = "customers";
@@ -12,6 +25,12 @@ class CustomerController{
 
 	}
 
+	/**
+	 * creates new customers, if all inputs are valid and do not contain any invalud chars
+	 * the new customer will be created and display a success message while if anything
+	 * was entered incorrectly the user will recieve an error message
+	 * @return void
+	 */
 	public static function CreateCustomerController(){
 
 		if(isset($_POST["newCustomer"])){
@@ -80,6 +99,13 @@ class CustomerController{
 
     }
 
+	/**
+	 * Edits existing customer in the customers table,
+	 * if all inputs entered to edit the customer are correct the customer will be successfully edited
+	 * and the user will get a success message while if any is input incorrectly the user will recieve
+	 * an error message
+     * @return void
+     */
     public static function EditCustomerController(){
 
 		if(isset($_POST["editCustomer"])){
@@ -149,6 +175,11 @@ class CustomerController{
 
     }
 
+	/**
+	 * gets the id of the customer chosen from the customers table and deletes it
+	 * success message will be displayed after deletion
+     * @return void
+     */
     public static function DeleteCustomerController(){
 
 		if(isset($_GET["idCustomer"])){
@@ -182,7 +213,14 @@ class CustomerController{
 		}
 
 	}
-    
+
+    /**
+	 * sends a request to search for customer by Id
+	 * 
+     * @param mixed $request
+     * 
+     * @return void
+     */
     public static function searchCustomer($request){
 		
         return CustomersModel::searchByNumberId($request);
