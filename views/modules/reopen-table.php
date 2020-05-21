@@ -106,8 +106,9 @@
 
                           $item = "id";
                           $valueProduct = $value["id"];
-
-                          $answer = ProductsController::ShowProductsController($item, $valueProduct);
+                          $order = "id";
+                          
+                          $answer = ProductsController::ShowProductsController($item, $valueProduct, $order);
 
                           $lastStock = $answer["stock"] + $value["quantity"];
                           

@@ -22,26 +22,16 @@
                   $value = $_GET["idSale"];
 
                   $sale = SalesController::ShowSalesController($item, $value);
-                  //$openSale = OpenTableController::ShowTableController($item, $value);
 
                   $itemUser = "id";
                   $valueUser = $sale["idSeller"];
-                  //$valueUser2 = $openSale["idSeller"];
 
                   $seller = UserController::ShowUsersController($itemUser, $valueUser);
-                  //$seller2 = UserController::ShowUsersController($itemUser, $valueUser2);
                 
                   $itemCustomers = "id";
                   $valueCustomers = $sale["idCustomer"];
 
                   $customers = CustomerController::ShowCustomerController($itemCustomers, $valueCustomers);
-
-                  //$netPrice = round(($sale["netPrice"]) - ($sale["netPrice"] - $sale["discount"] * 100));
-                  //$netPrice = round($sale["discount"] * 100 / $sale["netPrice"]);
-
-                  // $discountPrice = round(1 - discount/100);
-
-                  // $netPrice = round($sale["totalPrice"]) * round($discountPrice);
 
                 ?>
 
@@ -132,8 +122,9 @@
 
                           $item = "id";
                           $valueProduct = $value["id"];
-
-                          $answer = ProductsController::ShowProductsController($item, $valueProduct);
+                          $order = "id";
+                          
+                          $answer = ProductsController::ShowProductsController($item, $valueProduct, $order);
 
                           $lastStock = $answer["stock"] + $value["quantity"];
                           

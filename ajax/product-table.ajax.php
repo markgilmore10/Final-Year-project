@@ -12,8 +12,9 @@ class productsTables{
 
 		$item = null;
 		$value = null;
+		$order = "id";
 
-		$products = productsController::ShowProductsController($item, $value);
+		$products = productsController::ShowProductsController($item, $value, $order);
 
 		if(count($products) == 0){
 

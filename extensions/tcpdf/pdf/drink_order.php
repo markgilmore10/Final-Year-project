@@ -118,8 +118,9 @@ foreach ($catProducts as $key => $item) {
 
 $itemProduct = "product";
 $productValue = $item["product"];
+$order = null;
 
-$answerProduct = ProductsController::ShowProductsController($itemProduct, $productValue);
+$answerProduct = ProductsController::ShowProductsController($itemProduct, $productValue, $order);
 
 $block4 = <<<EOF
 

@@ -10,9 +10,9 @@ class salesProductTable{
 
 		$item = null;
 		$value = null;
-		//$order = "idCategory";
+		$order = "idCategory";
 
-		$products = ProductsController::ShowProductsController($item, $value); //, $order);
+		$products = ProductsController::ShowProductsController($item, $value, $order);
 		
 		if(count($products) == 0){
 

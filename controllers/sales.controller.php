@@ -210,17 +210,15 @@ class SalesController{
 
 				foreach ($products as $key => $value) {
         
-				 
-				 
 					array_push($totalPurchasedProducts, $value["quantity"]);
 					
 					$tableProducts = "products";
 
 					$item = "id";
-					$value1 = $value["id"];
+					$value = $value["id"];
 					$order = "id";
 
-					$getProduct = ProductsModel::ShowProductsModel($tableProducts, $item, $value1, $order);
+					$getProduct = ProductsModel::ShowProductsModel($tableProducts, $item, $value, $order);
 
 					$item1a = "sales";
 					$value1a = $getProduct["sales"] - $value["quantity"];
@@ -621,9 +619,6 @@ class SalesController{
 			
 			echo "</table>";
 		}
-
-
-
 
 	}
 
