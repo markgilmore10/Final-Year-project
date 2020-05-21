@@ -1,9 +1,21 @@
 <?php
 
 require_once 'connection.php';
-
+/**
+ * Class productsModel
+ */
 class ProductsModel{
 
+	/**
+	 * displays the chosen product or displays the full table
+	 * 
+	 * @param mixed $table
+	 * @param mixed $item
+	 * @param mixed $value
+	 * @param mixed $order
+	 * 
+	 * @return void
+	 */
 	public static function ShowProductsModel($table, $item, $value, $order){
 
 		if($item != null){
@@ -32,6 +44,13 @@ class ProductsModel{
 
     }
 
+	/**
+	 * adds a product to the database table using input data from the user
+     * @param mixed $table
+     * @param mixed $data
+     * 
+     * @return void
+     */
     public static function AddProductModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("INSERT INTO $table(idCategory, code, product, stock, buyingPrice, sellingPrice) VALUES (:idCategory, :code, :product, :stock, :buyingPrice, :sellingPrice)");
@@ -59,6 +78,13 @@ class ProductsModel{
 	}
 
 	// Edit product
+	/**
+	 * edits product in the products table in the database using input data from the user
+	 * @param mixed $table
+	 * @param mixed $data
+	 * 
+	 * @return void
+	 */
 	public static function EditProductModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("UPDATE $table SET code = :code, idCategory = :idCategory, product = :product,
@@ -87,6 +113,13 @@ class ProductsModel{
 	}
 
 	//delete product
+	/**
+	 * deletes selected product in the  products table by id
+	 * @param mixed $table
+	 * @param mixed $data
+	 * 
+	 * @return void
+	 */
 	public static function DeleteProductModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("DELETE FROM $table WHERE id = :id");
@@ -108,6 +141,15 @@ class ProductsModel{
 		$stmt = null;
 	}
 
+	/**
+	 * updates the product table using input data
+	 * @param mixed $table
+	 * @param mixed $item1
+	 * @param mixed $value1
+	 * @param mixed $value
+	 * 
+	 * @return void
+	 */
 	public static function UpdateProductModel($table, $item1, $value1, $value){
 
 		$stmt = Connection::connect()->prepare("UPDATE $table SET $item1 = :$item1 WHERE id = :id");
@@ -132,6 +174,13 @@ class ProductsModel{
 	}
 
 
+	/**
+	* displays the sum of sales as total price from the database table
+	* 
+	* @param mixed $table
+	* 
+	* @return void
+	*/
 	static public function sumOfSalesModel($table){
 
 		$stmt = Connection::connect()->prepare("SELECT SUM(sales) as totalPrice FROM $table");
