@@ -1,10 +1,20 @@
 <?php
 
 require_once "connection.php";
-
+/**
+ * Class CategoriesModel
+ */
 class CategoriesModel{
 
 	// Add Categories
+	/**
+	 * inserts input data into the table 
+	 * 
+	 * @param mixed $table
+	 * @param mixed $data
+	 * 
+	 * @return void
+	 */
 	public static function AddCategoryModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("INSERT INTO $table(category, vat, tax) VALUES (:category, :vat, :tax)");
@@ -28,7 +38,16 @@ class CategoriesModel{
 		$stmt = null;
     }
 
-    // Show Categories
+	// Show Categories
+	/**
+	 * displays specific category or the full categories table
+	 * 
+     * @param mixed $table
+     * @param mixed $item
+     * @param mixed $value
+     * 
+     * @return void
+     */
     public static function ShowCategoriesModel($table, $item, $value){
 
 		if($item != null){
@@ -58,7 +77,15 @@ class CategoriesModel{
 
     }
     
-    // Edit Category
+	// Edit Category
+	/**
+	 * updates the catergory table with input data
+	 * 
+     * @param mixed $table
+     * @param mixed $data
+     * 
+     * @return void
+     */
     public static function EditCategoryModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("UPDATE $table SET Category = :Category, Vat = :Vat, Tax = :Tax WHERE id = :id");
@@ -87,6 +114,14 @@ class CategoriesModel{
     }
 	
 	// Delete Category
+	/**
+	 * deletes selected category from the category table
+	 * 
+     * @param mixed $table
+     * @param mixed $data
+     * 
+     * @return void
+     */
     public static function DeleteCategoryModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("DELETE FROM $table WHERE id = :id");
