@@ -189,7 +189,64 @@ if($_SESSION["profile"] == "manager"){
                         
                       </div>
 
-                      <hr>
+                     
+                      
+                    </div>
+
+                  
+
+                    <div class="row">
+                      
+                      <div class="col-xs-8 pull-right">
+
+                        <table class="table">
+                          
+                          <thead>
+                            
+                            <th>Cash</th>
+                            <th>Change</th>
+
+                          </thead>
+
+                          <tbody>
+                            
+                            <tr>
+                              
+                              <td style="width: 50%">
+
+                                  <div class="input-group"> 
+
+                                    <span class="input-group-addon"><i class="ion ion-social-euro"></i></span> 
+
+                                    <input type="text" class="form-control" id="newCashValue" placeholder="000000">
+
+                                  </div>
+
+                                </div>
+
+                              </td>
+
+                              <td style="width: 100%">
+
+                                  <div class="input-group">
+
+                                    <span class="input-group-addon"><i class="ion ion-social-euro"></i></span>
+
+                                    <input type="text" class="form-control" id="newCashChange" placeholder="000000" readonly>
+
+                                  </div>
+
+                                </div>
+
+                              </td>
+
+                            </tr>
+
+                          </tbody>
+
+                        </table>
+                        
+                      </div>
                       
                     </div>
 
@@ -203,12 +260,11 @@ if($_SESSION["profile"] == "manager"){
 
                         <div class="btn-toolbar">
 
-                            <button class="btn btn-primary pull-right" value="Cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
+                            <button class="btn btn-primary pull-right btnPrintOrder" data-sale-code="<?php echo $code; ?>" value="Cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
                             <button type="submit" class="btn btn-warning pull-right" value="Card" name="newPaymentMethod" id="newPaymentMethod" required>Card</button>
                             <button type="submit" class="btn btn-danger pull-right" value="Voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
-                            <!-- <button type="submit" class="btn btn-primary pull-right btnPrintOrder" saleCode="<?php echo $value["code"]; ?>" value="hold" name="openTable">Hold</button> -->
-                            <!-- <button type="submit" id="hold" class="btn btn-primary pull-right btnPrintOrder" saleCode="<?php echo $code; ?>" value="hold" name="openTable">Hold</button> -->
                             <button type="submit" class="btn btn-primary pull-right btnPrintOrder" data-sale-code="<?php echo $code; ?>" value="hold" name="openTable">Hold</button>
+
                         </div>
 
                       </div>

@@ -1,10 +1,6 @@
 <?php
 
-// header("refresh"); 
-// header('Location: .');
-// for ($x = 0; $x <= 1; $x++) {
-//     header("refresh:0"); 
-// }
+header("refresh:10"); 
 
 require_once "../../../controllers/opentables.controller.php";
 require_once "../../../models/opentables.model.php";
@@ -21,9 +17,6 @@ public $code;
 
 public function getDrinkReceiptPrinting(){
 
-    for ($x = 1; $x <= 2; $x++) {
-        header("refresh:5"); 
-    }
 // Sale Info
 $itemSale = "code";
 $saleValue = $this->code;
@@ -125,9 +118,8 @@ foreach ($catProducts as $key => $item) {
 
 $itemProduct = "product";
 $productValue = $item["product"];
-//$order = null;
 
-$answerProduct = ProductsController::ShowProductsController($itemProduct, $productValue); //, $order);
+$answerProduct = ProductsController::ShowProductsController($itemProduct, $productValue);
 
 $block4 = <<<EOF
 

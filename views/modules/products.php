@@ -108,12 +108,12 @@ if($_SESSION["profile"] == "staff"){
                     $categories = ControllerCategories::ShowCategoriesController($item, $value1);
                   
                     foreach ($categories as $key => $value):
-                    ?>
-                        <option value="<?= $value["id"] ?>" data-vat="<?= $value["Vat"] ?>" data-tax="<?= $value["Tax"] ?>" ><?= $value["Category"] ?></option>
+                  ?>
+                      <option value="<?= $value["id"] ?>" data-vat="<?= $value["Vat"] ?>" data-tax="<?= $value["Tax"] ?>" ><?= $value["Category"] ?></option>
                     
-                    <?php
+                  <?php
                     endforeach;
-                    ?>
+                  ?>
 
                 </select>
 
@@ -127,7 +127,7 @@ if($_SESSION["profile"] == "staff"){
 
                 <span class="input-group-addon"><i class="fa fa-code"></i></span>
 
-                <input class="form-control input-lg" type="text" id="newCode" name="newCode" placeholder="Add Code" required readonly>
+                <input class="form-control input-lg" type="text" id="newCode" name="newCode" placeholder="Add Code" required>
 
               </div>
 

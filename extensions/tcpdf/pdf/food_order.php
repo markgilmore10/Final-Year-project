@@ -1,7 +1,6 @@
 <?php
 
-// $page = $_SERVER['PHP_SELF'];
-// echo '<meta http-equiv="Refresh" content="0;' . $page . '">';
+header("refresh:10");
 
 require_once "../../../controllers/opentables.controller.php";
 require_once "../../../models/opentables.model.php";
@@ -21,7 +20,6 @@ public function getFoodReceiptPrinting(){
 // Sale Info
 $itemSale = "code";
 $saleValue = $this->code;
-//$order = null;
     
 $saleAnswer = OpenTableController::ShowTableController($itemSale, $saleValue);
 

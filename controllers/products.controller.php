@@ -6,7 +6,7 @@ class ProductsController{
 
 		$table = "products";
 
-		$answer = productsModel::ShowProductsModel($table, $item, $value);
+		$answer = ProductsModel::ShowProductsModel($table, $item, $value);
 
 		return $answer;
 
@@ -30,7 +30,7 @@ class ProductsController{
 							   "buyingPrice" => $_POST["newBuyingPricePlus"],
 							   "sellingPrice" => $_POST["newSellingPrice"]);
 
-				$answer = productsModel::AddProductModel($table, $data);
+				$answer = ProductsModel::AddProductModel($table, $data);
 
 				if($answer == "ok"){
 
@@ -98,7 +98,7 @@ class ProductsController{
 							   "buyingPrice" => $_POST["editBuyingPricePlus"],
 							   "sellingPrice" => $_POST["editSellingPrice"]);
 
-				$answer = productsModel::EditProductModel($table, $data);
+				$answer = ProductsModel::EditProductModel($table, $data);
 
 				if($answer == "ok"){
 
@@ -154,7 +154,7 @@ class ProductsController{
 			$table = "products";
 			$data = $_GET["idProduct"];
 
-			$answer = productsModel::DeleteProductModel($table, $data);
+			$answer = ProductsModel::DeleteProductModel($table, $data);
 
 			if($answer == "ok"){
 
@@ -184,7 +184,7 @@ class ProductsController{
 
 		$table = "products";
 
-		$answer = productsModel::sumOfSalesModel($table);
+		$answer = ProductsModel::sumOfSalesModel($table);
 
 		return $answer;
 

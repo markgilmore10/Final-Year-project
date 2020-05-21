@@ -2,7 +2,7 @@
 
 require_once 'connection.php';
 
-class productsModel{
+class ProductsModel{
 
 	public static function ShowProductsModel($table, $item, $value){
 

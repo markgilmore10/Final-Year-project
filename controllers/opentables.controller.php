@@ -252,17 +252,17 @@ class OpenTableController{
 				$valueProductId = $value["id"];
 				$order = "id";
 
-				$getProduct = productsModel::ShowProductsModel($tableProducts, $item, $valueProductId, $order);
+				$getProduct = ProductsModel::ShowProductsModel($tableProducts, $item, $valueProductId, $order);
 
 				$item1a = "sales";
 				$value1a = $getProduct["sales"] - $value["quantity"];
 				
-				$newSales = productsModel::UpdateProductModel($tableProducts, $item1a, $value1a, $valueProductId);
+				$newSales = ProductsModel::UpdateProductModel($tableProducts, $item1a, $value1a, $valueProductId);
 
 				$item1b = "stock";
 				$value1b = $value["quantity"] + $getProduct["stock"];
 
-				$newStock = productsModel::UpdateProductModel($tableProducts, $item1b, $value1b, $valueProductId);
+				$newStock = ProductsModel::UpdateProductModel($tableProducts, $item1b, $value1b, $valueProductId);
 
 			}
 

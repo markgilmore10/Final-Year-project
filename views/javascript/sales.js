@@ -122,7 +122,7 @@ $(".saleForm").on("click", "button.removeProduct", function(){
 
 	localStorage.setItem("removeProduct", JSON.stringify(idRemoveProduct));
 
-	if($(".newProducts").children().length == 0){
+	if($(".newProduct").children().length == 0){
 
 		$("#newSaleTotal").val(0);
 		$("#saleTotal").val(0);
@@ -163,10 +163,9 @@ function totalPrice(){
 
 }
 
-$("#newSaleTotal").number(true, 2); // jQuery number plugin trying to format total - not working
+$("#newSaleTotal").number(true, 2);
 
 // Sale Less Discount
-
 function lessDiscount(){
 
 	var discount = $("#newDiscountSale").val();
@@ -353,31 +352,20 @@ $(".tables").on("click", ".btnDeleteSale", function(){
 		  }
   
 	})
-  
-  })
-
-
-  $(".saleForm").on("change", "input#newTransactionCode", function(){
-
-     listMethods()
 
 })
 
-function listMethods(){
+$(".saleForm").on("change", "input#newCashValue", function(){
+	
+	var cash = $(this).val();
 
-	var listMethods = "";
+	var change =  Number(cash) - Number($('#saleTotal').val());
+	
+	$("#newCashChange").val(change);
+	
+})
 
-	if($("#newPaymentMethod").val() == "cash"){
-
-		$("#listPaymentMethod").val("cash");
-
-	}else{
-
-		$("#listPaymentMethod").val($("#newPaymentMethod").val()+"-"+$("#newTransactionCode").val());
-
-	}
-
-}
+$("#newCashChange").number(true, 2);
 
 //Print receipt
 $(".tables").on("click", ".btnPrintBill", function(){
@@ -408,27 +396,12 @@ function drink(saleCode){
 
 }
 
-// $(".saleForm").on("click", ".btnPrintOrder", function(){
-
-// 	var saleCode = $(this).attr("saleCode");
-
-// 	// setTimeout(food(saleCode), 50000);
-// 	// setTimeout(drink(saleCode), 50000);
-	
-//     window.open('extensions/tcpdf/pdf/food_order.php?code='+saleCode);
-//     window.open('extensions/tcpdf/pdf/drink_order.php?code='+saleCode);
-
-// })
-
 $(".saleForm").on("click", ".btnPrintOrder", function(){
 
     var saleCode = $(this).data("sale-code");
 
-    setTimeout(food(saleCode), 100000);
-    setTimeout(drink(saleCode), 50000);
-
-    // window.open('extensions/tcpdf/pdf/food_order.php?code='+saleCode);
-    // window.open('extensions/tcpdf/pdf/drink_order.php?code='+saleCode);
+    food(saleCode);
+    drink(saleCode);
 
 })
 
