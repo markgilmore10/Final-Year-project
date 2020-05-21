@@ -1,72 +1,178 @@
-\chapter{Introduction}
-When choosing our project we knew we wanted to pick something that was relevant to our current everyday life. We wanted something we had an in-depth knowledge of and something we knew we could improve.  Our initial aim was to develop a project that was both challenging and meaningful which could help future users in making life easier for them.\par
-Before deciding on our project we knew we needed something that highlighted our existing skills while allowing us to learn new ones and develop as part of a team. With these criteria in mind we set up a meeting and began brain storming ideas for the project.\par
-Very early on we decided on a Point-of-Sale system for a shop. We saw a need for something new that could challenge existing programs. When meeting our project supervisor we were guided towards a restaurant POS system. We knew this would be a lot more challenging but a lot more enjoyable to achieve.\par
-After our meeting with our supervisor we drew up goals that we needed to achieve in order to complete the project.\par
-The main goal of our project is to create a fully functional web-based point-of-sale system with remote ordering capabilities (via a tablet) for a bar/restaurant that can be easily adopted to a café or any shop or premises that require a till system that can process payments, print receipts, use a barcode scanner as well as being able to generate reports to help managers and owners to make up-to-date, reliable decisions that will benefit the company both in the short and long term.\par
-With so many restaurant options out there to have food, owners and staff alike have to do everything in their power to make sure a customers visit is as pleasant as possible. Having a bad experience at a bar/restaurant can result in the loss of a customer. Sometimes these can’t be avoided, but sometimes they can. Having a customer waiting a long period looking to pay for their food because of a system fault could be the difference between losing a customer forever or gaining one.\par
-The system allows the user to process, with speed and ease, a customers purchases which will keep customers happy and give them a good experience.\par
-The system also offers a customer loyalty system which offers customer discounts and will keep track of customers purchases and purchase dates. It also allows for the storing of customer data such as email address and phone number which can be used to reach out to a customer if they haven’t been in the premises in a while.\par
-The chosen languages to accomplish this task were PHP and JavaScript while using MySQL as the database for the project. There is also HTML and CSS for the front-end design purposes.\par
-Having both worked in industries where having the right point-of-sale system is critical in the everyday running of a business we decided from an early stage that building an efficient one is what we wanted to do. This project aimed to address any short comings these systems had to better aid the workflow of the user. A good POS system will allow the user to focus on more pressing tasks like customer service rather than having to worry about an unreliable till.\par
-Setting out initially we knew that our project had to be worthy of the 15 credits on offer at level 8. This played a deciding factor in deciding to learn a new language to complete the task. After some research we decided we would learn PHP to produce our system with some JavaScript too. PHP was chosen as it was an Object-Oriented programming language and it was a language we had not used before and in light of that we thought it would be good to try something new and broaden our own knowledge on the language.\par
-For the database we decided to use MySQL. (WHY???)\newpage
+\section{Chapter Overview}
 
-\section{Objectives}
-During our first meeting we discussed the objectives which we needed to complete in order for the project to be a success. We knew that we wanted a fast, reliable, user friendly POS system that helped workflow efficiency but we needed to make up a list of objectives that needed to be completed in order for the project to be a success and get us the grade we wanted. 
-The following is the list, and descriptions, of each of the key components we deemed essential in order to complete the project in a satisfactory manner:
+This chapter provides an overview of the entire project from its inception, planning, building and ultimately its conclusion. An executive summary has been included in this chapter to provide an insight into the tasks at hand, the development of a restaurant Point of Sale and Management System. The insight that covers the problem states, existing solutions, proposed solutions and the development track of the project. Finally the chapter provides a brief summary of all the chapters with a run-down of what is expected in each one.  
 
-\subsection{User Authentication}
-User will be able to login and logout of the system using a predetermined username and password chosen by him/her. This is an especially important task as it allows the owner or manager to see the individual sales of the employees which in turn allows the evaluation of performance, and in some cases, recognition for individuals that are performing well. This feature is an added motivation for employees and can lead to better work ethic and productivity.
-This feature is also important to distinguish between an employee and administrator. Employees, when logging in, will only be able to access limited features such as the till and the addition of customers. They will not be able to see sensitive information such as sales reports.
+\section{Executive Summary}
 
-\subsection{Main Till}
-A good point of sale system, while appearing simple to a regular user, is very complex and has many moving parts. The main part of this system is the till. This has to be connected to every aspect of the system, constantly distributing and receiving data all while maintaining a fast and efficient user interface that doesn’t stall or slow at any point of the process.
-A till has to have all the functionality a staff member needs to complete their job in a timely manner and as easily as possible. WRITE MORE !!!
+Working in a team of two we have proposed and developed a web based Restaurant Management and Point of Sale (PoS) system. The system is an amalgamation of the two technological pieces in a bid to improve existing platforms to become more usable and efficient. By integrating the functionality of both into a single platform we believe we have raised the bar as far as ease-of-use and productivity goes.\par
 
-\subsection{Remote Ordering}
-A vital part of any restaurant POS system is the ability to take orders remotely. A large restaurant with many tables and customers can be very stressful for employees. This system allows users, via any tablet, to access all the functionalities of the main till and in turn alleviates the need for staff members to be in behind the bar, getting in the way of others trying to achieve other tasks. This provides efficiency to the daily running of the business.
+This paper documents the entire build process, the wider consultative process, and future plans for the proposed system. In a bid to achieve the best in our dissertation, the build process is illustrative of research skills, academic excellence as well as an inquisitive for science. The paper therefore explores the unique learning curves as well as a viable problem statement. The study has been segmented into different categories to be illustrative of the innovative space that we seek to explore. The Introduction provides an insight into the entire project, its milestones, goals and overall objective.  
 
-\subsection{Sales}
-The system allows users to choose products and save them to a table number to access again when the customer wants to pay as well as making an actual sale. The user is able to choose the payment method used so it can show up in reports so the owner can keep detailed records of transactions. Each sale also saves the staff members name as well as a transaction id so if anything goes wrong or there is a problem with a payment it is easy to lookup and access its details.
 
-\subsection{Receipts}
+\section{Decision Making Process}
+
+The decision-making process was based on solving recurrent, everyday technological challenges in our everyday life. We didn't just want to build something to get a good grade, we wanted to build something which we knew we could use in the real world that would greatly improve the productivity of ourselves and others. We narrowed this down based on our in-depth knowledge of the particular field of information and business management. As computer scientists, the quest for working in challenging and meaningful projects for current and future users was insatiable. This was the driving factor behind the team from conducting qualitative review of all proposals to ensure it was beneficial to the society as well as improving our own technical knowledge of key computing areas and developing our individual learning ability. With all this in mind we set about organizing our first meeting to brain-storm different ideas. 
+\newline
+\newline
+Quite early in the meeting, we decide to work on a Point-of-Sale and Stock Management System software custom developed for a shop. We identified a need for a new software that would challenge the status quo in the market by providing better solutions. The next step was a meeting with our project supervisor who illustrated the applicability of the idea of a Restaurant Management System (RMS). After further consultation we adopted the idea as our new project. We had a follow up meeting where we drew up different achievable goals that would lead to a successful project. This being an academic research work, we ensured that the decision-making process was informative, considerate and explored science based on current issues affecting society. 
+
+\section{Restaurant Management Systems} 
+
+As the name suggests, Restaurant Management System (RMS) is a software/hardware system used to manage the daily operations of a bar/restaurant or cafe. Unlike a regular Point of Sale or a Management System, RMS is built specifically for restaurant operations with add-ons that make it more usable and scalable. Typically a RMS can therefore be regarded as a type of Point of Sale software.
+\newline
+\newline
+According to Lime, A Restaurant Management System (RMS) is a type of Point-of-Sale (POS) software specifically designed for restaurants, bars, food trucks and others in the food service industry. Unlike a POS system, and RMS encompasses all back-end needs, such as inventory to staff management\cite{RMS}.
+\newline
+\newline
+Developing an RMS system required the two of us to hone our skills in analytic thinking and innovative process. Due to the multifaceted fields of study in the project, we utilized a carefully laid out plan that ensured the learning curve was profound and balanced with the utilization of skills. This meant that out of the languages and skills we had to learn, we ensured that we had the necessary skills to learn the new languages within the speculated time. 
+
+\section{Point of Sale (POS) System}
+
+A POS system is an application used to manage business transactions between a client and a company. Often a POS is facilitated with a cashless payment procedure that improves on speed and efficiency. The most common platform is either a debit or credit. Everywhere we go we see some sort of POS system in use. Be it to the shop or to the gym, businesses need a way to process payments with ease. 
+
+\section{Management Systems}
+
+Management Systems are applications that allow the manager/owner of a business to keep track of sales, staff, customers and inventory. It allows for quick and up-to-date decisions that benefit not only the owners but staff too. Management systems are an integral part of the management of any business. Management systems rely heavily on the back-end development. This is a result of the main reports that the software has to compute. The reports are developed to assist the management and staff in ensuring their business skills are successful while making effective changes in critical areas contributing to the overall success. 
+
+
+
+\section{Current Flaws/Problem Statement}
+
+Similar to any other entity, current POS systems are not perfect. Furthermore the majority of them lag behind in terms of current technology. One of the challenges we identified was a lack of consideration of the end user. Part of this can be attributed to a poor communication channel between the developers and their clients or end users. As a result some of the add-ons, besides the basics, don’t necessarily improve on the work flow of users. For instance, not being able to void anything other than the last product added leads to a lot of moving around the product to take it off the bill. The software must be able to address the customer’s specific challenge \cite{UserExp}. \par
+
+The following is a list of a few of the problems current RMSs have:
+
+\begin{itemize}
+  \item Voiding of only one item on the bill
+  \item Concluding a transaction takes more than one click
+  \item Customer purchase history not in system
+  \item No voucher transaction button
+\end{itemize}
+
+
+A similar challenge is overlooking an important part of utility such as developing a one touch processing of a transaction. Often to process a credit/debit card payment or voucher transaction a user usually has to press at least three buttons. While this does not seems like much to the average person, on a busy night this can result in time wasted as well as mistakes being made which could cost the company money, or worse, it could cost them a customer \cite{IIE}.
+\newline
+\newline
+The problem statement therefore has to be developed carefully by being inclusive and considerate. This meant that we conducted a number of site visits to different restaurants where we learnt the challenges of the different organizations. In these cases we only had to conduct simple oral interviews which included questions to frequenters of restaurant and other service oriented facilities. Besides this we had a sitting in which we discussed, in detail, our experience working in spaces where a point of sale was critical to the survival of the business.  
+\newline
+\newline
+Finally, we consulted with different persons in the information technology industry to ensure we were working on a viable project. This includes our supervisor, fellow students as well as industry professionals. In order to collect qualitative and quantitative results we referred to editorials on the topic, the different technology platforms used and current solutions. After carefully crafting the problem statement we proceeded to develop our project proposal as outlined below.
+
+
+\section{Project Proposal}
+
+Our system is designed to address challenges in user productivity in a POS while maintaining accurate data on the transactions and business proceedings by developing a Restaurant Management System. The proposal was developed while maintaining the highest industrial standard as well as incorporate innovative technology.  This will be achieved be developing a disruptive technology that will challenge the status quo as well as influence clients preference for POS systems. 
+\newline
+\newline
+The project is perfectly situated to resolve the challenges of separated utility between a point of sale and management system. Developing a system that has the utility and practicability of two entities is disruptive in nature while ensuring it resolves some of the fundamental challenges current systems have. The project illustrates an exploration of science as well as an interest in community development by conveying different technological platforms to resolve an impending challenge. This has been developed into a clear and concise project objective ensuring the project achieves its ultimate goal. 
+
+
+\section{Project Objective}
+
+The main goal of our project is to create a universal web-based restaurant management and point-of-sale system with remote ordering capabilities (via a tablet). This system is applicable in a bar/restaurant and can easily be adopted to a café, shop or any premises that require a till system to process payments, print receipts, use a barcode scanner as well as being able to generate reports. Our system aims to help managers and owners to make reliable decisions that will benefit the company both in the short and long term.
+\newline
+\newline
+Considering the restaurant default applicability, there are so many of them offering closely related types of cuisines. With the high competition in place, the management and staff must ensure they please their customer during their short stay to their establishment. Often this is achieved by making prior arrangements and work orchestration. One process that must be carefully planned is ensuring the customer, while making payments, is dealt with in a timely manner. This is done by ensuring you optimize the speed and ease of making payments as well as avoiding service interruptions from machine or system downtime. An all round good experience will ensure that you retain most of your valid customers.  
+\newline
+\newline
+As pointed out earlier the an RMS can have a number of adds-ons custom built for specific customers. A good example is a loyalty platform that rewards customers based on their purchases and purchases dates. You can improve on customer services by regularly checking on customers based on their stored customer emails or customer phone numbers.
+\newline
+\newline
+To accomplish the goals we had set out we opted to use the following programming languages due to their relevance to our case. This include PHP, JavaScript, MySQL as the database, CSS and HTML for the front-end design purposes. We had an appraisal for the project since both of us have worked in work spaces that require PoS systems. As a result we had sufficient insider information on the specific requirements for the task. We opted on improving the functionality of current systems by addressing their shortcoming while improving their workflow and usability. This should ensure the user can concentrate on serving the guest as opposed to constantly working a cumbersome till. 
+\newline
+\newline
+From the onset we knew that our project had to be worthy of the 15 credits on offer at level 8. This played a role in the decision to learn a new language to complete the task. After some research we decided we would learn PHP to develop our system as main language, while JavaScript was our main subsidiary language. PHP was chosen since it is an Object-Oriented programming language and we have no prior experience with the language. In light of our problem statement, we thought it would be good challenge to try something new and broaden our own knowledge on the language. Further we opted to use MySQL for the database which will be discussed further in chapter 5 of this paper. Below is a list of features we have incorporated for this project in order for it be deemed successful. 
+
+\section{User Authentication}
+
+User will be able to login and logout of the system selecting a predetermined username and password. This is an especially important task as it allows the owner or manager to see the individual sales of the employees which in turn allows the evaluation of performance, and in some cases, recognition for individuals that are performing well. This feature improves on employees’ motivation and can further lead to better work ethic and productivity. This feature is also important to distinguish between an employee and an administrator. Employees, when logging in, will only be able to access limited features such as the till and the addition of customers. They will not be able to see sensitive information such as sales reports.
+
+\section{Till GUI}
+
+A good point of sale system, while appearing simple to a regular user, is very complex and has many moving parts. The main part of this system is the till. This has to be connected to every aspect of the system, constantly distributing and receiving data, all while maintaining a fast and efficient user interface that doesn’t stall or slow at any point of the process.
+\newline
+A till has to have all the functionality a user needs to complete their job in a timely manner and as easy as possible. 
+
+\section{Remote Ordering}
+
+A vital part of any restaurant POS system is the ability to take orders remotely. A large restaurant with many tables and customers can be very stressful for employees. This system allows users via a tablet to access all the functionalities of the main till and in turn alleviates the need for staff members to be behind the bar. This reduces commotion in the main floor caused by serving and collection of bills. This provides efficiency to the daily running of the business.
+
+\section{Sales}
+
+The system allows staffers to choose products and save them to a table number. This is used to make payments as well as make follow up orders. The management is able to view the payment method used. This is based on the generated reports that are used to inform owners or other stakeholders of detailed transactions in the premises. Each transition also saves the staff members name as well as a transaction id so if anything goes wrong or there is a problem with a payment it is easy to review and access its details.
+
+\section{Receipts/Hardware}
+
 The user is able to print receipts of saved tables as well as already cashed off sales. The receipt includes all the details of the sale including staff member, receipt number, products, discount and price.
+\newline
+\newline
+The system allows the printing of receipts using a receipt printer as well as a barcode scanner which allows staff members to either scan products and/or scan loyalty cards to get customer details and the discount amount. 
 
-\subsection{Reports}
-Up-to-date and reliable reports are essential in the running of a business. The system offers full reports of sales that can be selected by the full day or by certain dates.
+\section{Reports} 
 
-\subsection{Users}
-The owner can add users by adding usernames and passwords for login. The owner can also choose the role a staff member has in order to limit what he/she is able to access. This is very important as an owner does not want every staff member to be able to access the details of the company.
+Up-to-date and reliable reports are essential in the running of a business. The system offers full reports of sales that can be selected by based on different timelines, i.e. full day or a couple dates.
 
-\subsection{Customers}
-This section can be accessed by both the staff member and the owner. In the main till part of the system a staff member can add a new customer in order to sign them up for a loyalty discount. The discount can be set differently for each user and, when typing in the customer number or scanning their loyalty card, comes up on screen and is deducted from the customers total before they pay.
+\section{Users}
 
-\subsection{Categories}
-Categories allows an owner to set up different categories of their products. For each category the user will be asked for a VAT and Tax rate which will be added on to the product price when it is added to the database. For our project we have set up food and drink categories with the current VAT and Tax rate for the goods. An owner can decide to break down the categories even further (i.e. Burgers, desserts, wines and spirits) but with the rates still being the same we decided to have just food and drink.
+The owner plays the role of an admin by adding users with usernames and passwords for login. The owner can also choose the role a staff member has in order to limit what he/she is able to access. This is very important as an owner does not want every staff member to be able to access the details of the company.
+\newline
+\newline
+This system will also be used by members of staff. With limited access to data they will still have everything they need to complete a sale from start to finish.
+Customers
 
-\subsection{Products}
-Products can be added under two categories (food and drink). The product is then given a unique code that corresponds to its category (100’s for food and 200’s for drink). When choosing the category and entering the buying price of the product.
+This portal can be accessed by both the staff members and the owner. In the main till part of the system a staff member can add a new customer in order to sign them up for a loyalty discount. The discount can be set differently for each user. This loyalty program has been designed such that when typing in the customer number or scanning their loyalty card it comes up on screen and discount is deducted from the customers total before they pay.
 
-\subsection{Hardware}
-The system allows the printing of receipts using a Bluetooth receipt printer as well as a scanner which allows staff members to either scan products and/or scan loyalty cards to get a users details and discount amount.\newpage
+\section{Categories}
 
-\section{Chapter Review}
-\subsection{Methodology}
-In the Methodology Chapter, we discuss some of the approaches we used towards different aspects of the project during the various stages of the project lifecycle. In this section, we discuss the Waterfall approach and how we came to the decision that was the best this method to help us build our project. We will also discuss our choice of version control and how this helped us progress through the various stages of construction. Testing and sprints.
-For a project of this size, meetings had to be regular. In this chapter, we will go through the frequency and structure of pour meetings to give you a greater insight into how we pieced this project together.
-Testing is a critical part of any project and in this chapter, we explain how we rigorously tested our project using both black box and white box testing as well as what tools we used to help us achieve a satisfactory outcome with regards to the coverage and results of testing.
+The proposed system allows an owner to set up different categories of their products. For each category the user will be asked for a VAT and Tax rate which will be added on to the product price when it is added to the database. For our project we have set up food and drink categories with the current VAT and Tax rate for the goods. An owner can decide to break down the categories even further (i.e. Burgers, desserts, wines and spirits) but with the rates still being the same we decided to have just food and drink.
 
-\subsection{Technology Review}
-In the Technology Review chapter we will explain, in-depth, the vast research we have done to decide on all the aspects of this project from visual styling to the software design pattern used throughout development. We will also review the various back and front end technologies used that helped us achieve our goals and complete our project in an efficient and timely manner.
+\section{Products}
 
-\subsection{System Design}
+Products can be added under two categories (food and drink). The product is then given a unique code that corresponds to its category (100’s for food and 200’s for drink). This is used when choosing the category and entering the buying price of the product.
+Hardware
+
+
+
+
+
+
+
+
+\section{Chapter Review - Methodology}
+
+In the Methodology Chapter we discuss some of the approaches we used towards different aspects of the project during the various stages of the project lifecycle. In this section we discuss the Waterfall approach and how we came to the decision that was the best this method to help us build our project. We will also discuss our choice of version control and how this helped us progress through the various stages of construction.
+For a project of this size meetings had to be regular. In this chapter we will go through the frequency and structure of pour meetings to give you a greater insight to how we pieced this project together.
+\newline
+\newline
+Testing is a critical part of any project and in this chapter we explain how we rigorously tested our project using both black box and white box testing as well as what tools we used to help us achieve a satisfactory outcome with regards to the coverage and results of testing.
+
+\section{Chapter Review - Tech review}
+
+In the Technology Review chapter we will explain, in-depth, the vast research we done to come to a decision on all the aspects of this project from visual styling to the software design pattern used throughout development. We will also review the various back and front end technologies used that helped us achieve our goals and complete our project in an efficient and timely manner.
+
+\section{Chapter Review - System design}
+
 In this chapter we give an in-depth explanation and description of the overall system architecture and design of our POS system. We explain the decisions behind why we chose specific technologies and how they are implemented throughout our system. These will be illustrated by using a UML diagram as well as screenshots of our code and the working program.
+\newline
 We will also go into detail about the hosting of our project and why we came to the decision we did to host it in a particular could platform.
 
-\subsection{System Evaluation}
-In this chapter, we will evaluate our system with regards to robustness, testing, and scalability and provide results as well as an in-depth critical analysis of testing results and whether our initial objectives were met.
+\section{Chapter Review - System evaluation}
+
+In this chapter we will evaluate our system with regards to robustness, testing and scalability and provide results as well as an in-depth critical analysis of testing results and whether our initial objectives were met.
+\newline
+\newline
 We will also discuss our POS systems limitations and where, if given more time, we could have improved the system to make it better and fir for the use in a professional capacity in a real bar/restaurant.
 
-\subsection{Conclusion}
-Here we will give our conclusions of the project and the experience as a whole. We will highlight our findings from previous chapters and list any outcomes we had as well as going into areas we have identified for future investigation. We will also give a reflection on our project, what we learned and whether or not this experience has benefitted us now that we are going into the workplace and will be part of teams and large projects like this one.\newpage
+\section{Section Review - Conclusion}
+
+In this subsection we will narrate our conclusion and the experience as a whole. We will highlight our findings from previous chapters and list any outcomes we had as well as going into areas we have identified for future investigation. We will also give a reflection on our project, what we learned and whether or not this experience has benefited us. Further we will give a conclusion on the importance of team work in such large projects. 
+
+
+%References
+
+%[1] 	K. Kuligowski, "Restaurant management systems help you manage sales, staff, inventory and more.," business.com, 1 April 2019. [Online]. Available: https://www.business.com/articles/restaurant-management-system-guide/. [Accessed 11 April 2020].
+%[2] 	M. Georgiou, "User Experience Is the Most Important Metric You Aren't Measuring," Entrepreneur, 1 March 2018. [Online]. Available: https://www.entrepreneur.com/article/309161. [Accessed 12 April 2020].
+%[3] 	C. Weisbach, "The Importance Of Improving User Experience," Forbes, 15 June 2017. [Online]. Available: https://www.forbes.com/sites/forbesagencycouncil/2017/06/15/the-importance-of-improving-user-experience/#50f474762b48. [Accessed 12 April 2020].
+
+
+

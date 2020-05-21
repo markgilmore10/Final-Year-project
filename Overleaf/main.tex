@@ -5,8 +5,9 @@
 %                      *** Latex template for dissertations ***
 %----------------------------------------------------------------------------------------
 
-\documentclass{book}
+\documentclass[12pt]{report}
 
+\usepackage[utf8]{inputenc}
 \usepackage{graphicx} % Required for the inclusion of images
 \usepackage[numbers]{natbib} % Required to change bibliography style to APA
 \usepackage{amsmath} % Required for some math elements 
@@ -14,6 +15,12 @@
 \usepackage{eurosym}
 \usepackage{tabularx}
 \usepackage{pbox}
+\usepackage{hyperref}
+\usepackage{biblatex}
+\addbibresource{References.bib}
+\usepackage{csquotes}
+\usepackage[english]{babel}
+
 \setlength\parindent{0pt} % Removes all indentation from paragraphs
 
 \newcommand*{\customTitle}{\begingroup % Create the command for including the title page in the document
@@ -82,15 +89,43 @@
 %	4) Change Chapters
 %      Write each chapter in a separate TEX file and include here
 %----------------------------------------------------------------------------------------
+\chapter{Abstract}
+\input{abstract}
 
-\include{introduction}
-\include{methodology}
-\include{techreview}
-\include{sysdesign}
-\include{sysevaluation}
-\include{conclusion}
+\include{contents}
+
+\include{illustrations}
+
+\chapter{Introduction}
+\input{introduction}
+
+\chapter{Methodology}
+\input{methodology}
+
+\chapter{Technology Review}
+\input{techreview}
+
+\chapter{System Design}
+\input{sysdesign}
+
+\chapter{System Evaluation}
+\input{sysevaluation}
+
+\chapter{Conclusion}
+\input{conclusion}
+
+
+\include{references}
+
+\appendix
+\include{appendices}
 
 %----------------------------------------------------------------------------------------
-\bibliographystyle{unsrt}
-\bibliography{references.bib}
+%\bibliographystyle{unsrt}
+%\bibliography{references.bib}
+
+\printbibheading
+\printbibliography[type=article,heading=subbibliography,title={Article Sources}]
+\printbibliography[nottype=article,heading=subbibliography,title={References}]
+
 \end{document}
