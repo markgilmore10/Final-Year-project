@@ -4,12 +4,21 @@
 require_once "../controllers/users.controller.php";
 require_once "../models/users.model.php";
 
+/**
+ * Class AjaxUsers
+ */
 class AjaxUsers{
 
 	// Edit User
-
+	/**
+	 * @var undefined
+	 */
 	public $idUser;
 
+	/**
+	 * uses the user id to find users to edit
+	 * @return void
+	 */
 	public function EditUserAjax(){
 
         $item = "id";
@@ -24,9 +33,20 @@ class AjaxUsers{
 	}
 
 	// Activate or Deactivate User
+
+	/**
+	 * @var undefined
+	 */
 	public $activateUser;
+	/**
+	 * @var undefined
+	 */
 	public $activateId;	
 
+	/**
+	 * updates the table by activating users
+	 * @return void
+	 */
 	public function ActivateUserAjax(){
 
 		$table = "users";
@@ -40,9 +60,17 @@ class AjaxUsers{
 
 	}
 
-	// Duplicate Username Validatio
+	// Duplicate Username Validation
+	
+	/**
+	 * @var undefined
+	 */
 	public $validateUser;
 
+	/**
+	 * validayes the user 
+	 * @return void
+	 */
 	public function ValidateUserAjax(){
 
 		$item = "user";
