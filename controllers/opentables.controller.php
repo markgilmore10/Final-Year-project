@@ -1,8 +1,20 @@
 <?php
 
+/**
+ * Class OpenTableController
+ * showing of the openedtables and displays all tables
+ */
 class OpenTableController{
 
-	// Show Sales
+    // Show Sales
+    /**
+	 * fetches the open_tables table from the database 
+	 * displays the table
+     * @param mixed $item
+     * @param mixed $value
+     * 
+     * @return void
+     */
     public static function ShowTableController($item, $value){
 
 		$table = "open_tables";
@@ -221,6 +233,11 @@ class OpenTableController{
     }
 
     // Delete Sales
+    /**
+	 * fetches the idsale from the opentable table
+	 * deletes opentable from the table
+	 * @return void
+	 */
 	public static function DeleteOpenTableController(){
 
 		if(isset($_GET["idSale"])){
