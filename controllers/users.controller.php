@@ -1,8 +1,19 @@
 <?php
 
+/**
+ * Class UserController
+ * UserLogin, creation, displaying ,editing and deletion of users
+ */
 class UserController{
 
 	// User Login
+	/**
+	 * Checks if the user login credentials are correct and dont have special chars
+	 * then logs the user in
+	 * If user account is deactivated tell the user account is deactivated
+	 * else tell user that the User/Password is incorrect
+	 * @return void
+	 */
 	public static function UserLoginController(){
 
 		if (isset($_POST["loginUser"])) {
@@ -68,6 +79,16 @@ class UserController{
 	}
 
 	// Create User
+	/**
+	 * If the post variable is set to newUser and then check if the new Name/User/Password are valid characters
+	 * go to the users table hash the new password and input the users data unto the table.
+	 * Send success message to the user that new user was added.
+	 * 
+	 * else send error message telling the user that there was an error, fill in all fields making sure there are
+	 * no special characters allowed.
+	 * 
+	 * @return void
+	 */
 	public static function CreateUserController(){
 
 		if (isset($_POST["newUser"])) {
@@ -136,6 +157,15 @@ class UserController{
 	}
 
 	// Show Users
+	/**
+	 * fetches user table from database 
+	 * and displays the contents
+	 * 
+	 * @param mixed $item
+	 * @param mixed $value
+	 * 
+	 * @return void
+	 */
 	public static function ShowUsersController($item, $value){
 
 		$table = "users";
@@ -146,6 +176,13 @@ class UserController{
 	}
 
 	// Edit User
+	/**
+	 * fetches the user details from table 
+	 * and chanages them according to what was entered
+	 * if invalid characters are input error message will be sent
+	 * else user will be edited
+	 * @return void
+	 */
 	public static function EditUserController(){
 
 		if (isset($_POST["EditUser"])) {
@@ -246,6 +283,11 @@ class UserController{
 	}
 
 	// Delete User
+	/**
+	 * fetches the user id from the table
+	 * then deletes the user
+	 * @return void
+	 */
 	public static function DeleteUserController(){
 
 		if(isset($_GET["userId"])){
