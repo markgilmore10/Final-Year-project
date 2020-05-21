@@ -2,10 +2,21 @@
 
 require_once 'connection.php';
 
-
+/**
+ * Class ModelTables
+ */
 class ModelTables{
 	
-    // Show Open Tables
+	// Show Open Tables
+	/**
+	 * displays opentables chosen by the user or displays all opentables in the table of the database
+	 * 
+	 * @param mixed $table
+	 * @param mixed $item
+	 * @param mixed $value
+	 * 
+	 * @return void
+	 */
 	public static function ShowTablesModel($table, $item, $value){
 
 		if($item != null){
@@ -33,6 +44,14 @@ class ModelTables{
 		$stmt = null;
 	}
 
+	/**
+	 * inserts a new opentable into the table using input data
+	 * 
+	 * @param mixed $table
+	 * @param mixed $data
+	 * 
+	 * @return void
+	 */
 	public static function AddTableModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("INSERT INTO $table(code, idSeller, tableNo, products, netPrice) VALUES (:code, :idSeller, :tableNo, :products, :netPrice)");
@@ -58,6 +77,14 @@ class ModelTables{
 
 	}
 
+	/**
+	 * updates the opentable by code
+	 * 
+	 * @param mixed $table
+	 * @param mixed $data
+	 * 
+	 * @return void
+	 */
 	public static function UpdateTableModel($table, $data){
 
 		$stmt = Connection::connect()->prepare("UPDATE $table SET idSeller = :idSeller, tableNo = :tableNo, products = :products, netPrice= :netPrice WHERE code = :code");
@@ -83,6 +110,10 @@ class ModelTables{
 
 	}
 
+	/**
+	 * displays all opentables in the opentable table
+	 * @return void
+	 */
 	public static function all () {
         $stmt = Connection::connect()->prepare("SELECT open_tables.* FROM open_tables ORDER BY id ASC");
         $stmt->execute();
@@ -90,7 +121,10 @@ class ModelTables{
         return $stmt->fetchAll();
 	}
     
-    
+    /**
+	 * displays code sakes table
+	 * @return void
+	 */
     public static function getCode () {
         $stmt = Connection::connect()->prepare("SELECT MAX(code) AS code FROM sales ");
         $stmt->execute();
