@@ -1,7 +1,6 @@
 $(document).on("click", ".btnEditUser", function(){
 
     var idUser = $(this).attr("idUser");
-	// console.log("answer", idUser);
 	var data = new FormData();
 	
     data.append("idUser", idUser);
@@ -35,7 +34,6 @@ $(document).on("click", ".btnEditUser", function(){
 });
 
 // Activate or Deactivate User
-
 $(document).on("click", ".btnActivate", function(){
 
 	var userId = $(this).attr("userId");
@@ -138,7 +136,6 @@ $("#newUser").change(function(){
 });
 
 // Delete User
-
 $(document).on("click", ".btnDeleteUser", function(){
 
 	var userId = $(this).attr("userId");

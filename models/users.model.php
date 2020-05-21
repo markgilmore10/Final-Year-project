@@ -5,7 +5,6 @@ require_once "connection.php";
 class UserModel{
 
 	// Show User
-
 	public static function ShowUsersModel($table, $item, $value){
 
 		if($item != null){

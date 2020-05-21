@@ -109,10 +109,10 @@ if($_SESSION["profile"] == "Manager" || $_SESSION["profile"] == "Staff"){
  
         </div>
 
-    </div>
+      </div>
 
     </div>
 
-    </section>
+  </section>
 
-    </div>
+</div>

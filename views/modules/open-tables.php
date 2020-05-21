@@ -39,68 +39,68 @@
 
 
 
-  $item = null;
-  $value = null;
+            $item = null;
+            $value = null;
 
 
-//$answer = OpenTableController::index();
-$answer = OpenTableController::ShowTableController($item, $value);
+            //$answer = OpenTableController::index();
+            $answer = OpenTableController::ShowTableController($item, $value);
 
-foreach ($answer as $key => $value) {
+            foreach ($answer as $key => $value) {
  
 
-  echo '<td>'.($key+1).'</td>
+            echo '<td>'.($key+1).'</td>
 
-        <td>'.$value["code"].'</td>';
+            <td>'.$value["code"].'</td>';
 
-        $itemUser = "id";
-        $valueUser = $value["idSeller"];
+            $itemUser = "id";
+            $valueUser = $value["idSeller"];
 
-        $userAnswer = UserController::ShowUsersController($itemUser, $valueUser);
+            $userAnswer = UserController::ShowUsersController($itemUser, $valueUser);
 
-        echo '<td>'.$userAnswer["name"].'</td>
+            echo '<td>'.$userAnswer["name"].'</td>
 
-        <td>'.$value["tableNo"].'</td>
+            <td>'.$value["tableNo"].'</td>
 
-        <td>$ '.number_format($value["netPrice"],2).'</td>
+            <td>$ '.number_format($value["netPrice"],2).'</td>
 
-        <td>'.$value["date"].'</td>
+            <td>'.$value["date"].'</td>
 
-        <td>
+            <td>
 
-          <div class="btn-group">
-              
-            <div class="btn-group">
-              
-            <button class="btn btn-info btnPrintOpenBill" saleCode="'.$value["code"].'">
+              <div class="btn-group">
+                  
+                <div class="btn-group">
+                  
+                <button class="btn btn-info btnPrintOpenBill" saleCode="'.$value["code"].'">
 
-              <i class="fa fa-print"></i>
+                  <i class="fa fa-print"></i>
 
-            </button>';
+                </button>';
 
-               echo '<button class="btn btn-warning btnReopenTable" idSale="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+                  echo '<button class="btn btn-warning btnReopenTable" idSale="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
 
-                <button class="btn btn-danger btnDeleteTable" idSale="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+                    <button class="btn btn-danger btnDeleteTable" idSale="'.$value["id"].'"><i class="fa fa-times"></i></button>';
 
-         echo '</div>  
+                  echo '</div>  
 
-        </td>
+            </td>
 
-      </tr>';
-  }
-
-?>
-                    
-                    </tbody>
-
-        </table>
-
-        <?php
-
-          $deleteTable = new OpenTableController();
-          $deleteTable -> DeleteOpenTableController();
+          </tr>';
+          }
 
           ?>
+                    
+        </tbody>
+
+      </table>
+
+      <?php
+
+        $deleteTable = new OpenTableController();
+        $deleteTable -> DeleteOpenTableController();
+
+      ?>
 
       </div>
     

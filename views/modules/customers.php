@@ -326,7 +326,7 @@ if($_SESSION["profile"] == "manager"){
               <div class="input-group">
 
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                <input class="form-control input-lg" type="text" name="editDob" id="editDob" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
+                <input class="form-control input-lg" type="text" name="editDob" id="editDob" placeholder="yyyy/mm/dd" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
 
               </div>
 

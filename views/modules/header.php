@@ -19,12 +19,9 @@
 		<!-- Navigation Button -->
 		<a class="sidebar-toggle" data-toggle="push-menu" role="button" href="#">
 			<span class="sr-only">Navigation</span>
-		</a>
-
-        <!---------- ADD HEADING ---------->    
+		</a>  
 
 		<!-- User Profile -->
-
 		<div class="navbar-custom-menu">
 			<ul class="nav navbar-nav">
 				<li class="dropdown user user-menu">
@@ -33,7 +30,6 @@
 					</a>
 
 					<!-- Dropdown Menu -->
-
 					<ul class="dropdown-menu">
 						<li class="user-body">
 							<div>

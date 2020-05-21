@@ -3,7 +3,6 @@
  class ControllerCategories{
 
     // Create Category
-	
 	public static function CreateCategoryController(){
 
 		if(isset($_POST['newCategory'])){
@@ -143,7 +142,6 @@
 			$data = $_GET["idCategory"];
 
 			$answer = CategoriesModel::DeleteCategoryModel($table, $data);
-			// var_dump($answer);
 
 			if($answer == "ok"){
 

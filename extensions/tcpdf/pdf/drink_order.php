@@ -1,6 +1,6 @@
 <?php
 
-header("refresh:10"); 
+header("refresh:20"); 
 
 require_once "../../../controllers/opentables.controller.php";
 require_once "../../../models/opentables.model.php";

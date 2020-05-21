@@ -68,15 +68,12 @@ if($_SESSION["profile"] == "manager"){
                           }else{
                             // Incrementing receipt number via number of sales and open tables
                             foreach ($sales1 as $key => $value) {
-                              // foreach ($sales2 as $key => $value) {
-                              //   // Leave Blank
-                              //   //var_dump($value);
-                              // }
+                              
                             }
 
-                            foreach ($sales2 as $key => $value) {
-                                // Leave Blank
-                                //var_dump($value);
+                            $val = $value;
+                            foreach ($sales2 as $key => $val) {
+                               
                             }
 
                             $code = $value["code"] + 1;
@@ -260,7 +257,7 @@ if($_SESSION["profile"] == "manager"){
 
                         <div class="btn-toolbar">
 
-                            <button class="btn btn-primary pull-right btnPrintOrder" data-sale-code="<?php echo $code; ?>" value="Cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
+                            <button class="btn btn-primary pull-right" value="Cash" name="newPaymentMethod" id="newPaymentMethod" required>Cash</button>
                             <button type="submit" class="btn btn-warning pull-right" value="Card" name="newPaymentMethod" id="newPaymentMethod" required>Card</button>
                             <button type="submit" class="btn btn-danger pull-right" value="Voucher" name="newPaymentMethod" id="newPaymentMethod" required>Voucher</button>
                             <button type="submit" class="btn btn-primary pull-right btnPrintOrder" data-sale-code="<?php echo $code; ?>" value="hold" name="openTable">Hold</button>

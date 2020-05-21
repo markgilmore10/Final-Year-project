@@ -8,7 +8,6 @@ if(localStorage.getItem("captureRange2") != null){
 }
 
 //date ranges
-
 $('#daterange-btn2').daterangepicker(
     {
       ranges   : {
@@ -41,7 +40,6 @@ $('#daterange-btn2').daterangepicker(
   )
   
   //cancel dateranges
-  
   $(".daterangepicker.opensright .range_inputs .cancelBtn").on("click", function(){
   
       localStorage.removeItem("captureRange2");

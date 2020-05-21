@@ -24,7 +24,6 @@ class AjaxUsers{
 	}
 
 	// Activate or Deactivate User
-
 	public $activateUser;
 	public $activateId;	
 
@@ -39,12 +38,9 @@ class AjaxUsers{
 
 		$answer = UserModel::UpdateUserModel($table, $item1, $value1, $item2, $value2);
 
-		//console.log("answer", answer);
-
 	}
 
-	// Duplicate Username Validation
-
+	// Duplicate Username Validatio
 	public $validateUser;
 
 	public function ValidateUserAjax(){
@@ -56,15 +52,12 @@ class AjaxUsers{
 
 		echo json_encode($answer);
 
-		//console.log("answer", answer);
-
 	}
 
 }
 
 
 // Edit User
-
 if (isset($_POST["idUser"])) {
 
 	$edit = new AjaxUsers();
@@ -73,7 +66,6 @@ if (isset($_POST["idUser"])) {
 }
 
 // Activate or Deactivate User
-
 if (isset($_POST["activateUser"])) {
 
 	$activateUser = new AjaxUsers();
@@ -83,7 +75,6 @@ if (isset($_POST["activateUser"])) {
 }
 
 // Duplicate Username Validation
-
 if (isset($_POST["validateUser"])) {
 
 	$valUser = new AjaxUsers();

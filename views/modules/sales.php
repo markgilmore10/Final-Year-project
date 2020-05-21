@@ -81,92 +81,92 @@ if($_SESSION["profile"] == "manager"){
           <?php
 
 
-if(isset($_GET["initialDate"])){
+          if(isset($_GET["initialDate"])){
 
-  $initialDate = $_GET["initialDate"];
-  $finalDate = $_GET["finalDate"];
+            $initialDate = $_GET["initialDate"];
+            $finalDate = $_GET["finalDate"];
 
-}else{
+          }else{
 
-  $initialDate = null;
-  $finalDate = null;
+            $initialDate = null;
+            $finalDate = null;
 
-}
+          }
 
-$answer = SalesController::salesDatesRangeController($initialDate, $finalDate);
+          $answer = SalesController::salesDatesRangeController($initialDate, $finalDate);
 
-  foreach ($answer as $key => $value) {
- 
+            foreach ($answer as $key => $value) {
+          
 
-        echo '<td>'.($key+1).'</td>
+                  echo '<td>'.($key+1).'</td>
 
-        <td>'.$value["code"].'</td>';
+                  <td>'.$value["code"].'</td>';
 
-        $itemUser = "id";
-        $valueUser = $value["idSeller"];
+                  $itemUser = "id";
+                  $valueUser = $value["idSeller"];
 
-        $userAnswer = UserController::ShowUsersController($itemUser, $valueUser);
+                  $userAnswer = UserController::ShowUsersController($itemUser, $valueUser);
 
-        echo '<td>'.$userAnswer["name"].'</td>
+                  echo '<td>'.$userAnswer["name"].'</td>
 
-        <td>'.$value["tableNo"].'</td>';
+                  <td>'.$value["tableNo"].'</td>';
 
-        $itemCustomer = "idNumber";
-        $valueCustomer = $value["idCustomer"];
-        
-        $customerAnswer = CustomerController::ShowCustomerController($itemCustomer, $valueCustomer);
+                  $itemCustomer = "idNumber";
+                  $valueCustomer = $value["idCustomer"];
+                  
+                  $customerAnswer = CustomerController::ShowCustomerController($itemCustomer, $valueCustomer);
 
-        echo '<td>'.$customerAnswer["name"].'</td>
+                  echo '<td>'.$customerAnswer["name"].'</td>
 
-        <td>$ '.number_format($value["netPrice"],2).'</td>
+                  <td>$ '.number_format($value["netPrice"],2).'</td>
 
-        <td>'.$value["discount"].'</td>
+                  <td>'.$value["discount"].'</td>
 
-        <td>$ '.number_format($value["totalPrice"],2).'</td>
+                  <td>$ '.number_format($value["totalPrice"],2).'</td>
 
-        <td>'.$value["paymentMethod"].'</td>
+                  <td>'.$value["paymentMethod"].'</td>
 
-        <td>'.$value["saledate"].'</td>
+                  <td>'.$value["saledate"].'</td>
 
-        <td>
+                  <td>
 
-          <div class="btn-group">
-              
-            <div class="btn-group">
-              
-              <button class="btn btn-info btnPrintBill" saleCode="'.$value["code"].'">
+                    <div class="btn-group">
+                        
+                      <div class="btn-group">
+                        
+                        <button class="btn btn-info btnPrintBill" saleCode="'.$value["code"].'">
 
-                <i class="fa fa-print"></i>
+                          <i class="fa fa-print"></i>
 
-              </button>
-              
-              <button class="btn btn-warning btnReopenSale" idSale="'.$value["id"].'"><i class="fa fa-pencil"></i></button>';
+                        </button>
+                        
+                        <button class="btn btn-warning btnReopenSale" idSale="'.$value["id"].'"><i class="fa fa-pencil"></i></button>';
 
-              if ($_SESSION["profile"] == "administrator") {
+                        if ($_SESSION["profile"] == "administrator") {
 
-              echo '<button class="btn btn-danger btnDeleteSale" idSale="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+                        echo '<button class="btn btn-danger btnDeleteSale" idSale="'.$value["id"].'"><i class="fa fa-times"></i></button>';
 
-              }
+                        }
 
-          echo '</div>  
+                        echo '</div>  
 
-        </td>
+                      </td>
 
-      </tr>';
-  }
+                    </tr>';
+                    }
 
-?>
-                    
-                    </tbody>
+                  ?>
+                              
+                </tbody>
 
-        </table>
+              </table>
 
-        <?php
+              <?php
 
-          $deleteSale = new SalesController();
-          $deleteSale -> DeleteSaleController();
+              $deleteSale = new SalesController();
+              $deleteSale -> DeleteSaleController();
 
-          ?>
+              ?>
 
       </div>
     

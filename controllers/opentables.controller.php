@@ -127,8 +127,8 @@ class OpenTableController{
             
             }
         } elseif (isset($_POST["newPaymentMethod"])) {
+
             // Update customer purchases, stock levels and product sale figures
-            
             $totalPurchases = array();
             
             foreach ($products as $key => $value) {
@@ -179,12 +179,6 @@ class OpenTableController{
             
             $table = "sales";
             
-            // $codeObj = ModelTables::getCode();
-            // if ($codeObj->code)
-            //     $code = $codeObj->code + 1;
-            // else
-            //     $code = 10001;
-            // Save sale to database
             $data = array("code"		  => $_POST["reopenSale"],
                           "idSeller"      => $_POST["idSeller"],
                           "tableNo"       => $_POST["tableNo"],

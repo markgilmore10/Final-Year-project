@@ -352,7 +352,7 @@ if($_SESSION["profile"] == "staff"){
 
                   <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
 
-                  <input type="number" class="form-control input-lg" id="editBuyingPrice" name="editBuyingPrice" step="any" min="0" placeholder="Buying price" required>
+                  <input type="number" class="form-control input-lg" id="editBuyingPrice" name="editBuyingPrice" step="any" min="0" placeholder="Buying price">
                   <input type="hidden" class="form-control input-lg" id="newVatPrice" name="newVatPrice" step="any" min="0" value="" required>
                   <input type="hidden" class="form-control input-lg" id="newTaxPrice" name="newTaxPrice" step="any" min="0" value="" required>
                 </div>
