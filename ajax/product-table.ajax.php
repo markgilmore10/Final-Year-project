@@ -6,8 +6,16 @@ require_once "../models/products.model.php";
 require_once "../controllers/categories.controller.php";
 require_once "../models/categories.model.php";
 
+/**
+ * Class productsTables
+ */
 class productsTables{
 
+	/**
+	 *  fetches display json data of the products table
+	 * 
+	 * @return void
+	 */
 	public function ShowProductsTable(){
 
 		$item = null;
