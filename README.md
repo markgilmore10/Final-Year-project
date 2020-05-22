@@ -46,6 +46,7 @@
 
 # Video Demonstration <a name="VidDem"></a>
 Below is a video demo of the Restaurant Management and POS System can be found below where we demonstrate how the project functions:
+**Link:** https://www.youtube.com/watch?v=eIOMU4gAIvA
 
 # Overview <a name="OverView"></a>
 This repository contains code and documentation developed for our 4<sup>th</sup> year module, Applied Project and Minor Dissertation.
