@@ -28,7 +28,9 @@
     
     5.8 [Chart](#Chart)
 
-6. [Cloning/Running the application](#clone)
+6. [Cloning](#clone)
+
+7. [Remote Orders/ Untit Testing](#Remote)
 
 # Project Details <a name="ProjDetails"></a>
 
@@ -105,5 +107,8 @@ To clone the application navigate to the directory you wish to have the project 
 git clone https://github.com/markgilmore10/Final-Year-project.git
 ```
 
+# Remote Ordering / Unit Tests <a name="Remote"></a>
+unfortunately neither of us have access to a tablet in which we could use for remote ordering, this function was although tested before Covid19 bu connectiong to the same IPv4 address as the computer in which Xampp was running on.
 
+As well as all of the above Unit tests were written for our application using PhpUnit to run created tests, all of our test can be found in the **Link:** https://github.com/markgilmore10/Final-Year-project/tree/master/tests/unit folder. These tests can be run using PhpUnit and once ran all test pass the desired tests that were documented.
 
