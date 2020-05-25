@@ -108,6 +108,21 @@ To clone the application navigate to the directory you wish to have the project 
 git clone https://github.com/markgilmore10/Final-Year-project.git
 ```
 
+Download and set up a Xampp local server. 
+
+**Link:** https://www.apachefriends.org/index.html
+
+Insert the cloned project folder into the htdocs folder from Xampp.
+
+Download and set up Wamp.
+
+**Link:** https://sourceforge.net/projects/wampserver/
+
+Import the database using: 
+**Link:** https://github.com/markgilmore10/Final-Year-project/blob/master/restaurantpos.sql
+
+Finally navigate to localhost/pos.
+
 # Remote Ordering / Unit Tests <a name="Remote"></a>
 Unfortunately neither of us have access to a tablet in which we could use for remote ordering, this function was although tested before Covid19 by connectiong to the same IPv4 address as the computer in which Xampp was running on.
 
